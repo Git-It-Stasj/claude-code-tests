@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 50% 97%;
+    --foreground: 20 25% 15%;
+
+    --card: 30 40% 99%;
+    --card-foreground: 20 25% 15%;
+
+    --popover: 30 40% 99%;
+    --popover-foreground: 20 25% 15%;
+
+    --primary: 14 90% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 40% 94%;
+    --secondary-foreground: 20 25% 20%;
+
+    --muted: 30 20% 93%;
+    --muted-foreground: 20 10% 50%;
+
+    --accent: 25 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 25% 88%;
+    --input: 30 25% 88%;
+    --ring: 14 90% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --coral: 14 90% 60%;
+    --coral-light: 14 90% 70%;
+    --coral-dark: 14 85% 50%;
+    --orange: 25 95% 55%;
+    --orange-light: 30 95% 65%;
+    --cream: 30 50% 97%;
+    --cream-dark: 30 30% 92%;
+    --purple-content: 270 60% 55%;
+    --yellow-content: 45 95% 55%;
+    --teal-content: 170 60% 45%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(14 90% 60%), hsl(30 95% 55%), hsl(45 95% 60%));
+    --gradient-spark: linear-gradient(135deg, hsl(14 90% 60%), hsl(330 70% 55%));
+    --shadow-card: 0 4px 24px -4px hsl(14 90% 60% / 0.12);
+    --shadow-elevated: 0 12px 40px -8px hsl(14 90% 60% / 0.2);
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-spark {
+    background: var(--gradient-spark);
+  }
+
+  .card-elevated {
+    box-shadow: var(--shadow-card);
+    @apply bg-card rounded-xl border border-border;
+  }
+
+  .card-elevated-hover {
+    box-shadow: var(--shadow-card);
+    @apply bg-card rounded-xl border border-border transition-all duration-300;
+  }
+
+  .card-elevated-hover:hover {
+    box-shadow: var(--shadow-elevated);
+    @apply border-primary/30 -translate-y-1;
+  }
+
+  .badge-tone {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+    background: hsl(var(--coral) / 0.12);
+    color: hsl(var(--coral-dark));
+  }
+
+  .badge-purple {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+    background: hsl(var(--purple-content) / 0.12);
+    color: hsl(var(--purple-content));
+  }
+
+  .badge-yellow {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+    background: hsl(var(--yellow-content) / 0.15);
+    color: hsl(20 80% 35%);
+  }
+
+  .badge-teal {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+    background: hsl(var(--teal-content) / 0.12);
+    color: hsl(var(--teal-content));
+  }
+
+  .progress-bar {
+    @apply h-1.5 rounded-full overflow-hidden;
+    background: hsl(var(--cream-dark));
+  }
+
+  .progress-bar-fill {
+    @apply h-full rounded-full transition-all duration-500 ease-out;
+    background: var(--gradient-hero);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
