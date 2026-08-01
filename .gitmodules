@@ -1,0 +1,3 @@
+[submodule "hackathon-skills"]
+	path = hackathon-skills
+	url = https://github.com/ai-trailblazers/hackathon-skills.git
