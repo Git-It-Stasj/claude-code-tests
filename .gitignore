@@ -25,3 +25,8 @@ dist-ssr
 
 # Claude Code internal
 .claude/
+
+# Newsletter skill credentials/output
+credentials.json
+token.json
+.tmp/
