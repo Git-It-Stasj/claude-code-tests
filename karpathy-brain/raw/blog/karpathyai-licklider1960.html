@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Licklider 1960</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="nav"><a href="index.html">Andrej Karpathy blog #3</a></div>
+<div id="main">
+<h1>Licklider 1960</h1>
+<h2>Dec 27 2023</h2>
+<p>I love reading technology prediction documents because the benefit of hindsight is training data for the future prediction task. For example, one of my all-time favorites of this genre is "Profiles of the Future" by Arthur C. Clarke. This post is some of my notes on <a href="https://groups.csail.mit.edu/medg/people/psz/Licklider.html">"Man-Computer Symbiosis" by Licklider 1960</a> (64 years ago!) where Licklider imagines computing as a fundamentally intelligence amplification tool.</p>
+<p>Here, Licklider argues that the period of "intelligence augmentation" (IA) may be transient on the path to full automation (AI), but still long enough to be worth thinking through and about.</p>
+<p><img src="assets/GCXpEAGaMAAk9Aj.png"></p>
+<p>His citations for what must have felt like rapid progress in both narrow AI and AGI (of that age, i.e. the "general problem solver" [20]) are today known to be false starts that were off track in a quite fundamental way, at that time based on a manual process of encoding knowledge with predicate logic and using production rules of logic and search to manipulate them into conclusions. Today, most of AI is only aware of all of this work as a historical curiosity, it is not part of the "master branch" of the field, it is stuck in a dead end feature branch. And notably, what is considered today the most promising approach (LLMs) were at that time not only completely computationally inaccessible, but also impossible due to the lack of training data of trillions of tokens in digitized forms. What might be an equivalent of that today?</p>
+<p>The study by the Air Force, estimating that machines alone would be doing problem solving of military significance in 20 years time evokes a snicker today. Amusingly, "20 years away" seems to be a kind of codeword for "no idea, long time". Arguably, I'm not sure that we are there even today, 64 years later. Computers do a lot to increase situational awareness, but decision making of "military significance" afaik is still well within the domain of human computation.</p>
+<p><img src="assets/GCXtyq0akAEaXlQ.png"></p>
+<p>An interesting observation from Licklider is that most of his "thinking" in a day-to-day computational task thought experiment is not so much thinking, but more a rote, mechanical, automatable data collection and visualization. It is this observation that leads him to conclude that the strengths and weaknesses of humans and computers are complementary; That computers can do the busy work, and humans can do thinking work. This has been the prevailing paradigm for the next 64 years, and it's only very recently (last ~year) that computers have started to make a dent into "thinking" in a general, scaleable, and economy-impacting way. Not in an explicit, hard, predicate logic way, but in an implicit, soft, statistical way. Hence the LLM-driven AI summer.</p>
+<p><img src="assets/GCXwfKlaUAAD9Qy.png"></p>
+<p>Licklider then goes on to imagine the future of the computing infrastructure for intelligence augmentation. I love his vision for a "thinking center" based on time-sharing, which today might be... cloud compute. That said, some computations have also become so cheap that they moved to local consumer hardware, e.g. my laptop, capable of simple calculations, word processing, etc. Heavily underutilized, but it's okay.</p>
+<p><img src="assets/GCXyyAdaQAA7Y2T.png"></p>
+<p>In "The Language Problem" section, Licklider talks about the design of programming languages that are more convenient for human use. He cites imperative programming languages such as FORTRAN, but also later talks about how humans are not very good with explicit instructions, and instead are much better at just specifying goals. Maybe programming languages can be made that function more natively in this way, hinting at the declarative programming paradigm (e.g. Prolog). However, the dominant programming paradigm paradigm today, 64 years later, has remained largely simple and imperative. Python may be one of the most popular programming languages today, and it is simply imperative (an "improved FORTRAN"), but very human-friendly, reading and writing similar to pseudo code.</p>
+<p><img src="assets/GCX0-xVacAAEMdD.png"></p>
+<p>On the subject of I/O, Licklider clearly gravitates to an interaction pattern of a team of humans around a large display, drawing schematics together in cooperation with the computer. Clearly, what Licklider has in mind feels something like a large multiplayer iPad. I feel like this is a major misprediction. Products like it have been made, but have not really taken off as the dominant computing paradigm. Instead, text was king for many decades after this article. Displays became dominant at the output, but keyboard and mouse (!) became dominant at the input, and mostly remain so today, 64 years later. The mobile computing era has changed that to touch, but not in the way that was imagined. Multiplayer visual environments like Licklider imagined do exist (e.g. Figma etc?), but they are nowhere near the dominant form of interaction. What is the source of this misprediction? I think Licklider took what he was familiar with (pencil and paper) and imagined computing as mirroring that interface. When a better interace was the keyboard and mouse, for both computers and people.</p>
+<p><img src="assets/GCX3VoqaYAAr18v.png"></p>
+<p>Licklider talks again and again about military applications of computing, I suppose that was top of mind in that era. I feel like this is, again, a misprediction about how computing would be used in society. Maybe it was talked about this way in some part because Licklider worked for the government, and perhaps a lot of the funding of this work at the time came from that source. Computing has certainly gone on to improve military decision making, but to my knowledge to a dramatically lower effect than what we see in enterprise and consumer space.</p>
+<p><img src="assets/GCX5HqQbgAAumfU.png"></p>
+<p>In the I/O section, Licklider also muses about adapting computers to human interfaces, in this case automatic speech recognition. Here, Licklider is significantly over-optimistic on capabilities, estimating 5 years to get it working. Here we are !!! 64 YEARS !!! later, and while speech recognition programs are plentiful, they have not worked nowhere near well enough to make this a dominant computing paradigm of interaction with the computer. Indeed, all of us were excited when just two years ago with the release of Whisper. Imagine what Licklider would think of this reality. And even with the dramatic improvements to the quality recently, ASR is nowhere near perfect, still gets confused, can't handle multiple speakers well, and is not on track to a dominant input paradigm.</p>
+<p>What would be the "benefit of hindsight" truths to tell Licklider at this time, with our knowledge today?</p>
+<ol>
+<li>You're on the right track w.r.t. Intelligence Augmentation lasting a long time. And "thinking centers".</li>
+<li>All of "AI" for <em>thinking</em> that you know and is currently developing will cerainly have useful applications, but will become deprecated. The "correct" approach by today's standards are impossible for you to work on. You first have to invent the Internet and make computers a lot faster. And not in a CPU way but in a GPU way. But a lot of computing for the rote/mechanical will indeed be incredibly useful - an extension of the human brain, in the way you imagine.</li>
+<li>Most of programming remains imperative but gets a lot more convenient.</li>
+<li>Most of I/O is keyboard and mouse at I, and display at O, and is an individual affair of a single human with a single computer, though networked together virtually.</li>
+<li>Majority of computing is in enterprise and consumer, much less military.</li>
+<li>Speech Recognition will actually take 62 years instead of 5 to get a good enough quality level for causual use.</li>
+</ol>
+<p>The fun part of this, of course, is sliding the window, making the assumption of translation invariance in time. Imagine your own extrapolation of the future. And imagine its hindsight. Exercise left to the reader :)</p>
+<p>This article was first published as a <a href="https://twitter.com/karpathy/status/1740078730771616226">tweet</a> and then converted (very manually, I have to find a better way) into this post.
+</p>
+</div>
+</body>
+</html>
