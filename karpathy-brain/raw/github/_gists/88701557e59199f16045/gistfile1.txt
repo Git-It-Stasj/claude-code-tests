@@ -1,0 +1,24 @@
+.punch-viewer-speakernotes-side-panel {
+width: 400px !important;
+}
+.punch-viewer-speakernotes-text-body-scrollable {
+left: 435px !important;
+}
+.punch-viewer-speakernotes-page,
+.punch-viewer-speakernotes-page svg {
+width:400px !important;
+height:300px !important;
+min-width:400px !important;
+min-height:300px !important;
+}
+
+.punch-viewer-speakernotes-page-iframe {
+width:400px !important;
+height:300px !important;
+min-width:400px !important;
+min-height:300px !important;
+}
+
+.punch-viewer-speakernotes-page-previous {
+  display: none;
+}
