@@ -1,0 +1,7 @@
+frames/
+music_raw.wav
+music.wav
+music_shaped.wav
+out_video_*.mp4
+*.log
+nohup.out
