@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "historyId": "d44d0015-6523-44e8-95c1-bcb77e5b9259",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "assets/architect-daily-bed.m4a": {
+      "hash": "f6ddf5731e202a1e96f3040d02ee99defc1c1781992e7e10034015b585e961ee",
+      "content": "/root/.cache/hyperframes/history/d44d0015-6523-44e8-95c1-bcb77e5b9259/blobs/f6/f6ddf5731e202a1e96f3040d02ee99defc1c1781992e7e10034015b585e961ee"
+    },
+    "assets/fonts/dm-sans-400.woff2": {
+      "hash": "4ab51eb2cd7305d177187908d6397474d4520663f6c6e572feb0a64f4fa80006",
+      "content": "/root/.cache/hyperframes/history/d44d0015-6523-44e8-95c1-bcb77e5b9259/blobs/4a/4ab51eb2cd7305d177187908d6397474d4520663f6c6e572feb0a64f4fa80006"
+    },
+    "assets/fonts/dm-sans-500.woff2": {
+      "hash": "19bf1984956517c35c2bd35b6cdedac12a21d6fcd3596c614ecdfb88b648909d",
+      "content": "/root/.cache/hyperframes/history/d44d0015-6523-44e8-95c1-bcb77e5b9259/blobs/19/19bf1984956517c35c2bd35b6cdedac12a21d6fcd3596c614ecdfb88b648909d"
+    },
+    "assets/fonts/jetbrains-mono-400.woff2": {
+      "hash": "14425ba9c695763c1547f48a206b7aa60350a33ae23de09f0407877f3fcd89eb",
+      "content": "/root/.cache/hyperframes/history/d44d0015-6523-44e8-95c1-bcb77e5b9259/blobs/14/14425ba9c695763c1547f48a206b7aa60350a33ae23de09f0407877f3fcd89eb"
+    },
+    "assets/fonts/jetbrains-mono-500.woff2": {
+      "hash": "cb182feeed4d798ff6961d3c79f7026279448fca0676438aaecb21f3fc39553a",
+      "content": "/root/.cache/hyperframes/history/d44d0015-6523-44e8-95c1-bcb77e5b9259/blobs/cb/cb182feeed4d798ff6961d3c79f7026279448fca0676438aaecb21f3fc39553a"
+    },
+    "assets/fonts/josefin-sans-300.woff2": {
+      "hash": "c42b4374e00bf478cae05db4024ca59cc6ed2c46eb5b42680dbefbaf27ebd770",
+      "content": "/root/.cache/hyperframes/history/d44d0015-6523-44e8-95c1-bcb77e5b9259/blobs/c4/c42b4374e00bf478cae05db4024ca59cc6ed2c46eb5b42680dbefbaf27ebd770"
+    },
+    "assets/fonts/space-grotesk-700.woff2": {
+      "hash": "35f8aec56cfd5cbfdb03cc68733a54a0b05bb3617ffcd5fd332badc0b045ca55",
+      "content": "/root/.cache/hyperframes/history/d44d0015-6523-44e8-95c1-bcb77e5b9259/blobs/35/35f8aec56cfd5cbfdb03cc68733a54a0b05bb3617ffcd5fd332badc0b045ca55"
+    },
+    "assets/gsap.min.js": {
+      "hash": "28033e449a31ebcc396e5be8b13b63152bf03094288fb5867034321927bce087",
+      "content": "/root/.cache/hyperframes/history/d44d0015-6523-44e8-95c1-bcb77e5b9259/blobs/28/28033e449a31ebcc396e5be8b13b63152bf03094288fb5867034321927bce087"
+    },
+    "connector-geometry.json": {
+      "hash": "c11760076d9d5d7e4e734c599e1f725d04fb0b54a4195ec3ebb266dbd9ad1be1",
+      "content": "/root/.cache/hyperframes/history/d44d0015-6523-44e8-95c1-bcb77e5b9259/blobs/c1/c11760076d9d5d7e4e734c599e1f725d04fb0b54a4195ec3ebb266dbd9ad1be1"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/root/.cache/hyperframes/history/d44d0015-6523-44e8-95c1-bcb77e5b9259/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "7559d46ca1e083603cdbf1d2164c11bdbe756fc2270ddc7c87c51690cf3c6d7f",
+      "content": "/root/.cache/hyperframes/history/d44d0015-6523-44e8-95c1-bcb77e5b9259/blobs/75/7559d46ca1e083603cdbf1d2164c11bdbe756fc2270ddc7c87c51690cf3c6d7f"
+    },
+    "meta.json": {
+      "hash": "0ec72bc5d5297019009e9eec5002e69a369b7b7fc49dbc8d179d2bdb9f3497d6",
+      "content": "/root/.cache/hyperframes/history/d44d0015-6523-44e8-95c1-bcb77e5b9259/blobs/0e/0ec72bc5d5297019009e9eec5002e69a369b7b7fc49dbc8d179d2bdb9f3497d6"
+    },
+    "package.json": {
+      "hash": "c251a33f27713e9efcd0e0f7862466bf6662227f2514813d4f19131a634dce96",
+      "content": "/root/.cache/hyperframes/history/d44d0015-6523-44e8-95c1-bcb77e5b9259/blobs/c2/c251a33f27713e9efcd0e0f7862466bf6662227f2514813d4f19131a634dce96"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "eb2bc178-b045-4c05-84f8-7ce53f1e66a3",
+      "completedAt": 1793245485965,
+      "output": "/home/user/claude-code-tests/architect-daily-reel/out/architect-daily-2026-10-28-9x16.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}

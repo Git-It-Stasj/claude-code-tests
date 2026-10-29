@@ -19,6 +19,8 @@ const SCENES = {
   close: [30, 37],
 };
 const SCENE_ORDER = ["intro", "n1", "n2", "n3", "nm", "close"];
+// Music bed: ducks under the closing lockup (starts 0.2 s before the lockup, 0.7 s ramp).
+const MUSIC = { file: "architect-daily-bed.m4a", level: 1, duckAt: SCENES.close[0] + 3.8, duckRamp: 0.7, duckTo: 0.3 };
 const COPY = {
   question: "How did you use AI today?",
 };
@@ -569,6 +571,9 @@ function pageHTML(P, geo, withScript) {
     </div>
   </div></div>
 
+  <audio id="music" class="clip" src="assets/${MUSIC.file}" data-start="0" data-duration="${TOTAL}" data-track-index="20" data-volume="${MUSIC.level}"
+    data-automation='${JSON.stringify({version:1,lanes:[{target:"volume",points:[{t:0,v:1},{t:MUSIC.duckAt,v:1},{t:MUSIC.duckAt+MUSIC.duckRamp,v:MUSIC.duckTo},{t:TOTAL,v:MUSIC.duckTo}]}]})}'></audio>
+
   <!-- persistent HUD -->
   <div id="hud" class="clip" data-start="0" data-duration="${TOTAL}" data-track-index="9">
     <div id="hud-l" class="hudt">Architect Daily</div>
@@ -666,6 +671,7 @@ async function measure(P, browser) {
       const dst = f2.endsWith(".woff2") ? path.join(dir, "assets/fonts", f2) : path.join(dir, "assets", f2);
       fs.copyFileSync(path.join(__dirname, "vendor", f2), dst);
     }
+    fs.copyFileSync(path.join(__dirname, "audio", MUSIC.file), path.join(dir, "assets", MUSIC.file));
     fs.writeFileSync(path.join(dir, "index.html"), pageHTML(P, geo, true));
     fs.writeFileSync(path.join(dir, "connector-geometry.json"), JSON.stringify(geo, null, 2));
     console.log("built", P.name, "midY", midY);
