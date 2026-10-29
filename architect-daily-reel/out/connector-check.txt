@@ -1,0 +1,2 @@
+16x9 {"c1":{"lineCenterX":316,"lineEndY":740,"boxTopCenterX":316,"boxTopY":740},"c2":{"lineCenterX":796,"lineEndY":740,"boxTopCenterX":796,"boxTopY":740}}
+9x16 {"c1":{"lineCenterX":300,"lineEndY":950,"boxTopCenterX":300,"boxTopY":950},"c2":{"lineCenterX":780,"lineEndY":950,"boxTopCenterX":780,"boxTopY":950}}

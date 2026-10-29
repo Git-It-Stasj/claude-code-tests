@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, height=1920">
+<title>Architect Daily - Oct 28, 2026 (9x16)</title>
+<style>
+@font-face{font-family:"Josefin Sans";font-weight:300;font-style:normal;src:url("assets/fonts/josefin-sans-300.woff2") format("woff2")}
+@font-face{font-family:"Space Grotesk";font-weight:700;font-style:normal;src:url("assets/fonts/space-grotesk-700.woff2") format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:400;font-style:normal;src:url("assets/fonts/dm-sans-400.woff2") format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:500;font-style:normal;src:url("assets/fonts/dm-sans-500.woff2") format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:400;font-style:normal;src:url("assets/fonts/jetbrains-mono-400.woff2") format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:500;font-style:normal;src:url("assets/fonts/jetbrains-mono-500.woff2") format("woff2")}
+:root{--bg:#070D1F;--card:#0D1530;--blue:#3D7FFF;--gold:#F0C040;--ink:#E8EEFF;--mx:72px}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#070D1F}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#070D1F;color:var(--ink);font-family:"DM Sans",sans-serif}
+.scene{position:absolute;left:0;top:0;width:1080px;height:1920px;background:#070D1F;overflow:hidden}
+.stage{position:absolute;left:0;top:0;width:1080px;height:1920px;background:#070D1F}
+.mono{font-family:"JetBrains Mono",monospace;text-transform:uppercase}
+
+/* HUD */
+#hud{position:absolute;left:0;top:0;width:1080px;height:1920px;z-index:50;pointer-events:none}
+.hudt{position:absolute;top:112px;font-family:"JetBrains Mono",monospace;font-weight:500;font-size:24px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink);opacity:.82;white-space:nowrap}
+#hud-l{left:72px;padding-left:38px}
+#hud-l::before{content:"";position:absolute;left:0;top:50%;margin-top:-6px;width:12px;height:12px;background:var(--blue)}
+#hud-r{right:72px}
+.pseg{position:absolute;top:1700px;height:8px;background:rgba(232,238,255,.14);border-radius:8px;overflow:hidden}
+.pfill{position:absolute;left:0;top:0;width:100%;height:100%;background:var(--blue);transform-origin:0% 50%}
+
+/* shared text */
+.col{display:flex;flex-direction:column;align-items:flex-start;gap:30px}
+.tag{font-family:"JetBrains Mono",monospace;font-weight:500;font-size:26px;letter-spacing:.3em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:16px}
+.tag::before{content:"";width:41.6px;height:3px;background:currentColor}
+.tag.goldt{color:var(--gold)}
+.hl{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:96px;line-height:1.04;letter-spacing:-.025em;color:var(--ink)}
+.body{font-family:"DM Sans",sans-serif;font-weight:400;font-size:42px;line-height:1.36;color:rgba(232,238,255,.86)}
+.cap{position:absolute;left:72px;top:1392px;width:936px;font-family:"DM Sans",sans-serif;font-weight:500;font-size:48px;line-height:1.22;color:var(--ink);border-left:6px solid var(--blue);padding:4px 0 4px 24px;opacity:0}
+.src{position:absolute;left:72px;top:1560px;width:936px;font-family:"JetBrains Mono",monospace;font-weight:400;font-size:24px;letter-spacing:.16em;text-transform:uppercase;color:rgba(232,238,255,.7);opacity:0}
+.card{background:var(--card);border-radius:22px;box-shadow:0 0 0 1px rgba(61,127,255,.28),0 0 56px rgba(61,127,255,.16),0 22px 44px rgba(0,0,0,.4)}
+
+/* mark */
+.mk{position:absolute}
+.mk .e{position:absolute;background:var(--gold);box-shadow:0 0 14px rgba(240,192,64,.5)}
+.mk .e0{transform-origin:0% 50%}.mk .e1{transform-origin:50% 0%}.mk .e2{transform-origin:100% 50%}.mk .e3{transform-origin:50% 100%}
+.mk .glow{position:absolute;left:-30%;top:-30%;width:160%;height:160%;background:radial-gradient(closest-side,rgba(240,192,64,.26),rgba(240,192,64,0));opacity:0}
+
+/* intro */
+#in-mark{left:360px;top:560px}
+#in-label{position:absolute;left:0;width:1080px;text-align:center;top:1010px;font-family:"JetBrains Mono",monospace;font-weight:500;font-size:28px;letter-spacing:.34em;text-transform:uppercase;color:var(--blue);opacity:0}
+#in-cap{left:0;width:1080px;top:1110px;border:0;padding:0;text-align:center;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:76px;letter-spacing:-.02em}
+
+/* lock */
+.lock{position:relative;width:140px;height:170px}
+.lock .shackle{position:absolute;left:28px;top:0;width:84px;height:96px;border:14px solid var(--gold);border-bottom:0;border-radius:60px 60px 0 0;box-shadow:0 0 22px rgba(240,192,64,.45)}
+.lock .lbody{position:absolute;left:0;bottom:0;width:100%;height:100px;background:var(--gold);border-radius:18px;box-shadow:0 0 34px rgba(240,192,64,.5);transform-origin:50% 100%}
+.lock .kh{position:absolute;left:50%;margin-left:-11px;top:26px;width:22px;height:22px;border-radius:50%;background:var(--bg)}
+.lock .ks{position:absolute;left:50%;margin-left:-5px;top:42px;width:10px;height:30px;border-radius:4px;background:var(--bg)}
+
+/* stat cards */
+.stat{position:absolute;padding:22px 34px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.stat .num{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:104px;line-height:1;letter-spacing:-.03em;color:var(--ink)}
+.stat .lab{font-family:"JetBrains Mono",monospace;font-weight:500;font-size:24px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue)}
+
+/* paper */
+.paper{position:relative;background:#F3F0E6;color:#12141B;border-radius:10px;padding:40px 44px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 0 0 1px rgba(255,255,255,.1),0 0 70px rgba(61,127,255,.2),0 30px 60px rgba(0,0,0,.5)}
+.paper .phead{display:flex;justify-content:space-between;align-items:center}
+.paper .brand{font-family:"DM Sans",sans-serif;font-weight:500;font-size:38px;letter-spacing:.26em;color:#0B0D12}
+.paper .stamp{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:34px;letter-spacing:.14em;background:var(--gold);color:#11131A;padding:10px 20px;border-radius:6px;box-shadow:0 0 0 3px rgba(240,192,64,.5)}
+.paper .rule{height:3px;background:#12141B;opacity:.85}
+.paper .sec{font-family:"JetBrains Mono",monospace;font-weight:500;font-size:22px;letter-spacing:.24em;text-transform:uppercase;color:#4B5160}
+.paper .fact{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:50px;line-height:1.1;letter-spacing:-.02em;color:#0B0D12}
+.paper .bars{display:flex;flex-direction:column;gap:16px}
+.paper .bar{height:14px;border-radius:7px;background:#C9C6BC}
+.paper .bar.s{width:62%}.paper .bar.m{width:84%}
+
+/* dots card */
+#n3-card{position:relative;width:936px;height:700px;overflow:hidden}
+#n3-card .clab{position:absolute;left:34px;top:30px;font-family:"JetBrains Mono",monospace;font-weight:500;font-size:22px;letter-spacing:.22em;text-transform:uppercase;color:rgba(232,238,255,.7)}
+.dot{position:absolute;border-radius:50%;background:var(--blue);box-shadow:0 0 16px rgba(61,127,255,.5)}
+.gline{position:absolute;height:6px;border-radius:3px;background:var(--gold);box-shadow:0 0 16px rgba(240,192,64,.7);transform-origin:0% 50%}
+.gtip{position:absolute;width:28px;height:28px;border-radius:50%;background:var(--gold);box-shadow:0 0 28px rgba(240,192,64,.9)}
+.glabel{position:absolute;font-family:"JetBrains Mono",monospace;font-weight:500;font-size:22px;letter-spacing:.2em;color:var(--gold)}
+
+/* new to me */
+.node{position:absolute;display:flex;flex-direction:column;justify-content:center;padding:0 28px;gap:6px;background:var(--card);border-radius:18px;box-shadow:0 0 0 1px rgba(61,127,255,.4),0 0 44px rgba(61,127,255,.18)}
+.node .k{font-family:"JetBrains Mono",monospace;font-weight:500;font-size:18px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue)}
+.node .t{font-family:"DM Sans",sans-serif;font-weight:500;font-size:28px;line-height:1.15;color:var(--ink)}
+.node .rim{position:absolute;left:0;top:0;right:0;bottom:0;border-radius:18px;border:3px solid var(--gold);box-shadow:0 0 30px rgba(240,192,64,.55);opacity:0}
+.ln{position:absolute;background:var(--blue);box-shadow:0 0 12px rgba(61,127,255,.7)}
+.ln.gold{background:var(--gold);box-shadow:0 0 14px rgba(240,192,64,.8)}
+.pulse{position:absolute;width:16px;height:16px;border-radius:50%;background:var(--ink);box-shadow:0 0 18px 4px rgba(61,127,255,.9);opacity:0}
+.gcard{position:absolute;overflow:hidden}
+.gcard .gtop{display:flex;justify-content:space-between;align-items:center;padding:20px 26px}
+.gcard .gtitle{font-family:"JetBrains Mono",monospace;font-weight:500;font-size:20px;letter-spacing:.22em;text-transform:uppercase;color:rgba(232,238,255,.75)}
+.gcard .sample{font-family:"JetBrains Mono",monospace;font-weight:500;font-size:18px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);border:2px solid rgba(232,238,255,.55);border-radius:6px;padding:5px 10px}
+.grow{display:grid;grid-template-columns:292px 124px 170px 130px 220px;align-items:center}
+.grow>div{position:relative;height:100%;display:flex;align-items:center;padding:0 16px;border-top:1px solid rgba(232,238,255,.14);border-right:1px solid rgba(232,238,255,.1)}
+.grow>div:last-child{border-right:0}
+.ghead{height:60px;background:rgba(61,127,255,.12)}
+.ghead>div{font-family:"JetBrains Mono",monospace;font-weight:500;font-size:17px;letter-spacing:.14em;text-transform:uppercase;color:rgba(232,238,255,.85);white-space:nowrap}
+.gdata{height:92px}
+.gdata>div span{position:relative;font-family:"DM Sans",sans-serif;font-weight:500;font-size:26px;color:var(--ink);opacity:0;white-space:nowrap}
+.gdata>div .fl{position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(61,127,255,.3);opacity:0}
+.gdata svg{opacity:0;width:44px;height:44px}
+
+/* close */
+#cl-q{position:absolute;left:72px;width:936px;top:700px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:112px;line-height:1.12;letter-spacing:-.02em;color:var(--ink)}
+#cl-q .w{white-space:nowrap}
+#cl-q .ch{opacity:0}
+#cl-q .sl{display:inline-block;position:relative;width:0;height:1em;vertical-align:-0.12em}
+#cl-q .cu{position:absolute;left:0;top:.04em;width:.5em;height:.9em;background:var(--gold);opacity:0;box-shadow:0 0 22px rgba(240,192,64,.55)}
+#cl-lock{position:absolute;left:0;top:0;width:1080px;height:1920px}
+#cl-mark{left:390px;top:520px}
+#cl-word{position:absolute;left:0;width:1080px;text-align:center;top:900px;font-family:"Josefin Sans",sans-serif;font-weight:300;font-size:156px;letter-spacing:.02em;line-height:1;color:var(--ink);opacity:0}
+#cl-tag{position:absolute;left:0;width:1080px;text-align:center;top:1110px;font-family:"DM Sans",sans-serif;font-weight:500;font-size:54px;color:var(--blue);opacity:0}
+#cl-handle{position:absolute;left:0;width:1080px;text-align:center;top:1250px;font-family:"JetBrains Mono",monospace;font-weight:400;font-size:30px;letter-spacing:.2em;color:rgba(232,238,255,.82);opacity:0}
+
+/* per-layout flow positions */
+.col{position:absolute;left:72px;top:210px;width:936px}
+.flow{position:absolute;left:72px;top:210px;width:936px;display:flex;flex-direction:column;align-items:flex-start;gap:30px}
+#n1-c1{left:72px;top:790px;width:936px;height:196px}
+#n1-c2{left:72px;top:1006px;width:936px;height:196px}
+#n1-lock{position:absolute;left:470px;top:1222px}
+#n2-paper{width:936px;height:600px;margin-top:6px}
+#nm-col{position:absolute;left:72px;top:210px;width:936px}
+</style>
+</head>
+<body>
+
+<div id="root" data-composition-id="main" data-start="0" data-duration="37" data-width="1080" data-height="1920">
+
+  <!-- INTRO -->
+  <div id="sc-intro" class="clip scene" data-start="0" data-duration="4" data-track-index="1"><div class="stage">
+    <div id="in-mark" class="mk" style="width:360px;height:360px"><div class="glow"></div><i class="e sq0 e0" style="left:0px;top:0px;width:360px;height:14px"></i><i class="e sq0 e1" style="left:346px;top:0px;width:14px;height:360px"></i><i class="e sq0 e2" style="left:0px;top:346px;width:360px;height:14px"></i><i class="e sq0 e3" style="left:0px;top:0px;width:14px;height:360px"></i><i class="e sq1 e0" style="left:47px;top:47px;width:266px;height:14px"></i><i class="e sq1 e1" style="left:299px;top:47px;width:14px;height:266px"></i><i class="e sq1 e2" style="left:47px;top:299px;width:266px;height:14px"></i><i class="e sq1 e3" style="left:47px;top:47px;width:14px;height:266px"></i><i class="e sq2 e0" style="left:93.5px;top:93.5px;width:173px;height:14px"></i><i class="e sq2 e1" style="left:252.5px;top:93.5px;width:14px;height:173px"></i><i class="e sq2 e2" style="left:93.5px;top:252.5px;width:173px;height:14px"></i><i class="e sq2 e3" style="left:93.5px;top:93.5px;width:14px;height:173px"></i><i class="e sq3 e0" style="left:140.5px;top:140.5px;width:79px;height:14px"></i><i class="e sq3 e1" style="left:205.5px;top:140.5px;width:14px;height:79px"></i><i class="e sq3 e2" style="left:140.5px;top:205.5px;width:79px;height:14px"></i><i class="e sq3 e3" style="left:140.5px;top:140.5px;width:14px;height:79px"></i></div>
+    <div id="in-label">Architect Daily / Oct 28, 2026</div>
+    <div id="in-cap" class="cap">Vision, not just noise.</div>
+  </div></div>
+
+  <!-- NEWS 01 -->
+  <div id="sc-n1" class="clip scene" data-start="4" data-duration="6" data-track-index="1"><div class="stage">
+    <div class="flow">
+      <div id="n1-tag" class="tag">News to you 01</div>
+      <h1 id="n1-hl" class="hl">Agents now need managers.</h1>
+      <p id="n1-body" class="body">IBM launched tools to identify and control AI agents inside companies.</p>
+    </div>
+    <div id="n1-c1" class="stat card"><div class="num" id="n1-n1">0%</div><div class="lab">Enabled agents idle 60+ days</div></div>
+    <div id="n1-c2" class="stat card"><div class="num" id="n1-n2">0%</div><div class="lab">Lack DLP on sensitive connections</div></div>
+    <div id="n1-lock" class="lock"><div class="shackle"></div><div class="lbody"><i class="kh"></i><i class="ks"></i></div></div>
+    <div id="n1-cap" class="cap">Deploying agents without documentation is sprawl.</div>
+    <div id="n1-src" class="src">Sources: Aidapted, AI Weekly, Oct 27-28</div>
+  </div></div>
+
+  <!-- NEWS 02 -->
+  <div id="sc-n2" class="clip scene" data-start="10" data-duration="6" data-track-index="1"><div class="stage">
+    <div class="flow">
+      <div id="n2-tag" class="tag">News to you 02</div>
+      <h1 id="n2-hl" class="hl">A frontier lab files to go public.</h1>
+      <p id="n2-body" class="body">Anthropic filed an S-1 for a proposed IPO.</p>
+            <div id="n2-paper" class="paper">
+        <div class="phead"><div id="n2-brand" class="brand">ANTHROPIC</div><div id="n2-stamp" class="stamp">FORM S-1</div></div>
+        <div class="rule"></div>
+        <div id="n2-sec1" class="sec">Registration statement</div>
+        <div id="n2-bars" class="bars"><i class="bar"></i><i class="bar m"></i><i class="bar s"></i></div>
+        <div class="sec">Risk factors</div>
+        <div id="n2-fact" class="fact">Training paused 1+ month over security concerns (per Reuters)</div>
+        <div class="bars"><i class="bar"></i><i class="bar m"></i><i class="bar"></i><i class="bar s"></i></div>
+      </div>
+
+    </div>
+    
+    <div id="n2-cap" class="cap">Read how labs disclose risk.</div>
+    <div id="n2-src" class="src">Sources: The Neuron, Reuters via The Neuron, Oct 27</div>
+  </div></div>
+
+  <!-- NEWS 03 -->
+  <div id="sc-n3" class="clip scene" data-start="16" data-duration="5" data-track-index="1"><div class="stage">
+    <div class="flow">
+      <div id="n3-tag" class="tag">News to you 03</div>
+      <h1 id="n3-hl" class="hl">~60,000 buyouts.<br>AI spend up.</h1>
+      <p id="n3-body" class="body">Microsoft is offering ~60,000 voluntary buyouts while increasing its AI investment.</p>
+      <div id="n3-card" class="card"><div class="clab">Workforce (illustrative)</div><i id="n3-d0" class="dot" style="left:106px;top:91px;width:44px;height:44px"></i><i id="n3-d1" class="dot" style="left:242px;top:91px;width:44px;height:44px"></i><i id="n3-d2" class="dot" style="left:378px;top:91px;width:44px;height:44px"></i><i id="n3-d3" class="dot" style="left:514px;top:91px;width:44px;height:44px"></i><i id="n3-d4" class="dot" style="left:650px;top:91px;width:44px;height:44px"></i><i id="n3-d5" class="dot" style="left:786px;top:91px;width:44px;height:44px"></i><i id="n3-d6" class="dot" style="left:106px;top:149px;width:44px;height:44px"></i><i id="n3-d7" class="dot" style="left:242px;top:149px;width:44px;height:44px"></i><i id="n3-d8" class="dot" style="left:378px;top:149px;width:44px;height:44px"></i><i id="n3-d9" class="dot" style="left:514px;top:149px;width:44px;height:44px"></i><i id="n3-d10" class="dot" style="left:650px;top:149px;width:44px;height:44px"></i><i id="n3-d11" class="dot" style="left:786px;top:149px;width:44px;height:44px"></i><i id="n3-d12" class="dot" style="left:106px;top:207px;width:44px;height:44px"></i><i id="n3-d13" class="dot" style="left:242px;top:207px;width:44px;height:44px"></i><i id="n3-d14" class="dot" style="left:378px;top:207px;width:44px;height:44px"></i><i id="n3-d15" class="dot" style="left:514px;top:207px;width:44px;height:44px"></i><i id="n3-d16" class="dot" style="left:650px;top:207px;width:44px;height:44px"></i><i id="n3-d17" class="dot" style="left:786px;top:207px;width:44px;height:44px"></i><i id="n3-d18" class="dot" style="left:106px;top:265px;width:44px;height:44px"></i><i id="n3-d19" class="dot" style="left:242px;top:265px;width:44px;height:44px"></i><i id="n3-d20" class="dot" style="left:378px;top:265px;width:44px;height:44px"></i><i id="n3-d21" class="dot" style="left:514px;top:265px;width:44px;height:44px"></i><i id="n3-d22" class="dot" style="left:650px;top:265px;width:44px;height:44px"></i><i id="n3-d23" class="dot" style="left:786px;top:265px;width:44px;height:44px"></i><i id="n3-d24" class="dot" style="left:106px;top:323px;width:44px;height:44px"></i><i id="n3-d25" class="dot" style="left:242px;top:323px;width:44px;height:44px"></i><i id="n3-d26" class="dot" style="left:378px;top:323px;width:44px;height:44px"></i><i id="n3-d27" class="dot" style="left:514px;top:323px;width:44px;height:44px"></i><i id="n3-d28" class="dot" style="left:650px;top:323px;width:44px;height:44px"></i><i id="n3-d29" class="dot" style="left:786px;top:323px;width:44px;height:44px"></i><i id="n3-d30" class="dot" style="left:106px;top:381px;width:44px;height:44px"></i><i id="n3-d31" class="dot" style="left:242px;top:381px;width:44px;height:44px"></i><i id="n3-d32" class="dot" style="left:378px;top:381px;width:44px;height:44px"></i><i id="n3-d33" class="dot" style="left:514px;top:381px;width:44px;height:44px"></i><i id="n3-d34" class="dot" style="left:650px;top:381px;width:44px;height:44px"></i><i id="n3-d35" class="dot" style="left:786px;top:381px;width:44px;height:44px"></i><i id="n3-d36" class="dot" style="left:106px;top:439px;width:44px;height:44px"></i><i id="n3-d37" class="dot" style="left:242px;top:439px;width:44px;height:44px"></i><i id="n3-d38" class="dot" style="left:378px;top:439px;width:44px;height:44px"></i><i id="n3-d39" class="dot" style="left:514px;top:439px;width:44px;height:44px"></i><i id="n3-d40" class="dot" style="left:650px;top:439px;width:44px;height:44px"></i><i id="n3-d41" class="dot" style="left:786px;top:439px;width:44px;height:44px"></i><i id="n3-d42" class="dot" style="left:106px;top:497px;width:44px;height:44px"></i><i id="n3-d43" class="dot" style="left:242px;top:497px;width:44px;height:44px"></i><i id="n3-d44" class="dot" style="left:378px;top:497px;width:44px;height:44px"></i><i id="n3-d45" class="dot" style="left:514px;top:497px;width:44px;height:44px"></i><i id="n3-d46" class="dot" style="left:650px;top:497px;width:44px;height:44px"></i><i id="n3-d47" class="dot" style="left:786px;top:497px;width:44px;height:44px"></i><i id="n3-d48" class="dot" style="left:106px;top:555px;width:44px;height:44px"></i><i id="n3-d49" class="dot" style="left:242px;top:555px;width:44px;height:44px"></i><i id="n3-d50" class="dot" style="left:378px;top:555px;width:44px;height:44px"></i><i id="n3-d51" class="dot" style="left:514px;top:555px;width:44px;height:44px"></i><i id="n3-d52" class="dot" style="left:650px;top:555px;width:44px;height:44px"></i><i id="n3-d53" class="dot" style="left:786px;top:555px;width:44px;height:44px"></i><i id="n3-d54" class="dot" style="left:106px;top:613px;width:44px;height:44px"></i><i id="n3-d55" class="dot" style="left:242px;top:613px;width:44px;height:44px"></i><i id="n3-d56" class="dot" style="left:378px;top:613px;width:44px;height:44px"></i><i id="n3-d57" class="dot" style="left:514px;top:613px;width:44px;height:44px"></i><i id="n3-d58" class="dot" style="left:650px;top:613px;width:44px;height:44px"></i><i id="n3-d59" class="dot" style="left:786px;top:613px;width:44px;height:44px"></i><i id="n3-g0" class="gline" data-ang="-21.340" style="left:66px;top:627px;width:230.83px"></i><i id="n3-g1" class="gline" data-ang="-31.452" style="left:281px;top:543px;width:241.48px"></i><i id="n3-g2" class="gline" data-ang="-36.870" style="left:487px;top:417px;width:280.00px"></i><i id="n3-g3" class="gline" data-ang="-44.085" style="left:711px;top:249px;width:221.35px"></i><i id="n3-gtip" class="gtip" style="left:856px;top:84px"></i><div id="n3-glabel" class="glabel" style="left:620px;top:36px;width:236px;text-align:right">AI INVESTMENT</div></div>
+    </div>
+    
+    <div id="n3-cap" class="cap">Who holds your workflow knowledge?</div>
+    <div id="n3-src" class="src">Sources: AI Weekly, Aidapted, Oct 27-28</div>
+  </div></div>
+
+  <!-- NEW TO ME -->
+  <div id="sc-nm" class="clip scene" data-start="21" data-duration="9" data-track-index="1"><div class="stage">
+    <div id="nm-col" class="col">
+      <div id="nm-tag" class="tag goldt">New to me</div>
+      <h1 id="nm-hl" class="hl">Website to inbox, fully wired.</h1>
+    </div>
+    <div id="nm-form" class="node" style="left:220px;top:560px;width:640px;height:96px"><span class="k">Input</span><span class="t">Website contact form</span><i class="rim"></i></div>
+    <div id="nm-air" class="node" style="left:220px;top:720px;width:640px;height:110px"><span class="k">Database</span><span class="t">Airtable (contact records)</span><i class="rim"></i></div>
+    <div id="nm-o1" class="node" style="left:72px;top:950px;width:456px;height:112px"><span class="k">Output 01</span><span class="t">Assessment results to client</span><i class="rim"></i></div>
+    <div id="nm-o2" class="node" style="left:552px;top:950px;width:456px;height:112px"><span class="k">Output 02</span><span class="t">Copy to me</span><i class="rim"></i></div>
+    <i id="nm-c0-s0" class="ln" style="left:538px;top:656px;width:4px;height:64px;transform-origin:50% 0%"></i><i id="nm-p0" class="pulse" style="left:532px;top:648px"></i><i id="nm-c1-s0" class="ln" style="left:538px;top:830px;width:4px;height:60px;transform-origin:50% 0%"></i><i id="nm-c1-s1" class="ln" style="left:298px;top:888px;width:244px;height:4px;transform-origin:100% 50%"></i><i id="nm-c1-s2" class="ln" style="left:298px;top:890px;width:4px;height:60px;transform-origin:50% 0%"></i><i id="nm-g1-s0" class="ln gold" style="left:538px;top:830px;width:4px;height:60px;transform-origin:50% 0%"></i><i id="nm-g1-s1" class="ln gold" style="left:298px;top:888px;width:244px;height:4px;transform-origin:100% 50%"></i><i id="nm-g1-s2" class="ln gold" style="left:298px;top:890px;width:4px;height:60px;transform-origin:50% 0%"></i><i id="nm-p1" class="pulse" style="left:532px;top:822px"></i><i id="nm-c2-s0" class="ln" style="left:538px;top:830px;width:4px;height:60px;transform-origin:50% 0%"></i><i id="nm-c2-s1" class="ln" style="left:538px;top:888px;width:244px;height:4px;transform-origin:0% 50%"></i><i id="nm-c2-s2" class="ln" style="left:778px;top:890px;width:4px;height:60px;transform-origin:50% 0%"></i><i id="nm-g2-s0" class="ln gold" style="left:538px;top:830px;width:4px;height:60px;transform-origin:50% 0%"></i><i id="nm-g2-s1" class="ln gold" style="left:538px;top:888px;width:244px;height:4px;transform-origin:0% 50%"></i><i id="nm-g2-s2" class="ln gold" style="left:778px;top:890px;width:4px;height:60px;transform-origin:50% 0%"></i><i id="nm-p2" class="pulse" style="left:532px;top:822px"></i>
+    <div id="nm-grid" class="gcard card" style="left:72px;top:1110px;width:936px">
+      <div class="gtop"><span class="gtitle">Airtable / Contacts</span><span id="nm-sample" class="sample">Sample data</span></div>
+      <div class="grow ghead"><div>Email</div><div>Score</div><div>Level</div><div>Opt-in</div><div>Report emailed</div></div>
+      <div class="grow gdata">
+        <div><i id="nm-fl0" class="fl"></i><span id="nm-f0">jane@example.com</span></div>
+        <div><i id="nm-fl1" class="fl"></i><span id="nm-f1">13/30</span></div>
+        <div><i id="nm-fl2" class="fl"></i><span id="nm-f2">Taxiing</span></div>
+        <div><i id="nm-fl3" class="fl"></i><span id="nm-f3">Yes</span></div>
+        <div><i id="nm-fl4" class="fl"></i><svg id="nm-f4" viewBox="0 0 44 44"><path d="M8 23 L18 33 L37 10" fill="none" stroke="#F0C040" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+    </div>
+    <div id="nm-cap1" class="cap">Built today. Documented today.</div>
+    <div id="nm-cap2" class="cap">Claude Code turned the build into this reel.</div>
+  </div></div>
+
+  <!-- CLOSE -->
+  <div id="sc-close" class="clip scene" data-start="30" data-duration="7" data-track-index="1"><div class="stage">
+    <div id="cl-q"><span class="w"><span class="sl"><i class="cu" id="cl-cu0"></i></span><span class="ch" id="cl-ch0">H</span><span class="sl"><i class="cu" id="cl-cu1"></i></span><span class="ch" id="cl-ch1">o</span><span class="sl"><i class="cu" id="cl-cu2"></i></span><span class="ch" id="cl-ch2">w</span></span><span class="sl"><i class="cu" id="cl-cu3"></i></span><span class="ch" id="cl-ch3"> </span><span class="w"><span class="sl"><i class="cu" id="cl-cu4"></i></span><span class="ch" id="cl-ch4">d</span><span class="sl"><i class="cu" id="cl-cu5"></i></span><span class="ch" id="cl-ch5">i</span><span class="sl"><i class="cu" id="cl-cu6"></i></span><span class="ch" id="cl-ch6">d</span></span><span class="sl"><i class="cu" id="cl-cu7"></i></span><span class="ch" id="cl-ch7"> </span><span class="w"><span class="sl"><i class="cu" id="cl-cu8"></i></span><span class="ch" id="cl-ch8">y</span><span class="sl"><i class="cu" id="cl-cu9"></i></span><span class="ch" id="cl-ch9">o</span><span class="sl"><i class="cu" id="cl-cu10"></i></span><span class="ch" id="cl-ch10">u</span></span><span class="sl"><i class="cu" id="cl-cu11"></i></span><span class="ch" id="cl-ch11"> </span><span class="w"><span class="sl"><i class="cu" id="cl-cu12"></i></span><span class="ch" id="cl-ch12">u</span><span class="sl"><i class="cu" id="cl-cu13"></i></span><span class="ch" id="cl-ch13">s</span><span class="sl"><i class="cu" id="cl-cu14"></i></span><span class="ch" id="cl-ch14">e</span></span><span class="sl"><i class="cu" id="cl-cu15"></i></span><span class="ch" id="cl-ch15"> </span><span class="w"><span class="sl"><i class="cu" id="cl-cu16"></i></span><span class="ch" id="cl-ch16">A</span><span class="sl"><i class="cu" id="cl-cu17"></i></span><span class="ch" id="cl-ch17">I</span></span><span class="sl"><i class="cu" id="cl-cu18"></i></span><span class="ch" id="cl-ch18"> </span><span class="w"><span class="sl"><i class="cu" id="cl-cu19"></i></span><span class="ch" id="cl-ch19">t</span><span class="sl"><i class="cu" id="cl-cu20"></i></span><span class="ch" id="cl-ch20">o</span><span class="sl"><i class="cu" id="cl-cu21"></i></span><span class="ch" id="cl-ch21">d</span><span class="sl"><i class="cu" id="cl-cu22"></i></span><span class="ch" id="cl-ch22">a</span><span class="sl"><i class="cu" id="cl-cu23"></i></span><span class="ch" id="cl-ch23">y</span><span class="sl"><i class="cu" id="cl-cu24"></i></span><span class="ch" id="cl-ch24">?</span></span><span class="sl"><i class="cu" id="cl-cu25"></i></span></div>
+    <div id="cl-lock">
+      <div id="cl-mark" class="mk" style="width:300px;height:300px"><div class="glow"></div><i class="e sq0 e0" style="left:0px;top:0px;width:300px;height:12px"></i><i class="e sq0 e1" style="left:288px;top:0px;width:12px;height:300px"></i><i class="e sq0 e2" style="left:0px;top:288px;width:300px;height:12px"></i><i class="e sq0 e3" style="left:0px;top:0px;width:12px;height:300px"></i><i class="e sq1 e0" style="left:39px;top:39px;width:222px;height:12px"></i><i class="e sq1 e1" style="left:249px;top:39px;width:12px;height:222px"></i><i class="e sq1 e2" style="left:39px;top:249px;width:222px;height:12px"></i><i class="e sq1 e3" style="left:39px;top:39px;width:12px;height:222px"></i><i class="e sq2 e0" style="left:78px;top:78px;width:144px;height:12px"></i><i class="e sq2 e1" style="left:210px;top:78px;width:12px;height:144px"></i><i class="e sq2 e2" style="left:78px;top:210px;width:144px;height:12px"></i><i class="e sq2 e3" style="left:78px;top:78px;width:12px;height:144px"></i><i class="e sq3 e0" style="left:117px;top:117px;width:66px;height:12px"></i><i class="e sq3 e1" style="left:171px;top:117px;width:12px;height:66px"></i><i class="e sq3 e2" style="left:117px;top:171px;width:66px;height:12px"></i><i class="e sq3 e3" style="left:117px;top:117px;width:12px;height:66px"></i></div>
+      <div id="cl-word">the architect</div>
+      <div id="cl-tag">Stay Vigilant. Stay Visionary.</div>
+      <div id="cl-handle">linkedin.com/in/nastasjaterry</div>
+    </div>
+  </div></div>
+
+  <!-- persistent HUD -->
+  <div id="hud" class="clip" data-start="0" data-duration="37" data-track-index="9">
+    <div id="hud-l" class="hudt">Architect Daily</div>
+    <div id="hud-r" class="hudt">Oct 28, 2026</div>
+    <div class="pseg" style="left:72.00px;width:91.19px"><div id="pf-intro" class="pfill"></div></div><div class="pseg" style="left:173.19px;width:141.78px"><div id="pf-n1" class="pfill"></div></div><div class="pseg" style="left:324.97px;width:141.78px"><div id="pf-n2" class="pfill"></div></div><div class="pseg" style="left:476.76px;width:116.49px"><div id="pf-n3" class="pfill"></div></div><div class="pseg" style="left:603.24px;width:217.68px"><div id="pf-nm" class="pfill"></div></div><div class="pseg" style="left:830.92px;width:177.08px"><div id="pf-close" class="pfill"></div></div>
+  </div>
+</div>
+<script src="assets/gsap.min.js"></script>
+<script>
+window.__timelines = window.__timelines || {};
+// ── constants (scene windows come from build/build.cjs; edit them there) ──
+const SCENES = {"intro":[0,4],"n1":[4,10],"n2":[10,16],"n3":[16,21],"nm":[21,30],"close":[30,37]};
+const SCENE_ORDER = ["intro","n1","n2","n3","nm","close"];
+const TOTAL = 37;
+const DOT_TOTAL = 60;
+const FADE_ORDER = [12,44,4,8,2,58,48,20,42,35,38,46,0,36,22,43,26,29,30,56,24,33,32,40,10,53,28,31,57,45,6,15,14,41,34,3];   // dots that fade out (seeded shuffle, no Math.random)
+const G_SEGS = 4;
+const Q_N = 25;                           // characters in the typed question
+const GEO = {"thickness":4,"boxes":{"nm-form":{"x":220,"y":560,"w":640,"h":96},"nm-air":{"x":220,"y":720,"w":640,"h":110},"nm-o1":{"x":72,"y":950,"w":456,"h":112},"nm-o2":{"x":552,"y":950,"w":456,"h":112}},"paths":{"c0":{"pts":[[540,656],[540,720]],"segs":[{"left":538,"top":656,"w":4,"h":64,"origin":"50% 0%","prop":"scaleY","len":64}]},"c1":{"pts":[[540,830],[540,890],[300,890],[300,950]],"segs":[{"left":538,"top":830,"w":4,"h":60,"origin":"50% 0%","prop":"scaleY","len":60},{"left":298,"top":888,"w":244,"h":4,"origin":"100% 50%","prop":"scaleX","len":240},{"left":298,"top":890,"w":4,"h":60,"origin":"50% 0%","prop":"scaleY","len":60}]},"c2":{"pts":[[540,830],[540,890],[780,890],[780,950]],"segs":[{"left":538,"top":830,"w":4,"h":60,"origin":"50% 0%","prop":"scaleY","len":60},{"left":538,"top":888,"w":244,"h":4,"origin":"0% 50%","prop":"scaleX","len":240},{"left":778,"top":890,"w":4,"h":60,"origin":"50% 0%","prop":"scaleY","len":60}]}}};            // connector geometry, measured once at build time
+
+const tl = gsap.timeline({ paused: true });
+const S = (k) => SCENES[k][0];
+const E = "power3.out";
+const IN = (sel, t, o = {}) => tl.fromTo(sel, { opacity: 0, y: o.y ?? 26 }, { opacity: 1, y: 0, duration: o.d ?? 0.6, ease: o.ease ?? E }, t);
+
+// scene fade in/out (on the .stage child, never on the .clip)
+const OUT_D = 0.28;
+SCENE_ORDER.forEach((k) => {
+  const st = "#sc-" + k + " .stage";
+  if (k !== "intro" && k !== "close") tl.fromTo(st, { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "power1.out" }, S(k));
+  if (k !== "close") tl.fromTo(st, { opacity: 1 }, { opacity: 0, duration: OUT_D, ease: "power1.in", immediateRender: false }, SCENES[k][1] - OUT_D - 0.02);
+});
+
+// progress bar: one segment per scene, gaps between them
+SCENE_ORDER.forEach((k) => {
+  tl.fromTo("#pf-" + k, { scaleX: 0 }, { scaleX: 1, duration: SCENES[k][1] - SCENES[k][0], ease: "none" }, S(k));
+});
+
+// the gold four-square mark: identical animation for intro and closing lockup
+function drawMark(sel, t0) {
+  for (let k = 0; k < 4; k++)
+    for (let e = 0; e < 4; e++) {
+      const prop = e % 2 === 0 ? "scaleX" : "scaleY";
+      tl.fromTo(sel + " .sq" + k + ".e" + e, { [prop]: 0 }, { [prop]: 1, duration: 0.15, ease: "power2.out" }, t0 + k * 0.28 + e * 0.12);
+    }
+  tl.fromTo(sel + " .glow", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 1.2, ease: "power2.out" }, t0 + 0.4);
+}
+
+function count(sel, to, dec, t0, d, suffix) {
+  const o = { v: 0 };
+  tl.fromTo(o, { v: 0 }, { v: to, duration: d, ease: "power2.out", onUpdate: () => { document.querySelector(sel).textContent = o.v.toFixed(dec) + suffix; } }, t0);
+}
+
+// ── INTRO 0-4 ──
+{
+  const s = S("intro");
+  drawMark("#in-mark", s + 0.3);
+  IN("#in-label", s + 1.5, { y: 14, d: 0.6 });
+  IN("#in-cap", s + 2.1, { y: 22, d: 0.6 });
+}
+
+// ── NEWS 01 ──
+{
+  const s = S("n1");
+  IN("#n1-tag", s + 0.2, { y: 14 }); IN("#n1-hl", s + 0.35); IN("#n1-body", s + 0.9);
+  IN("#n1-c1", s + 1.5, { y: 34, d: 0.7 }); IN("#n1-c2", s + 2.0, { y: 34, d: 0.7 });
+  count("#n1-n1", 76, 0, s + 1.6, 1.3, "%"); count("#n1-n2", 99.4, 1, s + 2.1, 1.3, "%");
+  tl.fromTo("#n1-lock .lbody", { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, duration: 0.45, ease: "back.out(1.6)" }, s + 3.2);
+  tl.fromTo("#n1-lock .shackle", { y: -34, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, s + 3.55);
+  tl.fromTo("#n1-lock .kh,#n1-lock .ks", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)" }, s + 3.95);
+  IN("#n1-cap", s + 3.5, { y: 18, d: 0.5 }); IN("#n1-src", s + 1.2, { y: 8, d: 0.5 });
+}
+
+// ── NEWS 02 ──
+{
+  const s = S("n2");
+  IN("#n2-tag", s + 0.2, { y: 14 }); IN("#n2-hl", s + 0.35); IN("#n2-body", s + 1.0);
+  tl.fromTo("#n2-paper", { opacity: 0, y: 60, rotation: -3.5 }, { opacity: 1, y: 0, rotation: -1.5, duration: 0.8, ease: E }, s + 1.3);
+  IN("#n2-brand", s + 1.9, { y: 10, d: 0.5 }); IN("#n2-sec1", s + 2.1, { y: 10, d: 0.5 });
+  IN("#n2-fact", s + 2.35, { y: 14, d: 0.6 });
+  tl.fromTo("#n2-bars", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power1.out" }, s + 2.0);
+  tl.fromTo("#n2-stamp", { opacity: 0, scale: 1.9, rotation: -2 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.28, ease: "power4.in" }, s + 3.1);
+  IN("#n2-cap", s + 3.5, { y: 18, d: 0.5 }); IN("#n2-src", s + 1.6, { y: 8, d: 0.5 });
+}
+
+// ── NEWS 03 ──
+{
+  const s = S("n3");
+  IN("#n3-tag", s + 0.2, { y: 14 }); IN("#n3-hl", s + 0.3); IN("#n3-body", s + 0.8);
+  tl.fromTo("#n3-card", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: E }, s + 0.9);
+  for (let i = 0; i < DOT_TOTAL; i++)
+    tl.fromTo("#n3-d" + i, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, s + 1.15 + (i / DOT_TOTAL) * 0.5);
+  FADE_ORDER.forEach((idx, j) => tl.to("#n3-d" + idx, { opacity: 0.1, scale: 0.8, duration: 0.45, ease: "power2.inOut" }, s + 1.9 + j * 0.03));
+  for (let i = 0; i < G_SEGS; i++) {
+    const ang = parseFloat(document.querySelector("#n3-g" + i).dataset.ang);
+    tl.fromTo("#n3-g" + i, { scaleX: 0, rotation: ang }, { scaleX: 1, rotation: ang, duration: 0.42, ease: "none" }, s + 2.0 + i * 0.4);
+  }
+  tl.fromTo("#n3-gtip", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.4)" }, s + 2.0 + G_SEGS * 0.4);
+  IN("#n3-glabel", s + 2.0 + G_SEGS * 0.4, { y: 8, d: 0.4 });
+  IN("#n3-cap", s + 3.0, { y: 18, d: 0.5 }); IN("#n3-src", s + 1.0, { y: 8, d: 0.5 });
+}
+
+// ── NEW TO ME 21-30 ──
+{
+  const s = S("nm");
+  IN("#nm-tag", s + 0.15, { y: 14 }); IN("#nm-hl", s + 0.3);
+  const speed = 520;
+  const draw = (prefix, c, t0) => {
+    let t = t0;
+    c.segs.forEach((g, i) => { const d = Math.max(0.12, g.len / speed); tl.fromTo("#" + prefix + "-s" + i, { [g.prop]: 0 }, { [g.prop]: 1, duration: d, ease: "none" }, t); t += d; });
+    return t;
+  };
+  const pulse = (id, pts, t0) => {
+    let t = t0;
+    tl.fromTo(id, { opacity: 0, x: 0, y: 0 }, { opacity: 1, x: 0, y: 0, duration: 0.1 }, t);
+    for (let i = 1; i < pts.length; i++) {
+      const d = Math.max(0.1, Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]) / 640);
+      tl.to(id, { x: pts[i][0] - pts[0][0], y: pts[i][1] - pts[0][1], duration: d, ease: "none" }, t); t += d;
+    }
+    tl.to(id, { opacity: 0, duration: 0.12 }, t);
+    return t;
+  };
+  IN("#nm-form", s + 0.7, { y: 24 });
+  draw("nm-c0", GEO.paths.c0, s + 1.2);
+  IN("#nm-air", s + 1.5, { y: 24 });
+  pulse("#nm-p0", GEO.paths.c0.pts, s + 1.9);
+  IN("#nm-o1", s + 2.2, { y: 24 }); IN("#nm-o2", s + 2.35, { y: 24 });
+  draw("nm-c1", GEO.paths.c1, s + 2.8); draw("nm-c2", GEO.paths.c2, s + 2.8);
+  pulse("#nm-p1", GEO.paths.c1.pts, s + 3.7); pulse("#nm-p2", GEO.paths.c2.pts, s + 3.7);
+  // grid + sample row filled field by field
+  tl.fromTo("#nm-grid", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: E }, s + 3.6);
+  const fields = [4.5, 5.0, 5.5, 6.0];
+  fields.forEach((t, i) => {
+    tl.fromTo("#nm-f" + i, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: E }, s + t);
+    tl.fromTo("#nm-fl" + i, { opacity: 0 }, { opacity: 1, duration: 0.12, ease: "none" }, s + t);
+    tl.to("#nm-fl" + i, { opacity: 0, duration: 0.7, ease: "power1.out" }, s + t + 0.12);
+  });
+  tl.fromTo("#nm-f4", { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2.4)" }, s + 6.5);
+  tl.fromTo("#nm-fl4", { opacity: 0 }, { opacity: 1, duration: 0.12, ease: "none" }, s + 6.5);
+  tl.to("#nm-fl4", { opacity: 0, duration: 0.7, ease: "power1.out" }, s + 6.62);
+  tl.fromTo("#nm-sample", { opacity: 0 }, { opacity: 1, duration: 0.4 }, s + 3.9);
+  // final lit connection in gold
+  const gEnd = Math.max(draw("nm-g1", GEO.paths.c1, s + 7.1), draw("nm-g2", GEO.paths.c2, s + 7.1));
+  tl.fromTo("#nm-o1 .rim,#nm-o2 .rim", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" }, gEnd - 0.1);
+  // captions: two beats, each held well past 1.5 s
+  IN("#nm-cap1", s + 1.2, { y: 18, d: 0.5 });
+  tl.to("#nm-cap1", { opacity: 0, y: -10, duration: 0.3, ease: "power1.in" }, s + 5.2);
+  IN("#nm-cap2", s + 5.6, { y: 18, d: 0.5 });
+}
+
+// ── CLOSE 30-37 ──
+{
+  const s = S("close");
+  const typeStart = s + 1.25, cps = 25;
+  // cursor state as a pure function of time: explicit on/off events
+  const set = (i, on, t) => tl.set("#cl-cu" + i, { opacity: on ? 1 : 0 }, t);
+  set(0, true, s);                    // alone on navy, blinking at 2 Hz
+  set(0, false, s + 0.7); set(0, true, s + 1.0);
+  for (let i = 0; i < Q_N; i++) {
+    const t = typeStart + i / cps;
+    set(i, false, t);
+    tl.set("#cl-ch" + i, { opacity: 1 }, t);
+    set(i + 1, true, t);
+  }
+  const typeEnd = typeStart + Q_N / cps;
+  for (let b = 1; typeEnd + b * 0.5 < s + 4.0; b++) set(Q_N, b % 2 === 0, typeEnd + b * 0.5);   // blink while the full line is held
+  // hold, then resolve into the lockup
+  tl.fromTo("#cl-q", { opacity: 1, y: 0 }, { opacity: 0, y: -16, duration: 0.3, ease: "power2.in" }, s + 3.95);
+  tl.set("#cl-cu" + Q_N, { opacity: 0 }, s + 4.0);
+  drawMark("#cl-mark", s + 4.0);
+  IN("#cl-word", s + 4.75, { y: 18, d: 0.55 });
+  IN("#cl-tag", s + 5.15, { y: 14, d: 0.5 });
+  IN("#cl-handle", s + 5.5, { y: 10, d: 0.5 });
+}
+
+window.__timelines["main"] = tl;
+
+</script>
+</body>
+</html>
