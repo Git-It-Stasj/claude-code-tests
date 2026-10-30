@@ -1,12 +1,12 @@
 {
   "version": 1,
   "historyId": "0e6964e9-b586-463a-9f4a-f1cb9edd7b08",
-  "currentRevision": "78f77f64-ec31-45d7-8a1f-516b5e866f00",
+  "currentRevision": "acb49cfc-53eb-4f02-b213-5004e7590012",
   "pendingChanges": false,
   "files": {
     "assets/architect-bed.m4a": {
-      "hash": "962fc875984e4b42bcd01b1d9e0b913f966f5ebbed810ead41851f8d83b114c4",
-      "content": "/root/.cache/hyperframes/history/0e6964e9-b586-463a-9f4a-f1cb9edd7b08/blobs/96/962fc875984e4b42bcd01b1d9e0b913f966f5ebbed810ead41851f8d83b114c4"
+      "hash": "59c653b4b1f05fac09e62703a2896416a98c1e8fa8bc12850956280d57d6ba93",
+      "content": "/root/.cache/hyperframes/history/0e6964e9-b586-463a-9f4a-f1cb9edd7b08/blobs/59/59c653b4b1f05fac09e62703a2896416a98c1e8fa8bc12850956280d57d6ba93"
     },
     "assets/fonts/DMSans-400.woff2": {
       "hash": "9fea608a947e67020c33cad9a6fe3d60c54119dfb8cff87768a8117a15ed7543",
@@ -57,8 +57,8 @@
       "content": "/root/.cache/hyperframes/history/0e6964e9-b586-463a-9f4a-f1cb9edd7b08/blobs/28/28033e449a31ebcc396e5be8b13b63152bf03094288fb5867034321927bce087"
     },
     "index.html": {
-      "hash": "548cfef68c5eaf72fbcc4736a0bd4208e953589683f8854a5eee24b6b86c2278",
-      "content": "/root/.cache/hyperframes/history/0e6964e9-b586-463a-9f4a-f1cb9edd7b08/blobs/54/548cfef68c5eaf72fbcc4736a0bd4208e953589683f8854a5eee24b6b86c2278"
+      "hash": "962626d36b81c04722708f60aa30c8e24aae12ddb5dc5016e9be457dd7be86cd",
+      "content": "/root/.cache/hyperframes/history/0e6964e9-b586-463a-9f4a-f1cb9edd7b08/blobs/96/962626d36b81c04722708f60aa30c8e24aae12ddb5dc5016e9be457dd7be86cd"
     },
     "assets/shots/desktop-0.png": {
       "hash": "a36525b03a84ab9923cf5a620bcef6e306e4cda0680e4cee27a9d857e81f250c",
@@ -115,6 +115,44 @@
           "after": "/root/.cache/hyperframes/history/0e6964e9-b586-463a-9f4a-f1cb9edd7b08/blobs/54/548cfef68c5eaf72fbcc4736a0bd4208e953589683f8854a5eee24b6b86c2278"
         }
       }
+    },
+    "c04c769d-af68-48c6-b606-a82a74cb1ad5": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793401384310,
+      "endedAt": 1793401384457,
+      "files": {
+        "assets/architect-bed.m4a": {
+          "before": "/root/.cache/hyperframes/history/0e6964e9-b586-463a-9f4a-f1cb9edd7b08/blobs/96/962fc875984e4b42bcd01b1d9e0b913f966f5ebbed810ead41851f8d83b114c4",
+          "after": "/root/.cache/hyperframes/history/0e6964e9-b586-463a-9f4a-f1cb9edd7b08/blobs/48/48f649c70fe0c03810f9fac849838bcb53f56d96f6dd681b68b2e373d0c8fcf9"
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/0e6964e9-b586-463a-9f4a-f1cb9edd7b08/blobs/54/548cfef68c5eaf72fbcc4736a0bd4208e953589683f8854a5eee24b6b86c2278",
+          "after": "/root/.cache/hyperframes/history/0e6964e9-b586-463a-9f4a-f1cb9edd7b08/blobs/d7/d7bd86283515516c4292b6fad1831839536114cd1bdd8874820d2afa5efed60b"
+        }
+      }
+    },
+    "acb49cfc-53eb-4f02-b213-5004e7590012": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793402077548,
+      "endedAt": 1793402077700,
+      "files": {
+        "assets/architect-bed.m4a": {
+          "before": "/root/.cache/hyperframes/history/0e6964e9-b586-463a-9f4a-f1cb9edd7b08/blobs/48/48f649c70fe0c03810f9fac849838bcb53f56d96f6dd681b68b2e373d0c8fcf9",
+          "after": "/root/.cache/hyperframes/history/0e6964e9-b586-463a-9f4a-f1cb9edd7b08/blobs/59/59c653b4b1f05fac09e62703a2896416a98c1e8fa8bc12850956280d57d6ba93"
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/0e6964e9-b586-463a-9f4a-f1cb9edd7b08/blobs/d7/d7bd86283515516c4292b6fad1831839536114cd1bdd8874820d2afa5efed60b",
+          "after": "/root/.cache/hyperframes/history/0e6964e9-b586-463a-9f4a-f1cb9edd7b08/blobs/96/962626d36b81c04722708f60aa30c8e24aae12ddb5dc5016e9be457dd7be86cd"
+        }
+      }
     }
   },
   "checks": {
@@ -129,15 +167,15 @@
   },
   "renders": {
     "latest": {
-      "id": "dd741dd0-94ae-463c-b45f-193d089af07d",
-      "completedAt": 1793399091883,
+      "id": "c53cd27d-262d-4cb1-89ff-98c680a924e1",
+      "completedAt": 1793402327681,
       "output": "/home/user/claude-code-tests/video-projects/glowhawaii-sizzle/out/glowhawaii-sizzle-9x16.mp4",
       "status": "completed",
-      "revision": "78f77f64-ec31-45d7-8a1f-516b5e866f00"
+      "revision": "acb49cfc-53eb-4f02-b213-5004e7590012"
     },
     "retainedRevisions": [
-      "78f77f64-ec31-45d7-8a1f-516b5e866f00",
-      "80a3ed33-c34a-498e-9b29-919bb7b54209"
+      "acb49cfc-53eb-4f02-b213-5004e7590012",
+      "c04c769d-af68-48c6-b606-a82a74cb1ad5"
     ]
   },
   "pendingArtifactCleanup": []

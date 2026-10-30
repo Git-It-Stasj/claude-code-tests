@@ -3,6 +3,7 @@
 const fs = require('fs'), path = require('path');
 const { chromium } = require('playwright');
 const ROOT = path.join(__dirname, '..');
+const GR = JSON.parse(fs.readFileSync(path.join(ROOT, 'grid.json'), 'utf8'));
 const norm = (s) => s.replace(/[‘’ʼ]/g, "'").replace(/[“”]/g, '"').replace(/ʻ/g, "'").replace(/\s+/g, ' ').trim().toLowerCase();
 const rep = fs.readFileSync(path.join(ROOT, 'assets/Glowhawaii-Architect-Report.html'), 'utf8').replace(/data:[a-z/+\-]+;base64,[A-Za-z0-9+/=]+/g, '');
 const repText = norm(rep.replace(/<script[\s\S]*?<\/script>/g, (m) => m).replace(/<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&#39;/g, "'") + ' ' + rep.replace(/\\"/g, '"').replace(/\\u2019/g, "'"));
@@ -19,14 +20,14 @@ const REPLY = "Aloha Nastasja, I'm so glad you ran this report because I think i
   for (const [r, W, H] of [['16x9', 1920, 1080], ['9x16', 1080, 1920]]) {
     const page = await b.newPage({ viewport: { width: W, height: H } });
     await page.goto('file://' + path.join(ROOT, r, 'index.html')); await page.waitForTimeout(2500);
-    const res = await page.evaluate(async ({ W, H, REPLY }) => {
+    const res = await page.evaluate(async ({ W, H, REPLY, DUR, TYEND }) => {
       const tl = window.__timelines.main; const issues = []; let minFont = 999, minWhere = '';
       const clipOf = (e) => { while (e && e !== document.body) { if (e.classList && e.classList.contains('clip') && e.dataset.start !== undefined) return e; e = e.parentElement; } return null; };
       const effOpacity = (e) => { let o = 1; for (let n = e; n && n !== document.body; n = n.parentElement) o *= parseFloat(getComputedStyle(n).opacity); return o; };
       const effScale = (e) => { let s = 1; for (let n = e; n && n !== document.body; n = n.parentElement) { const t = getComputedStyle(n).transform; if (t && t !== 'none') { const m = new DOMMatrix(t); s *= Math.sqrt(Math.abs(m.a * m.d - m.b * m.c)); } } return s; };
       const els = [...document.querySelectorAll('[data-t], .tg, .nh, .rq, #tc, #chl, .h')];
       const seen = new Set();
-      for (let t = 0; t <= 30; t += 0.1) {
+      for (let t = 0; t <= DUR; t += 0.1) {
         tl.time(t, false); await new Promise((r) => requestAnimationFrame(() => r()));
         for (const e of els) {
           const c = clipOf(e); if (c) { const s = +c.dataset.start, d = +c.dataset.duration; if (t < s || t >= s + d) continue; }
@@ -54,10 +55,10 @@ const REPLY = "Aloha Nastasja, I'm so glad you ran this report because I think i
           }
         }
         // typed reply final text
-        if (Math.abs(t - 29) < 0.05) { const ty = document.getElementById('typed').textContent; if (ty !== REPLY) issues.push({ t, type: 'reply-mismatch', got: ty }); }
+        if (Math.abs(t - (TYEND + 0.3)) < 0.05) { const ty = document.getElementById('typed').textContent; if (ty !== REPLY) issues.push({ t, type: 'reply-mismatch', got: ty }); }
       }
       return { issues, minFont: +minFont.toFixed(1), minWhere };
-    }, { W, H, REPLY });
+    }, { W, H, REPLY, DUR: GR.beats * GR.period, TYEND: GR.response.type[1] * GR.period });
     out.layout[r] = res; await page.close();
   }
   await b.close();

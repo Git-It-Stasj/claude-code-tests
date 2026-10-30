@@ -1,32 +1,131 @@
 {
-  "bpm": 96,
-  "period": 0.625,
-  "beats": 48,
-  "fps": 30,
-  "chapters": [
-    {"id": "01", "name": "THE REAL SITE", "start": 0,  "end": 10},
-    {"id": "02", "name": "THE AUDIT",     "start": 10, "end": 26},
-    {"id": "03", "name": "THE FIX",       "start": 26, "end": 38},
-    {"id": "04", "name": "THE RESPONSE",  "start": 38, "end": 45},
-    {"id": "05", "name": "LOCKUP",        "start": 45, "end": 48}
+ "bpm": 96,
+ "period": 0.625,
+ "beats": 110,
+ "fps": 30,
+ "chapters": [
+  {
+   "id": "01",
+   "name": "THE REAL SITE",
+   "start": 0,
+   "end": 10
+  },
+  {
+   "id": "02",
+   "name": "THE AUDIT",
+   "start": 10,
+   "end": 36
+  },
+  {
+   "id": "03",
+   "name": "THE FIX",
+   "start": 36,
+   "end": 95
+  },
+  {
+   "id": "04",
+   "name": "THE RESPONSE",
+   "start": 95,
+   "end": 103
+  },
+  {
+   "id": "05",
+   "name": "LOCKUP",
+   "start": 103,
+   "end": 110
+  }
+ ],
+ "motifDraw": [
+  0,
+  2
+ ],
+ "windowOpen": [
+  2,
+  3
+ ],
+ "audit": {
+  "headline": {
+   "scroll": 10,
+   "box": 11,
+   "end": 13
+  },
+  "summit": {
+   "scroll": 13,
+   "box1": 14,
+   "scroll2": 15,
+   "box2": 16,
+   "end": 17
+  },
+  "buttons": {
+   "scroll": 17,
+   "box": 18,
+   "end": 20
+  },
+  "testimonials": {
+   "scroll": 20,
+   "box": 21,
+   "end": 23
+  },
+  "ladder": {
+   "start": 23,
+   "l2": 29,
+   "l3": 32,
+   "gap": 33.5,
+   "end": 36
+  }
+ },
+ "preDropGap": [
+  35.5,
+  36
+ ],
+ "fix": {
+  "headline": {
+   "start": 36,
+   "wipe": 39.5,
+   "end": 44
+  },
+  "button": {
+   "start": 44,
+   "wipe": 47.5,
+   "end": 52
+  },
+  "summit": {
+   "start": 52,
+   "wipe": 55.5,
+   "end": 60
+  },
+  "flurry": [
+   60,
+   65,
+   70,
+   75,
+   80,
+   85,
+   90
   ],
-  "motifDraw": [0, 2],
-  "windowOpen": [2, 3],
-  "audit": {
-    "headline": {"scroll": 10, "box": 11, "end": 13},
-    "summit":   {"scroll": 13, "box1": 14, "scroll2": 15, "box2": 16, "end": 17},
-    "buttons":  {"scroll": 17, "box": 18, "end": 20},
-    "testimonials": {"scroll": 20, "box": 21, "end": 23},
-    "ladder":   {"start": 23, "end": 26}
-  },
-  "preDropGap": [25.5, 26],
-  "fix": {
-    "headline": {"start": 26, "wipe": 27, "end": 29},
-    "button":   {"start": 29, "wipe": 30, "end": 32},
-    "summit":   {"start": 32, "wipe": 33, "end": 34},
-    "flurry":   [34, 35, 35.5, 36, 36.5, 37, 37.5],
-    "flurryEnd": 38
-  },
-  "response": {"morph": [38, 39.5], "type": [39.5, 43.5], "hold": [43.5, 45]},
-  "lockup": {"motif": [45, 46.5], "wordmark": 46, "tagline": 47, "subtitle": 47.5}
+  "flurryEnd": 95
+ },
+ "response": {
+  "morph": [
+   95,
+   96.5
+  ],
+  "type": [
+   96.5,
+   100.5
+  ],
+  "hold": [
+   100.5,
+   103
+  ]
+ },
+ "lockup": {
+  "motif": [
+   103,
+   104.5
+  ],
+  "wordmark": 104,
+  "tagline": 105.5,
+  "subtitle": 106.5
+ }
 }

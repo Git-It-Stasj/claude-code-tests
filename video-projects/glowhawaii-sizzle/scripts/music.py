@@ -53,7 +53,7 @@ ladder0 = G['audit']['ladder']['start']
 flur = G['fix']['flurry'] + [G['fix']['flurryEnd']]
 gap0, gap1 = G['preDropGap']
 NB = G['beats']
-for bar in range(NB // 4):
+for bar in range((NB + 3) // 4):
     r, notes = chords[bar % 4]; add(pad([mid(n) for n in notes], 4 * P + 0.5), B(bar * 4), 0.8, 0)
 # soft kick on 1 and 3, gentle rim on 2 and 4, shaker on every eighth (swung), syncopated bass
 for b in range(2, NB):
@@ -73,7 +73,7 @@ for b in range(2, NB):
         add(bass(mid(r - 12), P * 0.7), B(b), 0.8)
         if b % 4 in (1, 2): add(bass(mid(r - 12 + 7), P * 0.35), B(b) + P * 0.5 + SW, 0.6)
 # flurry: sixteenth shakers
-for k in range(int((flur[-1] - flur[0]) * 4)): add(hat(), B(flur[0]) + k * P / 4, 0.3)
+for k in range(int(10 * 4)): add(hat(), B(flur[-1] - 10) + k * P / 4, 0.3)
 # ukulele-style arpeggio, chapters 2-3, swung
 for s_ in range(int(C2 * 2), int(C4 * 2)):
     t = s_ * P / 2 + (SW if s_ % 2 else 0)
@@ -84,7 +84,7 @@ for s_ in range(int(C4 * 2), int(C5 * 2)):
     if s_ % 2: continue
     r, notes = chords[(int(s_ / 8)) % 4]; add(pluck(mid(notes[(s_ // 2) % 4] + 12), 0.5), s_ * P / 2, 0.28, pan=0.2)
 # riser into the drop, pre-drop gap, drop
-add(riser(B(gap0) - B(ladder0)), B(ladder0), 0.8); add(riser(0.22, up=False), B(gap0), 0.5)
+add(riser(B(4.5)), B(gap0 - 4.5), 0.8); add(riser(0.22, up=False), B(gap0), 0.5)
 add(boom(), B(C3), 0.9); add(kick(0.4), B(C3), 1.2); add(clap(0.3), B(C3), 0.9)
 # whoosh at chapter boundaries
 for b in (2, C2, C4, C5): add(riser(P * 0.9, up=True), B(b) - P * 0.9, 0.5)

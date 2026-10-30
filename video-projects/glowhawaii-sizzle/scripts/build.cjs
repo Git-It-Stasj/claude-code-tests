@@ -85,13 +85,17 @@ function build(ratio) {
   };
 
   // ---- motif svg ----
-  const motif = (id, size, cls = '') => `<svg id="${id}" class="motif ${cls}" width="${size}" height="${size}" viewBox="0 0 40 40" fill="none">
-  <defs><linearGradient id="${id}-g" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="38" y2="38"><stop offset="0" stop-color="#3D7FFF"/><stop offset="1" stop-color="#22358A"/></linearGradient></defs>
-  <g stroke="url(#${id}-g)" stroke-width="${(size / 40) > 10 ? 0.5 : 0.7}" stroke-opacity=".8" stroke-linejoin="miter">
-    <rect class="sq" x="2" y="2" width="36" height="36" pathLength="1"/><rect class="sq" x="7" y="7" width="26" height="26" pathLength="1"/>
-    <rect class="sq" x="12" y="12" width="16" height="16" pathLength="1"/><rect class="sq" x="16.5" y="16.5" width="7" height="7" pathLength="1"/>
-    <path class="dg" d="M2 2L16.5 16.5M38 2L23.5 16.5M2 38L16.5 23.5M38 38L23.5 23.5" pathLength="1"/>
-  </g></svg>`;
+  const motif = (id, size, cls = '') => {
+    const gold = cls === 'close';
+    const stops = gold ? '<stop offset="0" stop-color="#F0C040"/><stop offset=".55" stop-color="#C9A135" stop-opacity=".85"/><stop offset="1" stop-color="#F0C040" stop-opacity=".1"/>'
+      : '<stop offset="0" stop-color="#3D7FFF"/><stop offset="1" stop-color="#22358A"/>';
+    return `<svg id="${id}" class="motif ${cls}" width="${size}" height="${size}" viewBox="0 0 40 40" fill="none">
+  <defs><linearGradient id="${id}-g" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="38" y2="38">${stops}</linearGradient></defs>
+  <g stroke="url(#${id}-g)" stroke-opacity="${gold ? 1 : 0.85}" stroke-linejoin="miter">
+    <rect class="sq" x="2" y="2" width="36" height="36" stroke-width="${gold ? 0.8 : 0.9}" pathLength="1"/><rect class="sq" x="5.5" y="5.5" width="29" height="29" stroke-width="${gold ? 0.8 : 0.9}" pathLength="1"/>
+    <rect class="sq" x="9" y="9" width="22" height="22" stroke-width="${gold ? 0.8 : 0.9}" pathLength="1"/><rect class="sq" x="12.5" y="12.5" width="15" height="15" stroke-width="${gold ? 0.8 : 0.9}" pathLength="1"/>
+    <path class="dg" d="M16.2 16.2L23.8 23.8M23.8 16.2L16.2 23.8" stroke-width="0.4" pathLength="1"/>
+  </g></svg>`; };
   const motifCenter = (id, size, cx, cy, cls = '') => `<div id="${id}-w" class="mwrap" style="left:${cx - size / 2}px;top:${cy - size / 2}px;width:${size}px;height:${size}px">${motif(id, size, cls)}</div>`;
 
   // =============== SCENE 1 : THE REAL SITE ===============
@@ -223,7 +227,7 @@ function build(ratio) {
   FL.forEach((st, i) => {
     const q = C.quotes[FLURRY_ORDER[i]], pal = palette[i];
     const len = q[0].length; const fs_ = V ? (len > 80 ? 66 : len > 50 ? 80 : 104) : (len > 80 ? 70 : len > 50 ? 88 : 120);
-    s3 += `<div id="fc${i}" class="fcard" style="background:${pal[0]};color:${pal[1]};opacity:0"><div class="fin" style="padding:${V ? '240px 70px 220px' : '120px 150px'}"><div class="qm" style="color:${pal[2]}">“</div><div class="fq" style="font-size:${fs_}px" ${tag('report', q[0])}>${esc(q[0])}</div><div class="fs" style="color:${pal[2]}" ${tag('report', q[1])}>${esc(q[1])}</div></div></div>`;
+    s3 += `<div id="fc${i}" class="fcard" style="background:${pal[0]};color:${pal[1]};opacity:0"><div class="ftitle" style="color:${pal[1]}" ${tag('brief', 'Audience Awareness')}>Audience Awareness</div><div class="fin" style="padding:${V ? '240px 70px 220px' : '120px 150px'}"><div class="qm" style="color:${pal[2]}">“</div><div class="fq" style="font-size:${fs_}px" ${tag('report', q[0])}>${esc(q[0])}</div><div class="fs" style="color:${pal[2]}" ${tag('report', q[1])}>${esc(q[1])}</div></div></div>`;
   });
   clips.push(['s3', b(C3S), b(C4S + 0.5), `<div id="s3" class="clip scene" data-start="${b(C3S)}" data-duration="${b(C4S + 0.5) - b(C3S)}" data-track-index="5">${s3}</div>`]);
 
@@ -371,13 +375,16 @@ function build(ratio) {
   // ladder: window shrinks into the first rung
   T.push(`tl.to('#win',{opacity:0,y:-30,duration:${b(0.9)},ease:'power3.in'},${b(LD)});`);
   T.push(`gsap.set('#ladder',{opacity:0});`);
+  const LA = G.audit.ladder;
   T.push(`tl.to('#ladder',{opacity:1,duration:${b(0.5)}},${b(LD + 0.2)});`);
   T.push(`tl.fromTo('#lh2',{y:30,opacity:0},{y:0,opacity:1,duration:${b(0.8)},ease:'power3.out'},${b(LD + 0.3)});`);
-  for (let i = 0; i < 5; i++) T.push(`tl.fromTo('#rg${i}',{opacity:0,y:${V ? 0 : 60},x:${V ? -80 : 0}},{opacity:1,y:0,x:0,duration:${b(0.5)},ease:'power3.out'},${b(LD + 0.5 + i * 0.2)});`);
+  for (let i = 0; i < 5; i++) T.push(`tl.fromTo('#rg${i}',{opacity:0,y:${V ? 0 : 60},x:${V ? -80 : 0}},{opacity:1,y:0,x:0,duration:${b(0.6)},ease:'power3.out'},${b(LD + 0.5 + i * 0.3)});`);
   T.push(`gsap.set('#ladder .rung,#ladder .rungv,#l3,#l2,#gapq,#lh2',{opacity:0});`);
-  T.push(`tl.fromTo('#l2',{opacity:0,y:18},{opacity:1,y:0,duration:${b(0.5)}},${b(LD + 1.5)});`);
-  T.push(`tl.fromTo('#l3',{opacity:0,y:18},{opacity:1,y:0,duration:${b(0.5)}},${b(LD + 1.75)});`);
-  T.push(`tl.fromTo('#gapq',{opacity:0,y:18},{opacity:1,y:0,duration:${b(0.5)}},${b(LD + 2.0)});`);
+  T.push(`tl.fromTo('#l2',{opacity:0,y:18},{opacity:1,y:0,duration:${b(0.6)}},${b(LA.l2)});`);
+  T.push(`tl.fromTo('#rg1',{scale:1.07},{scale:1,duration:${b(1)},ease:'power2.out',immediateRender:false},${b(LA.l2)});`);
+  T.push(`tl.fromTo('#l3',{opacity:0,y:18},{opacity:1,y:0,duration:${b(0.6)}},${b(LA.l3)});`);
+  T.push(`tl.fromTo('#rg2',{scale:1.07},{scale:1,duration:${b(1)},ease:'power2.out',immediateRender:false},${b(LA.l3)});`);
+  T.push(`tl.fromTo('#gapq',{opacity:0,y:18},{opacity:1,y:0,duration:${b(0.6)}},${b(LA.gap)});`);
   // pre-drop gap: everything dips
   T.push(`tl.to('#ladder',{opacity:.12,duration:${b(0.25)},ease:'power2.in'},${b(DROPGAP)});`);
 
@@ -393,9 +400,9 @@ function build(ratio) {
   T.push(`gsap.set('#fxchip',{opacity:0});gsap.set('#fixwrap .fcap',{opacity:0});gsap.set('#chA',{opacity:0});gsap.set('.fcard',{opacity:0});`);
   T.push(`tl.to('#fxchip',{opacity:1,duration:${b(0.5)}},${b(C3S + 0.4)});`);
   const doWipe = (id, wpx, t0) => {
-    T.push(`tl.fromTo('#${id}',{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0% 0 0)',duration:${b(0.6)},ease:'power3.inOut',immediateRender:false},${t0});`);
-    T.push(`tl.fromTo('#${id}-edge',{x:0,opacity:1},{x:${wpx},opacity:1,duration:${b(0.6)},ease:'power3.inOut',immediateRender:false},${t0});`);
-    T.push(`tl.to('#${id}-edge',{opacity:0,duration:${b(0.1)}},${t0 + b(0.6)});`);
+    T.push(`tl.fromTo('#${id}',{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0% 0 0)',duration:${b(1)},ease:'power3.inOut',immediateRender:false},${t0});`);
+    T.push(`tl.fromTo('#${id}-edge',{x:0,opacity:1},{x:${wpx},opacity:1,duration:${b(1)},ease:'power3.inOut',immediateRender:false},${t0});`);
+    T.push(`tl.to('#${id}-edge',{opacity:0,duration:${b(0.1)}},${t0 + b(1)});`);
   };
   const fixCapShow = (i, t0, t1) => { T.push(`tl.fromTo('#fcap${i}',{opacity:0,y:14},{opacity:1,y:0,duration:${b(0.5)},ease:'power2.out'},${t0});`); T.push(`tl.to('#fcap${i}',{opacity:0,duration:${b(0.3)}},${t1});`); };
   const showSel = (id, t0, t1) => { T.push(`gsap.set('#${id}',{opacity:0});`); T.push(`tl.to('#${id}',{opacity:1,duration:${b(0.3)}},${t0});`); T.push(`tl.to('#${id}',{opacity:0,duration:${b(0.3)}},${t1});`); };
@@ -403,24 +410,24 @@ function build(ratio) {
   const resetChip = (t) => { T.push(`tl.set('#chB',{opacity:1},${t});`); T.push(`tl.set('#chA',{opacity:0},${t});`); };
   // 1 headline
   scrollTo('fixwin', fixS, V ? 90 : 0, b(C3S), 0.001, 'none');
-  showSel('fx-h1o', b(C3S + 0.5), b(C3S + 1));
-  fixCapShow(0, b(C3S + 0.8), b(FXG.headline.end));
+  showSel('fx-h1o', b(C3S + 0.8), b(FXG.headline.wipe));
+  fixCapShow(0, b(C3S + 1), b(FXG.headline.end));
   doWipe('fx-h1', hc.w, b(FXG.headline.wipe)); swapChip(b(F.headline.wipe));
   // 2 button (scroll first)
   const syBt = V ? 845 : 40;
   scrollTo('fixwin', fixS, syBt, b(FXG.button.start - 0.4), b(0.7), 'power3.inOut');
   T.push(`tl.to('#fx-h1',{opacity:0,duration:${b(0.4)}},${b(FXG.button.start - 0.3)});`);
   resetChip(b(FXG.button.start));
-  showSel('fx-bto', b(FXG.button.start + 0.5), b(FXG.button.start + 1));
-  fixCapShow(1, b(FXG.button.start + 0.8), b(FXG.button.end));
+  showSel('fx-bto', b(FXG.button.start + 0.8), b(FXG.button.wipe));
+  fixCapShow(1, b(FXG.button.start + 1), b(FXG.button.end));
   doWipe('fx-bt', hero.w, b(FXG.button.wipe)); swapChip(b(F.button.wipe));
   // 3 summit
   const sySm = V ? 1150 : 380;
   scrollTo('fixwin', fixS, sySm, b(FXG.summit.start - 0.4), b(0.7), 'power3.inOut');
   T.push(`tl.to('#fx-bt',{opacity:0,duration:${b(0.4)}},${b(FXG.summit.start - 0.3)});`);
   resetChip(b(FXG.summit.start));
-  showSel('fx-so', b(FXG.summit.start + 0.5), b(FXG.summit.start + 1));
-  fixCapShow(2, b(FXG.summit.start + 0.8), b(FXG.summit.end));
+  showSel('fx-so', b(FXG.summit.start + 0.8), b(FXG.summit.wipe));
+  fixCapShow(2, b(FXG.summit.start + 1), b(FXG.summit.end));
   doWipe('fx-sm', bar2.w, b(FXG.summit.wipe)); swapChip(b(F.summit.wipe));
   // flurry hard cuts
   const flEnds = FL.slice(1).concat([FLEND]);
@@ -551,6 +558,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#070D1F}
 .removed{position:absolute;background:#070D1F;border-top:4px solid #F0C040;border-bottom:4px solid #F0C040;display:flex;align-items:center;justify-content:center}
 .removed .rm{font:500 ${V ? 44 : 40}px 'JetBrains Mono',monospace;color:#F0C040;letter-spacing:.3em}
 .edge{position:absolute;opacity:0;width:6px;background:#F0C040;box-shadow:0 0 24px #F0C040;opacity:0}
+.ftitle{position:absolute;left:${V ? 70 : 150}px;top:${V ? 250 : 118}px;font:800 ${V ? 64 : 72}px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:-.03em}
 .fcard{position:absolute;left:0;top:0;width:${W}px;height:${H}px;overflow:hidden}
 .fin{position:absolute;left:0;top:0;right:0;bottom:0;display:flex;flex-direction:column;justify-content:center}
 .qm{font:800 ${V ? 220 : 240}px/.6 'Plus Jakarta Sans',sans-serif;height:${V ? 110 : 120}px}

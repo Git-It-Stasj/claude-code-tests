@@ -1,10 +1,10 @@
 cut @  1.267s  nearest grid   2.0 beats ( 1.250s)  offset +0.50 frames  OK
-cut @ 16.267s  nearest grid  26.0 beats (16.250s)  offset +0.50 frames  OK
-cut @ 21.267s  nearest grid  34.0 beats (21.250s)  offset +0.50 frames  OK
-cut @ 21.900s  nearest grid  35.0 beats (21.875s)  offset +0.75 frames  OK
-cut @ 22.200s  nearest grid  35.5 beats (22.188s)  offset +0.37 frames  OK
 cut @ 22.500s  nearest grid  36.0 beats (22.500s)  offset +0.00 frames  OK
-cut @ 22.833s  nearest grid  36.5 beats (22.812s)  offset +0.62 frames  OK
-cut @ 23.133s  nearest grid  37.0 beats (23.125s)  offset +0.25 frames  OK
-cut @ 23.467s  nearest grid  37.5 beats (23.438s)  offset +0.88 frames  OK
-max |offset| frames: 0.8759999999999835  n= 9
+cut @ 37.500s  nearest grid  60.0 beats (37.500s)  offset +0.00 frames  OK
+cut @ 40.633s  nearest grid  65.0 beats (40.625s)  offset +0.25 frames  OK
+cut @ 43.767s  nearest grid  70.0 beats (43.750s)  offset +0.50 frames  OK
+cut @ 46.900s  nearest grid  75.0 beats (46.875s)  offset +0.75 frames  OK
+cut @ 50.000s  nearest grid  80.0 beats (50.000s)  offset +0.00 frames  OK
+cut @ 53.133s  nearest grid  85.0 beats (53.125s)  offset +0.25 frames  OK
+cut @ 56.267s  nearest grid  90.0 beats (56.250s)  offset +0.50 frames  OK
+max |offset| frames: 0.7499999999999574  n= 9
