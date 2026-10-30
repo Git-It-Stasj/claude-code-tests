@@ -13,5 +13,5 @@
 | Vertical safe zone | All text inside y 168–1330; below 1330 only texture | by construction + sampled bounds |
 
 ## Notes the checks cannot hide
-- The 9:16 detector lists a few extra "cuts" at about 15.7–20 s (up to ~4 frames off the grid). They are the peaks of the 1-beat scroll jumps through ~9,000 px of the mobile page (beats 17–18, 20–21), not edits.
+- The 9:16 detector lists a few extra "cuts" at about 11–13 s (up to ~4 frames off the grid). They are the peaks of the 1-beat scroll jumps through ~9,000 px of the mobile page (beats 17–18, 20–21), not edits.
 - The 9:16 reel does not start on a cut, so a thumbnail from frame 0 shows the motif; pick a poster frame from ch. 2 for LinkedIn if wanted.
