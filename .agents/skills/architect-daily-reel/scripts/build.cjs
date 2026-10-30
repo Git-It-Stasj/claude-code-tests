@@ -1,11 +1,16 @@
-// Architect Daily, Oct 28 2026 - sizzle reel generator.
+// Architect Daily - locked-format sizzle reel generator.
 // Emits one standalone index.html (HTML + one paused GSAP timeline) per aspect ratio.
-// Run: node build/build.cjs      (needs playwright for the one-off connector measurement)
+// Run: node build.cjs <episode.json> <outDir> [16x9|9x16]   (needs playwright for the one-off connector measurement)
+// The format (intro, scene windows, brand, HUD, close, music) is LOCKED here; only the episode JSON varies.
 const fs = require("fs");
 const path = require("path");
 const { chromium } = require("playwright");
 
-const ROOT = path.resolve(__dirname, "..");
+const EPISODE_PATH = path.resolve(process.argv[2] || "");
+const OUT_DIR = path.resolve(process.argv[3] || ".");
+const ONLY = process.argv[4];
+if (!process.argv[2] || !fs.existsSync(EPISODE_PATH)) { console.error("usage: node build.cjs <episode.json> <outDir> [16x9|9x16]"); process.exit(2); }
+const EP = JSON.parse(fs.readFileSync(EPISODE_PATH, "utf8"));
 
 // ───────────────────────── ONE CONSTANTS BLOCK ─────────────────────────
 // Every scene window is derived from here (markup attributes AND timeline).
@@ -21,6 +26,12 @@ const SCENES = {
 const SCENE_ORDER = ["intro", "n1", "n2", "n3", "nm", "close"];
 // Music bed: ducks under the closing lockup (starts 0.2 s before the lockup, 0.7 s ramp).
 const MUSIC = { file: "architect-daily-bed.m4a", level: 1, duckAt: SCENES.close[0] + 3.8, duckRamp: 0.7, duckTo: 0.3 };
+// Per-slot beat times (seconds after scene start) for the shared news furniture. Locked.
+const NEWS_T = {
+  n1: { hl: 0.35, body: 0.9, cap: 3.5, src: 1.2 },
+  n2: { hl: 0.35, body: 1.0, cap: 3.5, src: 1.6 },
+  n3: { hl: 0.3, body: 0.8, cap: 3.0, src: 1.0 },
+};
 const COPY = {
   question: "How did you use AI today?",
 };
@@ -40,6 +51,61 @@ function shuffle(n, seed) {
   }
   return a;
 }
+
+// ───────────────────────── episode validation ─────────────────────────
+const VISUALS = ["stats", "document", "dotgrid"];
+function validateEpisode(e) {
+  const err = [];
+  const need = (c, m) => { if (!c) err.push(m); };
+  const str = (v, max, name) => { need(typeof v === "string" && v.trim().length > 0, name + " is required"); if (typeof v === "string") need(v.replace(/\n/g, " ").length <= max, name + " is " + v.length + " chars (max " + max + ")"); };
+  const keys = (o, allowed, name) => Object.keys(o || {}).forEach((k) => need(allowed.includes(k), name + ": unknown key '" + k + "' (format is locked)"));
+  keys(e, ["date", "news", "newToMe"], "episode");
+  need(e.date && /^\d{4}-\d{2}-\d{2}$/.test(e.date.slug || ""), "date.slug must be YYYY-MM-DD");
+  str(e.date && e.date.label, 16, "date.label");
+  need(Array.isArray(e.news) && e.news.length === 3, "news must have exactly 3 items");
+  (e.news || []).forEach((n, i) => {
+    const w = "news[" + i + "]";
+    keys(n, ["headline", "body", "caption", "sources", "visual"], w);
+    str(n.headline, 46, w + ".headline"); str(n.body, 100, w + ".body"); str(n.caption, 56, w + ".caption");
+    str(n.sources, 80, w + ".sources"); need(/^sources:/i.test(n.sources || ""), w + ".sources must start with 'Sources:'");
+    const v = n.visual || {};
+    need(VISUALS.includes(v.type), w + ".visual.type must be one of " + VISUALS.join(", "));
+    if (v.type === "stats") {
+      keys(v, ["type", "cards", "icon"], w + ".visual");
+      need(Array.isArray(v.cards) && v.cards.length === 2, w + ".visual.cards must have exactly 2 cards");
+      (v.cards || []).forEach((c, j) => { need(typeof c.value === "number", w + " card " + j + " value must be a number"); str(c.label, 40, w + " card " + j + " label"); });
+      need(!v.icon || v.icon === "lock", w + ".visual.icon must be 'lock'");
+    }
+    if (v.type === "document") {
+      keys(v, ["type", "brand", "logo", "stamp", "sectionA", "sectionB", "fact"], w + ".visual");
+      str(v.brand, 20, w + ".visual.brand"); str(v.stamp, 14, w + ".visual.stamp"); str(v.fact, 90, w + ".visual.fact");
+      str(v.sectionA, 28, w + ".visual.sectionA"); str(v.sectionB, 28, w + ".visual.sectionB");
+      if (v.logo) need(fs.existsSync(path.resolve(path.dirname(EPISODE_PATH), v.logo)), w + ".visual.logo file not found: " + v.logo);
+    }
+    if (v.type === "dotgrid") {
+      keys(v, ["type", "label", "lineLabel", "fadeShare"], w + ".visual");
+      str(v.label, 34, w + ".visual.label"); str(v.lineLabel, 18, w + ".visual.lineLabel");
+      need(v.fadeShare === undefined || (v.fadeShare > 0 && v.fadeShare < 1), w + ".visual.fadeShare must be between 0 and 1");
+    }
+  });
+  const m = e.newToMe || {};
+  keys(m, ["headline", "nodes", "grid", "captions"], "newToMe");
+  str(m.headline, 36, "newToMe.headline");
+  ["form", "air", "o1", "o2"].forEach((k) => { const nd = (m.nodes || {})[k] || {}; str(nd.kicker, 14, "newToMe.nodes." + k + ".kicker"); str(nd.title, 30, "newToMe.nodes." + k + ".title"); });
+  const g = m.grid || {};
+  str(g.title, 26, "newToMe.grid.title");
+  need(Array.isArray(g.columns) && g.columns.length === 5, "newToMe.grid.columns must have 5 labels");
+  need(Array.isArray(g.row) && g.row.length === 4, "newToMe.grid.row must have 4 text values (the 5th cell is the gold check)");
+  (g.row || []).forEach((v, i) => str(v, 20, "newToMe.grid.row[" + i + "]"));
+  need(/@example\.(com|org|net)$/i.test((g.row || [])[0] || ""), "SAMPLE DATA ONLY: row[0] must be an @example.com/.org/.net address");
+  need(Array.isArray(m.captions) && m.captions.length === 2, "newToMe.captions must have 2 captions");
+  (m.captions || []).forEach((c, i) => str(c, 50, "newToMe.captions[" + i + "]"));
+  if (err.length) { console.error("Episode invalid:\n - " + err.join("\n - ")); process.exit(3); }
+}
+validateEpisode(EP);
+const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+const br = (t) => esc(t).replace(/\n/g, "<br>");
+const slug = EP.date.slug, dateLabel = EP.date.label;
 
 // ───────────────────────── layouts ─────────────────────────
 const LAYOUTS = {
@@ -92,10 +158,10 @@ function markHTML(id, size) {
 }
 
 function lockHTML(id) {
-  return `<div id="${id}" class="lock"><div class="shackle"></div><div class="lbody"><i class="kh"></i><i class="ks"></i></div></div>`;
+  return `<div id="${id}" class="lock lockpos"><div class="shackle"></div><div class="lbody"><i class="kh"></i><i class="ks"></i></div></div>`;
 }
 
-function dotsHTML(P) {
+function dotsHTML(P, k, lineLabel, fadeShare) {
   const d = P.dots;
   const gridW = d.cols * d.cw, gridH = d.rows * d.ch;
   const x0 = Math.round((d.cardW - gridW) / 2), y0 = d.top;
@@ -104,7 +170,7 @@ function dotsHTML(P) {
     for (let c = 0; c < d.cols; c++) {
       const i = r * d.cols + c;
       const cx = x0 + c * d.cw + d.cw / 2, cy = y0 + r * d.ch + d.ch / 2;
-      out += `<i id="n3-d${i}" class="dot" style="left:${cx - d.dia / 2}px;top:${cy - d.dia / 2}px;width:${d.dia}px;height:${d.dia}px"></i>`;
+      out += `<i id="${k}-d${i}" class="dot" style="left:${cx - d.dia / 2}px;top:${cy - d.dia / 2}px;width:${d.dia}px;height:${d.dia}px"></i>`;
     }
   // gold rising line (segments rotated + scaled from their start)
   const pts = [[0.07, 0.9], [0.3, 0.78], [0.52, 0.6], [0.76, 0.36], [0.93, 0.14]].map(([a, b]) => [
@@ -114,12 +180,14 @@ function dotsHTML(P) {
   for (let i = 0; i < pts.length - 1; i++) {
     const [ax, ay] = pts[i], [bx, by] = pts[i + 1];
     const len = Math.hypot(bx - ax, by - ay), ang = (Math.atan2(by - ay, bx - ax) * 180) / Math.PI;
-    segs += `<i id="n3-g${i}" class="gline" data-ang="${ang.toFixed(3)}" style="left:${ax}px;top:${ay - 3}px;width:${len.toFixed(2)}px"></i>`;
+    segs += `<i id="${k}-g${i}" class="gline" data-ang="${ang.toFixed(3)}" style="left:${ax}px;top:${ay - 3}px;width:${len.toFixed(2)}px"></i>`;
   }
   const tip = pts[pts.length - 1];
-  segs += `<i id="n3-gtip" class="gtip" style="left:${tip[0] - 14}px;top:${tip[1] - 14}px"></i>`;
-  segs += `<div id="n3-glabel" class="glabel" style="left:${tip[0] - 250}px;top:${tip[1] - 62}px;width:236px;text-align:right">AI INVESTMENT</div>`;
-  return { dots: out + segs, nPts: pts.length - 1, total: d.cols * d.rows };
+  segs += `<i id="${k}-gtip" class="gtip" style="left:${tip[0] - 14}px;top:${tip[1] - 14}px"></i>`;
+  segs += `<div id="${k}-glabel" class="glabel" style="left:${tip[0] - 250}px;top:${tip[1] - 62}px;width:236px;text-align:right">${esc(lineLabel)}</div>`;
+  const total = d.cols * d.rows;
+  const fade = shuffle(total, 20261028).slice(0, Math.round(total * fadeShare));
+  return { dots: out + segs, nPts: pts.length - 1, total, fade };
 }
 
 function questionHTML(text) {
@@ -219,6 +287,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:${BRAND.bg}}
 /* paper */
 .paper{position:${portrait ? "relative" : "absolute"};background:#F3F0E6;color:#12141B;border-radius:10px;padding:${portrait ? "40px 44px" : "44px 52px"};display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 0 0 1px rgba(255,255,255,.1),0 0 70px rgba(61,127,255,.2),0 30px 60px rgba(0,0,0,.5)}
 .paper .phead{display:flex;justify-content:space-between;align-items:center}
+.paper .logo{height:52px;width:auto;display:block}
 .paper .brand{font-family:"DM Sans",sans-serif;font-weight:500;font-size:${portrait ? 38 : 40}px;letter-spacing:.26em;color:#0B0D12}
 .paper .stamp{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:${portrait ? 34 : 34}px;letter-spacing:.14em;background:var(--gold);color:#11131A;padding:10px 20px;border-radius:6px;box-shadow:0 0 0 3px rgba(240,192,64,.5)}
 .paper .rule{height:3px;background:#12141B;opacity:.85}
@@ -229,8 +298,8 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:${BRAND.bg}}
 .paper .bar.s{width:62%}.paper .bar.m{width:84%}
 
 /* dots card */
-#n3-card{position:${portrait ? "relative" : "absolute"};width:${P.dots.cardW}px;height:${P.dots.cardH}px;overflow:hidden}
-#n3-card .clab{position:absolute;left:34px;top:30px;font-family:"JetBrains Mono",monospace;font-weight:500;font-size:${portrait ? 22 : 20}px;letter-spacing:.22em;text-transform:uppercase;color:rgba(232,238,255,.7)}
+.dotcard{position:${portrait ? "relative" : "absolute"};width:${P.dots.cardW}px;height:${P.dots.cardH}px;overflow:hidden}
+.dotcard .clab{position:absolute;left:34px;top:30px;font-family:"JetBrains Mono",monospace;font-weight:500;font-size:${portrait ? 22 : 20}px;letter-spacing:.22em;text-transform:uppercase;color:rgba(232,238,255,.7)}
 .dot{position:absolute;border-radius:50%;background:var(--blue);box-shadow:0 0 16px rgba(61,127,255,.5)}
 .gline{position:absolute;height:6px;border-radius:3px;background:var(--gold);box-shadow:0 0 16px rgba(240,192,64,.7);transform-origin:0% 50%}
 .gtip{position:absolute;width:28px;height:28px;border-radius:50%;background:var(--gold);box-shadow:0 0 28px rgba(240,192,64,.9)}
@@ -275,18 +344,18 @@ ${
   portrait
     ? `.col{position:absolute;left:${P.mx}px;top:210px;width:${W - 2 * P.mx}px}
 .flow{position:absolute;left:${P.mx}px;top:210px;width:${W - 2 * P.mx}px;display:flex;flex-direction:column;align-items:flex-start;gap:30px}
-#n1-c1{left:${P.mx}px;top:790px;width:936px;height:196px}
-#n1-c2{left:${P.mx}px;top:1006px;width:936px;height:196px}
-#n1-lock{position:absolute;left:${(W - 140) / 2}px;top:1222px}
-#n2-paper{width:936px;height:600px;margin-top:6px}
+.stat.c1{left:${P.mx}px;top:790px;width:936px;height:196px}
+.stat.c2{left:${P.mx}px;top:1006px;width:936px;height:196px}
+.lockpos{position:absolute;left:${(W - 140) / 2}px;top:1222px}
+.paper{width:936px;height:600px;margin-top:6px}
 #nm-col{position:absolute;left:${P.mx}px;top:210px;width:${W - 2 * P.mx}px}`
     : `.col{position:absolute;left:${P.mx}px;top:140px;width:900px}
 #nm-col{position:absolute;left:${P.mx}px;top:140px;width:1728px}
-#n1-c1{left:1060px;top:150px;width:764px;height:260px}
-#n1-c2{left:1060px;top:450px;width:764px;height:260px}
-#n1-lock{position:absolute;left:${P.mx}px;top:640px}
-#n2-paper{left:1090px;top:120px;width:730px;height:730px}
-#n3-card{left:1060px;top:160px}`
+.stat.c1{left:1060px;top:150px;width:764px;height:260px}
+.stat.c2{left:1060px;top:450px;width:764px;height:260px}
+.lockpos{position:absolute;left:${P.mx}px;top:640px}
+.paper{left:1090px;top:120px;width:730px;height:730px}
+.dotcard{left:1060px;top:160px}`
 }
 `;
 }
@@ -334,46 +403,42 @@ function count(sel, to, dec, t0, d, suffix) {
   IN("#in-cap", s + 2.1, { y: 22, d: 0.6 });
 }
 
-// ── NEWS 01 ──
-{
-  const s = S("n1");
-  IN("#n1-tag", s + 0.2, { y: 14 }); IN("#n1-hl", s + 0.35); IN("#n1-body", s + 0.9);
-  IN("#n1-c1", s + 1.5, { y: 34, d: 0.7 }); IN("#n1-c2", s + 2.0, { y: 34, d: 0.7 });
-  count("#n1-n1", 76, 0, s + 1.6, 1.3, "%"); count("#n1-n2", 99.4, 1, s + 2.1, 1.3, "%");
-  tl.fromTo("#n1-lock .lbody", { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, duration: 0.45, ease: "back.out(1.6)" }, s + 3.2);
-  tl.fromTo("#n1-lock .shackle", { y: -34, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, s + 3.55);
-  tl.fromTo("#n1-lock .kh,#n1-lock .ks", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)" }, s + 3.95);
-  IN("#n1-cap", s + 3.5, { y: 18, d: 0.5 }); IN("#n1-src", s + 1.2, { y: 8, d: 0.5 });
-}
-
-// ── NEWS 02 ──
-{
-  const s = S("n2");
-  IN("#n2-tag", s + 0.2, { y: 14 }); IN("#n2-hl", s + 0.35); IN("#n2-body", s + 1.0);
-  tl.fromTo("#n2-paper", { opacity: 0, y: 60, rotation: -3.5 }, { opacity: 1, y: 0, rotation: -1.5, duration: 0.8, ease: E }, s + 1.3);
-  IN("#n2-brand", s + 1.9, { y: 10, d: 0.5 }); IN("#n2-sec1", s + 2.1, { y: 10, d: 0.5 });
-  IN("#n2-fact", s + 2.35, { y: 14, d: 0.6 });
-  tl.fromTo("#n2-bars", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power1.out" }, s + 2.0);
-  tl.fromTo("#n2-stamp", { opacity: 0, scale: 1.9, rotation: -2 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.28, ease: "power4.in" }, s + 3.1);
-  IN("#n2-cap", s + 3.5, { y: 18, d: 0.5 }); IN("#n2-src", s + 1.6, { y: 8, d: 0.5 });
-}
-
-// ── NEWS 03 ──
-{
-  const s = S("n3");
-  IN("#n3-tag", s + 0.2, { y: 14 }); IN("#n3-hl", s + 0.3); IN("#n3-body", s + 0.8);
-  tl.fromTo("#n3-card", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: E }, s + 0.9);
-  for (let i = 0; i < DOT_TOTAL; i++)
-    tl.fromTo("#n3-d" + i, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, s + 1.15 + (i / DOT_TOTAL) * 0.5);
-  FADE_ORDER.forEach((idx, j) => tl.to("#n3-d" + idx, { opacity: 0.1, scale: 0.8, duration: 0.45, ease: "power2.inOut" }, s + 1.9 + j * 0.03));
-  for (let i = 0; i < G_SEGS; i++) {
-    const ang = parseFloat(document.querySelector("#n3-g" + i).dataset.ang);
-    tl.fromTo("#n3-g" + i, { scaleX: 0, rotation: ang }, { scaleX: 1, rotation: ang, duration: 0.42, ease: "none" }, s + 2.0 + i * 0.4);
-  }
-  tl.fromTo("#n3-gtip", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.4)" }, s + 2.0 + G_SEGS * 0.4);
-  IN("#n3-glabel", s + 2.0 + G_SEGS * 0.4, { y: 8, d: 0.4 });
-  IN("#n3-cap", s + 3.0, { y: 18, d: 0.5 }); IN("#n3-src", s + 1.0, { y: 8, d: 0.5 });
-}
+// ── NEWS 01-03: shared furniture + one visual module per slot ──
+const VIS = {
+  stats(k, s, v) {
+    IN("#" + k + "-c1", s + 1.5, { y: 34, d: 0.7 }); IN("#" + k + "-c2", s + 2.0, { y: 34, d: 0.7 });
+    v.cards.forEach((c, i) => count("#" + k + "-n" + (i + 1), c.value, c.decimals || 0, s + 1.6 + i * 0.5, 1.3, c.suffix || ""));
+    tl.fromTo("#" + k + "-lock .lbody", { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, duration: 0.45, ease: "back.out(1.6)" }, s + 3.2);
+    tl.fromTo("#" + k + "-lock .shackle", { y: -34, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, s + 3.55);
+    tl.fromTo("#" + k + "-lock .kh,#" + k + "-lock .ks", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)" }, s + 3.95);
+  },
+  document(k, s, v) {
+    tl.fromTo("#" + k + "-paper", { opacity: 0, y: 60, rotation: -3.5 }, { opacity: 1, y: 0, rotation: -1.5, duration: 0.8, ease: E }, s + 1.3);
+    IN("#" + k + "-brand", s + 1.9, { y: 10, d: 0.5 }); IN("#" + k + "-sec1", s + 2.1, { y: 10, d: 0.5 });
+    IN("#" + k + "-fact", s + 2.35, { y: 14, d: 0.6 });
+    tl.fromTo("#" + k + "-bars", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power1.out" }, s + 2.0);
+    tl.fromTo("#" + k + "-stamp", { opacity: 0, scale: 1.9, rotation: -2 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.28, ease: "power4.in" }, s + 3.1);
+  },
+  dotgrid(k, s, v) {
+    const d = v.dot;
+    tl.fromTo("#" + k + "-card", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: E }, s + 0.9);
+    for (let i = 0; i < d.total; i++)
+      tl.fromTo("#" + k + "-d" + i, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, s + 1.15 + (i / d.total) * 0.5);
+    d.fade.forEach((idx, j) => tl.to("#" + k + "-d" + idx, { opacity: 0.1, scale: 0.8, duration: 0.45, ease: "power2.inOut" }, s + 1.9 + j * 0.03));
+    for (let i = 0; i < d.segs; i++) {
+      const ang = parseFloat(document.querySelector("#" + k + "-g" + i).dataset.ang);
+      tl.fromTo("#" + k + "-g" + i, { scaleX: 0, rotation: ang }, { scaleX: 1, rotation: ang, duration: 0.42, ease: "none" }, s + 2.0 + i * 0.4);
+    }
+    tl.fromTo("#" + k + "-gtip", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.4)" }, s + 2.0 + d.segs * 0.4);
+    IN("#" + k + "-glabel", s + 2.0 + d.segs * 0.4, { y: 8, d: 0.4 });
+  },
+};
+NEWS.forEach(({ k, vis }) => {
+  const s = S(k), t = NEWS_T[k];
+  IN("#" + k + "-tag", s + 0.2, { y: 14 }); IN("#" + k + "-hl", s + t.hl); IN("#" + k + "-body", s + t.body);
+  VIS[vis.type](k, s, vis);
+  IN("#" + k + "-cap", s + t.cap, { y: 18, d: 0.5 }); IN("#" + k + "-src", s + t.src, { y: 8, d: 0.5 });
+});
 
 // ── NEW TO ME 21-30 ──
 {
@@ -454,7 +519,6 @@ window.__timelines["main"] = tl;
 // ───────────────────────── assemble ─────────────────────────
 function pageHTML(P, geo, withScript) {
   const st = (k) => `data-start="${SCENES[k][0]}" data-duration="${SCENES[k][1] - SCENES[k][0]}"`;
-  const dots = dotsHTML(P);
   const q = questionHTML(COPY.question);
   const portrait = P.name === "9x16";
   const nm = P.nm;
@@ -473,16 +537,46 @@ function pageHTML(P, geo, withScript) {
   const cardInner = (n, id, lab) =>
     `<div class="num" id="${id}">0%</div><div class="lab">${lab}</div>`;
 
-  const paper = `      <div id="n2-paper" class="paper">
-        <div class="phead"><div id="n2-brand" class="brand">ANTHROPIC</div><div id="n2-stamp" class="stamp">FORM S-1</div></div>
+  const newsVis = EP.news.map((n, i) => {
+    const k = "n" + (i + 1), v = n.visual;
+    if (v.type === "dotgrid") { const d = dotsHTML(P, k, v.lineLabel, v.fadeShare === undefined ? 0.6 : v.fadeShare); return { k, v, dots: d, vis: { type: v.type, dot: { total: d.total, fade: d.fade, segs: d.nPts } } }; }
+    return { k, v, vis: { type: v.type, cards: v.cards } };
+  });
+  const visualHTML = (x) => {
+    const { k, v } = x;
+    if (v.type === "stats")
+      return { flow: "", abs: v.cards.map((c, j) => `<div id="${k}-c${j + 1}" class="stat card c${j + 1}"><div class="num" id="${k}-n${j + 1}">0${esc(c.suffix || "")}</div><div class="lab">${esc(c.label)}</div></div>`).join("\n    ") + `\n    ${lockHTML(k + "-lock")}` };
+    if (v.type === "document") {
+      const brand = v.logo ? `<img id="${k}-brand" class="logo" src="assets/${path.basename(v.logo)}" alt="">` : `<div id="${k}-brand" class="brand">${esc(v.brand)}</div>`;
+      return { abs: "", flow: `<div id="${k}-paper" class="paper">
+        <div class="phead">${brand}<div id="${k}-stamp" class="stamp">${esc(v.stamp)}</div></div>
         <div class="rule"></div>
-        <div id="n2-sec1" class="sec">Registration statement</div>
-        <div id="n2-bars" class="bars"><i class="bar"></i><i class="bar m"></i><i class="bar s"></i></div>
-        <div class="sec">Risk factors</div>
-        <div id="n2-fact" class="fact">Training paused 1+ month over security concerns (per Reuters)</div>
+        <div id="${k}-sec1" class="sec">${esc(v.sectionA)}</div>
+        <div id="${k}-bars" class="bars"><i class="bar"></i><i class="bar m"></i><i class="bar s"></i></div>
+        <div class="sec">${esc(v.sectionB)}</div>
+        <div id="${k}-fact" class="fact">${esc(v.fact)}</div>
         <div class="bars"><i class="bar"></i><i class="bar m"></i><i class="bar"></i><i class="bar s"></i></div>
-      </div>
-`;
+      </div>` };
+    }
+    return { abs: "", flow: `<div id="${k}-card" class="card dotcard"><div class="clab">${esc(v.label)}</div>${x.dots.dots}</div>` };
+  };
+  const newsScenes = EP.news.map((n, i) => {
+    const x = newsVis[i], k = x.k, vh = visualHTML(x);
+    return `<!-- NEWS 0${i + 1} -->
+  <div id="sc-${k}" class="clip scene" ${st(k)} data-track-index="1"><div class="stage">
+    <div class="${portrait ? "flow" : "col"}">
+      <div id="${k}-tag" class="tag">News to you 0${i + 1}</div>
+      <h1 id="${k}-hl" class="hl">${br(n.headline)}</h1>
+      <p id="${k}-body" class="body">${esc(n.body)}</p>
+      ${portrait ? vh.flow : ""}
+    </div>
+    ${portrait ? "" : vh.flow}
+    ${vh.abs}
+    <div id="${k}-cap" class="cap">${esc(n.caption)}</div>
+    <div id="${k}-src" class="src">${esc(n.sources)}</div>
+  </div></div>`;
+  }).join("\n\n  ");
+  const NM = EP.newToMe;
 
   const body = `
 <div id="root" data-composition-id="main" data-start="0" data-duration="${TOTAL}" data-width="${P.W}" data-height="${P.H}">
@@ -490,74 +584,36 @@ function pageHTML(P, geo, withScript) {
   <!-- INTRO -->
   <div id="sc-intro" class="clip scene" ${st("intro")} data-track-index="1"><div class="stage">
     ${markHTML("in-mark", P.markIntro)}
-    <div id="in-label">Architect Daily / Oct 28, 2026</div>
+    <div id="in-label">Architect Daily / ${esc(dateLabel)}</div>
     <div id="in-cap" class="cap">Vision, not just noise.</div>
   </div></div>
 
-  <!-- NEWS 01 -->
-  <div id="sc-n1" class="clip scene" ${st("n1")} data-track-index="1"><div class="stage">
-    <div class="${portrait ? "flow" : "col"}">
-      <div id="n1-tag" class="tag">News to you 01</div>
-      <h1 id="n1-hl" class="hl">Agents now need managers.</h1>
-      <p id="n1-body" class="body">IBM launched tools to identify and control AI agents inside companies.</p>
-    </div>
-    <div id="n1-c1" class="stat card">${cardInner(1, "n1-n1", "Enabled agents idle 60+ days")}</div>
-    <div id="n1-c2" class="stat card">${cardInner(2, "n1-n2", "Lack DLP on sensitive connections")}</div>
-    ${lockHTML("n1-lock")}
-    <div id="n1-cap" class="cap">Deploying agents without documentation is sprawl.</div>
-    <div id="n1-src" class="src">Sources: Aidapted, AI Weekly, Oct 27-28</div>
-  </div></div>
-
-  <!-- NEWS 02 -->
-  <div id="sc-n2" class="clip scene" ${st("n2")} data-track-index="1"><div class="stage">
-    <div class="${portrait ? "flow" : "col"}">
-      <div id="n2-tag" class="tag">News to you 02</div>
-      <h1 id="n2-hl" class="hl">A frontier lab files to go public.</h1>
-      <p id="n2-body" class="body">Anthropic filed an S-1 for a proposed IPO.</p>
-      ${portrait ? paper : ""}
-    </div>
-    ${portrait ? "" : paper}
-    <div id="n2-cap" class="cap">Read how labs disclose risk.</div>
-    <div id="n2-src" class="src">Sources: The Neuron, Reuters via The Neuron, Oct 27</div>
-  </div></div>
-
-  <!-- NEWS 03 -->
-  <div id="sc-n3" class="clip scene" ${st("n3")} data-track-index="1"><div class="stage">
-    <div class="${portrait ? "flow" : "col"}">
-      <div id="n3-tag" class="tag">News to you 03</div>
-      <h1 id="n3-hl" class="hl">~60,000 buyouts.<br>AI spend up.</h1>
-      <p id="n3-body" class="body">Microsoft is offering ~60,000 voluntary buyouts while increasing its AI investment.</p>
-      ${portrait ? `<div id="n3-card" class="card"><div class="clab">Workforce (illustrative)</div>${dots.dots}</div>` : ""}
-    </div>
-    ${portrait ? "" : `<div id="n3-card" class="card"><div class="clab">Workforce (illustrative)</div>${dots.dots}</div>`}
-    <div id="n3-cap" class="cap">Who holds your workflow knowledge?</div>
-    <div id="n3-src" class="src">Sources: AI Weekly, Aidapted, Oct 27-28</div>
-  </div></div>
+  ${newsScenes}
 
   <!-- NEW TO ME -->
   <div id="sc-nm" class="clip scene" ${st("nm")} data-track-index="1"><div class="stage">
     <div id="nm-col" class="col">
       <div id="nm-tag" class="tag goldt">New to me</div>
-      <h1 id="nm-hl" class="hl">Website to inbox, fully wired.</h1>
+      <h1 id="nm-hl" class="hl">${br(NM.headline)}</h1>
     </div>
-    ${box("nm-form", nm.form, "Input", "Website contact form")}
-    ${box("nm-air", nm.air, "Database", "Airtable (contact records)")}
-    ${box("nm-o1", nm.o1, "Output 01", "Assessment results to client")}
-    ${box("nm-o2", nm.o2, "Output 02", "Copy to me")}
+    ${box("nm-form", nm.form, NM.nodes.form.kicker, NM.nodes.form.title)}
+    ${box("nm-air", nm.air, NM.nodes.air.kicker, NM.nodes.air.title)}
+    ${box("nm-o1", nm.o1, NM.nodes.o1.kicker, NM.nodes.o1.title)}
+    ${box("nm-o2", nm.o2, NM.nodes.o2.kicker, NM.nodes.o2.title)}
     ${geo ? connectorsHTML(geo) : ""}
     <div id="nm-grid" class="gcard card" style="left:${nm.grid[0]}px;top:${nm.grid[1]}px;width:${nm.grid[2]}px">
-      <div class="gtop"><span class="gtitle">Airtable / Contacts</span><span id="nm-sample" class="sample">Sample data</span></div>
-      <div class="grow ghead"><div>Email</div><div>Score</div><div>Level</div><div>Opt-in</div><div>Report emailed</div></div>
+      <div class="gtop"><span class="gtitle">${esc(NM.grid.title)}</span><span id="nm-sample" class="sample">Sample data</span></div>
+      <div class="grow ghead">${NM.grid.columns.map((c) => `<div>${esc(c)}</div>`).join("")}</div>
       <div class="grow gdata">
-        <div><i id="nm-fl0" class="fl"></i><span id="nm-f0">jane@example.com</span></div>
-        <div><i id="nm-fl1" class="fl"></i><span id="nm-f1">13/30</span></div>
-        <div><i id="nm-fl2" class="fl"></i><span id="nm-f2">Taxiing</span></div>
-        <div><i id="nm-fl3" class="fl"></i><span id="nm-f3">Yes</span></div>
+        <div><i id="nm-fl0" class="fl"></i><span id="nm-f0">${esc(NM.grid.row[0])}</span></div>
+        <div><i id="nm-fl1" class="fl"></i><span id="nm-f1">${esc(NM.grid.row[1])}</span></div>
+        <div><i id="nm-fl2" class="fl"></i><span id="nm-f2">${esc(NM.grid.row[2])}</span></div>
+        <div><i id="nm-fl3" class="fl"></i><span id="nm-f3">${esc(NM.grid.row[3])}</span></div>
         <div><i id="nm-fl4" class="fl"></i><svg id="nm-f4" viewBox="0 0 44 44"><path d="M8 23 L18 33 L37 10" fill="none" stroke="#F0C040" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       </div>
     </div>
-    <div id="nm-cap1" class="cap">Built today. Documented today.</div>
-    <div id="nm-cap2" class="cap">Claude Code turned the build into this reel.</div>
+    <div id="nm-cap1" class="cap">${esc(NM.captions[0])}</div>
+    <div id="nm-cap2" class="cap">${esc(NM.captions[1])}</div>
   </div></div>
 
   <!-- CLOSE -->
@@ -577,22 +633,20 @@ function pageHTML(P, geo, withScript) {
   <!-- persistent HUD -->
   <div id="hud" class="clip" data-start="0" data-duration="${TOTAL}" data-track-index="9">
     <div id="hud-l" class="hudt">Architect Daily</div>
-    <div id="hud-r" class="hudt">Oct 28, 2026</div>
+    <div id="hud-r" class="hudt">${esc(dateLabel)}</div>
     ${bar}
   </div>
 </div>`;
 
   const sceneConsts = `const SCENES = ${JSON.stringify(SCENES)};\nconst SCENE_ORDER = ${JSON.stringify(SCENE_ORDER)};\nconst TOTAL = ${TOTAL};`;
-  const fade = shuffle(dots.total, 20261028).slice(0, Math.round(dots.total * 0.6));
   const script = withScript
     ? `<script src="assets/gsap.min.js"></script>
 <script>
 window.__timelines = window.__timelines || {};
-// ── constants (scene windows come from build/build.cjs; edit them there) ──
+// ── constants (scene windows come from build.cjs; the format is locked) ──
 ${sceneConsts}
-const DOT_TOTAL = ${dots.total};
-const FADE_ORDER = ${JSON.stringify(fade)};   // dots that fade out (seeded shuffle, no Math.random)
-const G_SEGS = ${dots.nPts};
+const NEWS_T = ${JSON.stringify(NEWS_T)};
+const NEWS = ${JSON.stringify(newsVis.map((x) => ({ k: x.k, vis: x.vis })))};   // visual module per slot (dot fade order is a seeded shuffle, no Math.random)
 const Q_N = ${q.n};                           // characters in the typed question
 const GEO = ${JSON.stringify(geo)};            // connector geometry, measured once at build time
 ${TIMELINE_JS}
@@ -604,7 +658,7 @@ ${TIMELINE_JS}
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=${P.W}, height=${P.H}">
-<title>Architect Daily - Oct 28, 2026 (${P.name})</title>
+<title>Architect Daily - ${esc(dateLabel)} (${P.name})</title>
 <style>${css(P)}</style>
 </head>
 <body>
@@ -632,7 +686,8 @@ function pathSegs(pts) {
 }
 
 async function measure(P, browser) {
-  const tmp = path.join(ROOT, P.name, "_measure.html");
+  fs.mkdirSync(path.join(OUT_DIR, P.name), { recursive: true });
+  const tmp = path.join(OUT_DIR, P.name, "_measure.html");
   fs.writeFileSync(tmp, pageHTML(P, null, false));
   const page = await browser.newPage({ viewport: { width: P.W, height: P.H } });
   await page.goto("file://" + tmp);
@@ -652,7 +707,7 @@ async function measure(P, browser) {
 
 (async () => {
   const browser = await chromium.launch();
-  const only = process.argv[2];
+  const only = ONLY;
   for (const P of Object.values(LAYOUTS)) {
     if (only && only !== P.name) continue;
     const m = await measure(P, browser);
@@ -665,13 +720,18 @@ async function measure(P, browser) {
     const paths = { c0: { pts: elbow(f, a) }, c1: { pts: elbow(ab, t1) }, c2: { pts: elbow(ab, t2) } };
     for (const c of Object.values(paths)) c.segs = pathSegs(c.pts);
     const geo = { thickness: LINE_T, boxes: m, paths };
-    const dir = path.join(ROOT, P.name);
+    const dir = path.join(OUT_DIR, P.name);
     fs.mkdirSync(path.join(dir, "assets/fonts"), { recursive: true });
     for (const f2 of fs.readdirSync(path.join(__dirname, "vendor"))) {
       const dst = f2.endsWith(".woff2") ? path.join(dir, "assets/fonts", f2) : path.join(dir, "assets", f2);
       fs.copyFileSync(path.join(__dirname, "vendor", f2), dst);
     }
     fs.copyFileSync(path.join(__dirname, "audio", MUSIC.file), path.join(dir, "assets", MUSIC.file));
+    for (const n of EP.news) if (n.visual.logo) fs.copyFileSync(path.resolve(path.dirname(EPISODE_PATH), n.visual.logo), path.join(dir, "assets", path.basename(n.visual.logo)));
+    // HyperFrames project scaffolding (what `hyperframes init` writes)
+    fs.writeFileSync(path.join(dir, "hyperframes.json"), JSON.stringify({ $schema: "https://hyperframes.heygen.com/schema/hyperframes.json", registry: "https://raw.githubusercontent.com/heygen-com/hyperframes/main/registry", paths: { blocks: "compositions", components: "compositions/components", assets: "assets" }, media: { autoProxy: true } }, null, 2));
+    fs.writeFileSync(path.join(dir, "meta.json"), JSON.stringify({ id: P.name, name: "architect-daily-" + slug + "-" + P.name }, null, 2));
+    fs.writeFileSync(path.join(dir, "package.json"), JSON.stringify({ name: "architect-daily-" + slug + "-" + P.name, private: true, type: "module" }, null, 2));
     fs.writeFileSync(path.join(dir, "index.html"), pageHTML(P, geo, true));
     fs.writeFileSync(path.join(dir, "connector-geometry.json"), JSON.stringify(geo, null, 2));
     console.log("built", P.name, "midY", midY);

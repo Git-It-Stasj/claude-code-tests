@@ -1,0 +1,99 @@
+{
+  "date": {
+    "slug": "YYYY-MM-DD",
+    "label": "MON DD, YYYY"
+  },
+  "news": [
+    {
+      "headline": "Headline, max 46 chars.",
+      "body": "One body line, max 100 chars, plain and factual.",
+      "caption": "Short caption, max 56 chars.",
+      "sources": "Sources: Outlet A, Outlet B, Oct 00",
+      "visual": {
+        "type": "stats",
+        "cards": [
+          {
+            "value": 0,
+            "decimals": 0,
+            "suffix": "%",
+            "label": "Stat one label"
+          },
+          {
+            "value": 0,
+            "decimals": 1,
+            "suffix": "%",
+            "label": "Stat two label"
+          }
+        ],
+        "icon": "lock"
+      }
+    },
+    {
+      "headline": "Headline, max 46 chars.",
+      "body": "One body line.",
+      "caption": "Short caption.",
+      "sources": "Sources: Outlet A, Oct 00",
+      "visual": {
+        "type": "document",
+        "brand": "BRAND",
+        "stamp": "FORM X",
+        "sectionA": "Section label",
+        "sectionB": "Section label",
+        "fact": "The one factual line shown on the paper (per Source)"
+      }
+    },
+    {
+      "headline": "Headline line one.\nHeadline line two.",
+      "body": "One body line.",
+      "caption": "Short caption.",
+      "sources": "Sources: Outlet A, Oct 00",
+      "visual": {
+        "type": "dotgrid",
+        "label": "Group label (illustrative)",
+        "lineLabel": "LINE LABEL",
+        "fadeShare": 0.6
+      }
+    }
+  ],
+  "newToMe": {
+    "headline": "Website to inbox, fully wired.",
+    "nodes": {
+      "form": {
+        "kicker": "Input",
+        "title": "Website contact form"
+      },
+      "air": {
+        "kicker": "Database",
+        "title": "Airtable (contact records)"
+      },
+      "o1": {
+        "kicker": "Output 01",
+        "title": "Assessment results to client"
+      },
+      "o2": {
+        "kicker": "Output 02",
+        "title": "Copy to me"
+      }
+    },
+    "grid": {
+      "title": "Airtable / Contacts",
+      "columns": [
+        "Email",
+        "Score",
+        "Level",
+        "Opt-in",
+        "Report emailed"
+      ],
+      "row": [
+        "jane@example.com",
+        "13/30",
+        "Taxiing",
+        "Yes"
+      ]
+    },
+    "captions": [
+      "Built today. Documented today.",
+      "Claude Code turned the build into this reel."
+    ]
+  }
+}

@@ -1,0 +1,326 @@
+{
+  "version": 1,
+  "historyId": "e945c413-e923-4b93-99b3-ba5cea4e18c6",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "assets/architect-daily-bed.m4a": {
+      "hash": "f6ddf5731e202a1e96f3040d02ee99defc1c1781992e7e10034015b585e961ee",
+      "content": "/root/.cache/hyperframes/history/e945c413-e923-4b93-99b3-ba5cea4e18c6/blobs/f6/f6ddf5731e202a1e96f3040d02ee99defc1c1781992e7e10034015b585e961ee"
+    },
+    "assets/fonts/dm-sans-400.woff2": {
+      "hash": "4ab51eb2cd7305d177187908d6397474d4520663f6c6e572feb0a64f4fa80006",
+      "content": "/root/.cache/hyperframes/history/e945c413-e923-4b93-99b3-ba5cea4e18c6/blobs/4a/4ab51eb2cd7305d177187908d6397474d4520663f6c6e572feb0a64f4fa80006"
+    },
+    "assets/fonts/dm-sans-500.woff2": {
+      "hash": "19bf1984956517c35c2bd35b6cdedac12a21d6fcd3596c614ecdfb88b648909d",
+      "content": "/root/.cache/hyperframes/history/e945c413-e923-4b93-99b3-ba5cea4e18c6/blobs/19/19bf1984956517c35c2bd35b6cdedac12a21d6fcd3596c614ecdfb88b648909d"
+    },
+    "assets/fonts/jetbrains-mono-400.woff2": {
+      "hash": "14425ba9c695763c1547f48a206b7aa60350a33ae23de09f0407877f3fcd89eb",
+      "content": "/root/.cache/hyperframes/history/e945c413-e923-4b93-99b3-ba5cea4e18c6/blobs/14/14425ba9c695763c1547f48a206b7aa60350a33ae23de09f0407877f3fcd89eb"
+    },
+    "assets/fonts/jetbrains-mono-500.woff2": {
+      "hash": "cb182feeed4d798ff6961d3c79f7026279448fca0676438aaecb21f3fc39553a",
+      "content": "/root/.cache/hyperframes/history/e945c413-e923-4b93-99b3-ba5cea4e18c6/blobs/cb/cb182feeed4d798ff6961d3c79f7026279448fca0676438aaecb21f3fc39553a"
+    },
+    "assets/fonts/josefin-sans-300.woff2": {
+      "hash": "c42b4374e00bf478cae05db4024ca59cc6ed2c46eb5b42680dbefbaf27ebd770",
+      "content": "/root/.cache/hyperframes/history/e945c413-e923-4b93-99b3-ba5cea4e18c6/blobs/c4/c42b4374e00bf478cae05db4024ca59cc6ed2c46eb5b42680dbefbaf27ebd770"
+    },
+    "assets/fonts/space-grotesk-700.woff2": {
+      "hash": "35f8aec56cfd5cbfdb03cc68733a54a0b05bb3617ffcd5fd332badc0b045ca55",
+      "content": "/root/.cache/hyperframes/history/e945c413-e923-4b93-99b3-ba5cea4e18c6/blobs/35/35f8aec56cfd5cbfdb03cc68733a54a0b05bb3617ffcd5fd332badc0b045ca55"
+    },
+    "assets/gsap.min.js": {
+      "hash": "28033e449a31ebcc396e5be8b13b63152bf03094288fb5867034321927bce087",
+      "content": "/root/.cache/hyperframes/history/e945c413-e923-4b93-99b3-ba5cea4e18c6/blobs/28/28033e449a31ebcc396e5be8b13b63152bf03094288fb5867034321927bce087"
+    },
+    "connector-geometry.json": {
+      "hash": "6b6a4f3ea232db7b9d837595c922131847074d25c513f727248fb5c4d22c8c78",
+      "content": "/root/.cache/hyperframes/history/e945c413-e923-4b93-99b3-ba5cea4e18c6/blobs/6b/6b6a4f3ea232db7b9d837595c922131847074d25c513f727248fb5c4d22c8c78"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/root/.cache/hyperframes/history/e945c413-e923-4b93-99b3-ba5cea4e18c6/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "bf6b313e553b762cd7d10e7ebf5c7f26d9b4627bc85f0becb97c93dd8af33f5e",
+      "content": "/root/.cache/hyperframes/history/e945c413-e923-4b93-99b3-ba5cea4e18c6/blobs/bf/bf6b313e553b762cd7d10e7ebf5c7f26d9b4627bc85f0becb97c93dd8af33f5e"
+    },
+    "meta.json": {
+      "hash": "302929534dbe321d70b7a259d2c9fda24b91999416cb8ef505a3ec025f57acda",
+      "content": "/root/.cache/hyperframes/history/e945c413-e923-4b93-99b3-ba5cea4e18c6/blobs/30/302929534dbe321d70b7a259d2c9fda24b91999416cb8ef505a3ec025f57acda"
+    },
+    "package.json": {
+      "hash": "759b714186adfb0b7615d631c5b5c63eb1f1dfcda28a75305ae18027b7c36b5f",
+      "content": "/root/.cache/hyperframes/history/e945c413-e923-4b93-99b3-ba5cea4e18c6/blobs/75/759b714186adfb0b7615d631c5b5c63eb1f1dfcda28a75305ae18027b7c36b5f"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": {
+      "revision": null,
+      "id": "1e486405-3363-4f2f-a5ea-ad22d270593a-11"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "1e486405-3363-4f2f-a5ea-ad22d270593a-0",
+        "image": "/home/user/claude-code-tests/architect-daily-reel/16x9/.hyperframes/artifacts/snapshots/bb1bac50-ca60-49f1-bc5d-0bc805168c26/frame-00-at-3s.png",
+        "time": 3,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793388896428,
+        "contentHash": "3cb69c2513b87ad2f4c0694ce8c6ccc21f3f068d356f7391ff167df9ad76e88e",
+        "revision": null,
+        "inputFingerprint": "9acf89bc7cabb3de73208c426166275fa2df7ad6d8ffbed8a29d1c4f3b46b8ff",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "1e486405-3363-4f2f-a5ea-ad22d270593a-1",
+        "image": "/home/user/claude-code-tests/architect-daily-reel/16x9/.hyperframes/artifacts/snapshots/bb1bac50-ca60-49f1-bc5d-0bc805168c26/frame-01-at-8s.png",
+        "time": 8,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793388896428,
+        "contentHash": "135a5b826b7d57e4c27f2ef73f0b9928fa1a65fa3595317f6fd978cd8341763b",
+        "revision": null,
+        "inputFingerprint": "9acf89bc7cabb3de73208c426166275fa2df7ad6d8ffbed8a29d1c4f3b46b8ff",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "1e486405-3363-4f2f-a5ea-ad22d270593a-2",
+        "image": "/home/user/claude-code-tests/architect-daily-reel/16x9/.hyperframes/artifacts/snapshots/bb1bac50-ca60-49f1-bc5d-0bc805168c26/frame-02-at-9s.png",
+        "time": 9,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793388896428,
+        "contentHash": "5081c5ad58668a0fc94efccd23a292abef33069aac6fecec3f8483e523c6cc22",
+        "revision": null,
+        "inputFingerprint": "9acf89bc7cabb3de73208c426166275fa2df7ad6d8ffbed8a29d1c4f3b46b8ff",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "1e486405-3363-4f2f-a5ea-ad22d270593a-3",
+        "image": "/home/user/claude-code-tests/architect-daily-reel/16x9/.hyperframes/artifacts/snapshots/bb1bac50-ca60-49f1-bc5d-0bc805168c26/frame-03-at-13s.png",
+        "time": 13,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793388896428,
+        "contentHash": "68910e364e785bc92ac262a9b66fd9fde0670b38c057960db36ff3c32b9e57d8",
+        "revision": null,
+        "inputFingerprint": "9acf89bc7cabb3de73208c426166275fa2df7ad6d8ffbed8a29d1c4f3b46b8ff",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "1e486405-3363-4f2f-a5ea-ad22d270593a-4",
+        "image": "/home/user/claude-code-tests/architect-daily-reel/16x9/.hyperframes/artifacts/snapshots/bb1bac50-ca60-49f1-bc5d-0bc805168c26/frame-04-at-15s.png",
+        "time": 15,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793388896428,
+        "contentHash": "3d75b0e78fbf4b49a41904ac23019405bb0f0b7ec3c2138ef23ea3d6ff599638",
+        "revision": null,
+        "inputFingerprint": "9acf89bc7cabb3de73208c426166275fa2df7ad6d8ffbed8a29d1c4f3b46b8ff",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "1e486405-3363-4f2f-a5ea-ad22d270593a-5",
+        "image": "/home/user/claude-code-tests/architect-daily-reel/16x9/.hyperframes/artifacts/snapshots/bb1bac50-ca60-49f1-bc5d-0bc805168c26/frame-05-at-19s.png",
+        "time": 19,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793388896428,
+        "contentHash": "291e6f1e54e7cc883295e50dba1ba34c686aa5b1fcdcc85d40dbc1f7280f3f2b",
+        "revision": null,
+        "inputFingerprint": "9acf89bc7cabb3de73208c426166275fa2df7ad6d8ffbed8a29d1c4f3b46b8ff",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "1e486405-3363-4f2f-a5ea-ad22d270593a-6",
+        "image": "/home/user/claude-code-tests/architect-daily-reel/16x9/.hyperframes/artifacts/snapshots/bb1bac50-ca60-49f1-bc5d-0bc805168c26/frame-06-at-20s.png",
+        "time": 20,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793388896428,
+        "contentHash": "09f88cd49ac8cacef635ce76dda4e346d51bd80e90166e34d8cb70c12b6957e0",
+        "revision": null,
+        "inputFingerprint": "9acf89bc7cabb3de73208c426166275fa2df7ad6d8ffbed8a29d1c4f3b46b8ff",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "1e486405-3363-4f2f-a5ea-ad22d270593a-7",
+        "image": "/home/user/claude-code-tests/architect-daily-reel/16x9/.hyperframes/artifacts/snapshots/bb1bac50-ca60-49f1-bc5d-0bc805168c26/frame-07-at-25s.png",
+        "time": 25,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793388896428,
+        "contentHash": "01393016cab4905f60f28449df677dfb051656a5b13fc98feb357f18a11e156d",
+        "revision": null,
+        "inputFingerprint": "9acf89bc7cabb3de73208c426166275fa2df7ad6d8ffbed8a29d1c4f3b46b8ff",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "1e486405-3363-4f2f-a5ea-ad22d270593a-8",
+        "image": "/home/user/claude-code-tests/architect-daily-reel/16x9/.hyperframes/artifacts/snapshots/bb1bac50-ca60-49f1-bc5d-0bc805168c26/frame-08-at-29s.png",
+        "time": 29,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793388896428,
+        "contentHash": "e5c609cdd399b88b62f2d2a3f03b31bd1060cb325f1aa6ca4b3b93fa2edf9bf3",
+        "revision": null,
+        "inputFingerprint": "9acf89bc7cabb3de73208c426166275fa2df7ad6d8ffbed8a29d1c4f3b46b8ff",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "1e486405-3363-4f2f-a5ea-ad22d270593a-9",
+        "image": "/home/user/claude-code-tests/architect-daily-reel/16x9/.hyperframes/artifacts/snapshots/bb1bac50-ca60-49f1-bc5d-0bc805168c26/frame-09-at-32s.png",
+        "time": 32,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793388896428,
+        "contentHash": "9601e867962035a264fc566d303154a07b521a4003b840ed963151f663fde58d",
+        "revision": null,
+        "inputFingerprint": "9acf89bc7cabb3de73208c426166275fa2df7ad6d8ffbed8a29d1c4f3b46b8ff",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "1e486405-3363-4f2f-a5ea-ad22d270593a-10",
+        "image": "/home/user/claude-code-tests/architect-daily-reel/16x9/.hyperframes/artifacts/snapshots/bb1bac50-ca60-49f1-bc5d-0bc805168c26/frame-10-at-36s.png",
+        "time": 36,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793388896428,
+        "contentHash": "e8f86dc8216b4262aec4488b9e278a1059ed9d07db91879352886c381882f874",
+        "revision": null,
+        "inputFingerprint": "9acf89bc7cabb3de73208c426166275fa2df7ad6d8ffbed8a29d1c4f3b46b8ff",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "1e486405-3363-4f2f-a5ea-ad22d270593a-11",
+        "image": "/home/user/claude-code-tests/architect-daily-reel/16x9/.hyperframes/artifacts/snapshots/bb1bac50-ca60-49f1-bc5d-0bc805168c26/frame-11-at-36.75s.png",
+        "time": 36.75,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793388896428,
+        "contentHash": "e3e5c1971fb0878e65ec6818fc531f32ad84317f3aa949bf6ab6bd073a48522c",
+        "revision": null,
+        "inputFingerprint": "9acf89bc7cabb3de73208c426166275fa2df7ad6d8ffbed8a29d1c4f3b46b8ff",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "renders": {
+    "latest": {
+      "id": "e37ef71c-b4c8-4c58-b559-0821b835e17a",
+      "completedAt": 1793245485665,
+      "output": "/home/user/claude-code-tests/architect-daily-reel/out/architect-daily-2026-10-28-16x9.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}

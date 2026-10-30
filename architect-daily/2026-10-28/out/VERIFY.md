@@ -1,6 +1,6 @@
 # VERIFY - Architect Daily, Oct 28 2026
 
-Files: `architect-daily-2026-10-28-16x9.mp4` (1920x1080, 30fps, 37.0s), `architect-daily-2026-10-28-9x16.mp4` (1080x1920, 30fps, 37.0s). Audio: original synthesized ambient bed (`build/make-music.py`, no samples/licensing; normalized to about -18 LUFS), AAC stereo.
+Files: `architect-daily-2026-10-28-16x9.mp4` (1920x1080, 30fps, 37.0s), `architect-daily-2026-10-28-9x16.mp4` (1080x1920, 30fps, 37.0s). Audio: original synthesized ambient bed (`.agents/skills/architect-daily-reel/scripts/make-music.py`, no samples/licensing; normalized to about -18 LUFS), AAC stereo.
 
 Checks run
 - `hyperframes lint`: 0 errors, 8 warnings (only "put scenes in sub-compositions"; intentional single-file build). `hyperframes check`: lint/runtime/layout/contrast OK (38/38 contrast samples passed).
@@ -19,6 +19,6 @@ Notes / deviations
 
 Music (added)
 - Bed runs the full 37 s with a 1.2 s fade-in and 1.8 s fade-out; plucks and a soft pulse build through the news scenes and pull back for the cursor/typing.
-- Ducking: `data-automation` volume lane on `<audio id="music">` drops from 1.0 to 0.3 between 33.8 s and 34.5 s, under the logo lockup (constants in `build/build.cjs`, `MUSIC`).
+- Ducking: `data-automation` volume lane on `<audio id="music">` drops from 1.0 to 0.3 between 33.8 s and 34.5 s, under the logo lockup (constants in `.agents/skills/architect-daily-reel/scripts/build.cjs`, `MUSIC`).
 - Measured mean level (16x9): 20 s -19.1 dB, 31 s -19.3 dB, 33 s -19.6 dB, 35 s -33.3 dB. Both MP4s carry an AAC track, 37.0 s.
-- To use your own track, replace `build/audio/architect-daily-bed.m4a` (or change `MUSIC.file`) and rebuild.
+- To use your own track, replace `.agents/skills/architect-daily-reel/scripts/audio/architect-daily-bed.m4a` (or change `MUSIC.file`) and rebuild.

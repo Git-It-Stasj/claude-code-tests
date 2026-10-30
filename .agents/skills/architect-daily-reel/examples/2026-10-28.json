@@ -1,0 +1,55 @@
+{
+  "date": { "slug": "2026-10-28", "label": "OCT 28, 2026" },
+  "news": [
+    {
+      "headline": "Agents now need managers.",
+      "body": "IBM launched tools to identify and control AI agents inside companies.",
+      "caption": "Deploying agents without documentation is sprawl.",
+      "sources": "Sources: Aidapted, AI Weekly, Oct 27-28",
+      "visual": {
+        "type": "stats",
+        "cards": [
+          { "value": 76, "decimals": 0, "suffix": "%", "label": "Enabled agents idle 60+ days" },
+          { "value": 99.4, "decimals": 1, "suffix": "%", "label": "Lack DLP on sensitive connections" }
+        ],
+        "icon": "lock"
+      }
+    },
+    {
+      "headline": "A frontier lab files to go public.",
+      "body": "Anthropic filed an S-1 for a proposed IPO.",
+      "caption": "Read how labs disclose risk.",
+      "sources": "Sources: The Neuron, Reuters via The Neuron, Oct 27",
+      "visual": {
+        "type": "document",
+        "brand": "ANTHROPIC",
+        "stamp": "FORM S-1",
+        "sectionA": "Registration statement",
+        "sectionB": "Risk factors",
+        "fact": "Training paused 1+ month over security concerns (per Reuters)"
+      }
+    },
+    {
+      "headline": "~60,000 buyouts.\nAI spend up.",
+      "body": "Microsoft is offering ~60,000 voluntary buyouts while increasing its AI investment.",
+      "caption": "Who holds your workflow knowledge?",
+      "sources": "Sources: AI Weekly, Aidapted, Oct 27-28",
+      "visual": { "type": "dotgrid", "label": "Workforce (illustrative)", "lineLabel": "AI INVESTMENT", "fadeShare": 0.6 }
+    }
+  ],
+  "newToMe": {
+    "headline": "Website to inbox, fully wired.",
+    "nodes": {
+      "form": { "kicker": "Input", "title": "Website contact form" },
+      "air": { "kicker": "Database", "title": "Airtable (contact records)" },
+      "o1": { "kicker": "Output 01", "title": "Assessment results to client" },
+      "o2": { "kicker": "Output 02", "title": "Copy to me" }
+    },
+    "grid": {
+      "title": "Airtable / Contacts",
+      "columns": ["Email", "Score", "Level", "Opt-in", "Report emailed"],
+      "row": ["jane@example.com", "13/30", "Taxiing", "Yes"]
+    },
+    "captions": ["Built today. Documented today.", "Claude Code turned the build into this reel."]
+  }
+}
