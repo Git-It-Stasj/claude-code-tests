@@ -1,4 +1,4 @@
-"""Original synthesized bed for the Glow Hawaii sizzle. 128 BPM, 64 beats = 30.000 s.
+"""Original synthesized bed for the Glow Hawaii sizzle. 96 BPM, 48 beats = 30.000 s.
 Pure numpy synthesis: no samples, no copyrighted material."""
 import json, wave, sys, numpy as np
 G = json.load(open(sys.argv[1])); out = sys.argv[2]
@@ -45,43 +45,49 @@ def blip(f=880, d=0.09):
     t = tt(d); return np.sin(2 * np.pi * f * t) * np.exp(-t * 35) * 0.45
 B = lambda b: b * P
 mid = lambda n: 440 * 2 ** ((n - 69) / 12)
-chords = [(45, [57, 60, 64]), (41, [53, 57, 60]), (48, [55, 60, 64]), (43, [55, 59, 62])]  # Am F C G
-ch4 = (51, 60); fix = (34, 51); flur = G['fix']['flurry'] + [G['fix']['flurryEnd']]
+SW = 0.09 * P                      # laid-back swing on off-beat eighths
+# island feel: I - V - vi - IV in C major, one chord per bar (4 beats)
+chords = [(48, [55, 60, 64, 67]), (43, [55, 59, 62, 67]), (45, [57, 60, 64, 69]), (41, [53, 57, 60, 65])]
+C2, C3, C4, C5 = [c['start'] for c in G['chapters'][1:]]
+ladder0 = G['audit']['ladder']['start']
+flur = G['fix']['flurry'] + [G['fix']['flurryEnd']]
 gap0, gap1 = G['preDropGap']
-# pads: one chord per bar (4 beats), whole piece; response chapter keeps pads only
-for bar in range(16):
-    r, notes = chords[bar % 4]; add(pad([mid(n) for n in notes], 4 * P + 0.5), B(bar * 4), 0.9, 0)
-# kicks / claps / hats / bass
-for b in range(2, 64):
-    in_resp = ch4[0] + 1.5 <= b < ch4[1]; in_gap = gap0 <= b < gap1
+NB = G['beats']
+for bar in range(NB // 4):
+    r, notes = chords[bar % 4]; add(pad([mid(n) for n in notes], 4 * P + 0.5), B(bar * 4), 0.8, 0)
+# soft kick on 1 and 3, gentle rim on 2 and 4, shaker on every eighth (swung), syncopated bass
+for b in range(2, NB):
+    in_resp = C4 + 1.5 <= b < C5; in_gap = gap0 <= b < gap1
     if in_gap: continue
-    if b >= 60: 
-        if b == 60: add(kick(), B(b), 1.1)
+    if b >= C5:
+        if b == C5: add(kick(), B(b), 1.1)
         continue
     if not in_resp:
-        add(kick(), B(b), 0.95)
-        if b % 2 == 1 and b >= 6: add(clap(), B(b), 0.8)
+        add(kick(), B(b), 0.8 if b % 2 == 0 else 0.55)
+        if b % 2 == 1 and b >= 4: add(clap(0.12), B(b), 0.55)
     if b >= 4:
-        add(hat(open_=True), B(b) + P / 2, 0.55)
-        add(hat(), B(b), 0.3 if not in_resp else 0.0)
-    if b >= 6 and not in_resp:
-        r, _ = chords[(b // 4) % 4]; add(bass(mid(r - 12), P * 0.48), B(b) + P / 2, 0.75); 
-# flurry 16th hats (beats 45-51)
-for k in range(int((flur[-1] - 45) * 4)): add(hat(), B(45) + k * P / 4, 0.35)
-# arp pluck: chapters 2-3
-for s in range(int(13 * 2), int(51 * 2)):
-    t = s * P / 2
-    if gap0 <= s / 2 < gap1: continue
-    r, notes = chords[(int(s / 8)) % 4]; add(pluck(mid(notes[(s) % 3] + 12), 0.25), t, 0.35, pan=0.4 if s % 2 else -0.4)
-# response chapter: soft plucks
-for s in range(int(ch4[0] * 2), int(ch4[1] * 2)):
-    if s % 2: continue
-    r, notes = chords[(int(s / 8)) % 4]; add(pluck(mid(notes[(s // 2) % 3] + 12), 0.4), s * P / 2, 0.28, pan=0.2)
+        add(hat(open_=(b % 2 == 1)), B(b) + P / 2 + SW, 0.4)
+        add(hat(), B(b), 0.22 if not in_resp else 0.0)
+    if b >= 4 and not in_resp:
+        r, _ = chords[(b // 4) % 4]
+        add(bass(mid(r - 12), P * 0.7), B(b), 0.8)
+        if b % 4 in (1, 2): add(bass(mid(r - 12 + 7), P * 0.35), B(b) + P * 0.5 + SW, 0.6)
+# flurry: sixteenth shakers
+for k in range(int((flur[-1] - flur[0]) * 4)): add(hat(), B(flur[0]) + k * P / 4, 0.3)
+# ukulele-style arpeggio, chapters 2-3, swung
+for s_ in range(int(C2 * 2), int(C4 * 2)):
+    t = s_ * P / 2 + (SW if s_ % 2 else 0)
+    if gap0 <= s_ / 2 < gap1: continue
+    r, notes = chords[(int(s_ / 8)) % 4]; add(pluck(mid(notes[s_ % 4] + 12), 0.3), t, 0.33, pan=0.4 if s_ % 2 else -0.4)
+# response chapter: soft plucks, half time
+for s_ in range(int(C4 * 2), int(C5 * 2)):
+    if s_ % 2: continue
+    r, notes = chords[(int(s_ / 8)) % 4]; add(pluck(mid(notes[(s_ // 2) % 4] + 12), 0.5), s_ * P / 2, 0.28, pan=0.2)
 # riser into the drop, pre-drop gap, drop
-add(riser(B(33.5) - B(29)), B(29), 0.8); add(riser(0.22, up=False), B(33.5), 0.5)
-add(boom(), B(34), 0.9); add(kick(0.4), B(34), 1.2); add(clap(0.3), B(34), 0.9)
+add(riser(B(gap0) - B(ladder0)), B(ladder0), 0.8); add(riser(0.22, up=False), B(gap0), 0.5)
+add(boom(), B(C3), 0.9); add(kick(0.4), B(C3), 1.2); add(clap(0.3), B(C3), 0.9)
 # whoosh at chapter boundaries
-for b in (2, 13, 51, 60): add(riser(P * 0.9, up=True), B(b) - P * 0.9, 0.5)
+for b in (2, C2, C4, C5): add(riser(P * 0.9, up=True), B(b) - P * 0.9, 0.5)
 # audit callout blips, fix wipes
 for k in ('headline', 'buttons', 'testimonials'): add(blip(1320), B(G['audit'][k]['box']), 1.0)
 add(blip(1320), B(G['audit']['summit']['box1']), 1.0); add(blip(1320), B(G['audit']['summit']['box2']), 1.0)
@@ -91,9 +97,9 @@ for b in G['fix']['flurry']: add(tick(0.02), B(b), 1.4)
 t0, t1 = [B(x) for x in G['response']['type']]; nchar = 211
 for c in range(0, nchar, 2): add(tick(), t0 + (t1 - t0) * c / nchar, 0.7)
 # lockup: hit + shimmer chord, swell
-add(boom(1.8), B(60), 0.8); add(pad([mid(n) for n in (57, 60, 64, 69)], 2.4), B(60), 1.1)
-add(blip(1760, 0.5), B(62.5), 0.6); add(blip(2093, 0.5), B(62.5) + 0.12, 0.4)
-# master: soft clip, fade ends, normalize ~ -14 LUFS-ish (peak -1.5 dB)
+add(boom(1.8), B(C5), 0.8); add(pad([mid(n) for n in (60, 64, 67, 72)], 2.4), B(C5), 1.1)
+add(blip(1760, 0.5), B(G['lockup']['tagline']), 0.6); add(blip(2093, 0.5), B(G['lockup']['tagline']) + 0.12, 0.4)
+# master
 for ch in (L, R):
     ch *= np.minimum(1, (N - np.arange(N)) / (0.4 * SR)); ch *= np.minimum(1, np.arange(N) / (0.01 * SR))
 m = np.tanh(np.stack([L, R]) * 0.9); m = m / np.max(np.abs(m)) * 0.84

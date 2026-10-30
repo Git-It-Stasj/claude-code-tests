@@ -5,6 +5,9 @@ const ROOT = path.join(__dirname, '..');
 const G = JSON.parse(fs.readFileSync(path.join(ROOT, 'grid.json'), 'utf8'));
 const P = G.period, FPS = G.fps;
 const b = (x) => +(x * P).toFixed(4);
+const C2S = G.chapters[1].start, C3S = G.chapters[2].start, C4S = G.chapters[3].start, C5S = G.chapters[4].start, NB = G.beats;
+const LD = G.audit.ladder.start, FXG = G.fix, FL0 = G.fix.flurry[0], DROPGAP = G.preDropGap[0];
+const VD = 7; // vertical cut: desktop window closes / mobile window opens
 const FONTS = fs.readFileSync(path.join(ROOT, 'assets/fonts/fonts.css'), 'utf8');
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -115,13 +118,13 @@ function build(ratio) {
     mkBox('bx-ts', SITE.desktop.testim, 'Medium', 'MEDIUM', sd);
     winShared = winHtml('win', L.win, 'desktop', sd, boxes.join(''));
   }
-  clips.push(['s1', 0, b(13.75), `<div id="s1" class="clip scene" data-start="0" data-duration="${b(13.75)}" data-track-index="1">${s1}</div>`]);
+  clips.push(['s1', 0, b(C2S + 0.75), `<div id="s1" class="clip scene" data-start="0" data-duration="${b(C2S + 0.75)}" data-track-index="1">${s1}</div>`]);
 
   // ---- window / phone / captions for chapter 1 + 2 ----
   let wins = '';
   const winStart = b(G.windowOpen[0]);
   if (!V) {
-    wins += `<div id="w12" class="clip" data-start="${winStart}" data-duration="${b(34.5) - winStart}" data-track-index="2">${winShared}
+    wins += `<div id="w12" class="clip" data-start="${winStart}" data-duration="${b(C3S + 0.5) - winStart}" data-track-index="2">${winShared}
       ${winHtml('phone', L.phone, 'mobile', sMob, '', true).replace('class="win phone"', 'class="win phone"')}
       <div id="cap-desk" class="cap" style="left:${L.win.x}px;top:${L.capY}px" ${tag('hud', 'DESKTOP · 1440 × 900')}>DESKTOP · 1440 × 900</div>
       <div id="cap-mob" class="cap" style="left:${L.phone.x - 10}px;top:${L.phone.y + L.phone.h + 36}px" ${tag('hud', 'MOBILE · 390 × 844')}>MOBILE · 390 × 844</div>
@@ -143,9 +146,9 @@ function build(ratio) {
     mkBox('bx-s2', SITE.mobile.summit2, 'High', 'HIGH · 2 OF 2');
     mkBox('bx-bt', SITE.mobile.buttons, 'Medium', 'MEDIUM');
     mkBox('bx-ts', SITE.mobile.testim, 'Medium', 'MEDIUM');
-    wins += `<div id="w1d" class="clip" data-start="${winStart}" data-duration="${b(9.5) - winStart}" data-track-index="2">${winHtml('wind', L.deskWin, 'desktop', sdk)}
+    wins += `<div id="w1d" class="clip" data-start="${winStart}" data-duration="${b(VD + 1.5) - winStart}" data-track-index="2">${winHtml('wind', L.deskWin, 'desktop', sdk)}
       <div id="cap-desk" class="cap" style="left:${L.deskWin.x}px;top:${L.deskWin.y + L.deskWin.h + 24}px" ${tag('hud', 'DESKTOP · 1440 × 900')}>DESKTOP · 1440 × 900</div></div>
-    <div id="w12" class="clip" data-start="${b(8)}" data-duration="${b(34.5) - b(8)}" data-track-index="3">${winHtml('win', L.win, 'mobile', sm, boxes.join(''), false)}
+    <div id="w12" class="clip" data-start="${b(VD)}" data-duration="${b(C3S + 0.5) - b(VD)}" data-track-index="3">${winHtml('win', L.win, 'mobile', sm, boxes.join(''), false)}
       <div id="cap-mob" class="cap" style="left:${L.win.x}px;top:${L.win.y + L.win.h + 24}px" ${tag('hud', 'MOBILE · 390 × 844')}>MOBILE · 390 × 844</div>
       <div id="cap-pw" class="cap gold" style="left:${L.win.x + 360}px;top:${L.win.y + L.win.h + 24}px" ${tag('hud', 'FULL PAGE 15449 PX')}>FULL PAGE 15449 PX</div>
       <div id="cursor" class="cursor"><svg width="40" height="40" viewBox="0 0 24 24"><path d="M3 2l7 19 3-8 8-3z" fill="#E8EEFF" stroke="#070D1F" stroke-width="1.6" stroke-linejoin="round"/></svg></div></div>`;
@@ -195,7 +198,7 @@ function build(ratio) {
     return h + '</div>';
   })();
   s2 += lad;
-  clips.push(['s2', b(13), b(34.5), `<div id="s2" class="clip scene" data-start="${b(13)}" data-duration="${b(34.5) - b(13)}" data-track-index="4">${s2}</div>`]);
+  clips.push(['s2', b(C2S), b(C3S + 0.5), `<div id="s2" class="clip scene" data-start="${b(C2S)}" data-duration="${b(C3S + 0.5) - b(C2S)}" data-track-index="4">${s2}</div>`]);
 
   // =============== SCENE 3 : THE FIX (paper) ===============
   const fixKind = V ? 'mobile' : 'desktop';
@@ -222,7 +225,7 @@ function build(ratio) {
     const len = q[0].length; const fs_ = V ? (len > 80 ? 66 : len > 50 ? 80 : 104) : (len > 80 ? 70 : len > 50 ? 88 : 120);
     s3 += `<div id="fc${i}" class="fcard" style="background:${pal[0]};color:${pal[1]};opacity:0"><div class="fin" style="padding:${V ? '240px 70px 220px' : '120px 150px'}"><div class="qm" style="color:${pal[2]}">“</div><div class="fq" style="font-size:${fs_}px" ${tag('report', q[0])}>${esc(q[0])}</div><div class="fs" style="color:${pal[2]}" ${tag('report', q[1])}>${esc(q[1])}</div></div></div>`;
   });
-  clips.push(['s3', b(34), b(51.5), `<div id="s3" class="clip scene" data-start="${b(34)}" data-duration="${b(51.5) - b(34)}" data-track-index="5">${s3}</div>`]);
+  clips.push(['s3', b(C3S), b(C4S + 0.5), `<div id="s3" class="clip scene" data-start="${b(C3S)}" data-duration="${b(C4S + 0.5) - b(C3S)}" data-track-index="5">${s3}</div>`]);
 
   // =============== SCENE 4 : THE RESPONSE ===============
   const cw = V ? 940 : 1440, ch = V ? 780 : 620, cx0 = (W - cw) / 2, cy0 = V ? 300 : (H - ch) / 2 - 20;
@@ -231,7 +234,7 @@ function build(ratio) {
    <div class="rlab" ${tag('brief', 'REPLY · OLELO PAʻA OGAWA')}>REPLY · OLELO PAʻA OGAWA</div>
    <div class="rq" style="font-size:${V ? 48 : 54}px"><span id="typed"></span><span id="cur" class="cur"></span></div>
    <div id="rsrc" class="rsrc" ${tag('report', 'Glow Hawaii · The Aloha Chef')}>Glow Hawaii · The Aloha Chef</div></div>`;
-  clips.push(['s4', b(51), b(60.5), `<div id="s4" class="clip scene" data-start="${b(51)}" data-duration="${b(60.5) - b(51)}" data-track-index="6">${s4}</div>`]);
+  clips.push(['s4', b(C4S), b(C5S + 0.5), `<div id="s4" class="clip scene" data-start="${b(C4S)}" data-duration="${b(C5S + 0.5) - b(C4S)}" data-track-index="6">${s4}</div>`]);
 
   // =============== SCENE 5 : LOCKUP ===============
   const mcx = W / 2, mcy = V ? 560 : 300, msz = V ? 440 : 340;
@@ -241,7 +244,7 @@ function build(ratio) {
   <div id="tg" class="tgl" style="top:${wmY + (V ? 190 : 250)}px" ${tag('report', 'Stay Vigilant. Stay Visionary.')}>Stay Vigilant. Stay Visionary.</div>
   <div id="sub" class="sub" style="top:${wmY + (V ? 270 : 330)}px" ${tag('brief', 'Orchid Orchestration')}>Orchid Orchestration</div>
   <div id="wmrule" class="wmrule" style="top:${wmY + (V ? 168 : 232)}px"></div>`;
-  clips.push(['s5', b(60), b(64), `<div id="s5" class="clip scene" data-start="${b(60)}" data-duration="${b(64) - b(60)}" data-track-index="7">${s5}</div>`]);
+  clips.push(['s5', b(C5S), b(NB), `<div id="s5" class="clip scene" data-start="${b(C5S)}" data-duration="${b(NB) - b(C5S)}" data-track-index="7">${s5}</div>`]);
 
   // stamp (chapter-change motif)
   const stamp = motifCenter('mo-stamp', V ? 760 : 820, W / 2, V ? 700 : H / 2, 'stamp');
@@ -256,7 +259,7 @@ function build(ratio) {
   const hud = `<div id="hud" class="hud">
     <i class="cm tl"></i><i class="cm tr"></i><i class="cm bl"></i><i class="cm br"></i>
     <div class="h t-l" style="top:${L.hudTop}px;left:${V ? 60 : 80}px" ${tag('hud', 'GLOW HAWAII · SITE AUDIT')}>GLOW HAWAII · SITE AUDIT</div>
-    <div class="h t-r" style="top:${L.hudTop}px;right:${V ? 60 : 80}px"><span ${tag('hud', `${W}×${H} · 30P · 128 BPM`)}>${W}×${H} · 30P · 128 BPM</span> <b id="rec"></b></div>
+    <div class="h t-r" style="top:${L.hudTop}px;right:${V ? 60 : 80}px"><span ${tag('hud', `${W}×${H} · 30P · ${G.bpm} BPM`)}>${W}×${H} · 30P · ${G.bpm} BPM</span> <b id="rec"></b></div>
     <div id="tc" class="h" style="top:${L.hudBot}px;left:${V ? 60 : 80}px">00:00:00:00</div>
     <div id="ruler" class="ruler" style="top:${V ? L.ruler : L.hudBot + 14}px;left:${rulerX}px;width:${rulerW}px">${segs}</div>
     <div id="chl" class="h t-r" style="top:${L.hudBot}px;right:${V ? 60 : 80}px">01 · THE REAL SITE</div>
@@ -279,22 +282,22 @@ function build(ratio) {
     T.push(`tl.fromTo('#phone',{clipPath:'inset(50% 50% 50% 50%)',x:60},{clipPath:'inset(0% 0% 0% 0%)',x:0,duration:${b(1)},ease:'power3.out'},${b(2.5)});`);
     T.push(`gsap.set('#phone',{clipPath:'inset(50% 50% 50% 50%)'});`);
     ['cap-desk', 'cap-mob', 'cap-pw'].forEach((id, i) => T.push(`tl.fromTo('#${id}',{opacity:0,y:12},{opacity:1,y:0,duration:${b(0.6)},ease:'power2.out'},${b(3.2 + i * 0.4)});`));
-    scrollTo('win', sDesk, 140, b(3), b(10), 'power1.inOut');
-    scrollTo('phone', sMob, 110, b(3.5), b(9.5), 'power1.inOut');
+    scrollTo('win', sDesk, 140, b(3), b(C2S - 3), 'power1.inOut');
+    scrollTo('phone', sMob, 110, b(3.5), b(C2S - 3.5), 'power1.inOut');
   } else {
     ['cap-desk'].forEach((id) => T.push(`tl.fromTo('#${id}',{opacity:0,y:12},{opacity:1,y:0,duration:${b(0.6)},ease:'power2.out'},${b(3.2)});`));
-    scrollTo('wind', 960 / 1440, 150, b(3), b(5.5), 'power1.inOut');
+    scrollTo('wind', 960 / 1440, 150, b(3), b(VD - 3), 'power1.inOut');
     // desktop closes into the centre; the mobile window opens from the same point
-    T.push(`tl.to('#wind',{clipPath:'inset(${(L.deskWin.h) / 2}px ${(L.deskWin.w) / 2}px ${(L.deskWin.h) / 2}px ${(L.deskWin.w) / 2}px)',duration:${b(1)},ease:'power3.in'},${b(8)});`);
-    T.push(`tl.to('#cap-desk',{opacity:0,duration:${b(0.5)}},${b(8)});`);
+    T.push(`tl.to('#wind',{clipPath:'inset(${(L.deskWin.h) / 2}px ${(L.deskWin.w) / 2}px ${(L.deskWin.h) / 2}px ${(L.deskWin.w) / 2}px)',duration:${b(1)},ease:'power3.in'},${b(VD)});`);
+    T.push(`tl.to('#cap-desk',{opacity:0,duration:${b(0.5)}},${b(VD)});`);
     const wm = L.win;
     T.push(`gsap.set('#win',{clipPath:'inset(${wm.h / 2}px ${wm.w / 2}px ${wm.h / 2}px ${wm.w / 2}px)'});`);
-    T.push(`tl.fromTo('#win',{clipPath:'inset(${wm.h / 2 - 2}px ${wm.w / 2 - 2}px ${wm.h / 2 - 2}px ${wm.w / 2 - 2}px)'},{clipPath:'inset(0px 0px 0px 0px)',duration:${b(1)},ease:'power3.out'},${b(8.5)});`);
-    ['cap-mob', 'cap-pw'].forEach((id, i) => T.push(`tl.fromTo('#${id}',{opacity:0,y:12},{opacity:1,y:0,duration:${b(0.6)},ease:'power2.out'},${b(9.4 + i * 0.4)});`));
-    scrollTo('win', sMob, 120, b(9), b(4), 'power1.inOut');
+    T.push(`tl.fromTo('#win',{clipPath:'inset(${wm.h / 2 - 2}px ${wm.w / 2 - 2}px ${wm.h / 2 - 2}px ${wm.w / 2 - 2}px)'},{clipPath:'inset(0px 0px 0px 0px)',duration:${b(1)},ease:'power3.out'},${b(VD + 0.5)});`);
+    ['cap-mob', 'cap-pw'].forEach((id, i) => T.push(`tl.fromTo('#${id}',{opacity:0,y:12},{opacity:1,y:0,duration:${b(0.6)},ease:'power2.out'},${b(VD + 1.4 + i * 0.4)});`));
+    scrollTo('win', sMob, 120, b(VD + 1), b(C2S - VD - 1), 'power1.inOut');
   }
   // chapter-change stamps (motif transforms across boundaries)
-  [13, 34, 51].forEach((bt, k) => {
+  [C2S, C3S, C4S].forEach((bt, k) => {
     T.push(`tl.fromTo('#mo-stamp-w',{scale:.5,rotation:-30,opacity:0,transformOrigin:'50% 50%'},{scale:1.05,rotation:0,opacity:.55,duration:${b(0.5)},ease:'power3.out'${k ? ',immediateRender:false' : ''}},${b(bt - 0.5)});`);
     T.push(`tl.to('#mo-stamp-w',{scale:1.9,opacity:0,duration:${b(0.8)},ease:'power2.in'},${b(bt)});`);
   });
@@ -326,14 +329,14 @@ function build(ratio) {
   const boxDur = b(0.45);
   if (!V) {
     // panel entrance (phone exits)
-    T.push(`tl.fromTo('#panel',{opacity:0,x:80},{opacity:1,x:0,duration:${b(0.9)},ease:'power3.out'},${b(13)});`);
+    T.push(`tl.fromTo('#panel',{opacity:0,x:80},{opacity:1,x:0,duration:${b(0.9)},ease:'power3.out'},${b(C2S)});`);
     T.push(`gsap.set('#panel',{opacity:0});`);
-    T.push(`tl.to('#phone',{x:140,opacity:0,duration:${b(0.8)},ease:'power3.in'},${b(13)});`);
-    T.push(`tl.to('#cap-mob,#cap-pw',{opacity:0,duration:${b(0.5)}},${b(13)});`);
+    T.push(`tl.to('#phone',{x:140,opacity:0,duration:${b(0.8)},ease:'power3.in'},${b(C2S)});`);
+    T.push(`tl.to('#cap-mob,#cap-pw',{opacity:0,duration:${b(0.5)}},${b(C2S)});`);
   } else {
-    T.push(`tl.fromTo('#panel',{opacity:0,y:40},{opacity:1,y:0,duration:${b(0.9)},ease:'power3.out'},${b(13)});`);
+    T.push(`tl.fromTo('#panel',{opacity:0,y:40},{opacity:1,y:0,duration:${b(0.9)},ease:'power3.out'},${b(C2S)});`);
     T.push(`gsap.set('#panel',{opacity:0});`);
-    T.push(`tl.to('#cap-mob,#cap-pw',{opacity:0,duration:${b(0.5)}},${b(13)});`);
+    T.push(`tl.to('#cap-mob,#cap-pw',{opacity:0,duration:${b(0.5)}},${b(C2S)});`);
   }
   // in vertical the rows overlap in one slot: show one at a time
   const rowIn = (i, t0, t1) => V
@@ -362,33 +365,33 @@ function build(ratio) {
   drawBox('bx-ts', SS.testim, sy4, b(A.testimonials.box), boxDur); rowIn(3, b(A.testimonials.box), b(A.testimonials.end));
   hideBox('bx-ts', b(A.testimonials.end) - b(0.3));
   if (!V) {
-    T.push(`tl.to('#panel',{x:100,opacity:0,duration:${b(0.8)},ease:'power3.in'},${b(29)});`);
-  } else T.push(`tl.to('#panel',{opacity:0,duration:${b(0.5)}},${b(29)});`);
+    T.push(`tl.to('#panel',{x:100,opacity:0,duration:${b(0.8)},ease:'power3.in'},${b(LD)});`);
+  } else T.push(`tl.to('#panel',{opacity:0,duration:${b(0.5)}},${b(LD)});`);
   // active row highlight (gold edge)
   // ladder: window shrinks into the first rung
-  T.push(`tl.to('#win',{opacity:0,y:-30,duration:${b(0.9)},ease:'power3.in'},${b(29)});`);
+  T.push(`tl.to('#win',{opacity:0,y:-30,duration:${b(0.9)},ease:'power3.in'},${b(LD)});`);
   T.push(`gsap.set('#ladder',{opacity:0});`);
-  T.push(`tl.to('#ladder',{opacity:1,duration:${b(0.5)}},${b(29.4)});`);
-  T.push(`tl.fromTo('#lh2',{y:30,opacity:0},{y:0,opacity:1,duration:${b(0.8)},ease:'power3.out'},${b(29.5)});`);
-  for (let i = 0; i < 5; i++) T.push(`tl.fromTo('#rg${i}',{opacity:0,y:${V ? 0 : 60},x:${V ? -80 : 0}},{opacity:1,y:0,x:0,duration:${b(0.7)},ease:'power3.out'},${b(30 + i * 0.3)});`);
+  T.push(`tl.to('#ladder',{opacity:1,duration:${b(0.5)}},${b(LD + 0.2)});`);
+  T.push(`tl.fromTo('#lh2',{y:30,opacity:0},{y:0,opacity:1,duration:${b(0.8)},ease:'power3.out'},${b(LD + 0.3)});`);
+  for (let i = 0; i < 5; i++) T.push(`tl.fromTo('#rg${i}',{opacity:0,y:${V ? 0 : 60},x:${V ? -80 : 0}},{opacity:1,y:0,x:0,duration:${b(0.5)},ease:'power3.out'},${b(LD + 0.5 + i * 0.2)});`);
   T.push(`gsap.set('#ladder .rung,#ladder .rungv,#l3,#l2,#gapq,#lh2',{opacity:0});`);
-  T.push(`tl.fromTo('#l2',{opacity:0,y:18},{opacity:1,y:0,duration:${b(0.5)}},${b(31.4)});`);
-  T.push(`tl.fromTo('#l3',{opacity:0,y:18},{opacity:1,y:0,duration:${b(0.5)}},${b(32.2)});`);
-  T.push(`tl.fromTo('#gapq',{opacity:0,y:18},{opacity:1,y:0,duration:${b(0.5)}},${b(32.9)});`);
+  T.push(`tl.fromTo('#l2',{opacity:0,y:18},{opacity:1,y:0,duration:${b(0.5)}},${b(LD + 1.5)});`);
+  T.push(`tl.fromTo('#l3',{opacity:0,y:18},{opacity:1,y:0,duration:${b(0.5)}},${b(LD + 1.75)});`);
+  T.push(`tl.fromTo('#gapq',{opacity:0,y:18},{opacity:1,y:0,duration:${b(0.5)}},${b(LD + 2.0)});`);
   // pre-drop gap: everything dips
-  T.push(`tl.to('#ladder',{opacity:.12,duration:${b(0.25)},ease:'power2.in'},${b(33.5)});`);
+  T.push(`tl.to('#ladder',{opacity:.12,duration:${b(0.25)},ease:'power2.in'},${b(DROPGAP)});`);
 
   // ---------- paper curtain at the drop ----------
   T.push(`gsap.set('#paper',{x:${-W}});`);
-  T.push(`tl.fromTo('#paper',{x:${-W}},{x:0,duration:${b(0.5)},ease:'power4.in'},${b(33.5)});`);
-  T.push(`tl.set('#paper',{x:${W}},${b(51)});`);
+  T.push(`tl.fromTo('#paper',{x:${-W}},{x:0,duration:${b(0.5)},ease:'power4.in'},${b(DROPGAP)});`);
+  T.push(`tl.set('#paper',{x:${W}},${b(C4S)});`);
   // ---------- fix ----------
   const fixS = sFix;
   const wf = L.fixWin;
-  T.push(`tl.fromTo('#fixwin',{clipPath:'inset(${wf.h / 2}px ${wf.w / 2}px ${wf.h / 2}px ${wf.w / 2}px)'},{clipPath:'inset(0px 0px 0px 0px)',duration:${b(0.8)},ease:'power3.out'},${b(34)});`);
+  T.push(`tl.fromTo('#fixwin',{clipPath:'inset(${wf.h / 2}px ${wf.w / 2}px ${wf.h / 2}px ${wf.w / 2}px)'},{clipPath:'inset(0px 0px 0px 0px)',duration:${b(0.8)},ease:'power3.out'},${b(C3S)});`);
   T.push(`gsap.set('#fixwin',{clipPath:'inset(${wf.h / 2}px ${wf.w / 2}px ${wf.h / 2}px ${wf.w / 2}px)'});`);
   T.push(`gsap.set('#fxchip',{opacity:0});gsap.set('#fixwrap .fcap',{opacity:0});gsap.set('#chA',{opacity:0});gsap.set('.fcard',{opacity:0});`);
-  T.push(`tl.to('#fxchip',{opacity:1,duration:${b(0.5)}},${b(34.4)});`);
+  T.push(`tl.to('#fxchip',{opacity:1,duration:${b(0.5)}},${b(C3S + 0.4)});`);
   const doWipe = (id, wpx, t0) => {
     T.push(`tl.fromTo('#${id}',{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0% 0 0)',duration:${b(0.6)},ease:'power3.inOut',immediateRender:false},${t0});`);
     T.push(`tl.fromTo('#${id}-edge',{x:0,opacity:1},{x:${wpx},opacity:1,duration:${b(0.6)},ease:'power3.inOut',immediateRender:false},${t0});`);
@@ -399,26 +402,26 @@ function build(ratio) {
   const swapChip = (t) => { T.push(`tl.set('#chB',{opacity:0},${t});`); T.push(`tl.set('#chA',{opacity:1},${t});`); };
   const resetChip = (t) => { T.push(`tl.set('#chB',{opacity:1},${t});`); T.push(`tl.set('#chA',{opacity:0},${t});`); };
   // 1 headline
-  scrollTo('fixwin', fixS, V ? 90 : 0, b(34), 0.001, 'none');
-  showSel('fx-h1o', b(34.5), b(35));
-  fixCapShow(0, b(34.8), b(38));
-  doWipe('fx-h1', hc.w, b(F.headline.wipe)); swapChip(b(F.headline.wipe));
+  scrollTo('fixwin', fixS, V ? 90 : 0, b(C3S), 0.001, 'none');
+  showSel('fx-h1o', b(C3S + 0.5), b(C3S + 1));
+  fixCapShow(0, b(C3S + 0.8), b(FXG.headline.end));
+  doWipe('fx-h1', hc.w, b(FXG.headline.wipe)); swapChip(b(F.headline.wipe));
   // 2 button (scroll first)
   const syBt = V ? 845 : 40;
-  scrollTo('fixwin', fixS, syBt, b(37.6), b(0.7), 'power3.inOut');
-  T.push(`tl.to('#fx-h1',{opacity:0,duration:${b(0.4)}},${b(37.7)});`);
-  resetChip(b(38));
-  showSel('fx-bto', b(38.5), b(39));
-  fixCapShow(1, b(38.8), b(42));
-  doWipe('fx-bt', hero.w, b(F.button.wipe)); swapChip(b(F.button.wipe));
+  scrollTo('fixwin', fixS, syBt, b(FXG.button.start - 0.4), b(0.7), 'power3.inOut');
+  T.push(`tl.to('#fx-h1',{opacity:0,duration:${b(0.4)}},${b(FXG.button.start - 0.3)});`);
+  resetChip(b(FXG.button.start));
+  showSel('fx-bto', b(FXG.button.start + 0.5), b(FXG.button.start + 1));
+  fixCapShow(1, b(FXG.button.start + 0.8), b(FXG.button.end));
+  doWipe('fx-bt', hero.w, b(FXG.button.wipe)); swapChip(b(F.button.wipe));
   // 3 summit
   const sySm = V ? 1150 : 380;
-  scrollTo('fixwin', fixS, sySm, b(41.6), b(0.7), 'power3.inOut');
-  T.push(`tl.to('#fx-bt',{opacity:0,duration:${b(0.4)}},${b(41.7)});`);
-  resetChip(b(42));
-  showSel('fx-so', b(42.5), b(43));
-  fixCapShow(2, b(42.8), b(45));
-  doWipe('fx-sm', bar2.w, b(F.summit.wipe)); swapChip(b(F.summit.wipe));
+  scrollTo('fixwin', fixS, sySm, b(FXG.summit.start - 0.4), b(0.7), 'power3.inOut');
+  T.push(`tl.to('#fx-bt',{opacity:0,duration:${b(0.4)}},${b(FXG.summit.start - 0.3)});`);
+  resetChip(b(FXG.summit.start));
+  showSel('fx-so', b(FXG.summit.start + 0.5), b(FXG.summit.start + 1));
+  fixCapShow(2, b(FXG.summit.start + 0.8), b(FXG.summit.end));
+  doWipe('fx-sm', bar2.w, b(FXG.summit.wipe)); swapChip(b(F.summit.wipe));
   // flurry hard cuts
   const flEnds = FL.slice(1).concat([FLEND]);
   FL.forEach((st, i) => {
@@ -426,23 +429,23 @@ function build(ratio) {
     T.push(`tl.set('#fc${i}',{opacity:0},${b(flEnds[i])});`);
     T.push(`tl.fromTo('#fc${i} .fin',{scale:1.06},{scale:1,duration:${b(flEnds[i] - st)},ease:'power2.out'},${b(st)});`);
   });
-  T.push(`tl.set('#fixwrap',{opacity:0},${b(45)});`);
+  T.push(`tl.set('#fixwrap',{opacity:0},${b(FL0)});`);
 
   // ---------- response ----------
   T.push(`gsap.set('#rrule',{scaleX:0,transformOrigin:'50% 50%'});`);
-  T.push(`tl.fromTo('#rrule',{scaleX:0},{scaleX:1,duration:${b(0.8)},ease:'power3.out'},${b(51)});`);
-  T.push(`tl.fromTo('#rcard',{clipPath:'inset(50% 0% 50% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:${b(0.9)},ease:'power3.inOut'},${b(51.7)});`);
-  T.push(`tl.to('#rrule',{opacity:0,duration:${b(0.3)}},${b(52.4)});`);
-  T.push(`gsap.set('#rsrc',{opacity:0});tl.to('#rsrc',{opacity:1,duration:${b(0.5)}},${b(58)});`);
+  T.push(`tl.fromTo('#rrule',{scaleX:0},{scaleX:1,duration:${b(0.8)},ease:'power3.out'},${b(C4S)});`);
+  T.push(`tl.fromTo('#rcard',{clipPath:'inset(50% 0% 50% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:${b(0.9)},ease:'power3.inOut'},${b(C4S + 0.7)});`);
+  T.push(`tl.to('#rrule',{opacity:0,duration:${b(0.3)}},${b(C4S + 1.4)});`);
+  T.push(`gsap.set('#rsrc',{opacity:0});tl.to('#rsrc',{opacity:1,duration:${b(0.5)}},${b(G.response.hold[0])});`);
   // lockup
   T.push(`gsap.set('#mo-close .sq,#mo-close .dg',{strokeDasharray:1,strokeDashoffset:1});`);
-  T.push(`tl.to('#rcard',{opacity:0,y:-40,duration:${b(0.8)},ease:'power3.in'},${b(59.2)});`);
-  T.push(`tl.to('#mo-close .sq',{strokeDashoffset:0,duration:${b(1)},ease:'power3.out',stagger:${b(0.2)}},${b(60)});`);
-  T.push(`tl.to('#mo-close .dg',{strokeDashoffset:0,duration:${b(0.8)},ease:'power3.out'},${b(60.8)});`);
-  T.push(`tl.fromTo('#mo-close-w',{scale:2.4,rotation:25,transformOrigin:'50% 50%'},{scale:1,rotation:0,duration:${b(1.4)},ease:'expo.out'},${b(60)});`);
+  T.push(`tl.to('#rcard',{opacity:0,y:-40,duration:${b(0.8)},ease:'power3.in'},${b(C5S - 0.8)});`);
+  T.push(`tl.to('#mo-close .sq',{strokeDashoffset:0,duration:${b(1)},ease:'power3.out',stagger:${b(0.2)}},${b(C5S)});`);
+  T.push(`tl.to('#mo-close .dg',{strokeDashoffset:0,duration:${b(0.8)},ease:'power3.out'},${b(C5S + 0.8)});`);
+  T.push(`tl.fromTo('#mo-close-w',{scale:2.4,rotation:25,transformOrigin:'50% 50%'},{scale:1,rotation:0,duration:${b(1.4)},ease:'expo.out'},${b(C5S)});`);
   T.push(`gsap.set('#wm,#tg,#sub',{opacity:0});gsap.set('#wmrule',{scaleX:0});`);
   T.push(`tl.fromTo('#wm',{opacity:0,y:36},{opacity:1,y:0,duration:${b(1.2)},ease:'power3.out'},${b(G.lockup.wordmark)});`);
-  T.push(`tl.to('#wmrule',{scaleX:1,duration:${b(0.8)},ease:'power3.out',transformOrigin:'50% 50%'},${b(62)});`);
+  T.push(`tl.to('#wmrule',{scaleX:1,duration:${b(0.8)},ease:'power3.out',transformOrigin:'50% 50%'},${b(G.lockup.wordmark + 0.5)});`);
   T.push(`tl.fromTo('#tg',{opacity:0,y:16},{opacity:1,y:0,duration:${b(0.7)},ease:'power2.out'},${b(G.lockup.tagline)});`);
   T.push(`tl.fromTo('#sub',{opacity:0,y:12},{opacity:.62,y:0,duration:${b(0.8)},ease:'power2.out'},${b(G.lockup.subtitle)});`);
   // mo-close: ensure initial state is hidden before 60
@@ -466,15 +469,15 @@ function frame(t){
   rec.style.opacity=(Math.floor(beat*2)%2===0)?1:0.15;
   // HUD ink/paper flip: paper chapter 34-45 and flurry cards by their background
   let col='#E8EEFF';
-  if(beat>=34&&beat<45) col='#070D1F';
-  else if(beat>=45&&beat<51){let k=0;for(let i=0;i<FLB.length;i++){if(beat>=FLB[i])k=i;}const bg=PAL[k];col=(bg==='#E8EEFF'||bg==='#F0C040')?'#070D1F':'#E8EEFF';}
+  if(beat>=${C3S}&&beat<${FL0}) col='#070D1F';
+  else if(beat>=${FL0}&&beat<${C4S}){let k=0;for(let i=0;i<FLB.length;i++){if(beat>=FLB[i])k=i;}const bg=PAL[k];col=(bg==='#E8EEFF'||bg==='#F0C040')?'#070D1F':'#E8EEFF';}
   hud.style.setProperty('--hc',col);
   // typing
   const tb=Math.max(0,Math.min(1,(t-TY0)/(TY1-TY0)));
   const n=Math.floor(tb*REPLY.length+0.0001);
   typed.textContent=REPLY.slice(0,n);
   const typing=(t>=TY0&&t<TY1);
-  cur.style.opacity=(t<TY0-0.3||t>${b(60)})?0:(typing?1:(Math.floor(beat*2)%2===0?1:0));
+  cur.style.opacity=(t<TY0-0.3||t>${b(C5S)})?0:(typing?1:(Math.floor(beat*2)%2===0?1:0));
 }
 tl.fromTo({t:0},{t:0},{t:END,duration:END,ease:'none',onUpdate:function(){frame(this.targets()[0].t);}},0);
 `;

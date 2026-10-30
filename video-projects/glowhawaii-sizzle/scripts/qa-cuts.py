@@ -1,6 +1,6 @@
 """Detects hard cuts in the rendered MP4 (ffmpeg scene score) and reports each one's offset from the 128 BPM grid, in frames."""
 import subprocess, re, sys, json
-mp4 = sys.argv[1]; P = 60/128; FPS = 30
+mp4 = sys.argv[1]; import os; G = json.load(open(os.path.join(os.path.dirname(__file__), '..', 'grid.json'))); P = G['period']; FPS = G['fps']
 r = subprocess.run(['ffmpeg','-i',mp4,'-vf',"select='gt(scene,0.18)',showinfo",'-an','-f','null','-'],capture_output=True,text=True)
 ts = [float(m.group(1)) for m in re.finditer(r'pts_time:([\d.]+)', r.stderr)]
 rows = []
