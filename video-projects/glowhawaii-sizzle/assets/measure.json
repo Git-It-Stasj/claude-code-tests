@@ -1,0 +1,293 @@
+{
+ "desktop": {
+  "h1": [
+   {
+    "tag": "H1",
+    "cls": "",
+    "text": "Come alive again.",
+    "x": 130,
+    "y": 197,
+    "w": 637,
+    "h": 79
+   }
+  ],
+  "unbound": [
+   {
+    "tag": "SPAN",
+    "cls": "event-date",
+    "text": "UPCOMING · OCTOBER 16, 2026",
+    "x": 178,
+    "y": 7212,
+    "w": 274,
+    "h": 35
+   },
+   {
+    "tag": "H2",
+    "cls": "",
+    "text": "Unbound at Any Age",
+    "x": 178,
+    "y": 7261,
+    "w": 522,
+    "h": 56
+   }
+  ],
+  "btns": [
+   {
+    "tag": "A",
+    "cls": "btn btn-primary",
+    "text": "INVITE ME TO SPEAK",
+    "x": 130,
+    "y": 565,
+    "w": 229,
+    "h": 58
+   },
+   {
+    "tag": "A",
+    "cls": "btn btn-outline",
+    "text": "BEGIN YOUR JOURNEY",
+    "x": 373,
+    "y": 565,
+    "w": 241,
+    "h": 58
+   },
+   {
+    "tag": "A",
+    "cls": "btn btn-outline",
+    "text": "INVITE ME TO SPEAK",
+    "x": 967,
+    "y": 4766,
+    "w": 229,
+    "h": 58
+   }
+  ],
+  "book": [
+   {
+    "tag": "A",
+    "cls": "btn btn-primary",
+    "text": "BOOK A DISCOVERY SESSION",
+    "x": 1068,
+    "y": 14,
+    "w": 255,
+    "h": 44
+   },
+   {
+    "tag": "A",
+    "cls": "btn btn-light",
+    "text": "BOOK A DISCOVERY SESSION",
+    "x": 1105,
+    "y": 9494,
+    "w": 303,
+    "h": 58
+   },
+   {
+    "tag": "A",
+    "cls": "",
+    "text": "Book a Discovery Session",
+    "x": 991,
+    "y": 10004,
+    "w": 169,
+    "h": 23
+   },
+   {
+    "tag": "A",
+    "cls": "mobile-cta",
+    "text": "Book a Discovery Session",
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0
+   }
+  ],
+  "test": [
+   {
+    "tag": "H2",
+    "cls": "",
+    "text": "Feel like yourself again",
+    "x": 360,
+    "y": 5147,
+    "w": 720,
+    "h": 56
+   },
+   {
+    "tag": "H2",
+    "cls": "",
+    "text": "“A true ray of sunshine”",
+    "x": 360,
+    "y": 5743,
+    "w": 720,
+    "h": 56
+   }
+  ],
+  "testimonials": [
+   {
+    "tag": "SPAN",
+    "cls": "eyebrow",
+    "text": "ON STAGE",
+    "x": 677,
+    "y": 7007,
+    "w": 85,
+    "h": 22
+   },
+   {
+    "tag": "H2",
+    "cls": "",
+    "text": "See Olelo paʻa live",
+    "x": 360,
+    "y": 7044,
+    "w": 720,
+    "h": 56
+   }
+  ],
+  "fixed": []
+ },
+ "mobile": {
+  "h1": [
+   {
+    "tag": "H1",
+    "cls": "",
+    "text": "Come alive again.",
+    "x": 20,
+    "y": 156,
+    "w": 350,
+    "h": 47
+   }
+  ],
+  "unbound": [
+   {
+    "tag": "SPAN",
+    "cls": "event-date",
+    "text": "UPCOMING · OCTOBER 16, 2026",
+    "x": 48,
+    "y": 10578,
+    "w": 274,
+    "h": 35
+   },
+   {
+    "tag": "H2",
+    "cls": "",
+    "text": "Unbound at Any Age",
+    "x": 48,
+    "y": 10627,
+    "w": 294,
+    "h": 38
+   }
+  ],
+  "btns": [
+   {
+    "tag": "A",
+    "cls": "btn btn-primary",
+    "text": "INVITE ME TO SPEAK",
+    "x": 20,
+    "y": 877,
+    "w": 229,
+    "h": 58
+   },
+   {
+    "tag": "A",
+    "cls": "btn btn-outline",
+    "text": "BEGIN YOUR JOURNEY",
+    "x": 20,
+    "y": 949,
+    "w": 241,
+    "h": 58
+   },
+   {
+    "tag": "A",
+    "cls": "btn btn-outline",
+    "text": "INVITE ME TO SPEAK",
+    "x": 53,
+    "y": 6920,
+    "w": 229,
+    "h": 58
+   }
+  ],
+  "book": [
+   {
+    "tag": "A",
+    "cls": "btn btn-primary",
+    "text": "Book a Discovery Session",
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0
+   },
+   {
+    "tag": "A",
+    "cls": "btn btn-light",
+    "text": "BOOK A DISCOVERY SESSION",
+    "x": 44,
+    "y": 14210,
+    "w": 303,
+    "h": 58
+   },
+   {
+    "tag": "A",
+    "cls": "",
+    "text": "Book a Discovery Session",
+    "x": 20,
+    "y": 14998,
+    "w": 169,
+    "h": 23
+   },
+   {
+    "tag": "A",
+    "cls": "mobile-cta",
+    "text": "BOOK A DISCOVERY SESSION",
+    "x": 12,
+    "y": 778,
+    "w": 366,
+    "h": 54
+   }
+  ],
+  "test": [
+   {
+    "tag": "H2",
+    "cls": "",
+    "text": "Feel like yourself again",
+    "x": 20,
+    "y": 7189,
+    "w": 350,
+    "h": 38
+   },
+   {
+    "tag": "H2",
+    "cls": "",
+    "text": "“A true ray of sunshine”",
+    "x": 20,
+    "y": 8168,
+    "w": 350,
+    "h": 38
+   }
+  ],
+  "testimonials": [
+   {
+    "tag": "SPAN",
+    "cls": "eyebrow",
+    "text": "ON STAGE",
+    "x": 152,
+    "y": 10435,
+    "w": 85,
+    "h": 22
+   },
+   {
+    "tag": "H2",
+    "cls": "",
+    "text": "See Olelo paʻa live",
+    "x": 20,
+    "y": 10472,
+    "w": 350,
+    "h": 38
+   }
+  ],
+  "fixed": [
+   {
+    "tag": "A",
+    "text": "BOOK A DISCOVERY SESSION",
+    "x": 12,
+    "y": 778,
+    "w": 366,
+    "h": 54
+   }
+  ]
+ }
+}

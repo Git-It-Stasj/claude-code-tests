@@ -1,0 +1,32 @@
+{
+  "bpm": 128,
+  "period": 0.46875,
+  "beats": 64,
+  "fps": 30,
+  "chapters": [
+    {"id": "01", "name": "THE REAL SITE", "start": 0,  "end": 13},
+    {"id": "02", "name": "THE AUDIT",     "start": 13, "end": 34},
+    {"id": "03", "name": "THE FIX",       "start": 34, "end": 51},
+    {"id": "04", "name": "THE RESPONSE",  "start": 51, "end": 60},
+    {"id": "05", "name": "LOCKUP",        "start": 60, "end": 64}
+  ],
+  "motifDraw": [0, 2],
+  "windowOpen": [2, 3],
+  "audit": {
+    "headline": {"scroll": 13, "box": 14, "end": 17},
+    "summit":   {"scroll": 17, "box1": 18, "scroll2": 19, "box2": 20, "end": 21},
+    "buttons":  {"scroll": 21, "box": 22, "end": 25},
+    "testimonials": {"scroll": 25, "box": 26, "end": 29},
+    "ladder":   {"start": 29, "end": 34}
+  },
+  "preDropGap": [33.5, 34],
+  "fix": {
+    "headline": {"start": 34, "wipe": 35, "end": 38},
+    "button":   {"start": 38, "wipe": 39, "end": 42},
+    "summit":   {"start": 42, "wipe": 43, "end": 45},
+    "flurry":   [45, 46, 47, 48, 49, 49.5, 50],
+    "flurryEnd": 51
+  },
+  "response": {"morph": [51, 52.5], "type": [52.5, 58], "hold": [58, 60]},
+  "lockup": {"motif": [60, 61.5], "wordmark": 61.5, "tagline": 62.5, "subtitle": 63}
+}

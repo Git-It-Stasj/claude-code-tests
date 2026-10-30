@@ -1,0 +1,36 @@
+{
+ "verbatim": {
+  "16x9": {
+   "checked": 43,
+   "mismatches": [],
+   "hud": 13,
+   "brief": [
+    "REPLY · OLELO PAʻA OGAWA",
+    "the architect",
+    "Orchid Orchestration"
+   ]
+  },
+  "9x16": {
+   "checked": 46,
+   "mismatches": [],
+   "hud": 13,
+   "brief": [
+    "REPLY · OLELO PAʻA OGAWA",
+    "the architect",
+    "Orchid Orchestration"
+   ]
+  }
+ },
+ "layout": {
+  "16x9": {
+   "issues": [],
+   "minFont": 24,
+   "minWhere": "GLOW HAWAII · SITE AUDIT"
+  },
+  "9x16": {
+   "issues": [],
+   "minFont": 24,
+   "minWhere": "GLOW HAWAII · SITE AUDIT"
+  }
+ }
+}
