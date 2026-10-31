@@ -1,0 +1,169 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  :root{--clay:#D97757;--clay-d:#C4623F;--cream:#F5EBDD;--ink:#2A1710;--brown:#3B1F14;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+  body{font-family:'Inter','Liberation Sans',sans-serif;color:var(--cream)}
+  .serif{font-family:'Liberation Serif','FreeSerif',Georgia,serif;letter-spacing:-0.02em}
+  .scene{position:absolute;inset:0;overflow:hidden}
+  .abs{position:absolute;left:0;right:0;text-align:center}
+  .kicker{font-weight:700;letter-spacing:.28em;font-size:34px;text-transform:uppercase}
+  .pill{display:inline-block;padding:20px 38px;border-radius:999px;font-weight:700;font-size:30px;letter-spacing:.14em;text-transform:uppercase}
+  #s1{background:var(--clay)}
+  #s2{background:var(--brown)}
+  #s3{background:var(--cream);color:var(--ink)}
+  #s4{background:var(--ink)}
+  #s5{background:var(--clay)}
+  .card{position:absolute;left:90px;right:90px;height:340px;border-radius:44px;background:rgba(245,235,221,.08);border:2px solid rgba(245,235,221,.18);padding:50px 56px}
+  .card .lab{font-size:28px;font-weight:700;letter-spacing:.24em;color:var(--clay)}
+  .card .val{font-size:78px;line-height:1.05;margin-top:18px}
+  .card .sub{font-size:36px;opacity:.75;margin-top:14px}
+  #grid{position:absolute;left:100px;top:800px;width:880px;height:880px}
+  #grid svg{position:absolute;width:88px;height:88px}
+</style></head>
+<body>
+
+<!-- S1: third hackathon -->
+<div class="scene" id="s1">
+  <div class="abs kicker" id="s1k" style="top:300px;color:var(--ink)">Round three. Let's go.</div>
+  <div class="abs serif" id="s1n" style="top:430px;font-size:760px;line-height:1;color:var(--cream);font-weight:700">3</div>
+  <div class="abs serif" id="s1t" style="top:1290px;font-size:118px;line-height:1.05;color:var(--ink)">my third<br>Claude hackathon</div>
+  <div class="abs" id="s1sparks" style="top:1620px;height:140px"></div>
+</div>
+
+<!-- S2: event title -->
+<div class="scene" id="s2">
+  <div class="abs" id="s2a" style="top:360px"><span class="pill" style="background:var(--clay);color:var(--ink)">Claude Community</span></div>
+  <div class="abs serif" id="s2b" style="top:560px;font-size:210px;line-height:.98;color:var(--cream);font-weight:700">Claude<br>Impact<br>Lab</div>
+  <div class="abs serif" id="s2c" style="top:1230px;font-size:104px;line-height:1.05;color:var(--clay)">UCI × Habitat OC</div>
+  <div class="abs" id="s2d" style="top:1520px;padding:0 110px;font-size:44px;line-height:1.35;font-weight:500;opacity:.85">An AI hackathon for<br>affordable homeownership.</div>
+</div>
+
+<!-- S3: 100 homes -->
+<div class="scene" id="s3">
+  <div class="abs kicker" id="s3k" style="top:190px;color:var(--clay-d)">The mission on the table</div>
+  <div class="abs serif" id="s3n" style="top:260px;font-size:340px;line-height:1;font-weight:700;color:var(--ink)">0</div>
+  <div class="abs serif" id="s3t" style="top:610px;font-size:70px;line-height:1.1;color:var(--ink)">affordable homes for<br>Orange County families</div>
+  <div id="grid"></div>
+  <div class="abs" id="s3f" style="top:1770px;font-size:34px;font-weight:600;letter-spacing:.06em;opacity:.7">Habitat for Humanity of Orange County's goal</div>
+</div>
+
+<!-- S4: details -->
+<div class="scene" id="s4">
+  <div class="abs kicker" id="s4k" style="top:170px;color:var(--clay)">Save the date</div>
+  <div class="card" id="c1" style="top:300px"><div class="lab">DATE</div><div class="val serif">Saturday, Nov 7</div><div class="sub">9:00 AM – 5:00 PM</div></div>
+  <div class="card" id="c2" style="top:670px"><div class="lab">WHERE</div><div class="val serif" style="font-size:66px">Paul Merage School<br>of Business</div><div class="sub">UC Irvine · Irvine, CA</div></div>
+  <div class="card" id="c3" style="top:1040px;height:480px"><div class="lab">WHAT YOU GET</div>
+    <div class="serif" style="font-size:58px;line-height:1.35;margin-top:20px">
+      <div id="p1">· $100 in Claude API credits</div>
+      <div id="p2">· Prizes &amp; official Anthropic swag</div>
+      <div id="p3">· Free food</div>
+      <div id="p4">· No coding experience needed</div></div></div>
+  <div class="abs" id="s4f" style="top:1620px;font-size:40px;font-weight:600;opacity:.8">Teams build a scalable, repeatable path to<br>financially sustainable homeownership.</div>
+</div>
+
+<!-- S5: closing -->
+<div class="scene" id="s5">
+  <div class="abs" id="s5i" style="top:300px;height:300px"></div>
+  <div class="abs serif" id="s5a" style="top:640px;font-size:112px;line-height:1.08;color:var(--ink);padding:0 70px;font-weight:700">Pumped to keep<br>supporting<br>Anthropic's mission.</div>
+  <div class="abs serif" id="s5b" style="top:1180px;font-size:84px;line-height:1.1;color:var(--cream)">Using AI to build<br>something that matters.</div>
+  <div class="abs" id="s5c" style="top:1520px"><span class="pill" style="background:var(--ink);color:var(--cream);font-size:40px;padding:30px 60px">See you Nov 7 · UCI</span></div>
+  <div class="abs" id="s5d" style="top:1700px;font-size:36px;font-weight:700;letter-spacing:.14em;color:var(--ink)">#ClaudeCommunity #ImpactLab</div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const prog=(t,a,b)=>clamp((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eob=x=>{const c=1.70158+1,k=c-1;return 1+c*Math.pow(x-1,3)+k*Math.pow(x-1,2)};
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+
+// Claude-style spark
+function spark(size,color){
+  let l='';for(let i=0;i<10;i++){l+=`<rect x="47" y="6" width="6" height="${i%2?30:40}" rx="3" fill="${color}" transform="rotate(${i*36} 50 50)"/>`}
+  return `<svg width="${size}" height="${size}" viewBox="0 0 100 100">${l}</svg>`;
+}
+const houseSVG=(c)=>`<svg viewBox="0 0 88 88"><path d="M44 12 L76 40 H68 V72 H20 V40 H12 Z" fill="${c}"/><rect x="38" y="50" width="12" height="22" rx="2" fill="#F5EBDD" class="door"/></svg>`;
+
+// Sparks for S1
+$('s1sparks').innerHTML=[0,1,2].map(i=>`<span id="sp${i}" style="display:inline-block;margin:0 26px">${spark(130,i==2?'#2A1710':'#F5EBDD')}</span>`).join('');
+$('s5i').innerHTML=`<span id="bigspark" style="display:inline-block">${spark(280,'#2A1710')}</span>`;
+
+// grid
+const grid=$('grid');const houses=[];
+for(let i=0;i<100;i++){
+  const d=document.createElement('div');d.innerHTML=houseSVG('#C4623F');
+  const s=d.firstChild;s.style.left=(i%10)*88+'px';s.style.top=Math.floor(i/10)*88+'px';
+  grid.appendChild(s);houses.push(s);
+}
+
+function rise(el,t,a,dur=.7,dist=70){
+  const p=eo(prog(t,a,a+dur));
+  el.style.opacity=p;el.style.transform=`translateY(${(1-p)*dist}px)`;
+}
+function wipe(el,t,a,dur=.55){
+  const p=eio(prog(t,a,a+dur));
+  el.style.clipPath=`inset(${(1-p)*100}% 0 0 0)`;
+  el.style.visibility=t<a?'hidden':'visible';
+}
+
+const T={s2:3.2,s3:6.4,s4:10.0,s5:13.2,end:16.5};
+
+window.render=function(t){
+  // scene wipes
+  wipe($('s2'),t,T.s2);wipe($('s3'),t,T.s3);wipe($('s4'),t,T.s4);wipe($('s5'),t,T.s5);
+  $('s1').style.clipPath='none';
+
+  // S1
+  rise($('s1k'),t,.2,.6,40);
+  const np=eob(prog(t,.45,1.15));
+  $('s1n').style.opacity=prog(t,.45,.7);
+  $('s1n').style.transform=`scale(${.3+.7*np}) rotate(${(1-np)*-12}deg)`;
+  rise($('s1t'),t,1.3,.7);
+  for(let i=0;i<3;i++){const p=eob(prog(t,1.9+i*.3,2.4+i*.3));const e=$('sp'+i);e.style.opacity=clamp(p*2);e.style.transform=`scale(${p}) rotate(${(t-1.9)*60}deg)`;}
+
+  // S2
+  const l=t-T.s2;
+  rise($('s2a'),l,.5,.6,40);
+  rise($('s2b'),l,.75,.8,90);
+  rise($('s2c'),l,1.35,.7);
+  rise($('s2d'),l,1.8,.7,40);
+
+  // S3
+  const m=t-T.s3;
+  rise($('s3k'),m,.5,.5,30);
+  const cp=eo(prog(m,.7,2.4));const n=Math.round(cp*100);
+  $('s3n').textContent=n;
+  $('s3n').style.opacity=prog(m,.6,.9);
+  rise($('s3t'),m,1.0,.6,40);
+  houses.forEach((h,i)=>{
+    const filled=n>i;
+    const p=filled?eob(clamp((cp*100-i)/6)):0;
+    h.style.opacity=filled?1:.14;
+    h.style.transform=`scale(${filled?.82+.18*Math.min(1,p):.7})`;
+  });
+  rise($('s3f'),m,2.6,.6,20);
+
+  // S4
+  const q=t-T.s4;
+  rise($('s4k'),q,.45,.5,30);
+  rise($('c1'),q,.6,.6);rise($('c2'),q,.9,.6);rise($('c3'),q,1.2,.6);
+  ['p1','p2','p3','p4'].forEach((id,i)=>rise($(id),q,1.7+i*.25,.5,24));
+  rise($('s4f'),q,2.8,.6,20);
+
+  // S5
+  const r=t-T.s5;
+  const bp=eob(prog(r,.4,1.1));
+  $('bigspark').style.transform=`scale(${bp}) rotate(${r*45}deg)`;
+  $('bigspark').style.opacity=clamp(bp*2);
+  rise($('s5a'),r,.9,.8,80);
+  rise($('s5b'),r,1.6,.7);
+  rise($('s5c'),r,2.2,.6,40);
+  rise($('s5d'),r,2.6,.6,20);
+};
+window.TOTAL=T.end;
+render(0);
+</script>
+</body></html>
