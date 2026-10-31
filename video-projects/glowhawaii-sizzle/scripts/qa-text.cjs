@@ -7,7 +7,8 @@ const GR = JSON.parse(fs.readFileSync(path.join(ROOT, 'grid.json'), 'utf8'));
 const norm = (s) => s.replace(/[‘’ʼ]/g, "'").replace(/[“”]/g, '"').replace(/ʻ/g, "'").replace(/\s+/g, ' ').trim().toLowerCase();
 const rep = fs.readFileSync(path.join(ROOT, 'assets/Glowhawaii-Architect-Report.html'), 'utf8').replace(/data:[a-z/+\-]+;base64,[A-Za-z0-9+/=]+/g, '');
 const repText = norm(rep.replace(/<script[\s\S]*?<\/script>/g, (m) => m).replace(/<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&#39;/g, "'") + ' ' + rep.replace(/\\"/g, '"').replace(/\\u2019/g, "'"));
-const REPLY = "Aloha Nastasja, I'm so glad you ran this report because I think it's great suggestions. I loved your feedback and report. It confirmed I should improve and make changes on my website. You are awesome! Mahalo nui loa!";
+const TJ = JSON.parse(fs.readFileSync(path.join(ROOT, 'testimonial.json'), 'utf8'));
+const REPLY = TJ.body + TJ.attr;
 (async () => {
   const man = JSON.parse(fs.readFileSync(path.join(ROOT, 'qa/text-manifest.json'), 'utf8'));
   const out = { verbatim: {}, layout: {} }; let lines = [];
@@ -55,7 +56,7 @@ const REPLY = "Aloha Nastasja, I'm so glad you ran this report because I think i
           }
         }
         // typed reply final text
-        if (Math.abs(t - (TYEND + 0.3)) < 0.05) { const ty = document.getElementById('typed').textContent; if (ty !== REPLY) issues.push({ t, type: 'reply-mismatch', got: ty }); }
+        if (Math.abs(t - (TYEND + 0.3)) < 0.05) { const ty = document.getElementById('typed').textContent + document.getElementById('typed2').textContent; if (ty !== REPLY) issues.push({ t, type: 'reply-mismatch', got: ty }); }
       }
       return { issues, minFont: +minFont.toFixed(1), minWhere };
     }, { W, H, REPLY, DUR: GR.beats * GR.period, TYEND: GR.response.type[1] * GR.period });

@@ -8,6 +8,7 @@ const b = (x) => +(x * P).toFixed(4);
 const C2S = G.chapters[1].start, C3S = G.chapters[2].start, C4S = G.chapters[3].start, C5S = G.chapters[4].start, NB = G.beats;
 const LD = G.audit.ladder.start, FXG = G.fix, FL0 = G.fix.flurry[0], DROPGAP = G.preDropGap[0];
 const VD = 7; // vertical cut: desktop window closes / mobile window opens
+const TEST = JSON.parse(fs.readFileSync(path.join(ROOT, 'testimonial.json'), 'utf8'));
 const FONTS = fs.readFileSync(path.join(ROOT, 'assets/fonts/fonts.css'), 'utf8');
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -186,8 +187,8 @@ function build(ratio) {
         const hh = 180 + i * 62, cls = i === 1 ? 'site' : i === 2 ? 'mkt' : '';
         h += `<div id="rg${i}" class="rung ${cls}" style="left:${i * (cw + gap)}px;top:${base - hh + 150}px;width:${cw}px;height:${hh}px"><div class="rl" ${tag('report', r[0])}>${r[0].toUpperCase()}</div><div class="rn" ${tag('report', r[1])}>${r[1]}</div>${r[2] ? `<div class="rs" ${tag('report', r[2])}>${r[2]}</div>` : ''}</div>`;
       });
-      h += `<div id="l3" class="lline mkt" style="left:0;top:190px" ${tag('report', 'Your market sits at Level 3')}>Your market sits at Level 3</div>`;
-      h += `<div id="l2" class="lline site" style="left:0;top:256px" ${tag('report', 'Your homepage headline speaks at Level 2')}>Your homepage headline speaks at Level 2</div>`;
+      h += `<div id="l3" class="lline mkt" style="left:0;top:256px" ${tag('report', 'Your market sits at Level 3')}>Your market sits at Level 3</div>`;
+      h += `<div id="l2" class="lline site" style="left:0;top:190px" ${tag('report', 'Your homepage headline speaks at Level 2')}>Your homepage headline speaks at Level 2</div>`;
       h += `<div id="gapq" class="gapq" style="left:${2 * (cw + gap) - 12}px;top:348px;max-width:340px" ${tag('report', 'That gap is the opportunity.')}>That gap is the opportunity.</div>`;
     } else {
       const rw = 960, rh = 124, gap = 10, top0 = 150;
@@ -195,8 +196,8 @@ function build(ratio) {
         const cls = i === 1 ? 'site' : i === 2 ? 'mkt' : '', fill = 28 + i * 18;
         h += `<div id="rg${i}" class="rungv ${cls}" style="top:${top0 + i * (rh + gap)}px;height:${rh}px;width:${rw}px"><div class="fillv" style="width:${fill}%"></div><div class="rl" ${tag('report', r[0])}>${r[0].toUpperCase()}</div><div class="rn" ${tag('report', r[1])}>${r[1]}</div>${r[2] ? `<div class="rs" ${tag('report', r[2])}>${r[2]}</div>` : ''}</div>`;
       });
-      h += `<div id="l3" class="lline mkt" style="left:0;top:${top0 + 5 * (rh + gap) + 16}px" ${tag('report', 'Your market sits at Level 3')}>Your market sits at Level 3</div>`;
-      h += `<div id="l2" class="lline site" style="left:0;top:${top0 + 5 * (rh + gap) + 78}px" ${tag('report', 'Your homepage headline speaks at Level 2')}>Your homepage headline speaks at Level 2</div>`;
+      h += `<div id="l3" class="lline mkt" style="left:0;top:${top0 + 5 * (rh + gap) + 78}px" ${tag('report', 'Your market sits at Level 3')}>Your market sits at Level 3</div>`;
+      h += `<div id="l2" class="lline site" style="left:0;top:${top0 + 5 * (rh + gap) + 16}px" ${tag('report', 'Your homepage headline speaks at Level 2')}>Your homepage headline speaks at Level 2</div>`;
       h += `<div id="gapq" class="gapq" style="left:0;top:${top0 + 5 * (rh + gap) + 140}px" ${tag('report', 'That gap is the opportunity.')}>That gap is the opportunity.</div>`;
     }
     return h + '</div>';
@@ -232,12 +233,15 @@ function build(ratio) {
   clips.push(['s3', b(C3S), b(C4S + 0.5), `<div id="s3" class="clip scene" data-start="${b(C3S)}" data-duration="${b(C4S + 0.5) - b(C3S)}" data-track-index="5">${s3}</div>`]);
 
   // =============== SCENE 4 : THE RESPONSE ===============
-  const cw = V ? 940 : 1440, ch = V ? 780 : 620, cx0 = (W - cw) / 2, cy0 = V ? 300 : (H - ch) / 2 - 20;
+  const cw = V ? 980 : 1640, ch = V ? 1050 : 800, cx0 = (W - cw) / 2, cy0 = V ? 222 : 130;
+  const ph = V ? { x: 58, y: 52, w: 200, h: 300 } : { x: 64, y: 52, w: 340, h: 510 };
+  const rqPos = V ? `left:58px;top:${52 + 300 + 34}px;right:58px;bottom:40px;font-size:28px` : `left:${64 + 340 + 56}px;top:${52 + 54}px;right:64px;bottom:44px;font-size:32px`;
+  const rlabPos = V ? `left:${58 + 200 + 36}px;top:${52 + 130}px` : `left:${64 + 340 + 56}px;top:52px`;
   let s4 = `<div id="rrule" class="rrule" style="left:${cx0}px;top:${cy0 + ch / 2}px;width:${cw}px"></div>
   <div id="rcard" class="rcard" style="left:${cx0}px;top:${cy0}px;width:${cw}px;height:${ch}px;clip-path:inset(50% 0 50% 0)">
-   <div class="rlab" ${tag('brief', 'REPLY · OLELO PAʻA OGAWA')}>REPLY · OLELO PAʻA OGAWA</div>
-   <div class="rq" style="font-size:${V ? 48 : 54}px"><span id="typed"></span><span id="cur" class="cur"></span></div>
-   <div id="rsrc" class="rsrc" ${tag('report', 'Glow Hawaii · The Aloha Chef')}>Glow Hawaii · The Aloha Chef</div></div>`;
+   <img class="rph" src="assets/olelo-portrait.jpg" style="left:${ph.x}px;top:${ph.y}px;width:${ph.w}px;height:${ph.h}px" alt="Olelo paʻa Ogawa">
+   <div class="rlab" style="${rlabPos}" ${tag('hud', 'TESTIMONIAL')}>TESTIMONIAL</div>
+   <div class="rq" style="${rqPos}" ${tag('brief', 'testimonial')}><span id="typed"></span><span id="typed2" class="attr"></span><span id="cur" class="cur"></span></div></div>`;
   clips.push(['s4', b(C4S), b(C5S + 0.5), `<div id="s4" class="clip scene" data-start="${b(C4S)}" data-duration="${b(C5S + 0.5) - b(C4S)}" data-track-index="6">${s4}</div>`]);
 
   // =============== SCENE 5 : LOCKUP ===============
@@ -443,7 +447,6 @@ function build(ratio) {
   T.push(`tl.fromTo('#rrule',{scaleX:0},{scaleX:1,duration:${b(0.8)},ease:'power3.out'},${b(C4S)});`);
   T.push(`tl.fromTo('#rcard',{clipPath:'inset(50% 0% 50% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:${b(0.9)},ease:'power3.inOut'},${b(C4S + 0.7)});`);
   T.push(`tl.to('#rrule',{opacity:0,duration:${b(0.3)}},${b(C4S + 1.4)});`);
-  T.push(`gsap.set('#rsrc',{opacity:0});tl.to('#rsrc',{opacity:1,duration:${b(0.5)}},${b(G.response.hold[0])});`);
   // lockup
   T.push(`gsap.set('#mo-close .sq,#mo-close .dg',{strokeDasharray:1,strokeDashoffset:1});`);
   T.push(`tl.to('#rcard',{opacity:0,y:-40,duration:${b(0.8)},ease:'power3.in'},${b(C5S - 0.8)});`);
@@ -461,9 +464,9 @@ function build(ratio) {
   const driver = `
 const CH=${JSON.stringify(G.chapters)},BEATS=${G.beats},P=${P},FPS=${FPS},END=${b(G.beats)};
 const FLB=${JSON.stringify(FL)},FLEND=${FLEND},PAL=${JSON.stringify(palette.map(p => p[0]))};
-const REPLY=${JSON.stringify(C.reply)},TY0=${b(G.response.type[0])},TY1=${b(G.response.type[1])};
+const TXT1=${JSON.stringify(TEST.body)},TXT2=${JSON.stringify(TEST.attr)},TY0=${b(G.response.type[0])},TY1=${b(G.response.type[1])};
 const el=id=>document.getElementById(id);
-const hud=el('hud'),tc=el('tc'),chl=el('chl'),rec=el('rec'),typed=el('typed'),cur=el('cur');
+const hud=el('hud'),tc=el('tc'),chl=el('chl'),rec=el('rec'),typed=el('typed'),typed2=el('typed2'),cur=el('cur');
 const pf=CH.map((c,i)=>el('pf'+i));
 const dark=['#E8EEFF','#070D1F'];
 function frame(t){
@@ -481,8 +484,9 @@ function frame(t){
   hud.style.setProperty('--hc',col);
   // typing
   const tb=Math.max(0,Math.min(1,(t-TY0)/(TY1-TY0)));
-  const n=Math.floor(tb*REPLY.length+0.0001);
-  typed.textContent=REPLY.slice(0,n);
+  const n=Math.floor(tb*(TXT1.length+TXT2.length)+0.0001);
+  typed.textContent=TXT1.slice(0,n);
+  typed2.textContent=TXT2.slice(0,Math.max(0,n-TXT1.length));
   const typing=(t>=TY0&&t<TY1);
   cur.style.opacity=(t<TY0-0.3||t>${b(C5S)})?0:(typing?1:(Math.floor(beat*2)%2===0?1:0));
 }
@@ -565,11 +569,12 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#070D1F}
 .fq{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;line-height:1.08;letter-spacing:-.025em}
 .fs{font:500 28px/1.3 'JetBrains Mono',monospace;letter-spacing:.04em;margin-top:34px;max-width:${V ? 940 : 1400}px}
 .rrule{position:absolute;height:4px;background:#F0C040;box-shadow:0 0 28px #F0C040}
-.rcard{position:absolute;background:linear-gradient(160deg,#14214A,#0D1530 60%);border:3px solid #F0C040;border-radius:22px;box-shadow:0 0 90px rgba(240,192,64,.22);padding:${V ? '56px 58px' : '52px 72px'}}
-.rlab{font:500 26px 'JetBrains Mono',monospace;letter-spacing:.2em;color:#F0C040}
-.rq{font-family:'DM Sans',sans-serif;font-weight:500;line-height:1.36;margin-top:${V ? 36 : 30}px;color:#E8EEFF;min-height:${V ? 470 : 370}px}
+.rcard{position:absolute;background:linear-gradient(160deg,#14214A,#0D1530 60%);border:3px solid #F0C040;border-radius:22px;box-shadow:0 0 90px rgba(240,192,64,.22);overflow:hidden}
+.rph{position:absolute;object-fit:cover;object-position:50% 18%;border-radius:16px;border:3px solid #F0C040;box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.rlab{position:absolute;font:500 26px 'JetBrains Mono',monospace;letter-spacing:.2em;color:#F0C040}
+.rq{position:absolute;font-family:'DM Sans',sans-serif;font-weight:500;line-height:1.38;color:#E8EEFF;white-space:pre-wrap}
+.rq .attr{color:#F0C040;font-weight:500}
 .cur{display:inline-block;width:.52em;height:1.02em;background:#F0C040;vertical-align:-.14em;margin-left:4px}
-.rsrc{position:absolute;left:${V ? 58 : 72}px;bottom:${V ? 44 : 40}px;font:500 26px 'JetBrains Mono',monospace;color:#6AA0FF;letter-spacing:.1em}
 .wm{position:absolute;left:0;width:${W}px;text-align:center;font:200 160px/1 'Josefin Sans',sans-serif;letter-spacing:.04em;color:#E8EEFF;text-transform:lowercase}
 .wmrule{position:absolute;left:${W / 2 - (V ? 260 : 330)}px;width:${V ? 520 : 660}px;height:3px;background:linear-gradient(90deg,transparent,#F0C040,transparent)}
 .tgl{position:absolute;left:0;width:${W}px;text-align:center;font:500 ${V ? 32 : 32}px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#6AA0FF}

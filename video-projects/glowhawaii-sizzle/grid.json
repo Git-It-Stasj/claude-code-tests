@@ -1,7 +1,7 @@
 {
  "bpm": 96,
  "period": 0.625,
- "beats": 110,
+ "beats": 138,
  "fps": 30,
  "chapters": [
   {
@@ -26,13 +26,13 @@
    "id": "04",
    "name": "THE RESPONSE",
    "start": 95,
-   "end": 103
+   "end": 131
   },
   {
    "id": "05",
    "name": "LOCKUP",
-   "start": 103,
-   "end": 110
+   "start": 131,
+   "end": 138
   }
  ],
  "motifDraw": [
@@ -112,20 +112,20 @@
   ],
   "type": [
    96.5,
-   100.5
+   114
   ],
   "hold": [
-   100.5,
-   103
+   114,
+   129.2
   ]
  },
  "lockup": {
   "motif": [
-   103,
-   104.5
+   131,
+   132.5
   ],
-  "wordmark": 104,
-  "tagline": 105.5,
-  "subtitle": 106.5
+  "wordmark": 132,
+  "tagline": 133.5,
+  "subtitle": 134.5
  }
 }

@@ -55,48 +55,31 @@ gap0, gap1 = G['preDropGap']
 NB = G['beats']
 for bar in range((NB + 3) // 4):
     r, notes = chords[bar % 4]; add(pad([mid(n) for n in notes], 4 * P + 0.5), B(bar * 4), 0.8, 0)
-# soft kick on 1 and 3, gentle rim on 2 and 4, shaker on every eighth (swung), syncopated bass
+# one groove, unchanged from the first bar to the lockup: soft kick, rim on 2/4, swung shaker, syncopated bass
 for b in range(2, NB):
-    in_resp = C4 + 1.5 <= b < C5; in_gap = gap0 <= b < gap1
-    if in_gap: continue
     if b >= C5:
         if b == C5: add(kick(), B(b), 1.1)
         continue
-    if not in_resp:
-        add(kick(), B(b), 0.8 if b % 2 == 0 else 0.55)
-        if b % 2 == 1 and b >= 4: add(clap(0.12), B(b), 0.55)
+    add(kick(), B(b), 0.8 if b % 2 == 0 else 0.55)
+    if b % 2 == 1 and b >= 4: add(clap(0.12), B(b), 0.55)
     if b >= 4:
         add(hat(open_=(b % 2 == 1)), B(b) + P / 2 + SW, 0.4)
-        add(hat(), B(b), 0.22 if not in_resp else 0.0)
-    if b >= 4 and not in_resp:
+        add(hat(), B(b), 0.22)
         r, _ = chords[(b // 4) % 4]
         add(bass(mid(r - 12), P * 0.7), B(b), 0.8)
         if b % 4 in (1, 2): add(bass(mid(r - 12 + 7), P * 0.35), B(b) + P * 0.5 + SW, 0.6)
-# flurry: sixteenth shakers
-for k in range(int(10 * 4)): add(hat(), B(flur[-1] - 10) + k * P / 4, 0.3)
-# ukulele-style arpeggio, chapters 2-3, swung
-for s_ in range(int(C2 * 2), int(C4 * 2)):
+# ukulele-style arpeggio, swung, through the whole piece until the lockup
+for s_ in range(int(2 * 2), int(C5 * 2)):
     t = s_ * P / 2 + (SW if s_ % 2 else 0)
-    if gap0 <= s_ / 2 < gap1: continue
     r, notes = chords[(int(s_ / 8)) % 4]; add(pluck(mid(notes[s_ % 4] + 12), 0.3), t, 0.33, pan=0.4 if s_ % 2 else -0.4)
-# response chapter: soft plucks, half time
-for s_ in range(int(C4 * 2), int(C5 * 2)):
-    if s_ % 2: continue
-    r, notes = chords[(int(s_ / 8)) % 4]; add(pluck(mid(notes[(s_ // 2) % 4] + 12), 0.5), s_ * P / 2, 0.28, pan=0.2)
-# riser into the drop, pre-drop gap, drop
-add(riser(B(4.5)), B(gap0 - 4.5), 0.8); add(riser(0.22, up=False), B(gap0), 0.5)
-add(boom(), B(C3), 0.9); add(kick(0.4), B(C3), 1.2); add(clap(0.3), B(C3), 0.9)
-# whoosh at chapter boundaries
-for b in (2, C2, C4, C5): add(riser(P * 0.9, up=True), B(b) - P * 0.9, 0.5)
-# audit callout blips, fix wipes
+# audit selection blips (same as before); typing ticks, sparse and soft
 for k in ('headline', 'buttons', 'testimonials'): add(blip(1320), B(G['audit'][k]['box']), 1.0)
 add(blip(1320), B(G['audit']['summit']['box1']), 1.0); add(blip(1320), B(G['audit']['summit']['box2']), 1.0)
-for k in ('headline', 'button', 'summit'): add(blip(1760, 0.14), B(G['fix'][k]['wipe']), 1.0)
-for b in G['fix']['flurry']: add(tick(0.02), B(b), 1.4)
-# typing ticks
-t0, t1 = [B(x) for x in G['response']['type']]; nchar = 211
-for c in range(0, nchar, 2): add(tick(), t0 + (t1 - t0) * c / nchar, 0.7)
-# lockup: hit + shimmer chord, swell
+import json as _j, os as _o
+T_ = _j.load(open(_o.path.join(_o.path.dirname(__file__), '..', 'testimonial.json'), encoding='utf8')); nchar = len(T_['body']) + len(T_['attr'])
+t0, t1 = [B(x) for x in G['response']['type']]
+for c in range(0, nchar, 5): add(tick(), t0 + (t1 - t0) * c / nchar, 0.3)
+# lockup: hit + shimmer chord
 add(boom(1.8), B(C5), 0.8); add(pad([mid(n) for n in (60, 64, 67, 72)], 2.4), B(C5), 1.1)
 add(blip(1760, 0.5), B(G['lockup']['tagline']), 0.6); add(blip(2093, 0.5), B(G['lockup']['tagline']) + 0.12, 0.4)
 # master
