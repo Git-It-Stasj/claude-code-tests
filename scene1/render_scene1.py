@@ -112,7 +112,7 @@ VIG = VIG * np.array([1.0, 0.97, 0.90], np.float32)
 # ---------------------------------------------------------------- highlight model
 GOLD = np.array([1.0, 0.78, 0.28], np.float32)   # multiply colour
 HALF_H = 25
-SOFT = 38.0
+SOFT = 22.0
 word_idx = []
 i = 0
 for n in LINE_WORD_COUNTS:
@@ -133,23 +133,40 @@ for li, L in enumerate(lines):
     line_static.append(dict(y0=y0, y1=y1, xl=xl, xr=xr, av=av * left, xs=xs))
 
 
+LEAD = 0.06          # highlighter leads the voice slightly (the eye reads ahead of the ear)
+FILL = 0.70          # a word is fully highlighted once this fraction of it has been spoken
+GLIDE = 0.07         # quick hop across the space to the next word
+
+
 def line_pos(li, t):
-    """Leading-edge x (page px) of the highlighter on line li at scene time t, or None."""
+    """Leading-edge x (page px) of the highlighter on line li at scene time t, or None.
+
+    The bar only moves while a word is being spoken and holds still through pauses."""
     L = lines[li]
     idx = word_idx[li]
-    w = [(WORDS[j][1] + OFF, WORDS[j][2] + OFF, L['segs'][n]) for n, j in enumerate(idx)]
-    if t < w[0][0] - 0.02:
+    w = []
+    for n, j in enumerate(idx):
+        s0, e0 = WORDS[j][1] + OFF, WORDS[j][2] + OFF
+        ts = s0 - LEAD
+        te = max(s0 + FILL * (e0 - s0) - LEAD, ts + 0.08)
+        w.append((ts, te, L['segs'][n]))
+    if t < w[0][0]:
         return None
-    if t >= w[-1][1]:
-        return float(L['xr'] + 14 + SOFT)
-    for n, (s, e, seg) in enumerate(w):
+    last_x = L['segs'][-1][1]
+    for n, (ts, te, seg) in enumerate(w):
         x0, x1 = seg
-        if s <= t <= e:
-            return x0 + (x1 - x0) * (t - s) / max(e - s, 1e-3)
-        if n + 1 < len(w) and e < t < w[n + 1][0]:
-            nx0 = w[n + 1][2][0]
-            return x1 + (nx0 - x1) * (t - e) / max(w[n + 1][0] - e, 1e-3)
-    return None
+        if ts <= t <= te:
+            return x0 + (x1 - x0) * (t - ts) / max(te - ts, 1e-3)
+        nxt = w[n + 1] if n + 1 < len(w) else None
+        if nxt is not None and te < t < nxt[0]:
+            gs = nxt[0] - GLIDE
+            if t <= gs:
+                return float(x1)                                  # hold through the pause
+            return x1 + (nxt[2][0] - x1) * (t - gs) / GLIDE       # hop to the next word
+    # after the last word: finish the line (punctuation) and hold
+    te_last = w[-1][1]
+    k = min((t - te_last) / 0.12, 1.0)
+    return float(last_x + (L['xr'] + 14 + SOFT - last_x) * k)
 
 
 def line_alpha(li, t):
