@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Easing, OffthreadVideo, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Easing, Img, OffthreadVideo, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 
 // Palette pulled from said-and-done.com (light + dark themes)
 const C = {bg:'#111214', bg2:'#1C1817', ink:'#EDEBE7', gold:'#F2B84A', cream:'#FAF6F0', amber:'#A86C12', dark:'#15171A'};
@@ -9,37 +9,38 @@ const SANS = '"Public Sans", system-ui, sans-serif';
 const CARD = {x:40, y:330, w:1000, h:1030};
 const S = CARD.w / 1080;
 
-type Part = {srcStart:number; rate:number; dur:number};
+type Part = {srcStart:number; rate:number; dur:number; freeze?:boolean};
 type Evt = {f:number; x:number; y:number; w:number; h:number};
 type Seg = {id:string; clip:string; from:number; dur:number; parts:Part[]; offY:[number,number][]; events:Evt[]; pop?:{at:number; fx:number; fy:number; z:number}};
 
 const ev = (f:number,x:number,y:number,w:number,h:number):Evt => ({f,x:x*2,y:y*2,w:w*2,h:h*2});
 
 const SEGS: Seg[] = [
-  {id:'land', clip:'land', from:90, dur:120, parts:[{srcStart:0, rate:1.4, dur:120}], offY:[[0,0]], events:[]},
-  {id:'ca', clip:'ca_flow', from:210, dur:180, parts:[{srcStart:12, rate:1.6, dur:180}],
-   offY:[[0,0],[22,380],[118,380],[156,430]],
+  {id:'land', clip:'land', from:105, dur:135, parts:[{srcStart:0, rate:1.3, dur:135}], offY:[[0,0]], events:[]},
+  {id:'ca', clip:'ca_flow', from:240, dur:255, parts:[{srcStart:12, rate:1.25, dur:231},{srcStart:300, rate:1, dur:24, freeze:true}],
+   offY:[[0,0],[28,380],[151,380],[200,430]],
    events:[ev(66,270,354,456,48),ev(118,270,403,456,44),ev(140,270,410,456,48),ev(220,270,442,456,40)],
-   pop:{at:146, fx:500, fy:640, z:1.14}},
-  {id:'money', clip:'peters_money', from:390, dur:70, parts:[{srcStart:36, rate:2, dur:70}], offY:[[0,150]],
+   pop:{at:186, fx:500, fy:640, z:1.14}},
+  {id:'money', clip:'peters_money', from:495, dur:135, parts:[{srcStart:36, rate:1.25, dur:110},{srcStart:174, rate:1, dur:25, freeze:true}], offY:[[0,150]],
    events:[ev(50,437,222,166,36),ev(144,270,410,456,44)]},
-  {id:'votes', clip:'donalds_votes', from:460, dur:70, parts:[{srcStart:44, rate:2.4, dur:70}], offY:[[0,100]],
+  {id:'votes', clip:'donalds_votes', from:630, dur:135, parts:[{srcStart:44, rate:1.6, dur:110},{srcStart:232, rate:1, dur:25, freeze:true}], offY:[[0,100]],
    events:[ev(50,270,222,166,36),ev(140,100,322,140,36)]},
-  {id:'stances', clip:'kiggans_stances', from:530, dur:70, parts:[{srcStart:20, rate:2.4, dur:70}], offY:[[0,150]],
+  {id:'stances', clip:'kiggans_stances', from:765, dur:135, parts:[{srcStart:20, rate:1.35, dur:110},{srcStart:180, rate:1, dur:25, freeze:true}], offY:[[0,150]],
    events:[ev(88,382,303,100,32)]},
-  {id:'fl', clip:'fl_flow', from:600, dur:75, parts:[{srcStart:10, rate:4.6, dur:45},{srcStart:215, rate:2.2, dur:30}],
-   offY:[[0,0],[8,380],[36,380],[52,430]],
+  {id:'fl', clip:'fl_flow', from:900, dur:135, parts:[{srcStart:10, rate:2.6, dur:79},{srcStart:215, rate:1.5, dur:46},{srcStart:284, rate:1, dur:10, freeze:true}],
+   offY:[[0,0],[14,380],[72,380],[100,430]],
    events:[ev(62,270,354,456,48),ev(108,270,403,456,44),ev(130,270,410,456,48),ev(213,270,442,456,40)]},
-  {id:'va', clip:'va_flow', from:675, dur:75, parts:[{srcStart:10, rate:4.6, dur:45},{srcStart:217, rate:2.2, dur:30}],
-   offY:[[0,0],[8,380],[36,380],[52,430]],
+  {id:'va', clip:'va_flow', from:1035, dur:135, parts:[{srcStart:10, rate:2.6, dur:79},{srcStart:215, rate:1.5, dur:46},{srcStart:286, rate:1, dur:10, freeze:true}],
+   offY:[[0,0],[14,380],[72,380],[100,430]],
    events:[ev(62,270,354,456,48),ev(110,270,403,456,44),ev(132,270,410,456,48),ev(215,270,442,456,40)]},
 ];
 
 const mapEvt = (seg:Seg, f:number) => {
-  let start = 0;
+  let start = 0; const live = seg.parts.filter(p=>!p.freeze);
   for (const p of seg.parts) {
+    if (p.freeze) { start += p.dur; continue; }
     const end = p.srcStart + p.dur * p.rate;
-    if (f <= end || p === seg.parts[seg.parts.length-1]) return start + (f - p.srcStart) / p.rate;
+    if (f <= end || p === live[live.length-1]) return start + (f - p.srcStart) / p.rate;
     start += p.dur;
   }
   return 0;
@@ -79,7 +80,9 @@ const SegmentView: React.FC<{seg:Seg}> = ({seg}) => {
           <div style={{position:'absolute', left:0, top:0, width:1080, height:1920, transformOrigin:'0 0', transform:`translateY(${-offY*S}px) scale(${S})`}}>
             {seg.parts.map((p,i)=>{ const st = outStart; outStart += p.dur; return (
               <Sequence key={i} from={st} durationInFrames={p.dur}>
-                <OffthreadVideo src={staticFile(`clips/${seg.clip}.mp4`)} startFrom={p.srcStart} playbackRate={p.rate} muted style={{width:1080, height:1920}} />
+                {p.freeze
+                  ? <Img src={staticFile(`stills/${seg.clip}_${p.srcStart}.jpg`)} style={{width:1080, height:1920}} />
+                  : <OffthreadVideo src={staticFile(`clips/${seg.clip}.mp4`)} startFrom={p.srcStart} playbackRate={p.rate} muted style={{width:1080, height:1920}} />}
               </Sequence>); })}
             {seg.events.map((e,i)=> <Ring key={i} t={f-mapEvt(seg,e.f)} e={e} />)}
           </div>
@@ -93,25 +96,25 @@ const SegmentView: React.FC<{seg:Seg}> = ({seg}) => {
 type Cap = {from:number; to:number; lines:React.ReactNode[]};
 const hl = (t:string) => <span style={{color:C.gold}}>{t}</span>;
 const CAPS: Cap[] = [
-  {from:96, to:208, lines:['What they said', <>vs. {hl('what they did.')}</>]},
-  {from:216, to:388, lines:[<>Pick your {hl('state.')}</>, <>Pick your {hl('rep.')}</>]},
-  {from:392, to:458, lines:[<>See {hl('who funds')} them.</>]},
-  {from:462, to:528, lines:[<>See {hl('how they voted.')}</>]},
-  {from:532, to:598, lines:[<>See {hl('where they stand.')}</>]},
-  {from:602, to:748, lines:[<>Same steps. {hl('Every state.')}</>]},
+  {from:111, to:237, lines:['What they said', <>vs. {hl('what they did.')}</>]},
+  {from:246, to:492, lines:[<>Pick your {hl('state.')}</>, <>Pick your {hl('rep.')}</>]},
+  {from:501, to:627, lines:[<>See {hl('who funds')} them.</>]},
+  {from:636, to:762, lines:[<>See {hl('how they voted.')}</>]},
+  {from:771, to:897, lines:[<>See {hl('where they stand.')}</>]},
+  {from:906, to:1167, lines:[<>Same steps. {hl('Every state.')}</>]},
 ];
 type Lab = {from:number; to:number; text:string};
 const LABS: Lab[] = [
-  {from:96, to:208, text:'said-and-done.com'},
-  {from:216, to:340, text:'California'},
-  {from:340, to:388, text:'Scott H. Peters · California · Democrat'},
-  {from:392, to:458, text:'Scott H. Peters · California · Democrat'},
-  {from:462, to:528, text:'Byron Donalds · Florida · Republican'},
-  {from:532, to:598, text:'Jennifer A. Kiggans · Virginia · Republican'},
-  {from:602, to:644, text:'Florida'},
-  {from:644, to:673, text:'Byron Donalds · Florida · Republican'},
-  {from:677, to:720, text:'Virginia'},
-  {from:720, to:748, text:'Jennifer A. Kiggans · Virginia · Republican'},
+  {from:111, to:237, text:'said-and-done.com'},
+  {from:246, to:406, text:'California'},
+  {from:406, to:492, text:'Scott H. Peters · California · Democrat'},
+  {from:501, to:627, text:'Scott H. Peters · California · Democrat'},
+  {from:636, to:762, text:'Byron Donalds · Florida · Republican'},
+  {from:771, to:897, text:'Jennifer A. Kiggans · Virginia · Republican'},
+  {from:906, to:978, text:'Florida'},
+  {from:978, to:1032, text:'Byron Donalds · Florida · Republican'},
+  {from:1041, to:1114, text:'Virginia'},
+  {from:1114, to:1167, text:'Jennifer A. Kiggans · Virginia · Republican'},
 ];
 
 const Caption: React.FC<{c:Cap}> = ({c}) => {
@@ -139,11 +142,11 @@ const Label: React.FC<{l:Lab; url?:boolean}> = ({l}) => {
 const Hook: React.FC = () => {
   const f = useCurrentFrame(); const {fps} = useVideoConfig();
   const a = spring({frame:f, fps, config:{damping:14, stiffness:140}});
-  const b = spring({frame:f-48, fps, config:{damping:13, stiffness:150}});
-  const showA = f < 48;
-  const fadeA = interpolate(f, [40, 48], [1, 0], {extrapolateLeft:'clamp', extrapolateRight:'clamp'});
+  const b = spring({frame:f-55, fps, config:{damping:13, stiffness:150}});
+  const showA = f < 55;
+  const fadeA = interpolate(f, [47, 55], [1, 0], {extrapolateLeft:'clamp', extrapolateRight:'clamp'});
   const s = showA ? a : b; const o = showA ? fadeA : 1;
-  const bar = interpolate(showA ? f : f-48, [6, 30], [0, 1], {extrapolateLeft:'clamp', extrapolateRight:'clamp', easing:Easing.out(Easing.cubic)});
+  const bar = interpolate(showA ? f : f-55, [6, 30], [0, 1], {extrapolateLeft:'clamp', extrapolateRight:'clamp', easing:Easing.out(Easing.cubic)});
   return (
     <AbsoluteFill style={{justifyContent:'center', alignItems:'center', opacity:o}}>
       <div style={{width:900, textAlign:'center', transform:`scale(${0.9+0.1*s}) translateY(${(1-s)*30}px)`, opacity:Math.min(1, s*1.4)}}>
@@ -166,7 +169,7 @@ const CTA: React.FC = () => {
   return (
     <AbsoluteFill style={{justifyContent:'center', alignItems:'center'}}>
       <div style={{width:960, textAlign:'center', marginTop:-40}}>
-        <div style={{...pop(s1), fontFamily:SERIF, fontWeight:600, fontSize:158, lineHeight:1, color:C.ink}}>Said <span style={{color:C.gold}}>vs.</span> Done.</div>
+        <div style={{...pop(s1), fontFamily:SERIF, fontWeight:600, fontSize:158, lineHeight:1, color:C.ink}}>Said <span style={{color:C.gold}}>and</span> Done.</div>
         <div style={{...pop(s2), fontFamily:SERIF, fontWeight:600, fontSize:78, lineHeight:1.1, color:C.ink, marginTop:44}}>Check before you vote.</div>
         <div style={{...pop(s3), display:'inline-block', marginTop:70, background:C.gold, color:C.dark, fontFamily:SANS, fontWeight:700, fontSize:88, padding:'26px 56px', borderRadius:26, boxShadow:'0 0 60px rgba(242,184,74,.35)'}}>said-and-done.com</div>
         <div style={{...pop(s4), fontFamily:SANS, fontWeight:600, fontSize:34, color:'rgba(237,235,231,.78)', marginTop:46, letterSpacing:0.5}}>Nonpartisan · Public records · Check the record yourself</div>
@@ -181,11 +184,11 @@ export const Reel: React.FC = () => {
   return (
     <AbsoluteFill style={{background:`radial-gradient(ellipse at 50% 38%, ${C.bg2} 0%, ${C.bg} 70%)`, opacity:fadeIn}}>
       <style>{`@font-face{font-family:Fraunces;src:url(${staticFile('fonts/fraunces.woff2')}) format('woff2');font-weight:100 900;}@font-face{font-family:"Public Sans";src:url(${staticFile('fonts/publicsans.woff2')}) format('woff2');font-weight:100 900;}`}</style>
-      <Sequence from={0} durationInFrames={90}><Hook /></Sequence>
+      <Sequence from={0} durationInFrames={105}><Hook /></Sequence>
       {SEGS.map(s => <Sequence key={s.id} from={s.from} durationInFrames={s.dur}><SegmentView seg={s} /></Sequence>)}
       {LABS.map((l,i) => <Sequence key={i} from={l.from} durationInFrames={l.to-l.from}><Label l={l} /></Sequence>)}
       {CAPS.map((c,i) => <Sequence key={i} from={c.from} durationInFrames={c.to-c.from}><Caption c={c} /></Sequence>)}
-      <Sequence from={750} durationInFrames={150}><CTA /></Sequence>
+      <Sequence from={1170} durationInFrames={165}><CTA /></Sequence>
     </AbsoluteFill>
   );
 };

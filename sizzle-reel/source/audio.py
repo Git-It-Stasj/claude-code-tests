@@ -1,5 +1,5 @@
 import numpy as np, wave
-SR=44100; D=30.0; N=int(SR*D); rng=np.random.default_rng(7)
+SR=44100; D=44.5; N=int(SR*D); rng=np.random.default_rng(7)
 t=np.arange(N)/SR
 L=np.zeros(N); R=np.zeros(N)
 def add(sig,start,gain=1.0,pan=0.0):
@@ -40,51 +40,49 @@ def snare():
 k=kick(); h=hat(); ho=hat(True); sn=snare()
 for i in range(int(D/beat)):
     st=i*beat; b=int(st//bar)%4
-    if 3.0<=st<27.0:
+    if 3.5<=st<39.0:
         add(k,st,0.55)
         n=int(beat*0.5*SR); f=midi(bass_root[b])
         for j in (0,1):
             tt=np.arange(n)/SR; add(np.sin(2*np.pi*f*tt)*np.exp(-tt*5)+0.3*np.sin(2*np.pi*2*f*tt)*np.exp(-tt*8),st+j*beat/2,0.28)
-    if 7.0<=st<27.0:
-        add(h,st+beat/2,0.16,0.3)
+    if 8.0<=st<39.0:
+        add(h,st+beat/2,0.09,0.3)
         if i%2==1: add(sn,st,0.22)
-    if 13.0<=st<27.0: add(h,st+beat/4,0.07,-0.3); add(h,st+3*beat/4,0.07,0.3)
-    if 20.0<=st<27.0 and i%2==0: add(ho,st+beat/2,0.1)
+    if 16.5<=st<39.0: add(h,st+beat/4,0.04,-0.3); add(h,st+3*beat/4,0.04,0.3)
+    if 27.0<=st<39.0 and i%2==0: add(ho,st+beat/2,0.05)
 # arp from 13s
-for i in range(int((27-13)/(beat/2))):
-    st=13+i*beat/2; b=int(st//bar)%4; c=chords[b]
+for i in range(int((39-16.5)/(beat/2))):
+    st=16.5+i*beat/2; b=int(st//bar)%4; c=chords[b]
     m=c[[0,1,2,1][i%4]]+12; n=int(0.3*SR); tt=np.arange(n)/SR
     add(np.sin(2*np.pi*midi(m)*tt)*np.exp(-tt*9)*0.5+np.sin(2*np.pi*midi(m)*2*tt)*np.exp(-tt*14)*0.15,st,0.16,0.4 if i%2 else -0.4)
 # hook: sparse low pulses 0-3s
-for st in (0.0,1.6):
+for st in (0.0,1.83):
     n=int(1.4*SR); tt=np.arange(n)/SR; add(np.sin(2*np.pi*midi(33)*tt)*np.exp(-tt*2.2),st,0.35)
-# whooshes on cuts
-def whoosh(dur=0.5,up=True):
-    n=int(dur*SR); x=rng.standard_normal(n); tt=np.linspace(0,1,n)
-    out=np.zeros(n); 
-    y=lp(x,2500); y=hp(y,300)
-    e=np.sin(np.pi*tt)**2
-    return y*e
-cuts=[48,90,210,390,460,530,600,675]
-for fr in cuts:
-    w=whoosh(0.42); add(w,fr/30-0.24,0.9,0.0)
-# riser into CTA
-n=int(2.6*SR); x=rng.standard_normal(n); tt=np.linspace(0,1,n); r=hp(lp(x,6000),400)*(tt**2.2); add(r,22.4,0.35)
-# click on taps
-taps=[244,276,290,340,397,444,462,500,558,611,621,626,644,686,697,701,720]
+# soft transition swells (tonal, quiet) instead of noise whooshes
+def swell(dur=0.45):
+    n=int(dur*SR); tt=np.arange(n)/SR; f=260+520*(tt/dur)**1.5
+    ph=2*np.pi*np.cumsum(f)/SR; e=np.sin(np.pi*np.linspace(0,1,n))**2
+    return (np.sin(ph)+0.35*np.sin(2*ph))*e
+cuts=[55,105,240,495,630,765,900,1035]
+for fr in cuts: add(swell(),fr/30-0.25,0.10,0.0)
+# tonal riser into CTA
+n=int(2.8*SR); tt=np.arange(n)/SR; f=220+880*(tt/2.8)**2; ph=2*np.pi*np.cumsum(f)/SR
+add((np.sin(ph)+0.4*np.sin(2*ph))*(tt/2.8)**1.8*0.5,36.2,0.10)
+# soft ticks on taps
+taps=[283,325,342,406,506,581,634,690,815,920,938,946,978,1055,1073,1082,1114]
 def click():
-    n=int(0.05*SR); tt=np.arange(n)/SR; return (np.sin(2*np.pi*1800*tt)+0.5*np.sin(2*np.pi*3100*tt))*np.exp(-tt*110)
+    n=int(0.07*SR); tt=np.arange(n)/SR; return (np.sin(2*np.pi*900*tt)+0.4*np.sin(2*np.pi*1350*tt))*np.exp(-tt*55)
 cl=click()
-for fr in taps: add(cl,fr/30,0.28,0.2)
+for fr in taps: add(cl,fr/30,0.10,0.2)
 # CTA impact at 25.0 + sustained chord
 n=int(2.0*SR); tt=np.arange(n)/SR; imp=np.sin(2*np.pi*(38+60*np.exp(-tt*8))*tt)*np.exp(-tt*3)+lp(rng.standard_normal(n),900)*np.exp(-tt*6)*0.5
-add(imp,25.0,0.7)
-c=[57,60,64,69]; n=int(5*SR); pad=sum(saw(midi(m),n,d) for m in c for d in(-0.003,0.003))/8; pad=lp(pad,2600)
-add(pad*env(n,0.05,2.5),25.0,0.25)
+add(imp,39.0,0.6)
+c=[57,60,64,69]; n=int(5.5*SR); pad=sum(saw(midi(m),n,d) for m in c for d in(-0.003,0.003))/8; pad=lp(pad,2600)
+add(pad*env(n,0.05,2.5),39.0,0.25)
 # master: normalize, fade out 27.6->30, short fade-in
 m=np.max(np.abs(np.concatenate([L,R]))); L/=m; R/=m; L*=0.85; R*=0.85
-fo=np.ones(N); i0=int(27.6*SR); fo[i0:]=np.linspace(1,0,N-i0)**1.5; fi=np.minimum(1,t/0.05)
+fo=np.ones(N); i0=int(42.0*SR); fo[i0:]=np.linspace(1,0,N-i0)**1.5; fi=np.minimum(1,t/0.05)
 L*=fo*fi; R*=fo*fi
 pcm=(np.stack([L,R],1)*32767).astype('<i2')
-with wave.open('music.wav','wb') as w: w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())
+with wave.open('music2.wav','wb') as w: w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())
 print('ok')
