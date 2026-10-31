@@ -16,9 +16,11 @@ HERE = '/home/user/claude-code-tests'
 PAGE = '/root/.claude/uploads/b637815a-cb09-5c60-9941-10dd084c7fd0/4a6114df-image.jpg'
 AUDIO = f'{HERE}/audio/passage1_norm.wav'
 
+import os
+SPEED = float(os.environ.get('SPEED', '1.0'))   # narration tempo (pitch preserved)
 OFF = 0.6            # narration starts this many seconds into the scene
 TAIL = 0.9           # warm-light ramp at the very end
-T_TOTAL = OFF + 20.36 + TAIL + 0.05
+T_TOTAL = OFF + 20.36 / SPEED + TAIL + 0.05
 FPS = 30
 OUT_W, OUT_H = 1080, 1920
 
@@ -39,6 +41,7 @@ WORDS = [
     ("their", 16.34, 16.5), ("guidance.", 16.54, 17.14), ("They", 17.8, 17.9), ("are", 17.96, 18.2),
     ("doers,", 18.26, 18.82), ("not", 19.22, 19.4), ("just", 19.46, 19.68), ("talkers.", 19.74, 20.36),
 ]
+WORDS = [(w, a / SPEED, b / SPEED) for (w, a, b) in WORDS]
 LINE_WORD_COUNTS = [11, 11, 10, 11, 8]
 
 # ---------------------------------------------------------------- page geometry
@@ -198,7 +201,7 @@ if __name__ == '__main__':
         n = int(T_TOTAL * FPS)
         cmd = ['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{OUT_W}x{OUT_H}',
                '-r', str(FPS), '-i', '-', '-i', AUDIO,
-               '-af', f'adelay={int(OFF * 1000)}|{int(OFF * 1000)},apad=whole_dur={T_TOTAL:.3f}',
+               '-af', f'atempo={SPEED},adelay={int(OFF * 1000)}|{int(OFF * 1000)},apad=whole_dur={T_TOTAL:.3f}',
                '-t', f'{T_TOTAL:.3f}', '-c:v', 'libx264', '-crf', '18', '-preset', 'medium', '-pix_fmt', 'yuv420p',
                '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', out]
         p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
