@@ -216,13 +216,23 @@ if __name__ == '__main__':
     else:
         out = sys.argv[2]
         n = int(T_TOTAL * FPS)
+        # Build the delayed/tempo-adjusted narration as its own file and mux it afterwards.
+        # (Piping frames into ffmpeg together with -af adelay silently dropped the delay.)
+        audio_tmp = out + '.audio.wav'
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', AUDIO, '-af',
+                        f'atempo={SPEED},adelay={int(OFF * 1000)}:all=1,apad=whole_dur={T_TOTAL:.3f}',
+                        '-ar', '44100', audio_tmp], check=True)
+        video_tmp = out + '.video.mp4'
         cmd = ['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{OUT_W}x{OUT_H}',
-               '-r', str(FPS), '-i', '-', '-i', AUDIO,
-               '-af', f'atempo={SPEED},adelay={int(OFF * 1000)}|{int(OFF * 1000)},apad=whole_dur={T_TOTAL:.3f}',
-               '-t', f'{T_TOTAL:.3f}', '-c:v', 'libx264', '-crf', '18', '-preset', 'medium', '-pix_fmt', 'yuv420p',
-               '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', out]
+               '-r', str(FPS), '-i', '-', '-c:v', 'libx264', '-crf', '18', '-preset', 'medium', '-pix_fmt', 'yuv420p',
+               video_tmp]
         p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
         for i in range(n):
             p.stdin.write(render_frame(i / FPS).tobytes())
         p.stdin.close()
         p.wait()
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', video_tmp, '-i', audio_tmp, '-map', '0:v', '-map', '1:a',
+                        '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-t', f'{T_TOTAL:.3f}', '-movflags', '+faststart', out],
+                       check=True)
+        os.remove(video_tmp)
+        os.remove(audio_tmp)
