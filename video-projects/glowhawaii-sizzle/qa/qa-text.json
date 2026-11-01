@@ -1,0 +1,38 @@
+{
+ "verbatim": {
+  "16x9": {
+   "checked": 42,
+   "mismatches": [],
+   "hud": 14,
+   "brief": [
+    "Audience Awareness",
+    "testimonial",
+    "the architect",
+    "Orchid Orchestration"
+   ]
+  },
+  "9x16": {
+   "checked": 45,
+   "mismatches": [],
+   "hud": 14,
+   "brief": [
+    "Audience Awareness",
+    "testimonial",
+    "the architect",
+    "Orchid Orchestration"
+   ]
+  }
+ },
+ "layout": {
+  "16x9": {
+   "issues": [],
+   "minFont": 24,
+   "minWhere": "GLOW HAWAII · SITE AUDIT"
+  },
+  "9x16": {
+   "issues": [],
+   "minFont": 24,
+   "minWhere": "GLOW HAWAII · SITE AUDIT"
+  }
+ }
+}
