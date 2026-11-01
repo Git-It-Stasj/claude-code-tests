@@ -18,18 +18,28 @@ W_, H_ = 1080, 1920
 FPS, DUR = 30, 3.0
 
 # ---- textures --------------------------------------------------------------
-def _paint(im, box, ref):
-    from PIL import ImageDraw as _D
-    c = im.getpixel(ref)
-    _D.Draw(im).rectangle(box, fill=c)
-    return im
+def _paint(im, box, dy, feather=16, dx=0):
+    """Replace a hand/shadow region with clean paper copied from `dy` px above, feathered into the surroundings."""
+    a = np.asarray(im).astype(np.float32)
+    x0, y0, x1, y1 = box
+    src = a[y0 - dy:y1 - dy, x0 - dx:x1 - dx]
+    m = Image.new('L', (x1 - x0, y1 - y0), 0)
+    ImageDraw.Draw(m).rectangle([-feather * 2, feather, x1 - x0 - feather, y1 - y0 - feather], fill=255)   # left edge is the cover edge: no fade
+    m = np.asarray(m.filter(ImageFilter.GaussianBlur(feather / 2))).astype(np.float32)[..., None] / 255
+    # match the low-frequency brightness of the surroundings so the patch does not read as a block
+    ring_t = a[y0 - 8:y0, x0:x1].mean((0, 1)); src_t = src[:8].mean((0, 1))
+    ring_b = a[y1:y1 + 8, x0:x1].mean((0, 1)); src_b = src[-8:].mean((0, 1))
+    wy = np.linspace(0, 1, src.shape[0])[:, None, None]
+    src = src + ((ring_t - src_t)[None, None, :] * (1 - wy) + (ring_b - src_b)[None, None, :] * wy)
+    a[y0:y1, x0:x1] = a[y0:y1, x0:x1] * (1 - m) + src * m
+    return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
 
 
 _f = Image.open(PHOTOS + 'd4efbf48-image.jpg').convert('RGB')
-_f = _paint(_f, (190, 1040, 336, 1258), (700, 1000))      # thumb on the left edge of the cover
+_f = _paint(_f, (196, 1024, 380, 1250), 215, 26)      # thumb on the left edge of the cover
 front = _f.crop((208, 100, 1408, 1955))
 _b = Image.open(PHOTOS + 'c654c8e5-image.jpg').convert('RGB')
-_b = _paint(_b, (150, 1430, 310, 1635), (900, 1560))      # finger at the lower-left of the back cover
+_b = _paint(_b, (172, 1412, 372, 1642), 0, 26, -215)      # finger at the lower-left of the back cover
 back = _b.crop((175, 95, 1420, 1960))
 front = front.resize((840, int(840 * front.size[1] / front.size[0])), Image.LANCZOS)
 back = back.resize((840, int(840 * back.size[1] / back.size[0])), Image.LANCZOS)

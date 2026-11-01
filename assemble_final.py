@@ -9,8 +9,10 @@ H = '/home/user/claude-code-tests'
 OUT = f'{H}/preview/final.mp4'
 
 CUT = 18.40            # hard cut right after "talkers."
-S2_NARR = 2.7          # narration starts this far into the tiger scene
-S2_LEN = 17.7
+S2_NARR = 0.7          # narration starts this far into the tiger scene (voice enters during the pull-back)
+INTRO_LEN = 1.6        # macro->pull-back, retimed from intro.mp4 [0.25, 3.0]
+FD = 0.9               # eased crossfade length at each clip join
+S2_LEN = S2_NARR + 15.0
 CARD_LEN = 3.0
 XF = 0.35              # dissolve into the closing card
 TAIL_LEN = S2_LEN + CARD_LEN - XF
@@ -74,14 +76,16 @@ def main():
     vf = lambda n, d, extra='': f'[{n}:v]trim=0:{d},setpts=PTS-STARTPTS,scale=1080:1920:flags=lanczos,fps=30,setsar=1,format=yuv420p{extra}'
     f = []
     f.append(vf(0, CUT) + '[s1]')
-    f.append(vf(1, 3.0) + '[v0]')
-    f.append(vf(2, 6.56) + '[v1]')
-    f.append(vf(3, 4.54) + '[v2]')
+    f.append(f'[1:v]trim=0.25:3.05,setpts=(PTS-STARTPTS)*{INTRO_LEN/2.75:.5f},scale=1080:1920:flags=lanczos,fps=30,setsar=1,format=yuv420p,trim=0:{INTRO_LEN}[v0]')
+    f.append(vf(2, 6.26 + FD + 0.05) + '[v1]')
+    f.append(vf(3, 4.24 + FD + 0.05) + '[v2]')
     f.append(vf(4, 4.5) + '[v3]')
     f.append(vf(5, CARD_LEN) + '[card]')
-    f.append('[v0][v1]xfade=transition=fade:duration=0.3:offset=2.7[x1]')
-    f.append('[x1][v2]xfade=transition=fade:duration=0.3:offset=8.96[x2]')
-    f.append('[x2][v3]xfade=transition=fade:duration=0.3:offset=13.2[x3]')
+    EZ = "A*(1-P*P*(3-2*P))+B*(P*P*(3-2*P))"
+    c1, c2, c3 = S2_NARR, S2_NARR + 6.26, S2_NARR + 10.5       # clip starts (= pauses in the narration)
+    f.append(f"[v0][v1]xfade=transition=custom:expr='{EZ}':duration={FD}:offset={c1}[x1]")
+    f.append(f"[x1][v2]xfade=transition=custom:expr='{EZ}':duration={FD}:offset={c2}[x2]")
+    f.append(f"[x2][v3]xfade=transition=custom:expr='{EZ}':duration={FD}:offset={c3}[x3]")
     f.append(f'[x3][card]xfade=transition=fade:duration={XF}:offset={S2_LEN - XF}[tail]')
     f.append('[s1][tail]concat=n=2:v=1:a=0[cat]')
     last = 'cat'
