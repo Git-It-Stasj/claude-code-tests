@@ -4,3 +4,4 @@ audio/mix-pre.wav
 qa/snap/frame-*.png
 .hyperframes/artifacts/
 .hyperframes/video-state-lock
+out/work-*/
