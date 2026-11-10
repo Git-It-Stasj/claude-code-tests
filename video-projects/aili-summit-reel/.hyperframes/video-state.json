@@ -1905,5 +1905,16 @@
         "attribution": "inputs-changed"
       }
     ]
-  }
+  },
+  "renders": {
+    "latest": {
+      "id": "e79ee3c4-a504-42e0-9a7b-340dc489868f",
+      "completedAt": 1794283870475,
+      "output": "/home/user/claude-code-tests/video-projects/aili-summit-reel/out/aili-summit-reel-9x16.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
 }
