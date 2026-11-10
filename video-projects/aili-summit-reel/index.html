@@ -208,7 +208,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--ink)}
   <div id="c3" class="t" style="top:630px;font-size:48px;font-weight:800">NOV 14 · 10AM–5PM</div>
   <div id="c4" class="t mono gold" style="top:694px;font-size:28px">FORT LAUDERDALE, FL</div>
   <div id="c5" class="t" style="top:772px;font-size:54px;font-weight:900;color:#FF5A6A">ONLY</div>
-  <div id="seatnum" class="ggrad gglow">20</div>
+  <div id="seatnum" class="ggrad gglow">499</div>
   <div id="c6" class="t" style="top:1068px;font-size:54px;font-weight:900">SEATS LEFT</div>
   <div id="cta"><span>REGISTER NOW</span></div>
   <div id="ctaring"></div>
@@ -348,11 +348,10 @@ flash(t(56), '#fff', 0.35);
 tl.fromTo('#logo', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: 'back.out(2)' }, t(56));
 rise('#c1', t(56), 0.2, 50); slam('#c2', t(56) + 0.1, 1.6, 0.22);
 rise('#c3', t(56.5), 0.22, 30); rise('#c4', t(56.5) + 0.12, 0.22, 20);
-// seat counter: deterministic slot-machine spin, locks on 20 at beat 58.5
-const spin = [47, 13, 86, 31, 64, 25, 92, 38, 57, 21, 74, 29, 43, 26, 22, 20];
-tl.fromTo('#seatnum', { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.18, ease: 'power3.out' }, t(57));
-const sp = { i: 0 };
-tl.to(sp, { i: spin.length - 1, duration: t(58.5) - t(57), ease: 'none', onUpdate: () => { $('#seatnum').textContent = spin[Math.round(sp.i)]; } }, t(57));
+// seat counter: rapid countdown 499 -> 20, decelerating into the lock at beat 58.5
+tl.fromTo('#seatnum', { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.16, ease: 'power3.out' }, t(56.5));
+const seats = { v: 499 };
+tl.fromTo(seats, { v: 499 }, { v: 20, duration: t(58.5) - t(56.5), ease: 'power3.out', onUpdate: () => { $('#seatnum').textContent = Math.round(seats.v); } }, t(56.5));
 tl.fromTo('#seatnum', { scale: 1.45 }, { scale: 1, duration: 0.24, ease: 'power4.out', immediateRender: false }, t(58.5));
 flash(t(58.5), '#F2C567', 0.4);
 slam('#c5', t(58.5), 1.6, 0.18); rise('#c6', t(58.5) + 0.06, 0.2, 30);
