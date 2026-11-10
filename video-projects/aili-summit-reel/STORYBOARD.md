@@ -17,7 +17,7 @@ Beat *n* = `0.0202 + n × 0.46875 s`. Eight 8-beat phrases = 30.0 s. The track's
 | 32–40 | 15.02–18.77 | AI Breach Room Live | Higgsfield clip 3 (war room), red pulse per beat | THE AI BREACH ROOM · LIVE badge · INCIDENT CLOCK running · LIVE LEADERBOARD reshuffling per beat · 3 AWARDS. / NO SECURITY BACKGROUND REQUIRED |
 | 40–48 | 18.77–22.52 | Host | Noelle's trophy photo (supplied), push-in, gold flare on the trophy | HOSTED BY / NOELLE RUSSELL · **MINDVALLEY TRAINER OF THE YEAR** gold badge (b42, glint) · BUILT AI AT AMAZON ALEXA · MICROSOFT · IBM · AWS · ACCENTURE (one name per half-beat) |
 | 48–56 | 22.52–26.27 | Payoff | Higgsfield clip 4 (gold roadmap drawing itself) | YOU LEAVE WITH YOUR OWN 90-DAY AI ROADMAP · + AT LEAST ONE SYSTEM RUNNING · STATUS: RUNNING |
-| 56–64 | 26.27–30.00 | CTA | AILI shield (recoloured for navy) + wave | THIS SATURDAY · NOV 14 · 10AM–5PM · FORT LAUDERDALE, FL · seat counter spins and locks: ONLY **20** SEATS LEFT (b58.5) · REGISTER NOW + luma.com/aibusinesssummit (b59), punched on the music's final hit (b62), pulsing gold frame |
+| 56–64 | 26.27–30.00 | CTA | AILI shield (recoloured for navy) + wave | THIS SATURDAY · NOV 14 · 10AM–5PM · FORT LAUDERDALE, FL · seat counter counts down 499 → 20 and locks: ONLY **20** SEATS LEFT (b58.5) · REGISTER NOW + luma.com/aibusinesssummit (b59), punched on the music's final hit (b62), pulsing gold frame |
 
 ## Brand
 AILI navy `#0C2350` + gold (from the AILI shield), electric indigo/lavender light from the event cover art. Montserrat 900 (cover-style headlines), Alfa Slab One (AILI-style slab, used on the award badge), JetBrains Mono (HUD/labels).
@@ -28,7 +28,7 @@ AILI navy `#0C2350` + gold (from the AILI shield), electric indigo/lavender ligh
 | Clips 1–4 | Higgsfield · Kling 3.0 Pro · 9:16 · 5 s · silent | 4 × 7.5 = **30 credits**. Jobs: `57fbbc69…` (inbox), `6ab70952…` (workspace), `2756cbde…` (breach), `adbb1d2f…` (roadmap) |
 | Clip 4 usage | — | Only the first 1.62 s is used (slowed ×2.45 with motion interpolation) — later frames contain AI-garbled pseudo-text labels |
 | Music | ElevenLabs Music v2.5 · instrumental · 30 s | 2 takes; **take A** used (take B fades out from 23 s) |
-| SFX | ElevenLabs Sound Effects v2 | impact, glitch alarm, whoosh, tick (2 takes each); 22 hits placed on the grid by `scripts/mix.py` |
+| SFX | ElevenLabs Sound Effects v2 | Approved: **data swoosh** on slams/transitions (−6.9 dB), **starship red alert (take A-2)** on "AND", impact, countdown ticks; placed on the grid by `scripts/mix.py`. Rejected options kept in `samples/` |
 | Host photo | Supplied in chat, approved for use | `assets/src/noelle-trophy.png`; Luma profile portrait kept as a backup |
 | Cover art, AILI logo | Luma event page | `assets/src/` |
 | Claims | Luma event page | "7 AI systems every business needs, in order, while you eat", "AI Breach Room Live", "Three awards. No security background required", 90-day roadmap, Mindvalley Trainer of the Year, Built AI at Amazon Alexa, Microsoft, IBM, AWS, and Accenture |

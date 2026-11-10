@@ -1,13 +1,13 @@
 """Builds the final 30 s mix: ElevenLabs music take A + ElevenLabs SFX placed on the 128 BPM grid.
 Beat n is at 0.0202 + n*0.46875 s (fitted from the music itself)."""
 import subprocess, json, os
-LASER = os.environ.get("LASER", "whoosh-A")    # sound on text slams / transitions
-ALARM = os.environ.get("ALARM", "glitch-B")    # sound on the AND / breach alert
+LASER = os.environ.get("LASER", "slamD-dataswoosh")    # sound on text slams / transitions
+ALARM = os.environ.get("ALARM", "alarmA-2")    # sound on the AND / breach alert
 OUT = os.environ.get("OUT", "assets/media/mix.m4a")
 B, T0 = 0.46875, 0.0202
 t = lambda n: T0 + n*B
 ev = []  # (file, time, gain_dB, pre_roll)
-for n in (8, 10, 13, 48, 56, 59):            ev.append((LASER, t(n), -6, 0.06))
+for n in (8, 10, 13, 48, 56, 59):            ev.append((LASER, t(n), -6.9, 0.06))   # approved: data swoosh, ~10% quieter than first pass
 for n in range(17, 24):                  ev.append(('tick-B', t(n), 0, 0.02))
 for n in [56.5 + k*0.25 for k in range(8)]: ev.append(('tick-B', t(n), -2, 0.02))   # countdown ticks
 ev.append((ALARM, t(28.5), -6, 0.02))
