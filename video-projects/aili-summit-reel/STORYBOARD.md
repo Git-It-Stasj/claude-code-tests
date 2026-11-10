@@ -40,3 +40,10 @@ python3 scripts/mix.py                      # audio/src → assets/media/mix.m4a
 npx hyperframes@0.8.222 check --json
 npx hyperframes@0.8.222 render -o out/aili-summit-reel-9x16.mp4 -q delivery -f 30
 ```
+
+## 4:5 LinkedIn cut
+`4x5/index.html` → `out/aili-summit-reel-4x5.mp4` (1080×1350, 30 fps, 30.0 s). Same timeline and audio as 9:16; the 1920 px layout sits on a stage shifted up 130 px, so the whole text band fits the 1350 px frame. 4:5-only overrides: host photo scaled to 1080 wide and moved down so her hair is not cropped (host text block +60 px), CTA gold frame resized to the 1350 frame. `4x5/assets` links to `../assets`.
+
+```
+npx hyperframes@0.8.222 render 4x5 -o out/aili-summit-reel-4x5.mp4 -q delivery -f 30
+```

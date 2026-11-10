@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "historyId": "1c4c6f03-626e-46f3-b75a-e421955814c6",
+  "currentRevision": "65f66481-feb2-4fce-8f46-c43473dca1ed",
+  "pendingChanges": false,
+  "files": {
+    "index.html": {
+      "hash": "88280760517e2a1f72299cd36bbe8b23baafac91293067d81a8a4c08b12193af",
+      "content": "/root/.cache/hyperframes/history/1c4c6f03-626e-46f3-b75a-e421955814c6/blobs/88/88280760517e2a1f72299cd36bbe8b23baafac91293067d81a8a4c08b12193af"
+    },
+    "hyperframes.json": {
+      "hash": "35a6d4ea79ebe911f0d81705f7aace5d8ff0316b745b0311d56af50c9c237cb7",
+      "content": "/root/.cache/hyperframes/history/1c4c6f03-626e-46f3-b75a-e421955814c6/blobs/35/35a6d4ea79ebe911f0d81705f7aace5d8ff0316b745b0311d56af50c9c237cb7"
+    }
+  },
+  "revisions": {
+    "5a357f5d-6c92-4db3-8e92-c0e77b62fc64": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794291370149,
+      "endedAt": 1794291370150,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/1c4c6f03-626e-46f3-b75a-e421955814c6/blobs/f0/f0ab034e64793445284a8f1168637740f260a387ad67dc8aa361ec48633eb7da",
+          "after": "/root/.cache/hyperframes/history/1c4c6f03-626e-46f3-b75a-e421955814c6/blobs/88/88280760517e2a1f72299cd36bbe8b23baafac91293067d81a8a4c08b12193af"
+        }
+      }
+    },
+    "65f66481-feb2-4fce-8f46-c43473dca1ed": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794291381898,
+      "endedAt": 1794291381900,
+      "files": {
+        "hyperframes.json": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/1c4c6f03-626e-46f3-b75a-e421955814c6/blobs/35/35a6d4ea79ebe911f0d81705f7aace5d8ff0316b745b0311d56af50c9c237cb7"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": {
+      "revision": "5a357f5d-6c92-4db3-8e92-c0e77b62fc64",
+      "id": "5cb4e7d1-8f78-4ce2-86ba-8bd57a3cac3e-2"
+    },
+    "revisions": {
+      "5a357f5d-6c92-4db3-8e92-c0e77b62fc64": [
+        {
+          "scope": "full",
+          "id": "5cb4e7d1-8f78-4ce2-86ba-8bd57a3cac3e-0",
+          "image": "/home/user/claude-code-tests/video-projects/aili-summit-reel/qa/snap45/frame-00-at-20.2s.png",
+          "time": 20.2,
+          "metadata": {
+            "width": 1080,
+            "height": 1350,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794291373899,
+          "contentHash": "5235c3d914beb463d8416bba67cb1020478c0c0743ed3af5e891afde13140997",
+          "revision": "5a357f5d-6c92-4db3-8e92-c0e77b62fc64",
+          "inputFingerprint": "f48f3ef08dd32ba896e4114b7d54c2c8eca86af75c156b594fc540a9ca9579bd",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "5cb4e7d1-8f78-4ce2-86ba-8bd57a3cac3e-1",
+          "image": "/home/user/claude-code-tests/video-projects/aili-summit-reel/qa/snap45/frame-01-at-21.9s.png",
+          "time": 21.9,
+          "metadata": {
+            "width": 1080,
+            "height": 1350,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794291373899,
+          "contentHash": "6b3485ad601d9b74325007e7e75b7caaad8e318314985434a442783b9fc71974",
+          "revision": "5a357f5d-6c92-4db3-8e92-c0e77b62fc64",
+          "inputFingerprint": "f48f3ef08dd32ba896e4114b7d54c2c8eca86af75c156b594fc540a9ca9579bd",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "5cb4e7d1-8f78-4ce2-86ba-8bd57a3cac3e-2",
+          "image": "/home/user/claude-code-tests/video-projects/aili-summit-reel/qa/snap45/frame-02-at-29.5s.png",
+          "time": 29.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1350,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794291373899,
+          "contentHash": "d09b3a2be5515eaee86fc103ab49dd6f6e98cdb2897183bc6f4ac2aa210f04ec",
+          "revision": "5a357f5d-6c92-4db3-8e92-c0e77b62fc64",
+          "inputFingerprint": "f48f3ef08dd32ba896e4114b7d54c2c8eca86af75c156b594fc540a9ca9579bd",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "f9d2ba11-427e-4a9e-8e4b-5f2a797e4ed2",
+      "completedAt": 1794291518821,
+      "output": "/home/user/claude-code-tests/video-projects/aili-summit-reel/out/aili-summit-reel-4x5.mp4",
+      "status": "completed",
+      "revision": "65f66481-feb2-4fce-8f46-c43473dca1ed"
+    },
+    "retainedRevisions": [
+      "65f66481-feb2-4fce-8f46-c43473dca1ed"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}
