@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=1080, height=1920">
+<title>AI Business Summit Reel · 9x16</title>
+<style>
+@font-face{font-family:'Montserrat';font-weight:500;src:url('assets/fonts/Montserrat-500.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:700;src:url('assets/fonts/Montserrat-700.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:800;src:url('assets/fonts/Montserrat-800.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:900;src:url('assets/fonts/Montserrat-900.woff2') format('woff2');}
+@font-face{font-family:'Alfa Slab One';font-weight:400;src:url('assets/fonts/AlfaSlabOne-400.woff2') format('woff2');}
+@font-face{font-family:'JetBrains Mono';font-weight:500;src:url('assets/fonts/JetBrainsMono-500.woff2') format('woff2');}
+
+:root{--navy:#0C2350;--ink:#060A1C;--deep:#0A1236;--indigo:#6E7BFF;--lav:#C9D2FF;--gold:#F2C567;--gold2:#C68A2B;--red:#FF3B4E;--white:#FFFFFF}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--ink)}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--ink);font-family:'Montserrat',sans-serif;color:#fff}
+.full{position:absolute;left:0;top:0;width:1080px;height:1920px}
+.vwrap{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden}
+.vwrap video{position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover}
+#bg{background:radial-gradient(ellipse 80% 55% at 50% 30%,#16236a 0%,#0A1236 45%,#060A1C 100%)}
+#grain{background:url('assets/grain.png');opacity:.07;mix-blend-mode:overlay;pointer-events:none}
+#vig{background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.45) 100%);pointer-events:none}
+#flash{background:#fff;opacity:0;pointer-events:none}
+.scene{overflow:hidden}
+.scrim-top{position:absolute;left:0;top:0;width:1080px;height:1100px;background:linear-gradient(180deg,rgba(6,10,28,.88) 0%,rgba(6,10,28,.55) 45%,rgba(6,10,28,0) 100%)}
+.scrim-bot{position:absolute;left:0;bottom:0;width:1080px;height:1150px;background:linear-gradient(0deg,rgba(6,10,28,.95) 0%,rgba(6,10,28,.75) 45%,rgba(6,10,28,0) 100%)}
+.scrim-all{position:absolute;left:0;top:0;width:1080px;height:1920px;background:rgba(6,10,28,.38)}
+
+.t{position:absolute;left:0;width:1080px;text-align:center;font-weight:900;line-height:.94;letter-spacing:-.02em;text-transform:uppercase;white-space:nowrap;opacity:0}
+.mono{font-family:'JetBrains Mono',monospace;font-weight:500;letter-spacing:.2em;text-transform:uppercase}
+.gold{color:var(--gold)}
+.ggrad{background:linear-gradient(180deg,#FFF1C9 0%,#F2C567 45%,#C68A2B 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.agrad{background:linear-gradient(180deg,#FFFFFF 15%,#D6DCFF 55%,#8C9BFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glow{filter:drop-shadow(0 0 28px rgba(110,123,255,.75)) drop-shadow(0 6px 0 rgba(6,10,28,.6))}
+.gglow{filter:drop-shadow(0 0 26px rgba(242,197,103,.6)) drop-shadow(0 6px 0 rgba(6,10,28,.6))}
+.shadow{text-shadow:0 6px 30px rgba(6,10,28,.85),0 2px 0 rgba(6,10,28,.7)}
+
+/* HUD */
+#hud{position:absolute;left:0;top:0;width:1080px;height:300px;pointer-events:none}
+.hudl,.hudr{position:absolute;top:186px;font:500 28px/1 'JetBrains Mono',monospace;letter-spacing:.18em;color:var(--gold);opacity:0;background:#060A1C;padding:10px 14px;border-radius:8px}
+.hudl{left:58px}.hudr{right:58px}
+#hudline{position:absolute;left:72px;top:246px;width:936px;height:2px;background:linear-gradient(90deg,var(--gold),rgba(242,197,103,.15));transform-origin:0 50%}
+
+/* wipes */
+.wipe{position:absolute;left:0;top:-200px;width:700px;height:2320px;background:linear-gradient(90deg,rgba(242,197,103,0),#F2C567 40%,#FFF1C9 50%,#F2C567 60%,rgba(242,197,103,0));opacity:.8}
+
+/* S3 tiles */
+.tile{position:absolute;width:210px;height:210px;border-radius:26px;background:linear-gradient(160deg,rgba(40,56,150,.85),rgba(12,22,70,.9));border:3px solid rgba(110,123,255,.55);box-shadow:0 20px 60px -20px rgba(110,123,255,.7);opacity:0}
+.tile .n{position:absolute;left:0;top:44px;width:100%;text-align:center;font:900 100px/1 'Montserrat';letter-spacing:-.03em}
+.tile .k{position:absolute;left:0;bottom:20px;width:100%;text-align:center;font:500 28px/1 'JetBrains Mono',monospace;letter-spacing:.1em;color:var(--lav)}
+.tile.on{border-color:var(--gold)}
+.wave{position:absolute;left:0;top:1170px;width:1080px;height:750px;background:url('assets/media/wave.jpg') center top/cover no-repeat;opacity:.9}
+.wavefade{position:absolute;left:0;top:1160px;width:1080px;height:260px;background:linear-gradient(180deg,#060A1C 0%,rgba(6,10,28,0) 100%)}
+
+/* S4 glitch */
+.gl{position:absolute;left:0;width:1080px;text-align:center;font:900 400px/1 'Montserrat';letter-spacing:-.04em;opacity:0}
+#redwash{background:radial-gradient(ellipse at center,rgba(255,59,78,.0) 30%,rgba(255,59,78,.35) 100%);opacity:0}
+
+/* S5 breach */
+#redpulse{background:radial-gradient(ellipse at 50% 35%,rgba(255,59,78,.0) 20%,rgba(160,0,20,.55) 100%);opacity:0;mix-blend-mode:multiply}
+.live{position:absolute;left:390px;top:572px;width:300px;height:76px;border-radius:38px;background:var(--red);font:900 44px/76px 'Montserrat';letter-spacing:.14em;text-align:center;color:#fff;opacity:0;box-shadow:0 0 40px rgba(255,59,78,.8)}
+.live i{display:inline-block;width:18px;height:18px;border-radius:50%;background:#fff;margin-right:14px;vertical-align:4px}
+.panel{position:absolute;left:96px;width:888px;border:2px solid rgba(255,59,78,.6);border-radius:20px;background:rgba(10,8,24,.82);opacity:0}
+.plab{position:absolute;left:28px;top:18px;font:500 28px/1 'JetBrains Mono',monospace;letter-spacing:.2em;color:#FF8A95}
+#clock{position:absolute;left:0;top:52px;width:100%;text-align:center;font:500 96px/1 'JetBrains Mono',monospace;letter-spacing:.06em;color:#fff}
+.row{position:absolute;left:28px;width:832px;height:56px}
+.row .nm{position:absolute;left:0;top:10px;font:800 32px/1 'Montserrat';letter-spacing:.04em}
+.row .bar{position:absolute;left:220px;top:16px;height:24px;border-radius:12px;background:linear-gradient(90deg,#FF3B4E,#FF8A95);transform-origin:0 50%}
+.row .sc{position:absolute;right:0;top:10px;font:500 32px/1 'JetBrains Mono',monospace;color:#fff}
+.row .pos{position:absolute;left:-2px;top:10px}
+
+/* S6 host */
+#noelle-bg{position:absolute;left:0;top:0;width:1080px;height:1920px}
+#noelle-wrap{position:absolute;left:-50px;top:-40px;width:1180px;height:1317px;transform-origin:46% 60%}
+#noelle-wrap img{position:absolute;left:0;top:0;width:1180px;height:1317px}
+.photofade{position:absolute;left:0;top:820px;width:1080px;height:1100px;background:linear-gradient(180deg,rgba(6,10,28,0) 0%,rgba(6,10,28,.82) 30%,#060A1C 55%)}
+.photofadetop{position:absolute;left:0;top:0;width:1080px;height:260px;background:linear-gradient(180deg,rgba(6,10,28,.55),rgba(6,10,28,0))}
+#flare{position:absolute;left:250px;top:620px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,241,201,.95) 0%,rgba(242,197,103,.55) 18%,rgba(242,197,103,0) 60%);opacity:0;mix-blend-mode:screen}
+#badge{position:absolute;left:84px;top:1100px;width:912px;height:84px;border-radius:14px;background:linear-gradient(180deg,#FFE9B0 0%,#F2C567 50%,#C68A2B 100%);box-shadow:0 0 50px rgba(242,197,103,.55);overflow:hidden;opacity:0}
+#badge span{position:absolute;left:0;top:0;width:100%;text-align:center;font:400 40px/84px 'Alfa Slab One',serif;letter-spacing:.02em;color:#0C2350;white-space:nowrap}
+#badgeglint{position:absolute;left:-200px;top:-20px;width:120px;height:130px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.9),rgba(255,255,255,0))}
+.cn{display:inline-block;opacity:.0}
+#credline{position:absolute;left:0;top:1240px;width:1080px;text-align:center;font:500 28px/1.5 'JetBrains Mono',monospace;letter-spacing:.04em;color:#fff;opacity:0;white-space:nowrap}
+#credlab{position:absolute;left:0;top:1196px;width:1080px;text-align:center;font:500 28px/1 'JetBrains Mono',monospace;letter-spacing:.24em;color:var(--gold);opacity:0}
+
+/* S7 */
+.status{position:absolute;left:0;top:1268px;width:1080px;text-align:center;font:500 28px/1 'JetBrains Mono',monospace;letter-spacing:.24em;color:#9BFFC4;opacity:0}
+.status i{display:inline-block;width:16px;height:16px;border-radius:50%;background:#2BE38A;margin-right:14px;vertical-align:2px;box-shadow:0 0 14px #2BE38A}
+
+/* S8 CTA */
+#logo{position:absolute;left:465px;top:190px;width:150px;height:150px;opacity:0}
+#seatnum{position:absolute;left:0;top:826px;width:1080px;text-align:center;font:900 230px/1 'Montserrat';letter-spacing:-.04em;opacity:0}
+#cta{position:absolute;left:110px;top:1152px;width:860px;height:120px;border-radius:60px;background:linear-gradient(180deg,#FFE9B0 0%,#F2C567 50%,#C68A2B 100%);box-shadow:0 0 60px rgba(242,197,103,.6);opacity:0}
+#cta span{position:absolute;left:0;top:0;width:100%;text-align:center;font:900 64px/120px 'Montserrat';letter-spacing:.02em;color:#0C2350}
+#ctaring{position:absolute;left:110px;top:1150px;width:860px;height:120px;border-radius:60px;border:4px solid var(--gold);opacity:0}
+#frame{position:absolute;left:24px;top:24px;width:1032px;height:1872px;border:6px solid var(--gold);border-radius:28px;opacity:0;box-shadow:inset 0 0 60px rgba(242,197,103,.35)}
+</style></head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="30" data-width="1080" data-height="1920">
+
+<div id="bg" class="full"></div>
+
+<!-- Higgsfield footage (Kling 3.0 Pro, generated for this reel). Wrappers are untimed; the <video> is the timed clip. -->
+<div id="vw1" class="vwrap"><video id="v1" class="clip" src="assets/media/c1-hook.mp4" muted playsinline data-start="0" data-duration="3.7702" data-track-index="1"></video></div>
+<div id="vw2" class="vwrap"><video id="v2" class="clip" src="assets/media/c2-promises.mp4" muted playsinline data-start="3.7702" data-duration="3.75" data-track-index="1"></video></div>
+<div id="vw3" class="vwrap"><video id="v3" class="clip" src="assets/media/c3-breach.mp4" muted playsinline data-start="15.0202" data-duration="3.75" data-track-index="1"></video></div>
+<div id="vw4" class="vwrap"><video id="v4" class="clip" src="assets/media/c4-roadmap.mp4" muted playsinline data-start="22.5202" data-duration="3.75" data-track-index="1"></video></div>
+
+<!-- S1 HOOK -->
+<div id="s1" class="clip scene full" data-start="0" data-duration="3.7702" data-track-index="2" data-track-kind="graphics">
+  <div class="scrim-top"></div>
+  <div id="h-whatif" class="t shadow" style="top:330px;font-size:170px;opacity:1">WHAT IF</div>
+  <div id="h-ai" class="t agrad glow" style="top:500px;font-size:440px;line-height:1">AI</div>
+  <div id="h-could" class="t shadow" style="top:960px;font-size:120px">COULD…</div>
+</div>
+
+<!-- S2 PROMISES -->
+<div id="s2" class="clip scene full" data-start="3.7702" data-duration="3.75" data-track-index="2" data-track-kind="graphics">
+  <div class="scrim-all"></div>
+  <div id="p1a" class="t shadow" style="top:620px;font-size:96px">BRING YOU</div>
+  <div id="p1b" class="t ggrad gglow" style="top:730px;font-size:118px">MORE CLIENTS</div>
+  <div id="p2a" class="t shadow" style="top:620px;font-size:96px">CLOSE</div>
+  <div id="p2b" class="t ggrad gglow" style="top:730px;font-size:130px">MORE SALES</div>
+  <div id="p3a" class="t shadow" style="top:600px;font-size:96px">AND GIVE YOU</div>
+  <div id="p3b" class="t shadow" style="top:710px;font-size:118px">YOUR WEEK</div>
+  <div id="p3c" class="t ggrad gglow" style="top:832px;font-size:150px">BACK?</div>
+  <div id="wp1" class="wipe"></div><div id="wp2" class="wipe"></div><div id="wp3" class="wipe"></div>
+</div>
+
+<!-- S3 7 SYSTEMS -->
+<div id="s3" class="clip scene full" data-start="7.5202" data-duration="3.75" data-track-index="2" data-track-kind="graphics">
+  <div class="wave"></div><div class="wavefade"></div>
+  <div id="sy-lab" class="t mono gold" style="top:300px;font-size:28px">WE TAKE YOU THROUGH</div>
+  <div id="sy-big" class="t agrad glow" style="top:350px;font-size:150px">7 AI SYSTEMS</div>
+  <div id="sy-sub" class="t" style="top:516px;font-size:58px;font-weight:800">EVERY BUSINESS NEEDS</div>
+  <div id="tl1" class="tile" style="left:84px;top:680px"><div class="n agrad">01</div><div class="k">SYSTEM</div></div>
+  <div id="tl2" class="tile" style="left:318px;top:680px"><div class="n agrad">02</div><div class="k">SYSTEM</div></div>
+  <div id="tl3" class="tile" style="left:552px;top:680px"><div class="n agrad">03</div><div class="k">SYSTEM</div></div>
+  <div id="tl4" class="tile" style="left:786px;top:680px"><div class="n agrad">04</div><div class="k">SYSTEM</div></div>
+  <div id="tl5" class="tile" style="left:201px;top:914px"><div class="n agrad">05</div><div class="k">SYSTEM</div></div>
+  <div id="tl6" class="tile" style="left:435px;top:914px"><div class="n agrad">06</div><div class="k">SYSTEM</div></div>
+  <div id="tl7" class="tile" style="left:669px;top:914px"><div class="n ggrad">07</div><div class="k">SYSTEM</div></div>
+</div>
+
+<!-- S4 IN ORDER / AND -->
+<div id="s4" class="clip scene full" data-start="11.2702" data-duration="3.75" data-track-index="2" data-track-kind="graphics">
+  <div class="wave"></div><div class="wavefade"></div>
+  <div id="redwash" class="full"></div>
+  <div id="o1" class="t agrad glow" style="top:470px;font-size:160px">IN ORDER.</div>
+  <div id="o2" class="t shadow" style="top:690px;font-size:130px">WHILE</div>
+  <div id="o3" class="t ggrad gglow" style="top:820px;font-size:150px">YOU EAT.</div>
+  <div id="andR" data-layout-allow-overlap data-layout-allow-overflow class="gl" style="top:560px;color:#FF3B4E;mix-blend-mode:screen">AND</div>
+  <div id="andC" data-layout-allow-overlap data-layout-allow-overflow class="gl" style="top:560px;color:#4FE3FF;mix-blend-mode:screen">AND</div>
+  <div id="andW" data-layout-allow-overflow class="gl" style="top:560px;color:#fff">AND</div>
+</div>
+
+<!-- S5 AI BREACH ROOM LIVE -->
+<div id="s5" class="clip scene full" data-start="15.0202" data-duration="3.75" data-track-index="2" data-track-kind="graphics">
+  <div id="redpulse" class="full"></div>
+  <div class="scrim-top" style="height:760px"></div>
+  <div id="br1" class="t shadow" style="top:300px;font-size:92px">THE AI</div>
+  <div id="br2" class="t shadow" style="top:396px;font-size:120px;color:#fff">BREACH ROOM</div>
+  <div id="brlive" class="live"><i></i>LIVE</div>
+  <div id="pclock" class="panel" style="top:690px;height:170px"><div class="plab">INCIDENT CLOCK</div><div id="clock">00:00</div></div>
+  <div id="pboard" class="panel" style="top:880px;height:300px">
+    <div class="plab">LIVE LEADERBOARD</div>
+    <div id="rw1" class="row" style="top:62px"><div class="nm">TEAM 1</div><div class="bar" style="width:520px"></div><div class="sc" id="sc1">0</div></div>
+    <div id="rw2" class="row" style="top:62px"><div class="nm">TEAM 2</div><div class="bar" style="width:460px"></div><div class="sc" id="sc2">0</div></div>
+    <div id="rw3" class="row" style="top:62px"><div class="nm">TEAM 3</div><div class="bar" style="width:400px"></div><div class="sc" id="sc3">0</div></div>
+    <div id="rw4" class="row" style="top:62px"><div class="nm">TEAM 4</div><div class="bar" style="width:330px"></div><div class="sc" id="sc4">0</div></div>
+  </div>
+  <div id="br3" class="t" style="top:1206px;font-size:46px;font-weight:900">3 AWARDS.</div>
+  <div id="br4" class="t mono" style="top:1262px;font-size:28px;letter-spacing:.12em;color:#FF8A95;font-weight:500">NO SECURITY BACKGROUND REQUIRED</div>
+</div>
+
+<!-- S6 HOST -->
+<div id="s6" class="clip scene full" data-start="18.7702" data-duration="3.75" data-track-index="2" data-track-kind="graphics">
+  <img id="noelle-bg" src="assets/media/noelle-bg.jpg" alt="">
+  <div id="noelle-wrap"><img src="assets/media/noelle.png" alt="Noelle Russell holding her Mindvalley Trainer of the Year award"></div>
+  <div class="photofadetop"></div>
+  <div class="photofade"></div>
+  <div class="wave" style="top:1340px;opacity:.7"></div><div class="wavefade" style="top:1330px"></div>
+  <div id="flare"></div>
+  <div id="hb" class="t mono gold" style="top:960px;font-size:28px">HOSTED BY</div>
+  <div id="hn" class="t shadow" style="top:1000px;font-size:84px">NOELLE RUSSELL</div>
+  <div id="badge"><span>MINDVALLEY TRAINER OF THE YEAR</span><div id="badgeglint"></div></div>
+  <div id="credlab">BUILT AI AT</div>
+  <div id="credline"><span id="cr1" class="cn">AMAZON ALEXA</span> · <span id="cr2" class="cn">MICROSOFT</span> · <span id="cr3" class="cn">IBM</span> · <span id="cr4" class="cn">AWS</span> · <span id="cr5" class="cn">ACCENTURE</span></div>
+</div>
+
+<!-- S7 PAYOFF -->
+<div id="s7" class="clip scene full" data-start="22.5202" data-duration="3.75" data-track-index="2" data-track-kind="graphics">
+  <div class="scrim-top" style="height:800px"></div><div class="scrim-bot" style="height:900px"></div>
+  <div id="y0" class="t mono gold" style="top:290px;font-size:30px">YOU LEAVE WITH YOUR OWN</div>
+  <div id="y1" class="t shadow" style="top:340px;font-size:130px">90-DAY</div>
+  <div id="y2" class="t ggrad gglow" style="top:470px;font-size:150px">AI ROADMAP</div>
+  <div id="y3" class="t shadow" style="top:1060px;font-size:64px;font-weight:800">+ AT LEAST ONE</div>
+  <div id="y4" class="t agrad glow" style="top:1134px;font-size:104px">SYSTEM RUNNING</div>
+  <div id="y5" class="status"><i></i>STATUS: RUNNING</div>
+</div>
+
+<!-- S8 CTA -->
+<div id="s8" class="clip scene full" data-start="26.2702" data-duration="3.7298" data-track-index="2" data-track-kind="graphics">
+  <div class="full" style="background:radial-gradient(ellipse 80% 55% at 50% 35%,#16236a 0%,#0A1236 45%,#060A1C 100%)"></div>
+  <div class="wave" style="top:1300px;opacity:.75"></div><div class="wavefade" style="top:1290px"></div>
+  <img id="logo" src="assets/media/aili-logo-light.png" alt="AI Leadership Institute">
+  <div id="c1" class="t shadow" style="top:370px;font-size:100px">THIS</div>
+  <div id="c2" class="t ggrad gglow" style="top:462px;font-size:150px">SATURDAY</div>
+  <div id="c3" class="t" style="top:630px;font-size:48px;font-weight:800">NOV 14 · 10AM–5PM</div>
+  <div id="c4" class="t mono gold" style="top:694px;font-size:28px">FORT LAUDERDALE, FL</div>
+  <div id="c5" class="t" style="top:772px;font-size:54px;font-weight:900;color:#FF5A6A">ONLY</div>
+  <div id="seatnum" class="ggrad gglow">20</div>
+  <div id="c6" class="t" style="top:1068px;font-size:54px;font-weight:900">SEATS LEFT</div>
+  <div id="cta"><span>REGISTER NOW</span></div>
+  <div id="ctaring"></div>
+  <div id="c7" class="t mono" style="top:1290px;font-size:28px;color:#fff;letter-spacing:.08em">luma.com/aibusinesssummit</div>
+  <div id="frame"></div>
+</div>
+
+<!-- persistent overlays -->
+<div id="hud"><div id="hudl" class="hudl">AI BUSINESS SUMMIT</div><div id="hudr" class="hudr">SAT · NOV 14</div><div id="hudline"></div></div>
+<div id="flash" class="full"></div>
+<div id="vig" class="full"></div>
+<div id="grain" class="full"></div>
+
+<!-- ElevenLabs music (Music v2.5) + ElevenLabs SFX, pre-mixed on the beat grid by scripts/mix.py -->
+<audio id="mix" src="assets/media/mix.m4a" data-start="0" data-duration="30" data-volume="1"></audio>
+</div>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script>
+window.__timelines = window.__timelines || {};
+const B = 0.46875, T0 = 0.0202, t = n => +(T0 + n * B).toFixed(4);   // 128 BPM grid fitted to the music
+const tl = gsap.timeline({ paused: true });
+const $ = s => document.querySelector(s);
+
+const slam  = (el, at, from = 1.7, d = 0.2) => tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: d, ease: 'power4.out' }, at);
+const rise  = (el, at, d = 0.28, y = 70)   => tl.fromTo(el, { opacity: 0, y: y }, { opacity: 1, y: 0, duration: d, ease: 'power3.out' }, at);
+const out   = (el, at, d = 0.14, y = -60)  => tl.to(el, { opacity: 0, y: y, duration: d, ease: 'power2.in' }, at);
+const flash = (at, color = '#fff', peak = 0.55) => { tl.set('#flash', { backgroundColor: color }, at); tl.fromTo('#flash', { opacity: peak }, { opacity: 0, duration: 0.18, ease: 'power2.out', immediateRender: false }, at); };
+const wipe  = (el, at) => tl.fromTo(el, { x: -1100, skewX: -18 }, { x: 1300, skewX: -18, duration: 0.3, ease: 'power2.inOut' }, at - 0.15);
+
+// ---------- persistent HUD ----------
+tl.fromTo('#hudline', { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: 'power3.out' }, 0);
+tl.fromTo(['#hudl', '#hudr'], { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.1);
+tl.to(['#hudl', '#hudr', '#hudline'], { opacity: 0, duration: 0.12 }, t(40) - 0.12);   // host photo owns the top
+tl.to(['#hudl', '#hudr', '#hudline'], { opacity: 1, duration: 0.2 }, t(48));
+tl.to(['#hudl', '#hudr', '#hudline'], { opacity: 0, duration: 0.15 }, t(56));          // CTA uses the logo instead
+
+// ---------- S1 HOOK (beats 0–8) ----------
+tl.fromTo('#vw1', { scale: 1.0 }, { scale: 1.14, duration: 3.77, ease: 'none' }, 0);
+tl.fromTo('#h-whatif', { scale: 1.06 }, { scale: 1, duration: 0.5, ease: 'power3.out' }, 0);   // on screen at frame 0
+slam('#h-ai', t(2), 2.4, 0.22);
+tl.to('#h-ai', { scale: 1.06, duration: 1.4, ease: 'none' }, t(2) + 0.22);
+rise('#h-could', t(5));
+tl.to(['#h-whatif', '#h-ai', '#h-could'], { y: -260, opacity: 0, duration: 0.18, ease: 'power3.in' }, t(8) - 0.18);
+flash(t(8), '#F2C567', 0.45);
+
+// ---------- S2 PROMISES (beats 8–16) ----------
+tl.fromTo('#vw2', { scale: 1.12 }, { scale: 1.0, duration: 3.75, ease: 'none' }, t(8));
+wipe('#wp1', t(8)); rise('#p1a', t(8), 0.22, 40); slam('#p1b', t(8) + 0.06, 1.35);
+out(['#p1a', '#p1b'], t(10) - 0.12);
+wipe('#wp2', t(10)); rise('#p2a', t(10), 0.22, 40); slam('#p2b', t(10) + 0.06, 1.35);
+out(['#p2a', '#p2b'], t(13) - 0.12);
+wipe('#wp3', t(13)); rise('#p3a', t(13), 0.22, 40); rise('#p3b', t(13) + 0.08, 0.22, 40); slam('#p3c', t(14), 1.8, 0.22);
+tl.to(['#p3a', '#p3b', '#p3c'], { scale: 0.9, opacity: 0, duration: 0.14, ease: 'power2.in' }, t(16) - 0.14);
+
+// ---------- S3 7 SYSTEMS (beats 16–24) ----------
+rise('#sy-lab', t(16), 0.25, 30); slam('#sy-big', t(16) + 0.05, 1.5); rise('#sy-sub', t(16) + 0.2, 0.25, 30);
+for (let i = 1; i <= 7; i++) {
+  const at = t(16 + i);
+  tl.fromTo('#tl' + i, { opacity: 0, scale: 0.4, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.26, ease: 'back.out(2.2)' }, at);
+  tl.fromTo('#tl' + i, { boxShadow: '0 0 0 0 rgba(242,197,103,0)' }, { boxShadow: '0 0 60px 6px rgba(242,197,103,.75)', duration: 0.08 }, at)
+    .to('#tl' + i, { boxShadow: '0 20px 60px -20px rgba(110,123,255,.7)', duration: 0.3 }, at + 0.08);
+}
+tl.to(['#tl1', '#tl2', '#tl3', '#tl4', '#tl5', '#tl6', '#tl7'], { borderColor: '#F2C567', duration: 0.12, stagger: 0.02 }, t(23.5));
+tl.to(['#tl1', '#tl2', '#tl3', '#tl4', '#tl5', '#tl6', '#tl7'], { y: 40, opacity: 0, duration: 0.16, stagger: 0.012, ease: 'power2.in' }, t(24) - 0.2);
+tl.to(['#sy-lab', '#sy-big', '#sy-sub'], { y: -80, opacity: 0, duration: 0.16, ease: 'power2.in' }, t(24) - 0.16);
+
+// ---------- S4 IN ORDER / WHILE YOU EAT / AND (beats 24–32) ----------
+slam('#o1', t(24), 1.5); rise('#o2', t(26), 0.22, 50); slam('#o3', t(26) + 0.1, 1.5);
+tl.to(['#o1', '#o2', '#o3'], { opacity: 0, scale: 1.08, duration: 0.1 }, t(28.5) - 0.1);
+tl.fromTo('#redwash', { opacity: 0 }, { opacity: 1, duration: 1.6, ease: 'power1.in' }, t(28.5));
+tl.fromTo('#andW', { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.14, ease: 'power4.out' }, t(28.5));
+tl.to('#andW', { scale: 1.18, duration: 1.6, ease: 'power1.in' }, t(28.5) + 0.14);
+// deterministic RGB-split jitter on half-beats, growing into the drop
+const jit = [[14, -6], [-18, 8], [22, -10], [-26, 12], [32, -14], [-40, 18], [48, -22]];
+jit.forEach(([dx, dy], i) => {
+  const at = t(28.5 + i * 0.5);
+  tl.set('#andR', { opacity: 0.85, x: dx, y: dy, scale: 1 + i * 0.03 }, at).set('#andC', { opacity: 0.85, x: -dx, y: -dy, scale: 1 + i * 0.03 }, at)
+    .set(['#andR', '#andC'], { opacity: 0 }, at + 0.07);
+});
+tl.set(['#andR', '#andC'], { opacity: 0.9, x: 60, y: 0, scale: 1.25 }, t(31.75)).set('#andC', { x: -60 }, t(31.75));
+tl.to(['#andW', '#andR', '#andC'], { opacity: 0, duration: 0.06 }, t(32) - 0.06);
+
+// ---------- S5 AI BREACH ROOM LIVE (beats 32–40, the musical lift) ----------
+flash(t(32), '#FF3B4E', 0.85);
+tl.fromTo('#vw3', { scale: 1.18 }, { scale: 1.0, duration: 3.75, ease: 'power2.out' }, t(32));
+tl.fromTo('#redpulse', { opacity: 0 }, { opacity: 1, duration: 0.12 }, t(32));
+for (let n = 33; n < 40; n += 1) tl.to('#redpulse', { opacity: 0.35, duration: 0.2, yoyo: true, repeat: 1, ease: 'sine.inOut' }, t(n));
+slam('#br1', t(32), 1.6, 0.18); slam('#br2', t(32) + 0.08, 1.6, 0.2);
+slam('#brlive', t(33), 1.8, 0.2);
+for (let n = 33.5; n < 40; n += 1) tl.to('#brlive i', { opacity: 0.15, duration: 0.12, yoyo: true, repeat: 1 }, t(n));
+rise('#pclock', t(34), 0.24, 40);
+const clk = { v: 0 };
+tl.to(clk, { v: 899, duration: t(40) - t(34), ease: 'none', onUpdate: () => { const s = Math.floor(clk.v); $('#clock').textContent = String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); } }, t(34));
+rise('#pboard', t(35), 0.24, 40);
+const rowY = [62, 120, 178, 236];
+// order per beat: which team sits in which slot
+const orders = [[1, 2, 3, 4], [2, 1, 3, 4], [2, 3, 1, 4], [3, 2, 4, 1]];
+orders[0].forEach((team, slot) => tl.set('#rw' + team, { y: rowY[slot] - 62 }, t(35)));
+tl.fromTo('#pboard .bar', { scaleX: 0 }, { scaleX: 1, duration: 0.3, stagger: 0.04, ease: 'power3.out' }, t(35));
+[1, 2, 3].forEach(k => orders[k].forEach((team, slot) => tl.to('#rw' + team, { y: rowY[slot] - 62, duration: 0.22, ease: 'power3.inOut' }, t(35 + k))));
+const scores = { a: 0 };
+tl.to(scores, { a: 1, duration: t(40) - t(35), ease: 'none', onUpdate: () => {
+  const p = scores.a; [[1, 940, 0.9], [2, 1180, 1.0], [3, 1320, 1.15], [4, 860, 1.05]].forEach(([i, max, k]) => { $('#sc' + i).textContent = String(Math.round(max * Math.min(1, p * k))).padStart(4, '0'); });
+} }, t(35));
+slam('#br3', t(36.5), 1.4, 0.18); rise('#br4', t(36.75), 0.2, 20);
+tl.to(['#br1', '#br2', '#brlive', '#pclock', '#pboard', '#br3', '#br4'], { opacity: 0, duration: 0.1 }, t(40) - 0.1);
+
+// ---------- S6 HOST (beats 40–48) ----------
+flash(t(40), '#F2C567', 0.7);
+tl.fromTo('#noelle-wrap', { scale: 1.12 }, { scale: 1.0, duration: 0.5, ease: 'power3.out' }, t(40));
+tl.to('#noelle-wrap', { scale: 1.05, duration: 3.2, ease: 'none' }, t(40) + 0.5);
+tl.fromTo('#noelle-bg', { scale: 1.1 }, { scale: 1.0, duration: 3.75, ease: 'none' }, t(40));
+rise('#hb', t(40.5), 0.22, 24); rise('#hn', t(40.5) + 0.06, 0.26, 40);
+tl.fromTo('#badge', { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.2, ease: 'power4.out' }, t(42));
+tl.fromTo('#badgeglint', { x: 0 }, { x: 1250, duration: 0.5, ease: 'power2.inOut' }, t(42) + 0.15);
+tl.fromTo('#flare', { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1.1, duration: 0.16, ease: 'power3.out' }, t(42));
+tl.to('#flare', { opacity: 0, scale: 1.5, duration: 0.6, ease: 'power2.in' }, t(42) + 0.16);
+tl.fromTo('#credlab', { opacity: 0 }, { opacity: 1, duration: 0.12 }, t(43.5));
+tl.set('#credline', { opacity: 1 }, t(43.5));
+['#cr1', '#cr2', '#cr3', '#cr4', '#cr5'].forEach((id, i) => {
+  const at = t(44 + i * 0.5);
+  tl.fromTo(id, { opacity: 0, y: 24, color: '#F2C567' }, { opacity: 1, y: 0, duration: 0.14, ease: 'power3.out' }, at);
+  tl.to(id, { color: '#FFFFFF', duration: 0.3 }, at + 0.2);
+});
+tl.to(['#hb', '#hn', '#badge', '#credlab', '#credline'], { opacity: 0, duration: 0.1 }, t(48) - 0.1);
+
+// ---------- S7 PAYOFF (beats 48–56) ----------
+tl.fromTo('#vw4', { scale: 1.0 }, { scale: 1.1, duration: 3.75, ease: 'none' }, t(48));
+rise('#y0', t(48), 0.22, 24); slam('#y1', t(48.5), 1.5); slam('#y2', t(49.5), 1.6, 0.22);
+rise('#y3', t(52), 0.24, 40); slam('#y4', t(53), 1.4, 0.2); rise('#y5', t(54), 0.2, 20);
+for (let n = 54.5; n < 56; n += 0.5) tl.to('#y5 i', { opacity: 0.2, duration: 0.1, yoyo: true, repeat: 1 }, t(n));
+tl.to(['#y0', '#y1', '#y2', '#y3', '#y4', '#y5'], { opacity: 0, y: -40, duration: 0.12, ease: 'power2.in' }, t(56) - 0.12);
+
+// ---------- S8 CTA (beats 56–64): urgency + scarcity ----------
+flash(t(56), '#fff', 0.35);
+tl.fromTo('#logo', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: 'back.out(2)' }, t(56));
+rise('#c1', t(56), 0.2, 50); slam('#c2', t(56) + 0.1, 1.6, 0.22);
+rise('#c3', t(56.5), 0.22, 30); rise('#c4', t(56.5) + 0.12, 0.22, 20);
+// seat counter: deterministic slot-machine spin, locks on 20 at beat 58.5
+const spin = [47, 13, 86, 31, 64, 25, 92, 38, 57, 21, 74, 29, 43, 26, 22, 20];
+tl.fromTo('#seatnum', { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.18, ease: 'power3.out' }, t(57));
+const sp = { i: 0 };
+tl.to(sp, { i: spin.length - 1, duration: t(58.5) - t(57), ease: 'none', onUpdate: () => { $('#seatnum').textContent = spin[Math.round(sp.i)]; } }, t(57));
+tl.fromTo('#seatnum', { scale: 1.45 }, { scale: 1, duration: 0.24, ease: 'power4.out', immediateRender: false }, t(58.5));
+flash(t(58.5), '#F2C567', 0.4);
+slam('#c5', t(58.5), 1.6, 0.18); rise('#c6', t(58.5) + 0.06, 0.2, 30);
+tl.fromTo('#frame', { opacity: 0 }, { opacity: 1, duration: 0.1 }, t(58.5));
+for (let n = 59; n < 64; n += 0.5) tl.to('#frame', { opacity: 0.35, duration: 0.12, yoyo: true, repeat: 1 }, t(n));
+tl.fromTo('#cta', { opacity: 0, scale: 0.6, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.24, ease: 'back.out(2.4)' }, t(59));
+rise('#c7', t(59) + 0.1, 0.22, 20);
+// the music's final hit (beat 62): punch the button
+flash(t(62), '#fff', 0.5);
+tl.fromTo('#cta', { scale: 1.12 }, { scale: 1, duration: 0.3, ease: 'power3.out', immediateRender: false }, t(62));
+[60, 61, 62, 63].forEach(n => tl.fromTo('#ctaring', { opacity: 0.9, scale: 1 }, { opacity: 0, scale: 1.22, duration: 0.42, ease: 'power2.out', immediateRender: false }, t(n)));
+tl.set({}, {}, 30);
+
+window.__timelines["main"] = tl;
+</script>
+</body></html>

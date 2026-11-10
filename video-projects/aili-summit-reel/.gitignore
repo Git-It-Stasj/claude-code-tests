@@ -1,0 +1,6 @@
+# large intermediates (re-downloadable from Higgsfield job IDs in STORYBOARD.md)
+footage/src/
+audio/mix-pre.wav
+qa/snap/frame-*.png
+.hyperframes/artifacts/
+.hyperframes/video-state-lock
