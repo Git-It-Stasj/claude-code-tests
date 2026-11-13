@@ -82,3 +82,14 @@ Result URLs all start with `https://d8j0ntlcm91z4.cloudfront.net/user_35DfehXfxE
 - **B1–B4 "siren":** frantic, pulsing red-alert alarm with screen taps. B1 and B3 are 1s, B2 is 2s, B4 is 14s.
 - Most clips are short, so loop or stack them in CapCut to cover the full 3 seconds. B4 is the only one long enough without looping.
 - ElevenLabs flow: https://elevenlabs.io/app/flows/74EizGGZMt110sYsnjo2 (8 takes, about 7¢ total)
+
+# QA round 2 (Nov 13)
+
+| shot | verdict | new job ID | result URL | credits | notes |
+|---|---|---|---|---|---|
+| 1 | APPROVE | 113b8905-d2aa-4697-bd3a-471bec1119e3 | (round 1 re-roll) | | |
+| 8B start still | new | 8a6199c4-677a-4031-a90c-82ec5c90ad19 | hf_20261113_012517_8a6199c4-677a-4031-a90c-82ec5c90ad19.png | 0.50 (2 variants) | gpt_image_2_6 edit of 2f659837 with the reader removed. Unused variant: 48e8fd0a-9fc2-4674-a498-c117f3adfef4 |
+| 8B | REJECT → redone | b7212fc2-8d74-49aa-a2c6-4985c811e454 | hf_20261113_012609_b7212fc2-8d74-49aa-a2c6-4985c811e454.mp4 | 5.00 | the new still is both start_image and end_image, to keep the doors shut. Frame check: doors stay shut and the reader is gone, but there is very little motion |
+| 14 | REVISE → re-rolled | 9d8bc441-c50d-454d-8d3c-85527463058e | hf_20261113_012528_9d8bc441-c50d-454d-8d3c-85527463058e.mp4 | 6.25 | carries the tiger by its paw (no string); left-hand wave. Frame check: the tiger dangles from her hand more than it drags |
+
+**Higgsfield balance:** 39.20
