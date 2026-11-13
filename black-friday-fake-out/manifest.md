@@ -93,3 +93,12 @@ Result URLs all start with `https://d8j0ntlcm91z4.cloudfront.net/user_35DfehXfxE
 | 14 | REVISE → re-rolled | 9d8bc441-c50d-454d-8d3c-85527463058e | hf_20261113_012528_9d8bc441-c50d-454d-8d3c-85527463058e.mp4 | 6.25 | carries the tiger by its paw (no string); left-hand wave. Frame check: the tiger dangles from her hand more than it drags |
 
 **Higgsfield balance:** 39.20
+
+# 8B option 2 (Nov 13)
+
+| item | job ID | result URL | credits | notes |
+|---|---|---|---|---|
+| 8B start still (before the impact) | 65a691a1-11ed-4058-b8b5-ccd3f92b3eb9 | hf_20261113_014236_65a691a1-11ed-4058-b8b5-ccd3f92b3eb9.png | 0.50 (2 variants) | Grandma about 10 ft back, men at the closed doors, no reader. Unused variant: 91ee9bb9-9d11-4d1b-a98f-913c5b71efc9 |
+| 8B (option 2) | a392a639-8c34-4dfc-bbe5-b838802935ef | hf_20261113_014334_a392a639-8c34-4dfc-bbe5-b838802935ef.mp4 | 5.00 | start 65a691a1 → end 8a6199c4. Frame check: she charges and the doors stay shut the whole time, but at about 2.0–2.4s she snaps from near the doors back to her end-frame pose (morph to the last frame) |
+
+**Higgsfield balance:** 33.70
