@@ -52,3 +52,33 @@ Result URLs all start with `https://d8j0ntlcm91z4.cloudfront.net/user_35DfehXfxE
 
 ## ⚠️ Audio check needed
 **Nobody has listened to any of the audio yet.** Check the dialogue on shots **2, 5, 7D, 8, 8B, 12B, 13A and 13**. Look for garbled lines, wrong speakers and unwanted team names. Also check for music Kling slipped in despite "No music". The doc says to mute or duck that in CapCut rather than re-roll.
+
+---
+
+# QA round 1 (Nov 13)
+
+| shot | verdict | new job ID (re-roll) | result URL | credits | notes |
+|---|---|---|---|---|---|
+| 1 | REVISE → re-rolled | 113b8905-d2aa-4697-bd3a-471bec1119e3 | hf_20261113_011316_113b8905-d2aa-4697-bd3a-471bec1119e3.mp4 | 3.75 | more urgent alarm; fingers tap around the screen trying to hit snooze. Alternate alarm sounds are in `sfx/` |
+| 2 | REVISE → waiting on a new start still | — | — | — | needs a still with him lying under the covers. Plan: that still as start_image, the current still (ea6216de) as end_image |
+| 3 | APPROVE | | | | |
+| 4 | APPROVE | | | | |
+| 5 | APPROVE | | | | the off-screen mutter is the shopper arriving and seeing the line |
+| 7D | APPROVE | | | | rethinking how the characters get into position |
+| NEW 7E | TODO | — | — | — | Bills fan grabs the cutter, spins him around: "Hey! Back of the line!" Plays before 8; needs a still |
+| 8 | APPROVE | | | | |
+| 8B | REVISE → re-rolled | 0e997d7e-c9d5-4f89-bb65-cfd3016b6c7f | hf_20261113_011316_0e997d7e-c9d5-4f89-bb65-cfd3016b6c7f.mp4 | 5.00 | keeps "Excuse me, boys!"; doors shudder but stay shut |
+| 9 | APPROVE | | | | |
+| 11 | APPROVE | | | | |
+| 12B | APPROVE | | | | |
+| 13A | APPROVE | | | | considering a re-run with the two fans swapping positions |
+| 13 | APPROVE | | | | possible goat bleat in the audio; mute in CapCut if so |
+| 14 | REVISE → re-rolled | 13b5c51c-2642-4b6b-b322-89829eb98c30 | hf_20261113_011316_13b5c51c-2642-4b6b-b322-89829eb98c30.mp4 | 6.25 | left-hand wave, tiger held in her right hand, then dragged |
+
+**Re-roll spend:** 15.00 · **Higgsfield balance:** 50.95
+
+## Alternate alarm sounds for shot 1 (ElevenLabs, eleven_text_to_sound_v2), in `sfx/`
+- **A1–A4 "klaxon":** rapid, shrill, escalating beeps with phone rattle. A1 and A2 are about 0.5s; A3 and A4 about 1s.
+- **B1–B4 "siren":** frantic, pulsing red-alert alarm with screen taps. B1 and B3 are 1s, B2 is 2s, B4 is 14s.
+- Most clips are short, so loop or stack them in CapCut to cover the full 3 seconds. B4 is the only one long enough without looping.
+- ElevenLabs flow: https://elevenlabs.io/app/flows/74EizGGZMt110sYsnjo2 (8 takes, about 7¢ total)
