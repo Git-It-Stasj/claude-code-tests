@@ -111,3 +111,13 @@ Result URLs all start with `https://d8j0ntlcm91z4.cloudfront.net/user_35DfehXfxE
 | 8B continuous | 3f9b5ce7-39ab-40c2-b8f3-b73b0b1711f6 | hf_20261113_021225_3f9b5ce7-39ab-40c2-b8f3-b73b0b1711f6.mp4 | 6.25 | 5s, start d5b0f738 → end 8a6199c4. Frame check: the scuffle and the charge read well and the doors stay shut, but at about 2.6s Grandma snaps from beside the doors back to the left foreground (her position in the end frame), then pushes in again |
 
 **Higgsfield balance:** 27.45. One more 5s clip (6.25) leaves 21.20. 8B and shot 2 together would go below the 20-credit hard stop.
+
+# Shot 2 revised (Nov 13)
+
+| item | job / media ID | result URL | credits | notes |
+|---|---|---|---|---|
+| mid-rise still (your upload) | media c1f3cf60-26fe-4d30-abaf-584c90117600 | `shot2_mid_rise_still.png` in this folder | 0 | used as the reference for the start still; Kling can only lock the first and last frames |
+| start still (under the comforter) | 609654cd-bd8a-4a51-8619-e4837383ed65 | hf_20261113_060825_609654cd-bd8a-4a51-8619-e4837383ed65.png | 0.25 | gpt_image_2_6 edit of the mid-rise still |
+| shot 2 | 4c6c7a37-9ae0-45ea-a5ea-9c3ffb09130e | hf_20261113_060911_4c6c7a37-9ae0-45ea-a5ea-9c3ffb09130e.mp4 | 6.25 | 5s, start 609654cd → end ea6216de. Frame check: continuous with no jump. 0–2.7s his hand rests on the phone (little motion), about 3.0s he flings the comforter off, about 3.3–5s he rises bolt upright with his mouth open on the whisper |
+
+**Higgsfield balance:** 20.95 (0.95 above the 20-credit hard stop)
