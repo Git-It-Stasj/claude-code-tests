@@ -102,3 +102,12 @@ Result URLs all start with `https://d8j0ntlcm91z4.cloudfront.net/user_35DfehXfxE
 | 8B (option 2) | a392a639-8c34-4dfc-bbe5-b838802935ef | hf_20261113_014334_a392a639-8c34-4dfc-bbe5-b838802935ef.mp4 | 5.00 | start 65a691a1 → end 8a6199c4. Frame check: she charges and the doors stay shut the whole time, but at about 2.0–2.4s she snaps from near the doors back to her end-frame pose (morph to the last frame) |
 
 **Higgsfield balance:** 33.70
+
+# 8B continuous attempt (Nov 13)
+
+| item | job / media ID | result URL | credits | notes |
+|---|---|---|---|---|
+| 8B start still (your upload: fight + Grandma 10 ft back) | media d5b0f738-7275-43c1-be35-f3759cae2c63 | `8B_start_fight_still.png` in this folder | 0 | |
+| 8B continuous | 3f9b5ce7-39ab-40c2-b8f3-b73b0b1711f6 | hf_20261113_021225_3f9b5ce7-39ab-40c2-b8f3-b73b0b1711f6.mp4 | 6.25 | 5s, start d5b0f738 → end 8a6199c4. Frame check: the scuffle and the charge read well and the doors stay shut, but at about 2.6s Grandma snaps from beside the doors back to the left foreground (her position in the end frame), then pushes in again |
+
+**Higgsfield balance:** 27.45. One more 5s clip (6.25) leaves 21.20. 8B and shot 2 together would go below the 20-credit hard stop.
