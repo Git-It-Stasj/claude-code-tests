@@ -1,0 +1,83 @@
+1
+00:00:00,100 --> 00:00:02,080
+Everyone is spending on AI.
+
+2
+00:00:02,420 --> 00:00:03,395
+Almost no one is
+
+3
+00:00:03,395 --> 00:00:05,100
+measuring what it returns.
+
+4
+00:00:05,530 --> 00:00:07,850
+At Microsoft Ignite 2026,
+
+5
+00:00:07,940 --> 00:00:09,429
+inside The AI House
+
+6
+00:00:09,429 --> 00:00:10,960
+presented by KPMG,
+
+7
+00:00:11,280 --> 00:00:12,059
+Noelle Russell
+
+8
+00:00:12,059 --> 00:00:13,460
+takes that question on.
+
+9
+00:00:13,800 --> 00:00:14,996
+She is the founder of
+
+10
+00:00:14,996 --> 00:00:16,710
+the AI Leadership Institute,
+
+11
+00:00:16,910 --> 00:00:19,530
+a five-time Microsoft AI MVP,
+
+12
+00:00:19,590 --> 00:00:21,071
+and the number one
+
+13
+00:00:21,071 --> 00:00:23,330
+agentic AI leader of 2025.
+
+14
+00:00:23,740 --> 00:00:25,640
+On Wednesday, November 18,
+
+15
+00:00:25,750 --> 00:00:27,214
+she joins leaders from
+
+16
+00:00:27,214 --> 00:00:28,212
+KPMG and GitHub
+
+17
+00:00:28,212 --> 00:00:29,476
+to show how to move
+
+18
+00:00:29,476 --> 00:00:30,660
+from token spend
+
+19
+00:00:30,710 --> 00:00:31,820
+to business value.
+
+20
+00:00:32,200 --> 00:00:33,190
+Noelle Russell.
+
+21
+00:00:33,520 --> 00:00:35,760
+Responsible AI that scales.

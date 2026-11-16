@@ -1,0 +1,5 @@
+VOICEOVER (as recorded, ElevenLabs "Emma - Professional Commercial Voice", eleven_v4, ~35.8s)
+
+Everyone is spending on AI. Almost no one is measuring what it returns. At Microsoft Ignite 2026, inside The AI House presented by KPMG, Noelle Russell takes that question on. She is the founder of the AI Leadership Institute, a five-time Microsoft AI MVP, and the number one agentic AI leader of 2025. On Wednesday, November 18, she joins leaders from KPMG and GitHub to show how to move from token spend to business value. Noelle Russell. Responsible AI that scales.
+
+Change from the brief: "KPMG, GitHub and Intuit" became "leaders from KPMG and GitHub" because Noelle's own post names GitHub and Credit Karma, not Intuit. The spoken line is true under both versions of the panel.
