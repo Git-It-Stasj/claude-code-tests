@@ -32,6 +32,8 @@ Energy: premium, edgy keynote-opener, tech-forward but not cyberpunk. Confident,
 - Music: full-energy electronic, crescendo into one big hit; hates ticking risers and loops.
 - Charts must match her reference exactly; text must never touch lines.
 - Wants frequent progress updates during renders and a downloadable file every round.
+- **Loves carousels.** Always deliver an 8-slide 4:5 carousel (PNGs + LinkedIn PDF) plus the hook cover and speaker cover with every reel.
+- Posts on LinkedIn: deliver a 4:5 (1080×1350) cut alongside the 9:16.
 
 ## Open items to always flag
 Logo permissions (KPMG, GitHub, Intuit, Credit Karma), photo credit, ElevenLabs music licence, correct variant per session time.

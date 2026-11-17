@@ -33,6 +33,8 @@ Fill this in before the first render. Blank = use the playbook default.
 - Arc: full groove → lift → breakdown → big final hit on the details → ring-out (default)
 
 ## Delivery
+- Formats: 9:16 (default) + 4:5 1080×1350 for LinkedIn/IG feed? 16:9?
 - AEO kit: yes (default)
+- Stills kit: hook cover + speaker cover + per-scene carousel (PNG + LinkedIn PDF): yes (default)
 - Captions burned in: no (default) · Voiceover: no (default)
 - Progress updates during render: every 300 frames

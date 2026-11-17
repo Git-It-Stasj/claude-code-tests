@@ -32,6 +32,8 @@ Format: what the user asked · root cause · rule.
 | 6.2 | Method lines on four-counts; logos on beats | Arbitrary cue times | Section items on four-counts, list items on beats |
 | 6.3 | Music repeats at 28 s, ending abrupt; wants crescendo + payoff | Looped splice + hard crash | No loops/splices; arc must build to a payoff |
 | 7 | Ticking noise ~27 s; background freezes | Synth snare roll; clip shorter than screen time at its rate | No synthesized risers; compose the whole track to length; check clip length ÷ rate |
+| 8 | 4:5 cut for LinkedIn | Format not in the brief | Ask formats up front; build a format switch; re-lay out, never crop |
+| 9 | Carousel images per clip; keep hook + speaker covers | Stills not in the default kit | Stills kit: covers + one settled-frame slide per scene, PNG + PDF |
 
 ## Biggest lessons
 1. **Music caused 4 of 7 rounds.** Generate a full-length track with the arc in the prompt first, before animating.

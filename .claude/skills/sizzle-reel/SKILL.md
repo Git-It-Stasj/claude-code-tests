@@ -109,8 +109,16 @@ What worked: **one generated track composed for the exact length**, no edits exc
 - MP4 metadata (title, artist, description incl. link, keywords, date).
 - Sidecars: chapters VTT, on-screen-text VTT, plain transcript, schema.org VideoObject/Person/Event JSON-LD.
 - `POST-COPY-AEO.md`: answer-first summary, titles < 70 chars, LinkedIn/IG/YouTube copy, YouTube chapters, FAQ, alt text.
-- Two cover thumbnails (hook frame and speaker frame).
 - No burned-in captions and no voiceover unless asked.
+
+## 5b. Stills kit: covers and carousel (ship with every reel, in every format)
+
+The user loves these; make them without being asked.
+- **Two cover images per format and variant:** the **hook cover** (the hook question with the chart fully drawn) and the **speaker cover** (photo, name, all credentials landed). Use them as the video cover/thumbnail and as standalone posts.
+- **Carousel:** one slide per scene, captured at that scene's *settled* frame (everything landed, before the exit blur starts at `B(end) - 0.17 s`). Split a two-part hook into two slides. Typical deck: 8 slides (hook 1, hook 2, event, venue, speaker, session, method + logos, details).
+  - Capture lossless with `hyperframes snapshot --at <t1,t2,...> --no-end` (not from the compressed MP4). Check every slide in the contact sheet: no half-faded text, no partly drawn lines, correct variant facts on the last slides.
+  - Deliver per variant: numbered PNGs (`01-<slug>.png` ...) and one PDF (`<person>-<host>-<event>-carousel.pdf`): LinkedIn carousels are uploaded as a PDF document. Default size 4:5 1080×1350 (best for LinkedIn and Instagram feed); also 9:16 if asked.
+- Put them in `out/<version>/carousel-<format>/` and send them with the videos.
 
 ## 6. Assets
 
@@ -126,6 +134,7 @@ What worked: **one generated track composed for the exact length**, no edits exc
 4. Beat check: every cue time vs music beat times (≤ 20 ms off).
 5. Audio: full length, no early fade, levels as in §4.
 6. Final frame check: right variant facts (time, logos).
+7. Stills: every carousel slide and both covers are settled frames (no exit blur, nothing mid-animation).
 
 ## 8. Delivery and process
 

@@ -30,6 +30,9 @@ Energy in 3 words:
 - 
 - 
 
+## Formats and deliverables they use
+- Platforms / formats (9:16, 4:5, 16:9), carousel yes/no: 
+
 ## Never do
 - 
 
