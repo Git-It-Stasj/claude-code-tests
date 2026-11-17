@@ -1,0 +1,149 @@
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Noelle Russell at The AI House presented by KPMG | Microsoft Ignite 2026",
+  "description": "Noelle Russell, Founder of the AI Leadership Institute, presents The Frontier Value Method: From Token Spend to Business Value at The AI House presented by KPMG during Microsoft Ignite 2026 in San Francisco, Wednesday November 18, 10:00AM Pacific, at KPMG Exchange, 175 4th St. Three steps: pick the right workflows, model the human-agent cost, underwrite outcomes, not tokens.",
+  "thumbnailUrl": [
+    "REPLACE_WITH_PUBLIC_THUMBNAIL_URL"
+  ],
+  "uploadDate": "2026-11-16",
+  "duration": "PT37S",
+  "contentUrl": "REPLACE_WITH_PUBLIC_VIDEO_URL",
+  "inLanguage": "en",
+  "isFamilyFriendly": true,
+  "keywords": "Noelle Russell, AI Leadership Institute, The AI House, KPMG, Microsoft Ignite 2026, Frontier Value Method, AI ROI, token spend, business value, responsible AI, agentic AI, enterprise AI",
+  "transcript": "[00:00] Everyone is spending on AI.\n[00:02] Who is measuring the value? (chart: AI spend rises, measured value stays flat: the gap)\n[00:04] Microsoft Ignite 2026. San Francisco. Nov 17–20. Moscone Center and online.\n[00:07] Presented by KPMG: The AI House. The room where enterprise AI gets done.\n[00:09] Noelle Russell, Founder, AI Leadership Institute. #1 Agentic AI Leader 2025. 5x Microsoft AI MVP. 3.4M+ learners. TEDx speaker. Best-selling author.\n[00:14] The session: The Frontier Value Method: From Token Spend to Business Value.\n[00:18] The Frontier Value Method: 1. Pick the right workflows. 2. Model the human-agent cost. 3. Underwrite outcomes, not tokens. With KPMG, GitHub and Intuit.\n[00:26] The AI House, presented by KPMG. Wed Nov 18, 10:00AM Pacific. KPMG Exchange, 175 4th St, San Francisco. Invitation only.\n[00:31] Noelle Russell. Responsible AI that scales. Founder, AI Leadership Institute.",
+  "width": 1080,
+  "height": 1920,
+  "creator": {
+    "@type": "Person",
+    "name": "Noelle Russell",
+    "jobTitle": "Founder",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "AI Leadership Institute"
+    },
+    "sameAs": [
+      "REPLACE_WITH_NOELLE_PROFILE_URLS"
+    ]
+  },
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "The Frontier Value Method"
+    },
+    {
+      "@type": "Thing",
+      "name": "AI return on investment"
+    },
+    {
+      "@type": "Thing",
+      "name": "Responsible AI"
+    }
+  ],
+  "mentions": [
+    {
+      "@type": "Organization",
+      "name": "KPMG"
+    },
+    {
+      "@type": "Organization",
+      "name": "Microsoft"
+    }
+  ],
+  "hasPart": [
+    {
+      "@type": "Clip",
+      "name": "The problem: everyone is spending on AI",
+      "startOffset": 0,
+      "endOffset": 5,
+      "url": "REPLACE_WITH_PUBLIC_VIDEO_URL#t=0"
+    },
+    {
+      "@type": "Clip",
+      "name": "Microsoft Ignite 2026, San Francisco",
+      "startOffset": 5,
+      "endOffset": 7,
+      "url": "REPLACE_WITH_PUBLIC_VIDEO_URL#t=5"
+    },
+    {
+      "@type": "Clip",
+      "name": "The AI House presented by KPMG",
+      "startOffset": 7,
+      "endOffset": 9,
+      "url": "REPLACE_WITH_PUBLIC_VIDEO_URL#t=7"
+    },
+    {
+      "@type": "Clip",
+      "name": "Speaker: Noelle Russell, Founder, AI Leadership Institute",
+      "startOffset": 9,
+      "endOffset": 14,
+      "url": "REPLACE_WITH_PUBLIC_VIDEO_URL#t=9"
+    },
+    {
+      "@type": "Clip",
+      "name": "Session: The Frontier Value Method",
+      "startOffset": 14,
+      "endOffset": 19,
+      "url": "REPLACE_WITH_PUBLIC_VIDEO_URL#t=14"
+    },
+    {
+      "@type": "Clip",
+      "name": "The three steps of the Frontier Value Method",
+      "startOffset": 19,
+      "endOffset": 26,
+      "url": "REPLACE_WITH_PUBLIC_VIDEO_URL#t=19"
+    },
+    {
+      "@type": "Clip",
+      "name": "Date, time and venue",
+      "startOffset": 26,
+      "endOffset": 32,
+      "url": "REPLACE_WITH_PUBLIC_VIDEO_URL#t=26"
+    },
+    {
+      "@type": "Clip",
+      "name": "Follow Noelle Russell",
+      "startOffset": 32,
+      "endOffset": 37,
+      "url": "REPLACE_WITH_PUBLIC_VIDEO_URL#t=32"
+    }
+  ],
+  "subjectOf": {
+    "@type": "Event",
+    "name": "The Frontier Value Method: From Token Spend to Business Value",
+    "startDate": "2026-11-18T10:00:00-08:00",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "KPMG Exchange (The AI House presented by KPMG)",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "175 4th St",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      }
+    },
+    "performer": {
+      "@type": "Person",
+      "name": "Noelle Russell"
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "KPMG"
+    },
+    "superEvent": {
+      "@type": "Event",
+      "name": "Microsoft Ignite 2026",
+      "startDate": "2026-11-17",
+      "endDate": "2026-11-20",
+      "location": {
+        "@type": "Place",
+        "name": "Moscone Center",
+        "address": "San Francisco, CA"
+      }
+    }
+  }
+}

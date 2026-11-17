@@ -1,0 +1,42 @@
+[
+ {
+  "start": 0,
+  "end": 4.718,
+  "label": "01 THE PROBLEM"
+ },
+ {
+  "start": 4.718,
+  "end": 7.061,
+  "label": "02 IGNITE 2026"
+ },
+ {
+  "start": 7.061,
+  "end": 9.405,
+  "label": "03 THE AI HOUSE"
+ },
+ {
+  "start": 9.405,
+  "end": 14.153,
+  "label": "04 THE SPEAKER"
+ },
+ {
+  "start": 14.153,
+  "end": 18.78,
+  "label": "05 THE SESSION"
+ },
+ {
+  "start": 18.78,
+  "end": 26.28,
+  "label": "06 THE METHOD"
+ },
+ {
+  "start": 26.28,
+  "end": 31.905,
+  "label": "07 THE DETAILS"
+ },
+ {
+  "start": 31.905,
+  "end": 37,
+  "label": "08 FOLLOW"
+ }
+]
