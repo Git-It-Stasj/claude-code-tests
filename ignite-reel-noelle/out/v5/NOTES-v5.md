@@ -1,6 +1,6 @@
 # Noelle Russell – Ignite 2026 reel v5 (graphics rebuild + AEO)
 
-1080x1920, 30 fps, 32.4 s (cut from 37 s in round 4, +1.4 s in round 5), H.264/AAC. Music only (same ElevenLabs track, 128 BPM), no voiceover, no captions burned in.
+1080x1920, 30 fps, 34.75 s (round 6), H.264/AAC. Music only (same ElevenLabs track, 128 BPM), no voiceover, no captions burned in.
 
 ## All v4 tweaks kept
 1. The hook animates in. "EVERYONE / IS SPENDING / ON AI." rises in through masks and lands on beats 0, 1 and 2.
@@ -74,6 +74,15 @@ Source: `src5/build5.mjs` (`node build5.mjs a|b`) and `src5/aeo.mjs` (`node aeo.
    - **12:45PM version:** KPMG, GitHub, Credit Karma.
    - **Logo sources:** Wikimedia Commons official SVGs, in `src5/assets/logos/`: `KPMG_blue_logo.svg`, `GitHub_logo_2013.svg` with `GitHub_Invertocat_Logo.svg`, `Credit_Karma_logo.svg`, `Intuit_logo_2022.svg`. They are shown as single-colour white, a standard dark-background sponsor treatment.
    - **Permission:** confirm logo use with each company before posting.
+
+## Round 6 fixes (Nov 17)
+1. **Speaker hold:** the last credential lands on beat 28 and holds for 3 beats. The Session cuts in on the next count of 4 (beat 32, 15.03 s).
+2. **The Method:** the scene opens on beat 44. Each step lands on the 1 of a count of 4 (beats 48, 52, 56), and the sponsor logos land on consecutive beats (60, 61, 62). The ticket comes in on beat 64, its fields land on 65–68, and the payoff is on 68.
+3. **Music rebuilt for a crescendo and payoff:**
+   - The looped splice that repeated around 28 s is gone. The original track now plays untouched up to 28.16 s.
+   - **Build (28.16–31.91 s):** the last two bars replay with a stepped high-pass sweep, one step per beat, with gain rising each beat. A synthesized riser plays on top: a rising tone, a brightening noise swell, and a snare roll that accelerates from 8ths to 32nds. The source is `src5/assets/sfx-riser.wav`.
+   - **Payoff on beat 68 (31.91 s):** an ElevenLabs sub-boom impact (`sfx-impact.mp3`), the slowed synthetic crash, and one bar of the main groove ringing out with an echo tail. The fade ends at 34.75 s.
+   - **Levels:** about -13 dB groove, a dip into the build, then a rise to -13.6 dB just before the hit. The payoff peaks at -9 dB and fades to silence.
 
 ## Still to confirm before posting
 1. Time and panel: 10:00AM + Intuit, or 12:45PM + Credit Karma. Post only the matching file.

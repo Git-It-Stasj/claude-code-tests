@@ -16,22 +16,22 @@
  },
  {
   "start": 9.405,
-  "end": 15.155,
+  "end": 15.03,
   "label": "04 THE SPEAKER"
  },
  {
-  "start": 15.155,
-  "end": 20.186,
+  "start": 15.03,
+  "end": 20.655,
   "label": "05 THE SESSION"
  },
  {
-  "start": 20.186,
-  "end": 27.686,
+  "start": 20.655,
+  "end": 30.03,
   "label": "06 THE METHOD"
  },
  {
-  "start": 27.686,
-  "end": 32.4,
+  "start": 30.03,
+  "end": 34.75,
   "label": "07 THE DETAILS"
  }
 ]
