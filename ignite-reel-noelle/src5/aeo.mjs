@@ -8,7 +8,7 @@ const ts = (s) => { const ms = Math.round(s * 1000), h = 0, m = Math.floor(ms / 
   return `00:${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}.${String(ms % 1000).padStart(3, "0")}`; };
 const ch = [[0, 10, "The problem: everyone is spending on AI"], [10, 15, "Microsoft Ignite 2026, San Francisco"], [15, 20, "The AI House presented by KPMG"],
   [20, 30.13, "Speaker: Noelle Russell, Founder, AI Leadership Institute"], [30.13, 40, "Session: The Frontier Value Method"],
-  [40, 56, "The three steps of the Frontier Value Method"], [56, 68, "Date, time and venue"], [68, 79, "Follow Noelle Russell"]];
+  [40, 56, "The three steps of the Frontier Value Method"], [56, 68, "Date, time and venue"], [68, 79, "Get your free digital pass"]];
 const text = [[0, 5, "Everyone is spending on AI."], [5, 10, "Who is measuring the value? (chart: AI spend rises, measured value stays flat: the gap)"],
   [10, 15, "Microsoft Ignite 2026. San Francisco. Nov 17–20. Moscone Center and online."],
   [15, 20, "Presented by KPMG: The AI House. The room where enterprise AI gets done."],
@@ -16,7 +16,7 @@ const text = [[0, 5, "Everyone is spending on AI."], [5, 10, "Who is measuring t
   [30.13, 40, "The session: The Frontier Value Method: From Token Spend to Business Value."],
   [40, 56, `The Frontier Value Method: 1. Pick the right workflows. 2. Model the human-agent cost. 3. Underwrite outcomes, not tokens. With ${V.co}.`],
   [56, 68, `The AI House, presented by KPMG. Wed Nov 18, ${V.time} Pacific. KPMG Exchange, 175 4th St, San Francisco. Invitation only.`],
-  [68, 79, "Noelle Russell. Responsible AI that scales. Founder, AI Leadership Institute. bit.ly/4iUaePY"]];
+  [68, 79, "Noelle Russell, Founder, AI Leadership Institute. Microsoft Ignite 2026: get your free digital pass at bit.ly/4iUaePY. Tap the link to claim yours."]];
 const vtt = (rows) => "WEBVTT\n\n" + rows.map(([a, b, t], i) => `${i + 1}\n${ts(B(a))} --> ${ts(B(b))}\n${t}\n`).join("\n");
 const out = "../out/v5/";
 fs.writeFileSync(out + `chapters${V.sfx}.vtt`, vtt(ch));
@@ -27,7 +27,7 @@ fs.writeFileSync(out + `on-screen-text-transcript${V.sfx}.txt`,
 const ld = {
   "@context": "https://schema.org", "@type": "VideoObject",
   name: "Noelle Russell at The AI House presented by KPMG | Microsoft Ignite 2026",
-  description: `Noelle Russell, Founder of the AI Leadership Institute, presents The Frontier Value Method: From Token Spend to Business Value at The AI House presented by KPMG during Microsoft Ignite 2026 in San Francisco, Wednesday November 18, ${V.time} Pacific, at KPMG Exchange, 175 4th St. Three steps: pick the right workflows, model the human-agent cost, underwrite outcomes, not tokens. Learn more: https://bit.ly/4iUaePY`,
+  description: `Noelle Russell, Founder of the AI Leadership Institute, presents The Frontier Value Method: From Token Spend to Business Value at The AI House presented by KPMG during Microsoft Ignite 2026 in San Francisco, Wednesday November 18, ${V.time} Pacific, at KPMG Exchange, 175 4th St. Three steps: pick the right workflows, model the human-agent cost, underwrite outcomes, not tokens. Get your free Microsoft Ignite 2026 digital pass: https://bit.ly/4iUaePY`,
   thumbnailUrl: ["REPLACE_WITH_PUBLIC_THUMBNAIL_URL"], uploadDate: "2026-11-16", duration: "PT37S",
   contentUrl: "REPLACE_WITH_PUBLIC_VIDEO_URL", inLanguage: "en", isFamilyFriendly: true,
   keywords: "Noelle Russell, AI Leadership Institute, The AI House, KPMG, Microsoft Ignite 2026, Frontier Value Method, AI ROI, token spend, business value, responsible AI, agentic AI, enterprise AI",

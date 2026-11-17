@@ -30,16 +30,17 @@ The Frontier Value Method has three steps:
 🤝 With KPMG, GitHub and Intuit (ALT: GitHub and Credit Karma)
 🔒 Invitation only
 
+🎟 Get your free digital pass: https://bit.ly/4iUaePY
+
 Noelle Russell, Founder, AI Leadership Institute
-https://bit.ly/4iUaePY
 
 #MSIgnite #AIHouse #KPMG #ResponsibleAI #AgenticAI #AIROI #AILeadership
 
 ## 4. Instagram Reels / TikTok caption (front-loaded; the first ~125 characters show before "more")
-Noelle Russell at The AI House by KPMG, Microsoft Ignite 2026: how to turn AI token spend into business value. 🗓 Wed Nov 18 · SF · invite only. Founder, AI Leadership Institute. #MSIgnite #AIHouse #KPMG #ResponsibleAI #AgenticAI (link in bio: https://bit.ly/4iUaePY)
+Noelle Russell at The AI House by KPMG, Microsoft Ignite 2026: how to turn AI token spend into business value. 🗓 Wed Nov 18 · SF · invite only. Founder, AI Leadership Institute. #MSIgnite #AIHouse #KPMG #ResponsibleAI #AgenticAI 🎟 Free digital pass: link in bio (https://bit.ly/4iUaePY)
 
 ## 5. YouTube description
-Paste the answer-first summary from section 1, then `Learn more: https://bit.ly/4iUaePY`, then the chapters below. YouTube needs the first chapter at 0:00.
+Paste the answer-first summary from section 1, then `🎟 Get your free digital pass: https://bit.ly/4iUaePY`, then the chapters below. YouTube needs the first chapter at 0:00.
 ```
 0:00 The problem: everyone is spending on AI
 0:04 Microsoft Ignite 2026, San Francisco
@@ -48,7 +49,7 @@ Paste the answer-first summary from section 1, then `Learn more: https://bit.ly/
 0:14 Session: The Frontier Value Method
 0:18 The three steps of the Frontier Value Method
 0:26 Date, time and venue
-0:31 Follow Noelle Russell
+0:31 Get your free digital pass
 ```
 Also upload `on-screen-text.vtt` as an English subtitle track named "On-screen text". It is a sidecar file, not burned in, so viewers can leave it off, but it gives search a full text version.
 

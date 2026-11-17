@@ -51,6 +51,13 @@ Source: `src5/build5.mjs` (`node build5.mjs a|b`) and `src5/aeo.mjs` (`node aeo.
    - **Music fix:** the ElevenLabs track faded out from about 29.5 s. It now loops its last 16-beat section on the bar line, plays at full level to 36.2 s, then fades over 0.8 s. The original is kept in `qa/music-original.mp3`.
 4. Close: the placeholder is replaced with the link bit.ly/4iUaePY. The link is also added to the post copy, transcript, VTT and JSON-LD.
 
+## Round 3 fixes (Nov 17)
+1. **The AI House:** "THE AI" is now centred on the house's side vertices (y 630). "// PRESENTED BY KPMG" moved under the tagline so no text touches the roof lines.
+2. **Chart:** the spend curve now stays low under the label, then climbs steeply at the right end. "THE GAP", "AI SPEND" and "MEASURED VALUE" no longer touch any line (the value label moved below the axis).
+3. **Close is now a call to action:** NOELLE RUSSELL / FOUNDER · AI LEADERSHIP INSTITUTE, then "// MICROSOFT IGNITE 2026 / GET YOUR FREE / DIGITAL PASS", an amber button "bit.ly/4iUaePY →" and "TAP THE LINK TO CLAIM YOURS". It lands by 34.3 s and holds about 2.7 s. The chapter is renamed "08 GET YOUR PASS".
+4. **Photo:** replaced with the "I ❤ AI" shirt photo (`assets/noelle-photo-iheartai.jpg`).
+5. **Music:** fades out over the final 1.5 s (35.5 to 37.0 s).
+
 ## Still to confirm before posting
 1. Time and panel: 10:00AM + Intuit, or 12:45PM + Credit Karma. Post only the matching file.
 2. The `REPLACE_WITH_…` URLs in the JSON-LD (the handle is now the link bit.ly/4iUaePY).

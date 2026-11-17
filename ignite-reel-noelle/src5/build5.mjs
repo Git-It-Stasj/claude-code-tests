@@ -59,13 +59,13 @@ item({ b0: 5, b1: 10, top: 470, mode: "blur", at: [5, 6, 7], lines: [H("WHO IS",
 raw(0, 10, 2, `<svg width="900" height="230" viewBox="0 0 900 230" class="in">
   <line x1="0" y1="200" x2="900" y2="200" stroke="rgba(213,216,250,.35)" stroke-width="3"/>
   ${Array.from({ length: 10 }, (_, i) => `<line x1="${i * 100}" y1="194" x2="${i * 100}" y2="206" stroke="rgba(213,216,250,.35)" stroke-width="3"/>`).join("")}
-  <path id="spend" d="M0 196 C 300 190, 560 150, 700 90 S 850 18, 880 12" fill="none" stroke="${AMB}" stroke-width="9" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+  <path id="spend" d="M0 196 C 300 190, 600 150, 820 122 C 862 114, 876 60, 880 12" fill="none" stroke="${AMB}" stroke-width="9" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
   <path id="value" d="M0 196 C 300 192, 600 182, 880 168" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-dasharray="4 18" opacity="0"/>
   <g id="gap" opacity="0"><line x1="880" y1="22" x2="880" y2="158" stroke="#fff" stroke-width="4" stroke-dasharray="8 8"/><circle cx="880" cy="12" r="14" fill="${AMB}"/><circle cx="880" cy="168" r="12" fill="#fff"/></g>
 </svg>
 <div class="lab" id="labS" style="left:560px;top:-8px;color:${AMB}">AI SPEND</div>
-<div class="lab" id="labV" style="left:560px;top:190px;color:#fff;opacity:0">MEASURED VALUE</div>
-<div class="lab" id="labG" style="left:690px;top:70px;color:#fff;opacity:0;font-size:40px">THE GAP</div>`,
+<div class="lab" id="labV" style="left:560px;top:214px;color:#fff;opacity:0">MEASURED VALUE</div>
+<div class="lab" id="labG" style="left:620px;top:40px;color:#fff;opacity:0;font-size:40px">THE GAP</div>`,
   "left:90px;top:1330px;width:900px;height:240px",
   (id, s, e) => `tl.fromTo("#spend",{attr:{"stroke-dashoffset":1}},{attr:{"stroke-dashoffset":0},duration:2.0,ease:"power2.in"},0.1);
 tl.fromTo("#labS",{opacity:0,x:-20},{opacity:1,x:0,duration:.3,ease:"power3.out"},1.9);
@@ -93,7 +93,7 @@ raw(15, 20, 2, `<svg class="in" width="1080" height="1400" viewBox="0 0 1080 140
   (id, s, e) => `tl.fromTo("#house",{attr:{"stroke-dashoffset":1}},{attr:{"stroke-dashoffset":0},duration:1.1,ease:"power2.inOut"},${s});
 tl.fromTo("#${id} .nd",{scale:0,transformOrigin:"50% 50%"},{scale:1,duration:.3,ease:"back.out(2)",stagger:.18},${r3(s + .1)});
 ${exitBlur(id, e)}`);
-item({ b0: 15, b1: 20, top: 690, at: [15.3, 15.7, 16.2, 16.8], lines: [E("// PRESENTED BY KPMG"), H("THE AI", 240), H("HOUSE", 270, AMB), Bd("The room where enterprise AI gets done.", 46, WHT, 190)] });
+item({ b0: 15, b1: 20, top: 520, at: [15.3, 15.7, 16.2, 16.8], lines: [H("THE AI", 240), H("HOUSE", 270, AMB), { ...Bd("The room where enterprise AI gets done.", 46, WHT, 190), gap: .5 }, { ...E("// PRESENTED BY KPMG"), gap: 0 }] });
 
 // ================= 04 THE SPEAKER (photo; every element on a beat; 1 s hold) =====
 const NEND = 30.13;
@@ -156,13 +156,17 @@ raw(60, 68, 5, `<div class="in" style="font-family:'JetBrains Mono';font-weight:
   (id, s, e) => `tl.fromTo("#${id} .in",{opacity:0,filter:"blur(10px)"},{opacity:1,filter:"blur(0px)",duration:.25},${s});${exitBlur(id, e)}`);
 
 // ================= 08 FOLLOW (close, ≥2 s hold on last line) =========================
-item({ b0: 68, b1: 79, top: 290, mode: "letters", at: [68, 69], lines: [H("NOELLE", 290), H("RUSSELL", 270, AMB)], noExit: true });
-item({ b0: 71, b1: 79, top: 880, track: 4, at: [71, 72, 73], lines: [H("RESPONSIBLE AI", 140), { ...H("THAT SCALES.", 150, AMB), gap: .16 }, { t: "FOUNDER · AI LEADERSHIP INSTITUTE", size: 28, c: SOFT, k: "eye", gap: 0 }], noExit: true });
-raw(74, 79, 5, `<div class="in" style="margin:0 90px;padding:26px 10px;border:5px solid ${AMB};border-radius:30px;text-align:center;font-family:'JetBrains Mono';font-weight:800;font-size:46px;letter-spacing:.02em;color:${AMB};background:rgba(255,197,61,.12)">bit.ly/4iUaePY</div>`,
-  "left:0;width:1080px;top:1225px", (id, s) => `tl.fromTo("#${id} .in",{opacity:0,y:40,filter:"blur(10px)"},{opacity:1,y:0,filter:"blur(0px)",duration:.35,ease:"expo.out"},${s});`);
+item({ b0: 68, b1: 79, top: 290, mode: "letters", at: [68, 69], lines: [{ ...H("NOELLE RUSSELL", 142), gap: .12 }, { t: "FOUNDER · AI LEADERSHIP INSTITUTE", size: 28, c: SOFT, k: "eye", gap: 0 }], noExit: true });
+item({ b0: 70, b1: 79, top: 600, track: 4, at: [70, 70.5, 71], lines: [E("// MICROSOFT IGNITE 2026"), H("GET YOUR FREE", 150), H("DIGITAL PASS", 172, AMB)], noExit: true });
+raw(72, 79, 5, `<div class="in cta"><span>bit.ly/4iUaePY</span><b>&#8594;</b></div>`, "left:0;width:1080px;top:1010px",
+  (id, s) => `tl.fromTo("#${id} .cta",{opacity:0,scale:.7,filter:"blur(10px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.4,ease:"back.out(1.7)"},${s});
+tl.fromTo("#${id} .cta b",{x:-24},{x:0,duration:.35,ease:"expo.out"},${r3(s + .15)});
+tl.fromTo("#${id} .cta",{boxShadow:"0 0 0px rgba(255,197,61,0)"},{boxShadow:"0 0 70px rgba(255,197,61,.6)",duration:.5,ease:"power2.out"},${B(73)});`);
+raw(73, 79, 5, `<div class="in" style="text-align:center;font-family:'JetBrains Mono';font-weight:800;font-size:30px;letter-spacing:.1em;color:${SOFT}">TAP THE LINK TO CLAIM YOURS</div>`, "left:0;width:1080px;top:1160px",
+  (id, s) => `tl.fromTo("#${id} .in",{opacity:0,filter:"blur(8px)"},{opacity:1,filter:"blur(0px)",duration:.3},${s});`);
 
 // ================= persistent HUD (entity line on every frame = thumbnail + AEO) =====
-const chapters = [[0, "01 THE PROBLEM"], [10, "02 IGNITE 2026"], [15, "03 THE AI HOUSE"], [20, "04 THE SPEAKER"], [NEND, "05 THE SESSION"], [40, "06 THE METHOD"], [56, "07 THE DETAILS"], [68, "08 FOLLOW"]];
+const chapters = [[0, "01 THE PROBLEM"], [10, "02 IGNITE 2026"], [15, "03 THE AI HOUSE"], [20, "04 THE SPEAKER"], [NEND, "05 THE SESSION"], [40, "06 THE METHOD"], [56, "07 THE DETAILS"], [68, "08 GET YOUR PASS"]];
 chapters.forEach(([b0, label], i) => { const b1 = i < chapters.length - 1 ? chapters[i + 1][0] : 79;
   if (b0 === 20) return; // speaker scene: credentials own the lower band
   raw(b0, b1, 7, `<div class="in chap">${label}</div>`, "left:0;top:1600px;width:1080px",
@@ -255,6 +259,8 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:${NAVY}}
 .rail{position:absolute;left:120px;top:1662px;width:840px;height:4px;background:rgba(213,216,250,.18)}
 .rail i{position:absolute;top:-6px;width:3px;height:16px;background:rgba(213,216,250,.35)}
 #fill{position:absolute;left:0;top:0;height:4px;width:840px;background:${AMB};transform-origin:0 50%;box-shadow:0 0 14px rgba(255,197,61,.8)}
+.cta{display:flex;align-items:center;justify-content:center;gap:28px;margin:0 auto;width:860px;padding:30px 20px;border-radius:999px;background:${AMB};color:${NAVY};font-family:'JetBrains Mono';font-weight:800;font-size:58px;letter-spacing:.01em}
+.cta b{font-family:'Space Grotesk';font-size:66px;line-height:1}
 .chap{text-align:center;font-family:'JetBrains Mono';font-weight:800;font-size:28px;letter-spacing:.16em;color:${SOFT}}
 </style></head>
 <body>
