@@ -1,6 +1,6 @@
 # Noelle Russell – Ignite 2026 reel v5 (graphics rebuild + AEO)
 
-1080x1920, 30 fps, 31.0 s (cut from 37 s in round 4), H.264/AAC. Music only (same ElevenLabs track, 128 BPM), no voiceover, no captions burned in.
+1080x1920, 30 fps, 32.4 s (cut from 37 s in round 4, +1.4 s in round 5), H.264/AAC. Music only (same ElevenLabs track, 128 BPM), no voiceover, no captions burned in.
 
 ## All v4 tweaks kept
 1. The hook animates in. "EVERYONE / IS SPENDING / ON AI." rises in through masks and lands on beats 0, 1 and 2.
@@ -66,6 +66,14 @@ Source: `src5/build5.mjs` (`node build5.mjs a|b`) and `src5/aeo.mjs` (`node aeo.
    - **Link:** bit.ly/4iUaePY is now only in the post copy, not in the video.
 3. **Chart:** redrawn to your reference. The spend curve is a smooth convex rise to the top-right dot. "THE GAP →" sits under the curve, pointing at the dashed gap line. "AI SPEND" is above the curve and "MEASURED VALUE" is below the axis. No label touches a line.
 4. **The AI House:** the cap line of "THE AI" now sits exactly on the side vertices (measured: cap top at y 630, which is the vertex centre).
+
+## Round 5 fixes (Nov 17)
+1. **Speaker hold:** the photo now stays a full 2.0 s after the last credential (13.16 s to 15.16 s). Every later scene moved 3 beats later so cuts and reveals stay on the beat. Total length is 32.4 s; the crash is on beat 63 (29.56 s) and the ticket holds to 32.4 s.
+2. **Sponsor list:** the co-speaker sentence is replaced by "// IN CONVERSATION WITH" and a vertical stack of white logos. Each logo lands on its own beat (53, 54, 55).
+   - **10:00AM version:** KPMG, GitHub, Intuit.
+   - **12:45PM version:** KPMG, GitHub, Credit Karma.
+   - **Logo sources:** Wikimedia Commons official SVGs, in `src5/assets/logos/`: `KPMG_blue_logo.svg`, `GitHub_logo_2013.svg` with `GitHub_Invertocat_Logo.svg`, `Credit_Karma_logo.svg`, `Intuit_logo_2022.svg`. They are shown as single-colour white, a standard dark-background sponsor treatment.
+   - **Permission:** confirm logo use with each company before posting.
 
 ## Still to confirm before posting
 1. Time and panel: 10:00AM + Intuit, or 12:45PM + Credit Karma. Post only the matching file.

@@ -1,9 +1,11 @@
 // v5: graphics upgrade + AEO-friendly on-screen entities.  node build5.mjs a|b -> index.html
 import fs from "node:fs";
 const variant = process.argv[2] || "a";
-const V = { a: { time: "10:00AM", co: "With KPMG, GitHub and Intuit" },
-            b: { time: "12:45PM", co: "With KPMG, GitHub and Credit Karma" } }[variant];
-const DUR = 31, BEAT = 60 / 128;   // ends on the ticket: last field lands at beat 60 (28.16 s), held to 31 s
+const LG = { kpmg: `<img src="assets/logos/kpmg.svg" alt="KPMG" style="height:92px">`, gh: `<img src="assets/logos/github-mark.svg" alt="" style="height:78px"><img src="assets/logos/github-wordmark.svg" alt="GitHub" style="height:74px">`,
+  intuit: `<img src="assets/logos/intuit.svg" alt="Intuit" style="height:62px">`, ck: `<img src="assets/logos/creditkarma.svg" alt="Credit Karma" style="height:60px">` };
+const V = { a: { time: "10:00AM", co: "With KPMG, GitHub and Intuit", logos: [LG.kpmg, LG.gh, LG.intuit] },
+            b: { time: "12:45PM", co: "With KPMG, GitHub and Credit Karma", logos: [LG.kpmg, LG.gh, LG.ck] } }[variant];
+const DUR = 32.4, BEAT = 60 / 128;   // ends on the ticket: last field lands at beat 60 (28.16 s), held to 31 s
 const B = (n) => (n === 0 ? 0 : +Math.min(DUR, 0.03 + n * BEAT).toFixed(3));
 const r3 = (x) => +x.toFixed(3);
 const AMB = "#FFC53D", WHT = "#FFFFFF", SOFT = "#D5D8FA", NAVY = "#0A0E2E";
@@ -96,7 +98,7 @@ ${exitBlur(id, e)}`);
 item({ b0: 15, b1: 20, top: 592, at: [15.3, 15.7, 16.2, 16.8], lines: [H("THE AI", 240), H("HOUSE", 270, AMB), { ...Bd("The room where enterprise AI gets done.", 46, WHT, 190), gap: .5 }, { ...E("// PRESENTED BY KPMG"), gap: 0 }] });
 
 // ================= 04 THE SPEAKER (photo; every element on a beat; 1 s hold) =====
-const NEND = 30;   // last credential on beat 28 + 2-beat hold
+const NEND = 28 + 2 / BEAT;   // last credential on beat 28 + 2.0 s hold (later scenes shifted 3 beats to stay on the grid)
 raw(20, NEND, 1, "", "left:0;top:0;width:1080px;height:1920px;background:radial-gradient(ellipse at 50% 35%,#4A22C8 0%,#3518B2 45%,#1B0E6A 100%)",
   (id, s) => `tl.fromTo("#${id}",{clipPath:"circle(0% at 50% 47%)"},{clipPath:"circle(120% at 50% 47%)",duration:.5,ease:"expo.out"},${s});`);
 raw(20, NEND, 2, `<div class="pwrap"><img src="assets/noelle.jpg" class="photo" alt="Noelle Russell, Founder of AI Leadership Institute, on stage"></div><div class="scan"></div>`,
@@ -115,49 +117,51 @@ tl.fromTo("#${id} .row b",{opacity:0},{opacity:1,duration:.15},${s});
 ${exitBlur(id, e)}`));
 
 // ================= 05 THE SESSION (one block) ======================================
-item({ b0: NEND, b1: 40, top: 420, stag: .2, delay: .05, lines: [E("// THE SESSION"), H("THE FRONTIER", 150, AMB), H("VALUE METHOD:", 150, AMB), H("FROM TOKEN SPEND", 112), H("TO BUSINESS VALUE", 112)] });
-raw(33, 40, 4, `<div class="in conv"><div class="chip c1">TOKEN SPEND</div><div class="arr"><i></i></div><div class="chip c2">BUSINESS VALUE</div></div>`, "left:0;top:1140px;width:1080px",
+item({ b0: NEND, b1: 43, top: 420, stag: .2, delay: .05, lines: [E("// THE SESSION"), H("THE FRONTIER", 150, AMB), H("VALUE METHOD:", 150, AMB), H("FROM TOKEN SPEND", 112), H("TO BUSINESS VALUE", 112)] });
+raw(36, 43, 4, `<div class="in conv"><div class="chip c1">TOKEN SPEND</div><div class="arr"><i></i></div><div class="chip c2">BUSINESS VALUE</div></div>`, "left:0;top:1140px;width:1080px",
   (id, s, e) => `tl.fromTo("#${id} .c1",{opacity:0,x:-40},{opacity:1,x:0,duration:.35,ease:"expo.out"},${s});
-tl.fromTo("#${id} .arr i",{scaleX:0},{scaleX:1,duration:.4,ease:"power2.inOut"},${B(34)});
-tl.fromTo("#${id} .c2",{opacity:0,scale:.6},{opacity:1,scale:1,duration:.35,ease:"back.out(1.6)"},${B(35)});
+tl.fromTo("#${id} .arr i",{scaleX:0},{scaleX:1,duration:.4,ease:"power2.inOut"},${B(37)});
+tl.fromTo("#${id} .c2",{opacity:0,scale:.6},{opacity:1,scale:1,duration:.35,ease:"back.out(1.6)"},${B(38)});
 ${exitBlur(id, e)}`);
 
-// ================= 06 THE METHOD (steps on beats 41/44/47) =========================
-raw(40, 56, 3, `<div class="in" style="font-family:'Barlow Condensed';font-weight:800;font-style:italic;font-size:104px;color:${AMB};text-transform:uppercase;line-height:.95">The Frontier<br>Value Method</div>`, "left:0;width:1080px;top:300px;text-align:center",
+// ================= 06 THE METHOD (steps on beats 44/47/50) =========================
+raw(43, 59, 3, `<div class="in" style="font-family:'Barlow Condensed';font-weight:800;font-style:italic;font-size:104px;color:${AMB};text-transform:uppercase;line-height:.95">The Frontier<br>Value Method</div>`, "left:0;width:1080px;top:300px;text-align:center",
   (id, s, e) => `tl.fromTo("#${id} .in",{opacity:0,filter:"blur(14px)",scale:1.08},{opacity:1,filter:"blur(0px)",scale:1,duration:.35,ease:"expo.out"},${s});${exitBlur(id, e)}`);
-raw(41, 56, 2, `<div class="spine"><i id="sp1"></i><i id="sp2"></i></div>`, "left:0;top:0;width:1080px;height:1920px",
-  (id, s, e) => `tl.fromTo("#sp1",{scaleY:0},{scaleY:1,duration:.45,ease:"power2.inOut"},${r3(B(44) - .45)});
-tl.fromTo("#sp2",{scaleY:0},{scaleY:1,duration:.45,ease:"power2.inOut"},${r3(B(47) - .45)});${exitBlur(id, e, ".spine")}`);
+raw(44, 59, 2, `<div class="spine"><i id="sp1"></i><i id="sp2"></i></div>`, "left:0;top:0;width:1080px;height:1920px",
+  (id, s, e) => `tl.fromTo("#sp1",{scaleY:0},{scaleY:1,duration:.45,ease:"power2.inOut"},${r3(B(47) - .45)});
+tl.fromTo("#sp2",{scaleY:0},{scaleY:1,duration:.45,ease:"power2.inOut"},${r3(B(50) - .45)});${exitBlur(id, e, ".spine")}`);
 ["Pick the right workflows", "Model the human&#8209;agent cost", "Underwrite outcomes, not tokens"].forEach((t, i) =>
-  raw(41 + i * 3, 56, 4, `<div class="in step"><u>${i + 1}</u><span>${t}</span></div>`, `left:0;width:1080px;top:${560 + i * 240}px`,
+  raw(44 + i * 3, 59, 4, `<div class="in step"><u>${i + 1}</u><span>${t}</span></div>`, `left:0;width:1080px;top:${540 + i * 220}px`,
     (id, s, e) => `tl.fromTo("#${id} .step u",{scale:0},{scale:1,duration:.3,ease:"back.out(2.2)"},${s});
 tl.fromTo("#${id} .step span",{x:-50,opacity:0,filter:"blur(10px)"},{x:0,opacity:1,filter:"blur(0px)",duration:.3,ease:"expo.out"},${r3(s + .04)});
 ${exitBlur(id, e)}`));
-raw(50, 56, 4, `<div class="in co">${V.co}</div>`, "left:0;width:1080px;top:1275px;text-align:center",
-  (id, s, e) => `tl.fromTo("#${id} .in",{opacity:0,filter:"blur(12px)"},{opacity:1,filter:"blur(0px)",duration:.3,ease:"power2.out"},${s});${exitBlur(id, e)}`);
+raw(53, 59, 4, `<div class="spons"><div class="sl">// IN CONVERSATION WITH</div>${V.logos.map((l, k) => `<div class="lg lg${k}">${l}</div>`).join("")}</div>`, "left:0;width:1080px;top:1150px",
+  (id, s, e) => `tl.fromTo("#${id} .sl",{opacity:0,filter:"blur(10px)"},{opacity:1,filter:"blur(0px)",duration:.3,ease:"power2.out"},${s});
+${[0, 1, 2].map((k) => `tl.fromTo("#${id} .lg${k}",{opacity:0,y:30,filter:"blur(10px)"},{opacity:1,y:0,filter:"blur(0px)",duration:.3,ease:"expo.out"},${B(53 + k)});`).join("\n")}
+${exitBlur(id, e, ".spons")}`);
 
 // ================= 07 THE DETAILS (ticket) ==========================================
 const bars = Array.from({ length: 28 }, (_, i) => { const w = [3, 6, 3, 9, 4, 3, 7, 3][i % 8] + (i % 5 === 0 ? 3 : 0);
   return `<i style="width:${w}px"></i>`; }).join("");
-raw(56, 67, 2, `<div class="tk" style="opacity:0"><div class="tkh">// THE AI HOUSE · PRESENTED BY KPMG</div><div class="perf"></div><div class="bars">${bars}</div></div>`,
+raw(59, 70, 2, `<div class="tk" style="opacity:0"><div class="tkh">// THE AI HOUSE · PRESENTED BY KPMG</div><div class="perf"></div><div class="bars">${bars}</div></div>`,
   "left:90px;top:290px;width:900px;height:1050px",
   (id, s, e) => `tl.fromTo("#${id} .tk",{opacity:0,y:120,rotationX:25,transformPerspective:1400},{opacity:1,y:0,rotationX:0,duration:.6,ease:"expo.out"},${s});
-tl.fromTo("#${id} .bars i",{scaleY:0},{scaleY:1,duration:.2,ease:"expo.out",stagger:.006},${B(60)});
+tl.fromTo("#${id} .bars i",{scaleY:0},{scaleY:1,duration:.2,ease:"expo.out",stagger:.006},${B(63)});
 ${exitBlur(id, e, ".tk")}`);
-const field = (b0, top, label, val, track = 4) => raw(b0, 67, track,
+const field = (b0, top, label, val, track = 4) => raw(b0, 70, track,
   `<div class="in fld"><div class="fl">${label}</div>${val}</div>`, `left:150px;width:780px;top:${top}px`,
   (id, s, e) => `tl.fromTo("#${id} .fl",{opacity:0,x:-20},{opacity:1,x:0,duration:.25,ease:"expo.out"},${s});
 tl.fromTo("#${id} .fv",{yPercent:105},{yPercent:0,duration:.3,ease:"expo.out",stagger:.06},${s});
 ${exitBlur(id, e)}`);
-field(57, 420, "DATE", `<div class="mk"><div class="fv" style="font-size:170px">WED NOV 18</div></div>`);
-field(58, 650, "TIME · PACIFIC", `<div class="mk"><div class="fv" style="font-size:200px;color:${AMB};font-style:italic;font-weight:800">${V.time}</div></div>`);
-field(59, 950, "VENUE", `<div class="mk"><div class="fv" style="font-size:104px">KPMG EXCHANGE</div></div><div class="mk"><div class="fv" style="font-family:'JetBrains Mono';font-weight:800;font-size:30px;letter-spacing:.06em;color:${SOFT};padding-top:8px">175 4TH ST, SAN FRANCISCO</div></div>`);
-raw(60, 67, 5, `<div class="in" style="font-family:'JetBrains Mono';font-weight:800;font-size:30px;letter-spacing:.1em;color:${AMB}">// INVITATION ONLY</div>`, "left:150px;top:1245px;width:500px",
+field(60, 420, "DATE", `<div class="mk"><div class="fv" style="font-size:170px">WED NOV 18</div></div>`);
+field(61, 650, "TIME · PACIFIC", `<div class="mk"><div class="fv" style="font-size:200px;color:${AMB};font-style:italic;font-weight:800">${V.time}</div></div>`);
+field(62, 950, "VENUE", `<div class="mk"><div class="fv" style="font-size:104px">KPMG EXCHANGE</div></div><div class="mk"><div class="fv" style="font-family:'JetBrains Mono';font-weight:800;font-size:30px;letter-spacing:.06em;color:${SOFT};padding-top:8px">175 4TH ST, SAN FRANCISCO</div></div>`);
+raw(63, 70, 5, `<div class="in" style="font-family:'JetBrains Mono';font-weight:800;font-size:30px;letter-spacing:.1em;color:${AMB}">// INVITATION ONLY</div>`, "left:150px;top:1245px;width:500px",
   (id, s, e) => `tl.fromTo("#${id} .in",{opacity:0,filter:"blur(10px)"},{opacity:1,filter:"blur(0px)",duration:.25},${s});${exitBlur(id, e)}`);
 
 // ================= persistent HUD (entity line on every frame = thumbnail + AEO) =====
-const chapters = [[0, "01 THE PROBLEM"], [10, "02 IGNITE 2026"], [15, "03 THE AI HOUSE"], [20, "04 THE SPEAKER"], [NEND, "05 THE SESSION"], [40, "06 THE METHOD"], [56, "07 THE DETAILS"]];
-chapters.forEach(([b0, label], i) => { const b1 = i < chapters.length - 1 ? chapters[i + 1][0] : 67;
+const chapters = [[0, "01 THE PROBLEM"], [10, "02 IGNITE 2026"], [15, "03 THE AI HOUSE"], [20, "04 THE SPEAKER"], [NEND, "05 THE SESSION"], [43, "06 THE METHOD"], [59, "07 THE DETAILS"]];
+chapters.forEach(([b0, label], i) => { const b1 = i < chapters.length - 1 ? chapters[i + 1][0] : 70;
   if (b0 === 20) return; // speaker scene: credentials own the lower band
   raw(b0, b1, 7, `<div class="in chap">${label}</div>`, "left:0;top:1600px;width:1080px",
     (id, s) => `tl.fromTo("#${id} .in",{opacity:0,y:14},{opacity:1,y:0,duration:.3,ease:"expo.out"},${s});`); });
@@ -165,7 +169,7 @@ fs.writeFileSync(`chapters-${variant}.json`, JSON.stringify(chapters.map(([b, l]
 
 // light sweeps on scene seams
 let sweepJs = `tl.set("#sweep",{x:-700},0);\n`;
-[5, 10, 15, NEND, 40, 56].forEach((b) => { sweepJs += `tl.fromTo("#sweep",{x:-700,opacity:1},{x:1500,duration:.38,ease:"power2.inOut",immediateRender:false},${r3(B(b) - .19)});\n`; });
+[5, 10, 15, NEND, 43, 59].forEach((b) => { sweepJs += `tl.fromTo("#sweep",{x:-700,opacity:1},{x:1500,duration:.38,ease:"power2.inOut",immediateRender:false},${r3(B(b) - .19)});\n`; });
 // bar-level background push (downbeats only)
 let beatJs = "";
 for (let i = 0; B(i) < DUR - .3; i += 4) beatJs += `tl.fromTo("#vidwrap",{scale:1.05},{scale:1,duration:.45,ease:"expo.out",immediateRender:false},${B(i)});\n`;
@@ -175,8 +179,8 @@ const ticks = Array.from({ length: Math.floor(DUR / (4 * BEAT)) + 1 }, (_, i) =>
 // ---------- backgrounds --------------------------------------------------------------
 const vid = (id, src, b0, b1, ms, rate) => { const s = B(b0), e = B(b1);
   return `<video id="${id}" class="clip vid" src="assets/${src}" muted playsinline data-start="${s}" data-duration="${r3(e - s)}" data-media-start="${ms}" data-playback-rate="${rate}" data-track-index="0"></video>`; };
-const vids = [vid("v1", "hf_tunnel.mp4", 0, 20, 0, 0.85), vid("v3", "hf_grid.mp4", NEND, 56, 0, 0.65),
-  vid("v4", "hf_tunnel.mp4", 56, 67, 1.5, 1)].join("\n");
+const vids = [vid("v1", "hf_tunnel.mp4", 0, 20, 0, 0.85), vid("v3", "hf_grid.mp4", NEND, 59, 0, 0.65),
+  vid("v4", "hf_tunnel.mp4", 59, 70, 1.5, 1)].join("\n");
 
 fs.writeFileSync("index.html", `<!doctype html>
 <html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=1080, height=1920" />
@@ -227,9 +231,13 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:${NAVY}}
 .arr i{position:absolute;inset:0;background:${AMB};transform-origin:0 50%}
 .arr i:after{content:"";position:absolute;right:-6px;top:-13px;border-left:24px solid ${AMB};border-top:17px solid transparent;border-bottom:17px solid transparent}
 .spine i{position:absolute;left:158px;width:8px;background:${AMB};transform-origin:50% 0;border-radius:4px}
-#sp1{top:${560 + 120}px;height:120px}#sp2{top:${800 + 120}px;height:120px}
+#sp1{top:${540 + 120}px;height:100px}#sp2{top:${760 + 120}px;height:100px}
 .step{display:flex;align-items:center;gap:34px;text-align:left;padding:0 100px;font-family:'Space Grotesk';font-weight:700;font-size:58px;line-height:1.1;color:#fff}
 .step u{flex:none;width:120px;height:120px;border-radius:50%;background:${AMB};color:#14103A;text-decoration:none;font-family:'Barlow Condensed';font-weight:900;font-size:78px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 10px rgba(255,197,61,.18)}
+.spons{display:flex;flex-direction:column;align-items:center;gap:24px}
+.sl{font-family:'JetBrains Mono';font-weight:800;font-size:28px;letter-spacing:.14em;color:${SOFT}}
+.lg{height:96px;display:flex;align-items:center;justify-content:center;gap:18px}
+.lg img{display:block;filter:brightness(0) invert(1)}
 .co{font-family:'Space Grotesk';font-weight:500;font-size:44px;color:${SOFT};padding:0 90px}
 .tk{position:absolute;inset:0;border-radius:44px;background:linear-gradient(160deg,rgba(20,18,72,.92),rgba(8,10,40,.9));border:4px solid ${AMB};box-shadow:0 0 90px rgba(255,197,61,.3),inset 0 0 0 2px rgba(255,255,255,.04);overflow:hidden}
 .tkh{height:96px;background:${AMB};color:${NAVY};font-family:'JetBrains Mono';font-weight:800;font-size:28px;letter-spacing:.08em;display:flex;align-items:center;justify-content:center}

@@ -5,6 +5,6 @@ On-screen text transcript (the video has no voiceover; music only)
 [00:04] Microsoft Ignite 2026. San Francisco. Nov 17–20. Moscone Center and online.
 [00:07] Presented by KPMG: The AI House. The room where enterprise AI gets done.
 [00:09] Noelle Russell, Founder, AI Leadership Institute. #1 Agentic AI Leader 2025. 5x Microsoft AI MVP. 3.4M+ learners. TEDx speaker. Best-selling author.
-[00:14] The session: The Frontier Value Method: From Token Spend to Business Value.
-[00:18] The Frontier Value Method: 1. Pick the right workflows. 2. Model the human-agent cost. 3. Underwrite outcomes, not tokens. With KPMG, GitHub and Credit Karma.
-[00:26] The AI House, presented by KPMG. Wed Nov 18, 12:45PM Pacific. KPMG Exchange, 175 4th St, San Francisco. Invitation only.
+[00:15] The session: The Frontier Value Method: From Token Spend to Business Value.
+[00:20] The Frontier Value Method: 1. Pick the right workflows. 2. Model the human-agent cost. 3. Underwrite outcomes, not tokens. With KPMG, GitHub and Credit Karma.
+[00:27] The AI House, presented by KPMG. Wed Nov 18, 12:45PM Pacific. KPMG Exchange, 175 4th St, San Francisco. Invitation only.

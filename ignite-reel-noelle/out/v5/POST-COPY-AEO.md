@@ -46,9 +46,9 @@ Paste the answer-first summary from section 1, then `🎟 Get your free digital 
 0:04 Microsoft Ignite 2026, San Francisco
 0:07 The AI House presented by KPMG
 0:09 Speaker: Noelle Russell, Founder, AI Leadership Institute
-0:14 Session: The Frontier Value Method
-0:18 The three steps of the Frontier Value Method
-0:26 Date, time and venue
+0:15 Session: The Frontier Value Method
+0:20 The three steps of the Frontier Value Method
+0:27 Date, time and venue
 ```
 Also upload `on-screen-text.vtt` as an English subtitle track named "On-screen text". It is a sidecar file, not burned in, so viewers can leave it off, but it gives search a full text version.
 
@@ -60,7 +60,7 @@ Also upload `on-screen-text.vtt` as an English subtitle track named "On-screen t
 **When and where is the session?** Wednesday, November 18, 2026, at 10:00AM Pacific (ALT: 12:45PM), at The AI House presented by KPMG, KPMG Exchange, 175 4th St, San Francisco, during Microsoft Ignite 2026 (Nov 17–20). It is invitation only.
 
 ## 7. Alt text (for LinkedIn and X media descriptions)
-Vertical 31-second motion-graphics reel. Text reads "Everyone is spending on AI. Who is measuring the value?" over a chart where AI spend rises and measured value stays flat. It then introduces Microsoft Ignite 2026 in San Francisco, Nov 17–20, and The AI House presented by KPMG. A photo of Noelle Russell on stage is followed by her credentials and her session, "The Frontier Value Method: From Token Spend to Business Value," with its three steps. It ends on an event ticket: Wednesday, Nov 18, KPMG Exchange, 175 4th St, San Francisco, invitation only.
+Vertical 32-second motion-graphics reel. Text reads "Everyone is spending on AI. Who is measuring the value?" over a chart where AI spend rises and measured value stays flat. It then introduces Microsoft Ignite 2026 in San Francisco, Nov 17–20, and The AI House presented by KPMG. A photo of Noelle Russell on stage is followed by her credentials and her session, "The Frontier Value Method: From Token Spend to Business Value," with its three steps. It ends on an event ticket: Wednesday, Nov 18, KPMG Exchange, 175 4th St, San Francisco, invitation only.
 
 ## 8. What's built in
 - **On screen:** an entity line runs on every frame ("NOELLE RUSSELL // AI HOUSE BY KPMG // IGNITE 2026"), so frame 0 and any auto-picked thumbnail carry her name and the event. Chapter labels on screen match the chapter file. Every fact is set as clean, high-contrast text that machines can read with OCR.
