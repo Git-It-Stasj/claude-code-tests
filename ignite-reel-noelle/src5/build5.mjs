@@ -179,7 +179,7 @@ const ticks = Array.from({ length: Math.floor(DUR / (4 * BEAT)) + 1 }, (_, i) =>
 // ---------- backgrounds --------------------------------------------------------------
 const vid = (id, src, b0, b1, ms, rate) => { const s = B(b0), e = B(b1);
   return `<video id="${id}" class="clip vid" src="assets/${src}" muted playsinline data-start="${s}" data-duration="${r3(e - s)}" data-media-start="${ms}" data-playback-rate="${rate}" data-track-index="0"></video>`; };
-const vids = [vid("v1", "hf_tunnel.mp4", 0, 20, 0, 0.85), vid("v3", "hf_grid.mp4", NEND, 64, 0, 0.65),
+const vids = [vid("v1", "hf_tunnel.mp4", 0, 20, 0, 0.8), vid("v3", "hf_grid.mp4", NEND, 64, 0, 0.52),
   vid("v4", "hf_tunnel.mp4", 64, 75, 1.5, 1)].join("\n");
 
 fs.writeFileSync("index.html", `<!doctype html>
