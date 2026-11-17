@@ -1,11 +1,12 @@
 # Client profile: Noelle Russell
 
 Founder, AI Leadership Institute. Used for: Microsoft Ignite 2026, The AI House presented by KPMG (Nov 2026).
-Project: `ignite-reel-noelle/` (final = `src5/`, `out/v5/`).
+Project: `ignite-reel-noelle/` (final = `src5/`, `out/v5/`). The generator is bundled as `assets/starter/build-reference.mjs`.
+Status: CONFIRMED · Last updated: 2026-11-17
 
 ## Identity
 - **Name spelling:** Noelle Russell. Org: AI Leadership Institute. Always spelled identically (AEO).
-- **Signature look:** her "I ❤ AI" shirt. Use the photo `ignite-reel-noelle/assets/noelle-photo-iheartai.jpg`.
+- **Signature look:** her "I ❤ AI" shirt. Approved photo: `noelle-photo-iheartai.jpg` (in the Ignite project repo at `ignite-reel-noelle/assets/`; ask the user for it if it is not in the current project).
 - **Credentials (one per beat):** 5x Microsoft AI MVP · #1 Agentic AI Leader 2025 · 3.4M+ learners · TEDx speaker · best-selling author.
 - **Framework:** The Frontier Value Method: From Token Spend to Business Value.
   Steps: pick the right workflows · model the human-agent cost · underwrite outcomes, not tokens.

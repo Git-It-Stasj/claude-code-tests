@@ -1,6 +1,6 @@
 ---
 name: sizzle-reel
-description: House playbook for vertical event/speaker sizzle reels (HyperFrames + GSAP, Higgsfield backgrounds, ElevenLabs music). Use whenever the user asks for a sizzle reel, promo reel, speaker reel, event teaser or "a reel like the Noelle one". Captures the taste decisions from past projects so the first cut lands close to final. Read before writing any composition; load the matching client profile from references/clients/.
+description: House playbook for vertical event/speaker sizzle reels (HyperFrames + GSAP, Higgsfield backgrounds, ElevenLabs music). Use whenever the user asks for a sizzle reel, promo reel, speaker reel, event teaser, highlight reel or "a reel like the Noelle one", and whenever they revise one. Captures taste from past projects so the first cut lands close to final, and requires a client profile to be loaded or created for every client and updated with every correction.
 ---
 
 # Sizzle reel playbook
@@ -8,8 +8,26 @@ description: House playbook for vertical event/speaker sizzle reels (HyperFrames
 This file is the accumulated taste from real projects. Every rule here was a revision round once.
 Follow it by default; deviate only when the brief says so, and say which rule you broke and why.
 
-Reference build: `ignite-reel-noelle/src5/build5.mjs` (generator), `src5/aeo.mjs` (AEO sidecars).
-Start new reels by copying that structure, not from a blank page.
+Reference build (bundled): `assets/starter/build-reference.mjs` (generator: beat grid, scenes, HUD, variants) and `assets/starter/aeo-reference.mjs` (AEO sidecars). It is the Noelle Russell reel; copy its structure and swap content and tokens. Don't start from a blank page.
+
+## Client profile protocol (mandatory — do not skip)
+
+Every reel has a client profile. This is how taste carries over between projects.
+
+**Step A — at the start (before the brief):**
+1. Look for a profile, in this order: `client-profiles/<client-slug>.md` in the user's project, then this skill's `references/clients/<client-slug>.md`.
+2. Found: read it, apply it as the defaults, and tell the user "Using the saved profile for <name>". Only ask brief questions it doesn't answer.
+3. Not found: say "No profile yet for <name>, I'll create one". Copy `templates/client-profile.md`, fill it from the brief and their materials (website, logo, photos), mark it `Status: DRAFT`, and save it as `client-profiles/<client-slug>.md` in the project before building.
+
+**Step B — every revision round:** each time the user corrects something, add it to the profile's "Preferences learned" or "Never do" as a general rule (for example, "No text touches chart lines", not "move THE GAP 20 px"). If the correction applies to every client, add it to this playbook as well.
+
+**Step C — at delivery:** mark the profile `CONFIRMED`, record the approved music prompt, and send the profile file to the user with the video. Then tell them where it was saved.
+
+**Where profiles live (skills are read-only on claude.ai):**
+- **Claude Code / a repo:** commit `client-profiles/<slug>.md` in the project, or copy it into `.claude/skills/sizzle-reel/references/clients/` to make it permanent for every project.
+- **claude.ai:** an uploaded skill can't edit itself. Give the user the profile file and say: "Add this file to `references/clients/` in your skill and re-upload, or add it to this Project's knowledge." If a playbook rule changed, also give them the updated `SKILL.md`.
+
+Never finish a reel project without Step C.
 
 ## 0. Before building: settle the brief (stops rounds 2–7 from happening)
 
@@ -24,7 +42,7 @@ The questions that caused re-work last time, in order of cost:
 6. **Reference images** — if the user has a chart/layout in mind, get the image before drawing it.
 7. **Length** — default 30–35 s vertical 1080×1920 @ 30 fps.
 
-Look up the client profile in `references/clients/`. If none exists, create one at the end of the project.
+Anything already in the client profile doesn't need asking again (see the protocol above).
 
 ## 1. Structure (the template that worked)
 
@@ -118,5 +136,5 @@ What worked: **one generated track composed for the exact length**, no edits exc
 
 ## 9. After the project
 
-Update this playbook: add every new correction from the user as a rule in the right section, and update or create the client profile. The goal is fewer rounds every time.
+Run Step C of the client profile protocol. Add every correction that applies to all clients as a rule in the right section here, and add a row for it to `references/iteration-log.md`. The goal is fewer rounds every time.
 See `references/iteration-log.md` for how each rule was learned.
