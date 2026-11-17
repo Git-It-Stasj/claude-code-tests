@@ -3,7 +3,7 @@ import fs from "node:fs";
 const v = process.argv[2] || "a";
 const V = { a: { time: "10:00AM", iso: "2026-11-18T10:00:00-08:00", co: "KPMG, GitHub and Intuit", sfx: "" },
             b: { time: "12:45PM", iso: "2026-11-18T12:45:00-08:00", co: "KPMG, GitHub and Credit Karma", sfx: "-ALT-per-post" } }[v];
-const B = (n) => (n === 0 ? 0 : Math.min(34.75, 0.03 + n * 60 / 128));
+const B = (n) => (n === 0 ? 0 : Math.min(35, 0.03 + n * 60 / 128 + (n >= 58 ? 0.226 : 0)));
 const ts = (s) => { const ms = Math.round(s * 1000), h = 0, m = Math.floor(ms / 60000), sec = Math.floor(ms / 1000) % 60;
   return `00:${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}.${String(ms % 1000).padStart(3, "0")}`; };
 const ch = [[0, 10, "The problem: everyone is spending on AI"], [10, 15, "Microsoft Ignite 2026, San Francisco"], [15, 20, "The AI House presented by KPMG"],

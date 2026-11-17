@@ -5,8 +5,10 @@ const LG = { kpmg: `<img src="assets/logos/kpmg.svg" alt="KPMG" style="height:92
   intuit: `<img src="assets/logos/intuit.svg" alt="Intuit" style="height:62px">`, ck: `<img src="assets/logos/creditkarma.svg" alt="Credit Karma" style="height:60px">` };
 const V = { a: { time: "10:00AM", co: "With KPMG, GitHub and Intuit", logos: [LG.kpmg, LG.gh, LG.intuit] },
             b: { time: "12:45PM", co: "With KPMG, GitHub and Credit Karma", logos: [LG.kpmg, LG.gh, LG.ck] } }[variant];
-const DUR = 34.75, BEAT = 60 / 128;   // ends on the ticket: last field lands at beat 60 (28.16 s), held to 31 s
-const B = (n) => (n === 0 ? 0 : +Math.min(DUR, 0.03 + n * BEAT).toFixed(3));
+const DUR = 35, BEAT = 60 / 128;   // ends on the ticket; final hit on beat 68 (32.13 s) rings out to 35 s
+// The music (ElevenLabs take 3) drifts 0.226 s late after its breakdown (~beat 57); cues from beat 58 on follow the music's real beats.
+const LATE_FROM = 58, LATE = 0.226;
+const B = (n) => (n === 0 ? 0 : +Math.min(DUR, 0.03 + n * BEAT + (n >= LATE_FROM ? LATE : 0)).toFixed(3));
 const r3 = (x) => +x.toFixed(3);
 const AMB = "#FFC53D", WHT = "#FFFFFF", SOFT = "#D5D8FA", NAVY = "#0A0E2E";
 let html = "", js = "", n = 0;

@@ -1,6 +1,6 @@
 # Noelle Russell – Ignite 2026 reel v5 (graphics rebuild + AEO)
 
-1080x1920, 30 fps, 34.75 s (round 6), H.264/AAC. Music only (same ElevenLabs track, 128 BPM), no voiceover, no captions burned in.
+1080x1920, 30 fps, 35.0 s (round 7), H.264/AAC. Music only (same ElevenLabs track, 128 BPM), no voiceover, no captions burned in.
 
 ## All v4 tweaks kept
 1. The hook animates in. "EVERYONE / IS SPENDING / ON AI." rises in through masks and lands on beats 0, 1 and 2.
@@ -83,6 +83,14 @@ Source: `src5/build5.mjs` (`node build5.mjs a|b`) and `src5/aeo.mjs` (`node aeo.
    - **Build (28.16–31.91 s):** the last two bars replay with a stepped high-pass sweep, one step per beat, with gain rising each beat. A synthesized riser plays on top: a rising tone, a brightening noise swell, and a snare roll that accelerates from 8ths to 32nds. The source is `src5/assets/sfx-riser.wav`.
    - **Payoff on beat 68 (31.91 s):** an ElevenLabs sub-boom impact (`sfx-impact.mp3`), the slowed synthetic crash, and one bar of the main groove ringing out with an echo tail. The fade ends at 34.75 s.
    - **Levels:** about -13 dB groove, a dip into the build, then a rise to -13.6 dB just before the hit. The payoff peaks at -9 dB and fades to silence.
+
+## Round 7 fixes (Nov 17)
+1. **New music.** The whole bed is replaced by a new ElevenLabs Music track (eleven_music_v2_5), composed for this cut. It is an instrumental, 128 BPM, premium-electronic keynote opener: full-energy groove, a fuller uplifting section, then a breakdown that builds into one big sustained final hit with a ringing chord.
+   - **Removed:** the round-6 synthesized riser/snare roll (the ticking) and the looped splice. The sub-boom impact and synthetic crash are also no longer used.
+   - **Vocal check:** an ElevenLabs Scribe transcription came back empty, so no vocals.
+   - **Beat alignment:** the track's beats sit within 15 ms of the video grid through beat 54. After its breakdown (about 26–28 s) the music runs 0.226 s late, so every cue from beat 58 on is shifted by the same amount. The logos land at 28.38/28.85/29.32 s and the ticket fields at 30.73/31.19/31.66 s. The final hit and "invitation only" land on 32.13 s, matching the music's own beat at 32.135 s. The ring-out fades by 35.0 s.
+   - **Takes:** four were generated. Two ended early and one drifted off the grid at 22 s. The raw pick is `qa/music-v6-elevenlabs-take3-raw.mp3`.
+2. **Background freeze fixed.** The grid clip under The Session and The Method ran 15 s of screen time from an 8 s source at 0.65× speed. It ran out at 27.3 s and froze. It now plays at 0.52× (15.4 s of footage). The opening tunnel clip was also slowed from 0.85× to 0.8× for a safety margin.
 
 ## Still to confirm before posting
 1. Time and panel: 10:00AM + Intuit, or 12:45PM + Credit Karma. Post only the matching file.
