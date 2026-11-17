@@ -98,3 +98,13 @@ Source: `src5/build5.mjs` (`node build5.mjs a|b`) and `src5/aeo.mjs` (`node aeo.
 3. Photo permission and credit, permission to name KPMG and Microsoft, and the ElevenLabs music licence.
 4. A 16:9 version has not been made.
 5. Frame 0 shows the HUD entity line, the chart axis and the background, but the hook text builds in from 0.2 s, per your tweak. Set a thumbnail as the cover.
+
+## Round 8: 4:5 for LinkedIn (Nov 17)
+1. **New format, re-laid out rather than cropped.** `node build5.mjs a|b 45` builds a 1080×1350 version. A plain crop of the 9:16 would cut the HUD, the chart and the ticket, so every scene was re-laid out for the shorter frame. Everything else is identical to round 7: timing, beats, music, colours and fonts.
+   - **Hook:** headlines are 12% smaller, and the chart moves up under them.
+   - **The AI House:** the house is shorter. The cap top of "THE AI" is still on the side vertices (measured: y 430 = vertex 430).
+   - **Speaker:** the photo is anchored to the top so her face is fully in frame. The credentials sit tighter (74 px apart).
+   - **The Method:** the steps are 150 px apart and the logo stack is tighter, so nothing touches the chapter label.
+   - **Ticket:** it is 940 px tall, with the same fields and sizes.
+   - **HUD:** the entity line, corners, rail and chapter labels are moved in to fit the 1350 px height.
+2. **Files:** `out/v5/4x5/…-4x5.mp4` (10:00AM, Intuit) and `…-4x5-ALT-per-post.mp4` (12:45PM, Credit Karma). The chapters, transcript and post copy are the same as for the 9:16 files.

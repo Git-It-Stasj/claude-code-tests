@@ -41,6 +41,7 @@ The questions that caused re-work last time, in order of cost:
 5. **Partners/sponsors** — logos, not words. Get or fetch official SVGs up front (§6).
 6. **Reference images** — if the user has a chart/layout in mind, get the image before drawing it.
 7. **Length** — default 30–35 s vertical 1080×1920 @ 30 fps.
+8. **Formats** — which platforms? 9:16 (Reels/Shorts/Stories), 4:5 1080×1350 (LinkedIn/Instagram feed), 16:9. Build a format switch into the generator from day one (`P(a916, b45)` position helper); never crop a 9:16 into 4:5, re-lay out each scene and re-run the snapshot QA.
 
 Anything already in the client profile doesn't need asking again (see the protocol above).
 
