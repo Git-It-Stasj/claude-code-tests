@@ -1,6 +1,6 @@
 # Noelle Russell – Ignite 2026 reel v5 (graphics rebuild + AEO)
 
-1080x1920, 30 fps, 37.0 s, H.264/AAC. Music only (same ElevenLabs track, 128 BPM), no voiceover, no captions burned in.
+1080x1920, 30 fps, 31.0 s (cut from 37 s in round 4), H.264/AAC. Music only (same ElevenLabs track, 128 BPM), no voiceover, no captions burned in.
 
 ## All v4 tweaks kept
 1. The hook animates in. "EVERYONE / IS SPENDING / ON AI." rises in through masks and lands on beats 0, 1 and 2.
@@ -57,6 +57,15 @@ Source: `src5/build5.mjs` (`node build5.mjs a|b`) and `src5/aeo.mjs` (`node aeo.
 3. **Close is now a call to action:** NOELLE RUSSELL / FOUNDER · AI LEADERSHIP INSTITUTE, then "// MICROSOFT IGNITE 2026 / GET YOUR FREE / DIGITAL PASS", an amber button "bit.ly/4iUaePY →" and "TAP THE LINK TO CLAIM YOURS". It lands by 34.3 s and holds about 2.7 s. The chapter is renamed "08 GET YOUR PASS".
 4. **Photo:** replaced with the "I ❤ AI" shirt photo (`assets/noelle-photo-iheartai.jpg`).
 5. **Music:** fades out over the final 1.5 s (35.5 to 37.0 s).
+
+## Round 4 fixes (Nov 17)
+1. **Speaker:** the scene holds 2 beats (0.94 s) after the last credential, then cuts at 14.09 s.
+2. **Ending:** the video now ends on the details ticket, and the "Get your free digital pass" close is removed. The fields land on beats 57–60 (26.7–28.2 s), then the ticket holds to 31.0 s.
+   - **Music:** cut on the bar at 28.16 s and faded over 0.6 s, with a final synthetic cymbal crash on that downbeat. The crash is an ElevenLabs sound effect (`assets/sfx-crash-raw.mp3`), slowed and given a reverb tail so it rings out by 31 s.
+   - **Progress line:** rescaled so it fills over 31 s, with the tick count recalculated.
+   - **Link:** bit.ly/4iUaePY is now only in the post copy, not in the video.
+3. **Chart:** redrawn to your reference. The spend curve is a smooth convex rise to the top-right dot. "THE GAP →" sits under the curve, pointing at the dashed gap line. "AI SPEND" is above the curve and "MEASURED VALUE" is below the axis. No label touches a line.
+4. **The AI House:** the cap line of "THE AI" now sits exactly on the side vertices (measured: cap top at y 630, which is the vertex centre).
 
 ## Still to confirm before posting
 1. Time and panel: 10:00AM + Intuit, or 12:45PM + Credit Karma. Post only the matching file.

@@ -3,7 +3,7 @@ import fs from "node:fs";
 const variant = process.argv[2] || "a";
 const V = { a: { time: "10:00AM", co: "With KPMG, GitHub and Intuit" },
             b: { time: "12:45PM", co: "With KPMG, GitHub and Credit Karma" } }[variant];
-const DUR = 37, BEAT = 60 / 128;
+const DUR = 31, BEAT = 60 / 128;   // ends on the ticket: last field lands at beat 60 (28.16 s), held to 31 s
 const B = (n) => (n === 0 ? 0 : +Math.min(DUR, 0.03 + n * BEAT).toFixed(3));
 const r3 = (x) => +x.toFixed(3);
 const AMB = "#FFC53D", WHT = "#FFFFFF", SOFT = "#D5D8FA", NAVY = "#0A0E2E";
@@ -39,14 +39,14 @@ function item(o) {
     else if ((l.k || "hd") === "hd") T(`tl.fromTo("${sel} .c",{opacity:0,filter:"blur(10px)",y:-30},{opacity:1,filter:"blur(0px)",y:0,duration:.25,ease:"power3.out",stagger:.035},${t0});`);
     else T(`tl.fromTo("${sel}",{opacity:0,filter:"blur(10px)"},{opacity:1,filter:"blur(0px)",duration:.25,ease:"power2.out"},${t0});`);
   });
-  if (!o.noExit) T(`tl.to("#${id} .in",{opacity:0,filter:"blur(12px)",duration:.16,ease:"power2.in"},${r3(e - 0.17)});`);
+  if (!o.noExit && e < DUR - .01) T(`tl.to("#${id} .in",{opacity:0,filter:"blur(12px)",duration:.16,ease:"power2.in"},${r3(e - 0.17)});`);
   return id;
 }
 const raw = (b0, b1, track, inner, style, tween, cls = "") => { const id = "r" + n++;
   const s = B(b0), e = B(b1);
   html += `<div id="${id}" class="clip ${cls}" data-start="${s}" data-duration="${r3(e - s)}" data-track-index="${track}" style="position:absolute;${style}">${inner}</div>\n`;
   if (tween) T(tween(id, s, e)); return id; };
-const exitBlur = (id, e, sel = ".in") => `tl.to("#${id} ${sel}",{opacity:0,filter:"blur(12px)",duration:.16,ease:"power2.in"},${r3(e - .17)});`;
+const exitBlur = (id, e, sel = ".in") => e >= DUR - .01 ? "" : `tl.to("#${id} ${sel}",{opacity:0,filter:"blur(12px)",duration:.16,ease:"power2.in"},${r3(e - .17)});`;
 const E = (t, c = AMB, size = 32) => ({ t, size, c, k: "eye", gap: .45 });
 const H = (t, size, c) => ({ t, size, c, k: "hd" });
 const Bd = (t, size = 48, c = SOFT, pad) => ({ t, size, c, k: "bd", pad });
@@ -59,20 +59,20 @@ item({ b0: 5, b1: 10, top: 470, mode: "blur", at: [5, 6, 7], lines: [H("WHO IS",
 raw(0, 10, 2, `<svg width="900" height="230" viewBox="0 0 900 230" class="in">
   <line x1="0" y1="200" x2="900" y2="200" stroke="rgba(213,216,250,.35)" stroke-width="3"/>
   ${Array.from({ length: 10 }, (_, i) => `<line x1="${i * 100}" y1="194" x2="${i * 100}" y2="206" stroke="rgba(213,216,250,.35)" stroke-width="3"/>`).join("")}
-  <path id="spend" d="M0 196 C 300 190, 600 150, 820 122 C 862 114, 876 60, 880 12" fill="none" stroke="${AMB}" stroke-width="9" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+  <path id="spend" d="M0 196 C 250 182, 450 160, 600 125 S 820 50, 880 12" fill="none" stroke="${AMB}" stroke-width="9" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
   <path id="value" d="M0 196 C 300 192, 600 182, 880 168" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-dasharray="4 18" opacity="0"/>
-  <g id="gap" opacity="0"><line x1="880" y1="22" x2="880" y2="158" stroke="#fff" stroke-width="4" stroke-dasharray="8 8"/><circle cx="880" cy="12" r="14" fill="${AMB}"/><circle cx="880" cy="168" r="12" fill="#fff"/></g>
+  <g id="gap" opacity="0"><path d="M812 143 L864 143 M852 133 L866 143 L852 153" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><line x1="880" y1="22" x2="880" y2="158" stroke="#fff" stroke-width="4" stroke-dasharray="8 8"/><circle cx="880" cy="12" r="14" fill="${AMB}"/><circle cx="880" cy="168" r="12" fill="#fff"/></g>
 </svg>
-<div class="lab" id="labS" style="left:560px;top:-8px;color:${AMB}">AI SPEND</div>
-<div class="lab" id="labV" style="left:560px;top:214px;color:#fff;opacity:0">MEASURED VALUE</div>
-<div class="lab" id="labG" style="left:620px;top:40px;color:#fff;opacity:0;font-size:40px">THE GAP</div>`,
+<div class="lab" id="labS" style="left:600px;top:12px;color:${AMB}">AI SPEND</div>
+<div class="lab" id="labV" style="left:600px;top:214px;color:#fff;opacity:0">MEASURED VALUE</div>
+<div class="lab" id="labG" style="left:652px;top:124px;color:#fff;opacity:0;font-size:32px">THE GAP</div>`,
   "left:90px;top:1330px;width:900px;height:240px",
   (id, s, e) => `tl.fromTo("#spend",{attr:{"stroke-dashoffset":1}},{attr:{"stroke-dashoffset":0},duration:2.0,ease:"power2.in"},0.1);
 tl.fromTo("#labS",{opacity:0,x:-20},{opacity:1,x:0,duration:.3,ease:"power3.out"},1.9);
 tl.fromTo("#value",{opacity:0},{opacity:.9,duration:.4},${B(5.5)});
 tl.fromTo("#labV",{opacity:0,x:-20},{opacity:1,x:0,duration:.3,ease:"power3.out"},${B(6)});
 tl.fromTo("#gap",{opacity:0},{opacity:1,duration:.2},${B(8)});
-tl.fromTo("#labG",{opacity:0,scale:1.4},{opacity:1,scale:1,duration:.3,ease:"expo.out"},${B(8)});
+tl.fromTo("#labG",{opacity:0,x:-16},{opacity:1,x:0,duration:.3,ease:"expo.out"},${B(8)});
 ${exitBlur(id, e)}`);
 
 // ================= 02 IGNITE ======================================================
@@ -93,10 +93,10 @@ raw(15, 20, 2, `<svg class="in" width="1080" height="1400" viewBox="0 0 1080 140
   (id, s, e) => `tl.fromTo("#house",{attr:{"stroke-dashoffset":1}},{attr:{"stroke-dashoffset":0},duration:1.1,ease:"power2.inOut"},${s});
 tl.fromTo("#${id} .nd",{scale:0,transformOrigin:"50% 50%"},{scale:1,duration:.3,ease:"back.out(2)",stagger:.18},${r3(s + .1)});
 ${exitBlur(id, e)}`);
-item({ b0: 15, b1: 20, top: 520, at: [15.3, 15.7, 16.2, 16.8], lines: [H("THE AI", 240), H("HOUSE", 270, AMB), { ...Bd("The room where enterprise AI gets done.", 46, WHT, 190), gap: .5 }, { ...E("// PRESENTED BY KPMG"), gap: 0 }] });
+item({ b0: 15, b1: 20, top: 592, at: [15.3, 15.7, 16.2, 16.8], lines: [H("THE AI", 240), H("HOUSE", 270, AMB), { ...Bd("The room where enterprise AI gets done.", 46, WHT, 190), gap: .5 }, { ...E("// PRESENTED BY KPMG"), gap: 0 }] });
 
 // ================= 04 THE SPEAKER (photo; every element on a beat; 1 s hold) =====
-const NEND = 30.13;
+const NEND = 30;   // last credential on beat 28 + 2-beat hold
 raw(20, NEND, 1, "", "left:0;top:0;width:1080px;height:1920px;background:radial-gradient(ellipse at 50% 35%,#4A22C8 0%,#3518B2 45%,#1B0E6A 100%)",
   (id, s) => `tl.fromTo("#${id}",{clipPath:"circle(0% at 50% 47%)"},{clipPath:"circle(120% at 50% 47%)",duration:.5,ease:"expo.out"},${s});`);
 raw(20, NEND, 2, `<div class="pwrap"><img src="assets/noelle.jpg" class="photo" alt="Noelle Russell, Founder of AI Leadership Institute, on stage"></div><div class="scan"></div>`,
@@ -139,12 +139,12 @@ raw(50, 56, 4, `<div class="in co">${V.co}</div>`, "left:0;width:1080px;top:1275
 // ================= 07 THE DETAILS (ticket) ==========================================
 const bars = Array.from({ length: 28 }, (_, i) => { const w = [3, 6, 3, 9, 4, 3, 7, 3][i % 8] + (i % 5 === 0 ? 3 : 0);
   return `<i style="width:${w}px"></i>`; }).join("");
-raw(56, 68, 2, `<div class="tk" style="opacity:0"><div class="tkh">// THE AI HOUSE · PRESENTED BY KPMG</div><div class="perf"></div><div class="bars">${bars}</div></div>`,
+raw(56, 67, 2, `<div class="tk" style="opacity:0"><div class="tkh">// THE AI HOUSE · PRESENTED BY KPMG</div><div class="perf"></div><div class="bars">${bars}</div></div>`,
   "left:90px;top:290px;width:900px;height:1050px",
   (id, s, e) => `tl.fromTo("#${id} .tk",{opacity:0,y:120,rotationX:25,transformPerspective:1400},{opacity:1,y:0,rotationX:0,duration:.6,ease:"expo.out"},${s});
 tl.fromTo("#${id} .bars i",{scaleY:0},{scaleY:1,duration:.2,ease:"expo.out",stagger:.006},${B(60)});
 ${exitBlur(id, e, ".tk")}`);
-const field = (b0, top, label, val, track = 4) => raw(b0, 68, track,
+const field = (b0, top, label, val, track = 4) => raw(b0, 67, track,
   `<div class="in fld"><div class="fl">${label}</div>${val}</div>`, `left:150px;width:780px;top:${top}px`,
   (id, s, e) => `tl.fromTo("#${id} .fl",{opacity:0,x:-20},{opacity:1,x:0,duration:.25,ease:"expo.out"},${s});
 tl.fromTo("#${id} .fv",{yPercent:105},{yPercent:0,duration:.3,ease:"expo.out",stagger:.06},${s});
@@ -152,22 +152,12 @@ ${exitBlur(id, e)}`);
 field(57, 420, "DATE", `<div class="mk"><div class="fv" style="font-size:170px">WED NOV 18</div></div>`);
 field(58, 650, "TIME · PACIFIC", `<div class="mk"><div class="fv" style="font-size:200px;color:${AMB};font-style:italic;font-weight:800">${V.time}</div></div>`);
 field(59, 950, "VENUE", `<div class="mk"><div class="fv" style="font-size:104px">KPMG EXCHANGE</div></div><div class="mk"><div class="fv" style="font-family:'JetBrains Mono';font-weight:800;font-size:30px;letter-spacing:.06em;color:${SOFT};padding-top:8px">175 4TH ST, SAN FRANCISCO</div></div>`);
-raw(60, 68, 5, `<div class="in" style="font-family:'JetBrains Mono';font-weight:800;font-size:30px;letter-spacing:.1em;color:${AMB}">// INVITATION ONLY</div>`, "left:150px;top:1245px;width:500px",
+raw(60, 67, 5, `<div class="in" style="font-family:'JetBrains Mono';font-weight:800;font-size:30px;letter-spacing:.1em;color:${AMB}">// INVITATION ONLY</div>`, "left:150px;top:1245px;width:500px",
   (id, s, e) => `tl.fromTo("#${id} .in",{opacity:0,filter:"blur(10px)"},{opacity:1,filter:"blur(0px)",duration:.25},${s});${exitBlur(id, e)}`);
 
-// ================= 08 FOLLOW (close, ≥2 s hold on last line) =========================
-item({ b0: 68, b1: 79, top: 290, mode: "letters", at: [68, 69], lines: [{ ...H("NOELLE RUSSELL", 142), gap: .12 }, { t: "FOUNDER · AI LEADERSHIP INSTITUTE", size: 28, c: SOFT, k: "eye", gap: 0 }], noExit: true });
-item({ b0: 70, b1: 79, top: 600, track: 4, at: [70, 70.5, 71], lines: [E("// MICROSOFT IGNITE 2026"), H("GET YOUR FREE", 150), H("DIGITAL PASS", 172, AMB)], noExit: true });
-raw(72, 79, 5, `<div class="in cta"><span>bit.ly/4iUaePY</span><b>&#8594;</b></div>`, "left:0;width:1080px;top:1010px",
-  (id, s) => `tl.fromTo("#${id} .cta",{opacity:0,scale:.7,filter:"blur(10px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:.4,ease:"back.out(1.7)"},${s});
-tl.fromTo("#${id} .cta b",{x:-24},{x:0,duration:.35,ease:"expo.out"},${r3(s + .15)});
-tl.fromTo("#${id} .cta",{boxShadow:"0 0 0px rgba(255,197,61,0)"},{boxShadow:"0 0 70px rgba(255,197,61,.6)",duration:.5,ease:"power2.out"},${B(73)});`);
-raw(73, 79, 5, `<div class="in" style="text-align:center;font-family:'JetBrains Mono';font-weight:800;font-size:30px;letter-spacing:.1em;color:${SOFT}">TAP THE LINK TO CLAIM YOURS</div>`, "left:0;width:1080px;top:1160px",
-  (id, s) => `tl.fromTo("#${id} .in",{opacity:0,filter:"blur(8px)"},{opacity:1,filter:"blur(0px)",duration:.3},${s});`);
-
 // ================= persistent HUD (entity line on every frame = thumbnail + AEO) =====
-const chapters = [[0, "01 THE PROBLEM"], [10, "02 IGNITE 2026"], [15, "03 THE AI HOUSE"], [20, "04 THE SPEAKER"], [NEND, "05 THE SESSION"], [40, "06 THE METHOD"], [56, "07 THE DETAILS"], [68, "08 GET YOUR PASS"]];
-chapters.forEach(([b0, label], i) => { const b1 = i < chapters.length - 1 ? chapters[i + 1][0] : 79;
+const chapters = [[0, "01 THE PROBLEM"], [10, "02 IGNITE 2026"], [15, "03 THE AI HOUSE"], [20, "04 THE SPEAKER"], [NEND, "05 THE SESSION"], [40, "06 THE METHOD"], [56, "07 THE DETAILS"]];
+chapters.forEach(([b0, label], i) => { const b1 = i < chapters.length - 1 ? chapters[i + 1][0] : 67;
   if (b0 === 20) return; // speaker scene: credentials own the lower band
   raw(b0, b1, 7, `<div class="in chap">${label}</div>`, "left:0;top:1600px;width:1080px",
     (id, s) => `tl.fromTo("#${id} .in",{opacity:0,y:14},{opacity:1,y:0,duration:.3,ease:"expo.out"},${s});`); });
@@ -175,18 +165,18 @@ fs.writeFileSync(`chapters-${variant}.json`, JSON.stringify(chapters.map(([b, l]
 
 // light sweeps on scene seams
 let sweepJs = `tl.set("#sweep",{x:-700},0);\n`;
-[5, 10, 15, 30.13, 40, 56, 68].forEach((b) => { sweepJs += `tl.fromTo("#sweep",{x:-700,opacity:1},{x:1500,duration:.38,ease:"power2.inOut",immediateRender:false},${r3(B(b) - .19)});\n`; });
+[5, 10, 15, NEND, 40, 56].forEach((b) => { sweepJs += `tl.fromTo("#sweep",{x:-700,opacity:1},{x:1500,duration:.38,ease:"power2.inOut",immediateRender:false},${r3(B(b) - .19)});\n`; });
 // bar-level background push (downbeats only)
 let beatJs = "";
-for (let i = 0; i < 79; i += 4) beatJs += `tl.fromTo("#vidwrap",{scale:1.05},{scale:1,duration:.45,ease:"expo.out",immediateRender:false},${B(i)});\n`;
+for (let i = 0; B(i) < DUR - .3; i += 4) beatJs += `tl.fromTo("#vidwrap",{scale:1.05},{scale:1,duration:.45,ease:"expo.out",immediateRender:false},${B(i)});\n`;
 // progress rail
-const ticks = Array.from({ length: 20 }, (_, i) => `<i style="left:${(i * 4 * BEAT / DUR) * 840}px"></i>`).join("");
+const ticks = Array.from({ length: Math.floor(DUR / (4 * BEAT)) + 1 }, (_, i) => `<i style="left:${(i * 4 * BEAT / DUR) * 840}px"></i>`).join("");
 
 // ---------- backgrounds --------------------------------------------------------------
 const vid = (id, src, b0, b1, ms, rate) => { const s = B(b0), e = B(b1);
   return `<video id="${id}" class="clip vid" src="assets/${src}" muted playsinline data-start="${s}" data-duration="${r3(e - s)}" data-media-start="${ms}" data-playback-rate="${rate}" data-track-index="0"></video>`; };
 const vids = [vid("v1", "hf_tunnel.mp4", 0, 20, 0, 0.85), vid("v3", "hf_grid.mp4", NEND, 56, 0, 0.65),
-  vid("v4", "hf_tunnel.mp4", 56, 68, 1.5, 1), vid("v5", "hf_ribbon.mp4", 68, 79, 3, 1)].join("\n");
+  vid("v4", "hf_tunnel.mp4", 56, 67, 1.5, 1)].join("\n");
 
 fs.writeFileSync("index.html", `<!doctype html>
 <html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=1080, height=1920" />
@@ -274,7 +264,7 @@ ${html}
 <i class="cn a"></i><i class="cn b"></i><i class="cn c"></i><i class="cn d"></i>
 <div class="rail">${ticks}<div id="fill"></div></div></div>
 <div id="sweep" data-layout-ignore></div>
-<audio id="music" src="assets/music.mp3" data-start="0" data-duration="37" data-track-index="9" data-volume="1" data-fade-out="0.6"></audio>
+<audio id="music" src="assets/music.mp3" data-start="0" data-duration="${DUR}" data-track-index="9" data-volume="1"></audio>
 </div>
 <script>
 const tl = gsap.timeline({ paused: true });

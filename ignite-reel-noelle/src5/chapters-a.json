@@ -16,11 +16,11 @@
  },
  {
   "start": 9.405,
-  "end": 14.153,
+  "end": 14.092,
   "label": "04 THE SPEAKER"
  },
  {
-  "start": 14.153,
+  "start": 14.092,
   "end": 18.78,
   "label": "05 THE SESSION"
  },
@@ -31,12 +31,7 @@
  },
  {
   "start": 26.28,
-  "end": 31.905,
+  "end": 31,
   "label": "07 THE DETAILS"
- },
- {
-  "start": 31.905,
-  "end": 37,
-  "label": "08 GET YOUR PASS"
  }
 ]

@@ -7,12 +7,12 @@
     "REPLACE_WITH_PUBLIC_THUMBNAIL_URL"
   ],
   "uploadDate": "2026-11-16",
-  "duration": "PT37S",
+  "duration": "PT31S",
   "contentUrl": "REPLACE_WITH_PUBLIC_VIDEO_URL",
   "inLanguage": "en",
   "isFamilyFriendly": true,
   "keywords": "Noelle Russell, AI Leadership Institute, The AI House, KPMG, Microsoft Ignite 2026, Frontier Value Method, AI ROI, token spend, business value, responsible AI, agentic AI, enterprise AI",
-  "transcript": "[00:00] Everyone is spending on AI.\n[00:02] Who is measuring the value? (chart: AI spend rises, measured value stays flat: the gap)\n[00:04] Microsoft Ignite 2026. San Francisco. Nov 17–20. Moscone Center and online.\n[00:07] Presented by KPMG: The AI House. The room where enterprise AI gets done.\n[00:09] Noelle Russell, Founder, AI Leadership Institute. #1 Agentic AI Leader 2025. 5x Microsoft AI MVP. 3.4M+ learners. TEDx speaker. Best-selling author.\n[00:14] The session: The Frontier Value Method: From Token Spend to Business Value.\n[00:18] The Frontier Value Method: 1. Pick the right workflows. 2. Model the human-agent cost. 3. Underwrite outcomes, not tokens. With KPMG, GitHub and Intuit.\n[00:26] The AI House, presented by KPMG. Wed Nov 18, 10:00AM Pacific. KPMG Exchange, 175 4th St, San Francisco. Invitation only.\n[00:31] Noelle Russell, Founder, AI Leadership Institute. Microsoft Ignite 2026: get your free digital pass at bit.ly/4iUaePY. Tap the link to claim yours.",
+  "transcript": "[00:00] Everyone is spending on AI.\n[00:02] Who is measuring the value? (chart: AI spend rises, measured value stays flat: the gap)\n[00:04] Microsoft Ignite 2026. San Francisco. Nov 17–20. Moscone Center and online.\n[00:07] Presented by KPMG: The AI House. The room where enterprise AI gets done.\n[00:09] Noelle Russell, Founder, AI Leadership Institute. #1 Agentic AI Leader 2025. 5x Microsoft AI MVP. 3.4M+ learners. TEDx speaker. Best-selling author.\n[00:14] The session: The Frontier Value Method: From Token Spend to Business Value.\n[00:18] The Frontier Value Method: 1. Pick the right workflows. 2. Model the human-agent cost. 3. Underwrite outcomes, not tokens. With KPMG, GitHub and Intuit.\n[00:26] The AI House, presented by KPMG. Wed Nov 18, 10:00AM Pacific. KPMG Exchange, 175 4th St, San Francisco. Invitation only.",
   "width": 1080,
   "height": 1920,
   "creator": {
@@ -98,15 +98,8 @@
       "@type": "Clip",
       "name": "Date, time and venue",
       "startOffset": 26,
-      "endOffset": 32,
+      "endOffset": 31,
       "url": "REPLACE_WITH_PUBLIC_VIDEO_URL#t=26"
-    },
-    {
-      "@type": "Clip",
-      "name": "Get your free digital pass",
-      "startOffset": 32,
-      "endOffset": 37,
-      "url": "REPLACE_WITH_PUBLIC_VIDEO_URL#t=32"
     }
   ],
   "subjectOf": {
