@@ -4,7 +4,7 @@ AEO (answer engine optimization) means making the reel easy for AI assistants an
 
 **Noelle Russell** · **AI Leadership Institute** · **The AI House presented by KPMG** · **Microsoft Ignite 2026** · **The Frontier Value Method** · **San Francisco**
 
-> Before posting: use the variant that matches the confirmed schedule (10:00AM + Intuit, or 12:45PM + Credit Karma) and replace `[HANDLE/SITE]` and the `REPLACE_WITH_…` values.
+> Before posting: use the variant that matches the confirmed schedule (10:00AM + Intuit, or 12:45PM + Credit Karma) and replace `https://bit.ly/4iUaePY` and the `REPLACE_WITH_…` values.
 
 ---
 
@@ -31,15 +31,15 @@ The Frontier Value Method has three steps:
 🔒 Invitation only
 
 Noelle Russell, Founder, AI Leadership Institute
-[HANDLE/SITE]
+https://bit.ly/4iUaePY
 
 #MSIgnite #AIHouse #KPMG #ResponsibleAI #AgenticAI #AIROI #AILeadership
 
 ## 4. Instagram Reels / TikTok caption (front-loaded; the first ~125 characters show before "more")
-Noelle Russell at The AI House by KPMG, Microsoft Ignite 2026: how to turn AI token spend into business value. 🗓 Wed Nov 18 · SF · invite only. Founder, AI Leadership Institute. #MSIgnite #AIHouse #KPMG #ResponsibleAI #AgenticAI
+Noelle Russell at The AI House by KPMG, Microsoft Ignite 2026: how to turn AI token spend into business value. 🗓 Wed Nov 18 · SF · invite only. Founder, AI Leadership Institute. #MSIgnite #AIHouse #KPMG #ResponsibleAI #AgenticAI (link in bio: https://bit.ly/4iUaePY)
 
 ## 5. YouTube description
-Paste the answer-first summary from section 1, then the chapters below. YouTube needs the first chapter at 0:00.
+Paste the answer-first summary from section 1, then `Learn more: https://bit.ly/4iUaePY`, then the chapters below. YouTube needs the first chapter at 0:00.
 ```
 0:00 The problem: everyone is spending on AI
 0:04 Microsoft Ignite 2026, San Francisco

@@ -93,7 +93,7 @@ raw(15, 20, 2, `<svg class="in" width="1080" height="1400" viewBox="0 0 1080 140
   (id, s, e) => `tl.fromTo("#house",{attr:{"stroke-dashoffset":1}},{attr:{"stroke-dashoffset":0},duration:1.1,ease:"power2.inOut"},${s});
 tl.fromTo("#${id} .nd",{scale:0,transformOrigin:"50% 50%"},{scale:1,duration:.3,ease:"back.out(2)",stagger:.18},${r3(s + .1)});
 ${exitBlur(id, e)}`);
-item({ b0: 15, b1: 20, top: 470, at: [15.3, 15.7, 16.2, 16.8], lines: [E("// PRESENTED BY KPMG"), H("THE AI", 240), H("HOUSE", 270, AMB), Bd("The room where enterprise AI gets done.", 46, WHT, 190)] });
+item({ b0: 15, b1: 20, top: 690, at: [15.3, 15.7, 16.2, 16.8], lines: [E("// PRESENTED BY KPMG"), H("THE AI", 240), H("HOUSE", 270, AMB), Bd("The room where enterprise AI gets done.", 46, WHT, 190)] });
 
 // ================= 04 THE SPEAKER (photo; every element on a beat; 1 s hold) =====
 const NEND = 30.13;
@@ -105,10 +105,6 @@ raw(20, NEND, 2, `<div class="pwrap"><img src="assets/noelle.jpg" class="photo" 
 tl.fromTo("#${id} .scan",{y:0,opacity:1},{y:900,opacity:1,duration:.7,ease:"power3.out"},${r3(s + .05)});
 tl.to("#${id} .scan",{opacity:0,duration:.2},${r3(s + .75)});
 tl.fromTo("#${id} .photo",{scale:1.12},{scale:1.02,duration:${r3(e - s)},ease:"power1.out"},${s});`);
-// face brackets
-raw(20, NEND, 3, ["tl", "tr", "bl", "br"].map((k) => `<i class="brk ${k}"></i>`).join(""), "left:250px;top:200px;width:580px;height:560px",
-  (id, s) => `tl.fromTo("#${id} .brk",{scale:1.6,opacity:0},{scale:1,opacity:1,duration:.35,ease:"expo.out",stagger:.04},${B(20.5)});
-tl.to("#${id} .brk",{opacity:0,duration:.25},${B(23)});`);
 item({ b0: 21, b1: NEND, top: 975, track: 4, mode: "letters", at: [21], lines: [H("NOELLE RUSSELL", 142)] });
 item({ b0: 22, b1: NEND, top: 1125, track: 4, mode: "blur", at: [22], lines: [{ t: "FOUNDER, AI LEADERSHIP INSTITUTE", size: 28, c: AMB, k: "eye" }] });
 ["#1 Agentic AI Leader 2025", "5x Microsoft AI MVP", "3.4M+ learners", "TEDx speaker", "Best-selling author"].forEach((t, i) =>
@@ -146,23 +142,23 @@ const bars = Array.from({ length: 28 }, (_, i) => { const w = [3, 6, 3, 9, 4, 3,
 raw(56, 68, 2, `<div class="tk" style="opacity:0"><div class="tkh">// THE AI HOUSE · PRESENTED BY KPMG</div><div class="perf"></div><div class="bars">${bars}</div></div>`,
   "left:90px;top:290px;width:900px;height:1050px",
   (id, s, e) => `tl.fromTo("#${id} .tk",{opacity:0,y:120,rotationX:25,transformPerspective:1400},{opacity:1,y:0,rotationX:0,duration:.6,ease:"expo.out"},${s});
-tl.fromTo("#${id} .bars i",{scaleY:0},{scaleY:1,duration:.25,ease:"expo.out",stagger:.008},${B(66)});
+tl.fromTo("#${id} .bars i",{scaleY:0},{scaleY:1,duration:.2,ease:"expo.out",stagger:.006},${B(60)});
 ${exitBlur(id, e, ".tk")}`);
 const field = (b0, top, label, val, track = 4) => raw(b0, 68, track,
   `<div class="in fld"><div class="fl">${label}</div>${val}</div>`, `left:150px;width:780px;top:${top}px`,
   (id, s, e) => `tl.fromTo("#${id} .fl",{opacity:0,x:-20},{opacity:1,x:0,duration:.25,ease:"expo.out"},${s});
-tl.fromTo("#${id} .fv",{yPercent:105},{yPercent:0,duration:.5,ease:"expo.out",stagger:.08},${r3(s + .05)});
+tl.fromTo("#${id} .fv",{yPercent:105},{yPercent:0,duration:.3,ease:"expo.out",stagger:.06},${s});
 ${exitBlur(id, e)}`);
 field(57, 420, "DATE", `<div class="mk"><div class="fv" style="font-size:170px">WED NOV 18</div></div>`);
-field(60, 650, "TIME · PACIFIC", `<div class="mk"><div class="fv" style="font-size:200px;color:${AMB};font-style:italic;font-weight:800">${V.time}</div></div>`);
-field(63, 950, "VENUE", `<div class="mk"><div class="fv" style="font-size:104px">KPMG EXCHANGE</div></div><div class="mk"><div class="fv" style="font-family:'JetBrains Mono';font-weight:800;font-size:30px;letter-spacing:.06em;color:${SOFT};padding-top:8px">175 4TH ST, SAN FRANCISCO</div></div>`);
-raw(66, 68, 5, `<div class="in" style="font-family:'JetBrains Mono';font-weight:800;font-size:30px;letter-spacing:.1em;color:${AMB}">// INVITATION ONLY</div>`, "left:150px;top:1245px;width:500px",
+field(58, 650, "TIME · PACIFIC", `<div class="mk"><div class="fv" style="font-size:200px;color:${AMB};font-style:italic;font-weight:800">${V.time}</div></div>`);
+field(59, 950, "VENUE", `<div class="mk"><div class="fv" style="font-size:104px">KPMG EXCHANGE</div></div><div class="mk"><div class="fv" style="font-family:'JetBrains Mono';font-weight:800;font-size:30px;letter-spacing:.06em;color:${SOFT};padding-top:8px">175 4TH ST, SAN FRANCISCO</div></div>`);
+raw(60, 68, 5, `<div class="in" style="font-family:'JetBrains Mono';font-weight:800;font-size:30px;letter-spacing:.1em;color:${AMB}">// INVITATION ONLY</div>`, "left:150px;top:1245px;width:500px",
   (id, s, e) => `tl.fromTo("#${id} .in",{opacity:0,filter:"blur(10px)"},{opacity:1,filter:"blur(0px)",duration:.25},${s});${exitBlur(id, e)}`);
 
 // ================= 08 FOLLOW (close, ≥2 s hold on last line) =========================
 item({ b0: 68, b1: 79, top: 290, mode: "letters", at: [68, 69], lines: [H("NOELLE", 290), H("RUSSELL", 270, AMB)], noExit: true });
 item({ b0: 71, b1: 79, top: 880, track: 4, at: [71, 72, 73], lines: [H("RESPONSIBLE AI", 140), { ...H("THAT SCALES.", 150, AMB), gap: .16 }, { t: "FOUNDER · AI LEADERSHIP INSTITUTE", size: 28, c: SOFT, k: "eye", gap: 0 }], noExit: true });
-raw(74, 79, 5, `<div class="in" style="margin:0 90px;padding:26px 10px;border:5px dashed ${AMB};border-radius:30px;text-align:center;font-family:'JetBrains Mono';font-weight:800;font-size:36px;letter-spacing:.04em;color:${AMB};background:rgba(255,197,61,.10)">[ ADD HANDLE / SITE HERE ]</div>`,
+raw(74, 79, 5, `<div class="in" style="margin:0 90px;padding:26px 10px;border:5px solid ${AMB};border-radius:30px;text-align:center;font-family:'JetBrains Mono';font-weight:800;font-size:46px;letter-spacing:.02em;color:${AMB};background:rgba(255,197,61,.12)">bit.ly/4iUaePY</div>`,
   "left:0;width:1080px;top:1225px", (id, s) => `tl.fromTo("#${id} .in",{opacity:0,y:40,filter:"blur(10px)"},{opacity:1,y:0,filter:"blur(0px)",duration:.35,ease:"expo.out"},${s});`);
 
 // ================= persistent HUD (entity line on every frame = thumbnail + AEO) =====

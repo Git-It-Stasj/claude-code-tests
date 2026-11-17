@@ -44,9 +44,16 @@ See `POST-COPY-AEO.md`. In short:
 
 Source: `src5/build5.mjs` (`node build5.mjs a|b`) and `src5/aeo.mjs` (`node aeo.mjs a|b`).
 
+## Round 2 fixes (Nov 17)
+1. The AI House: the title block is now centred inside the house walls, clear of the roof lines.
+2. Speaker: the focus brackets around Noelle are removed.
+3. Details ticket: date, time, venue and "invitation only" now land on four consecutive beats (57–60) with a faster 0.3 s rise.
+   - **Music fix:** the ElevenLabs track faded out from about 29.5 s. It now loops its last 16-beat section on the bar line, plays at full level to 36.2 s, then fades over 0.8 s. The original is kept in `qa/music-original.mp3`.
+4. Close: the placeholder is replaced with the link bit.ly/4iUaePY. The link is also added to the post copy, transcript, VTT and JSON-LD.
+
 ## Still to confirm before posting
 1. Time and panel: 10:00AM + Intuit, or 12:45PM + Credit Karma. Post only the matching file.
-2. "[ ADD HANDLE / SITE HERE ]" on the close, plus the `REPLACE_WITH_…` URLs in the JSON-LD.
+2. The `REPLACE_WITH_…` URLs in the JSON-LD (the handle is now the link bit.ly/4iUaePY).
 3. Photo permission and credit, permission to name KPMG and Microsoft, and the ElevenLabs music licence.
 4. A 16:9 version has not been made.
 5. Frame 0 shows the HUD entity line, the chart axis and the background, but the hook text builds in from 0.2 s, per your tweak. Set a thumbnail as the cover.

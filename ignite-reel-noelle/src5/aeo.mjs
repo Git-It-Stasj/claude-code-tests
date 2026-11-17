@@ -16,7 +16,7 @@ const text = [[0, 5, "Everyone is spending on AI."], [5, 10, "Who is measuring t
   [30.13, 40, "The session: The Frontier Value Method: From Token Spend to Business Value."],
   [40, 56, `The Frontier Value Method: 1. Pick the right workflows. 2. Model the human-agent cost. 3. Underwrite outcomes, not tokens. With ${V.co}.`],
   [56, 68, `The AI House, presented by KPMG. Wed Nov 18, ${V.time} Pacific. KPMG Exchange, 175 4th St, San Francisco. Invitation only.`],
-  [68, 79, "Noelle Russell. Responsible AI that scales. Founder, AI Leadership Institute."]];
+  [68, 79, "Noelle Russell. Responsible AI that scales. Founder, AI Leadership Institute. bit.ly/4iUaePY"]];
 const vtt = (rows) => "WEBVTT\n\n" + rows.map(([a, b, t], i) => `${i + 1}\n${ts(B(a))} --> ${ts(B(b))}\n${t}\n`).join("\n");
 const out = "../out/v5/";
 fs.writeFileSync(out + `chapters${V.sfx}.vtt`, vtt(ch));
@@ -27,7 +27,7 @@ fs.writeFileSync(out + `on-screen-text-transcript${V.sfx}.txt`,
 const ld = {
   "@context": "https://schema.org", "@type": "VideoObject",
   name: "Noelle Russell at The AI House presented by KPMG | Microsoft Ignite 2026",
-  description: `Noelle Russell, Founder of the AI Leadership Institute, presents The Frontier Value Method: From Token Spend to Business Value at The AI House presented by KPMG during Microsoft Ignite 2026 in San Francisco, Wednesday November 18, ${V.time} Pacific, at KPMG Exchange, 175 4th St. Three steps: pick the right workflows, model the human-agent cost, underwrite outcomes, not tokens.`,
+  description: `Noelle Russell, Founder of the AI Leadership Institute, presents The Frontier Value Method: From Token Spend to Business Value at The AI House presented by KPMG during Microsoft Ignite 2026 in San Francisco, Wednesday November 18, ${V.time} Pacific, at KPMG Exchange, 175 4th St. Three steps: pick the right workflows, model the human-agent cost, underwrite outcomes, not tokens. Learn more: https://bit.ly/4iUaePY`,
   thumbnailUrl: ["REPLACE_WITH_PUBLIC_THUMBNAIL_URL"], uploadDate: "2026-11-16", duration: "PT37S",
   contentUrl: "REPLACE_WITH_PUBLIC_VIDEO_URL", inLanguage: "en", isFamilyFriendly: true,
   keywords: "Noelle Russell, AI Leadership Institute, The AI House, KPMG, Microsoft Ignite 2026, Frontier Value Method, AI ROI, token spend, business value, responsible AI, agentic AI, enterprise AI",
