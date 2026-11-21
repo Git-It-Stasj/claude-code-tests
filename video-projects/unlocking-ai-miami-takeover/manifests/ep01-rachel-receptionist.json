@@ -567,5 +567,11 @@
   "music_fade_out": [
     31.6,
     0.4
-  ]
+  ],
+  "episode_dir": "episodes/01-rachel-receptionist",
+  "lower_third": {
+    "name": "RACHEL",
+    "role": "AI RECEPTIONIST",
+    "file": "rachel_lt.png"
+  }
 }

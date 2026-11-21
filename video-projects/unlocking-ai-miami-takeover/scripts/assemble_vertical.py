@@ -37,7 +37,7 @@ def sfx_source(kind):
 def main(manifest, out):
     m = json.load(open(manifest))
     ep = os.path.dirname(os.path.dirname(os.path.abspath(manifest)))
-    epdir = os.path.join(ROOT, "episodes", "01-rachel-receptionist")
+    epdir = os.path.join(ROOT, m.get("episode_dir", "episodes/01-rachel-receptionist"))
     clips = os.path.join(epdir, "clips", "v")
     ovl = os.path.join(epdir, "overlays")
     work = os.path.join(os.path.dirname(os.path.abspath(out)), "stems_" + os.path.splitext(os.path.basename(out))[0])

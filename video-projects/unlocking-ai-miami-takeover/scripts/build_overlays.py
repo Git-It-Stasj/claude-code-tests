@@ -1,7 +1,7 @@
 """Render transparent 1080x1920 overlay PNGs for the vertical edit.
 
 Usage: python3 scripts/build_overlays.py <episode_manifest.json> <out_dir>
-Produces: title.png, endcard.png, rachel_lt.png, cap_<id>.png
+Produces: title.png, endcard.png, <lower_third.file> (default rachel_lt.png), cap_<id>.png
 """
 import json, sys, os
 from PIL import Image, ImageDraw, ImageFont
@@ -79,10 +79,11 @@ def title(out):
     img.save(out)
 
 
-def rachel_lt(out):
+def employee_lt(out, name="RACHEL", role="AI RECEPTIONIST"):
+    """AI-employee name label (top of frame, clear of captions) + 'Dramatization' note."""
     img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    y = label(img, W // 2, 210, "RACHEL", font(BANG, 92), YELLOW) + 10
-    label(img, W // 2, y, "AI RECEPTIONIST", font(ANTON, 46), WHITE)
+    y = label(img, W // 2, 210, name.upper(), font(BANG, 92), YELLOW) + 10
+    label(img, W // 2, y, role.upper(), font(ANTON, 46), WHITE)
     d = ImageDraw.Draw(img)
     s, f = "Dramatization", font(ANTON, 28)
     tw, _ = text_w(d, s, f)
@@ -115,7 +116,8 @@ if __name__ == "__main__":
     os.makedirs(out, exist_ok=True)
     endcard(m, os.path.join(out, "endcard.png"))
     title(os.path.join(out, "title.png"))
-    rachel_lt(os.path.join(out, "rachel_lt.png"))
+    lt = m.get("lower_third", {"name": "RACHEL", "role": "AI RECEPTIONIST", "file": "rachel_lt.png"})
+    employee_lt(os.path.join(out, lt.get("file", "employee_lt.png")), lt["name"], lt["role"])
     for c in m.get("captions", []):
         caption(c["text"], os.path.join(out, f"cap_{c['id']}.png"))
     print("ok")
