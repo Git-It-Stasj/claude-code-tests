@@ -66,8 +66,12 @@ def endcard(m, out):
     y = label(img, W // 2, y, l[3], font(ANTON, 58), YELLOW) + 22                           # FRIDAY, NOVEMBER 27, 2026
     y = label(img, W // 2, y, f"{l[4]}  •  {l[5]}", font(ANTON, 58), BLACK, bg=YELLOW)      # 3:00-5:00 PM ET • LIVE
     # registration pill, above bottom UI safe zone
-    url = m["end_card"]["registration"]
-    label(img, W // 2, 1650, "REGISTER: " + url, font(ANTON, 44), WHITE, bg=PINK, skew=-0.08)
+    ec = m["end_card"]
+    promo = ec.get("promo")
+    y = 1600 if promo else 1650          # lift the pill when a promo line sits under it
+    y = label(img, W // 2, y, "REGISTER: " + ec["registration"], font(ANTON, 44), WHITE, bg=PINK, skew=-0.08)
+    if promo:                            # e.g. "USE CODE GTA6LI  •  $27 → $1"
+        label(img, W // 2, y + 14, promo, font(ANTON, 44), BLACK, bg=YELLOW, skew=-0.08)
     img.save(out)
 
 

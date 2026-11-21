@@ -224,6 +224,7 @@ Verify current models and prices with `models_explore` at the start of each epis
 | Captions | y≈1330, Anton 62, white with black stroke, max width 860 |
 | End card | Starts **at the plate cutaway**, not before. It must **never cover Noelle walking to or entering the car**. It holds to the last frame. |
 | Register pill | `REGISTER: stan.store/noelleai/unlockingai` at **y≈1650, under the car**, above the bottom UI zone |
+| Promo line (optional, `end_card.promo`) | Yellow pill under the register pill, e.g. `USE CODE GTA6LI  •  $27 → $1`. With a promo, the register pill moves up to y≈1600, so the promo pill ends around y≈1720. Use only codes and prices the director supplies. |
 
 **End card text (verify every episode):**
 - UNLOCKING AI CHALLENGE

@@ -94,3 +94,10 @@ Remaining balance is 153.88.
 |---|---|
 | 13C extension (4s) | 18.0 |
 | **Ep01 total to date** | **295.07** |
+
+## v5 (promo code)
+`exports/vertical/EP01_rachel_9x16_v5.mp4` runs 35.0s, at 0 credits.
+
+- Added a yellow promo pill under the register link: **USE CODE GTA6LI  •  $27 → $1**. The code and price came from the director.
+- The register pill moved up from y 1650 to y 1600 to make room. The promo pill ends around y 1720 and stays clear of the car and the bottom UI zone.
+- The →, $ and digits all render in Anton. No other changes.
