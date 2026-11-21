@@ -1,7 +1,7 @@
 {
   "episode": 1,
   "title": "The Phone Problem",
-  "version": 3,
+  "version": 4,
   "featured_ai_employee": {
     "name": "Rachel",
     "role": "AI Receptionist",
@@ -13,7 +13,7 @@
     "NOELLE_01",
     "SHOP_OWNER_01"
   ],
-  "duration_s": 32,
+  "duration_s": 35,
   "deliverable_scope": "VERTICAL ONLY (9:16, 1080x1920) - approved by user 2026-11-21. Widescreen deferred.",
   "keyframe_source": "User-supplied images - DO NOT REGENERATE. episodes/01-rachel-receptionist/keyframes/user/SNN_user.png",
   "three_by_four_handling": "Shots 06, 09, 10, 11, 12 are 3:4 - animate at native 3:4, composite centered over blurred fill of the same clip in 9:16.",
@@ -217,6 +217,20 @@
       "src_in": 4.2,
       "slow": 1.14,
       "desc": "Door shuts, car drives away into the distance"
+    },
+    {
+      "id": "13C",
+      "t": [
+        32.0,
+        35.0
+      ],
+      "ratio": "9:16",
+      "file": "S13C_driveoff.mp4",
+      "src_in": 0.04,
+      "slow": 0.85,
+      "media_id": "aa8aac04-04ca-4fa6-b950-93db9bd3fc01",
+      "job": "bb18b888-702f-4894-8332-f0b227b9e619",
+      "desc": "Extension: car keeps driving away until it is a pair of tail lights in the distance (start frame = last frame of S13_v3_rear)"
     }
   ],
   "dialogue": [
@@ -381,7 +395,7 @@
       "file": "endcard.png",
       "t": [
         28.9,
-        32.0
+        35.0
       ]
     }
   ],
@@ -527,6 +541,15 @@
       "at": 29.9,
       "dur": 2.1,
       "gain_db": -6
+    },
+    {
+      "type": "native",
+      "shot": "13C",
+      "file": "S13C_driveoff.mp4",
+      "src_in": 0.04,
+      "at": 32.0,
+      "dur": 3.0,
+      "gain_db": -9
     }
   ],
   "retired_takes": [
@@ -539,5 +562,6 @@
     "sync_mode": "cut_off",
     "note": "active_speaker_detection coordinates caused a failure; default detection works on cel-shaded faces",
     "audio": "audio/voices/ep01/lipsync/"
-  }
+  },
+  "music_file": "audio/music/ep01_synthwave_35s.wav"
 }

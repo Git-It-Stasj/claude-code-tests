@@ -86,7 +86,7 @@ def main(manifest, out):
     run(["ffmpeg", "-v", "error", "-y", *ins, "-filter_complex", ";".join(fl), "-map", "[dlg]", "-ar", str(SR), dlg])
 
     # ---------- 3. Music stem + mix ----------
-    music = os.path.join(ROOT, "audio", "music", "ep01_synthwave_32s.mp3")
+    music = os.path.join(ROOT, m.get("music_file", "audio/music/ep01_synthwave_32s.mp3"))
     mix = os.path.join(work, "mix.wav")
     run(["ffmpeg", "-v", "error", "-y", "-i", music, "-i", dlg, "-i", sfx, "-filter_complex",
          f"[0:a]aresample={SR},atrim=0:{dur},volume=-7dB,afade=t=out:st={dur-0.4}:d=0.4[mus];"

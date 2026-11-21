@@ -76,3 +76,21 @@ Remaining balance is 247.18. Re-voicing after you pick voices costs about 2 cred
 | **Ep01 total to date** | **277.07** |
 
 Remaining balance is 153.88.
+
+## v4 (extended drive-off)
+`exports/vertical/EP01_rachel_9x16_v4.mp4` runs **35.0s** (was 32.0s).
+
+- **New shot 13C (32.0–35.0):** a 4s grok clip that starts on the exact last frame of `S13_v3_rear.mp4`.
+  - The camera holds still while the car keeps driving down the neon waterfront road until only its tail lights show in the distance.
+  - The cut from 13B is seamless because both clips share the same frame.
+  - The edit plays the clip at 1.18× so the car gets further away within 3s.
+  - QA: one car, the shape holds, nothing new appears (PASS).
+- **End card** now holds from 28.9s to 35.0s.
+- **Engine audio:** the clip's own engine sound is mixed in at −9 dB.
+- **Music:** extended to 35s at no cost by crossfading in a matching 5s section from the same track (15.5–20.5s) at 31.5s, then fading out over the last 1.8s. Saved as `audio/music/ep01_synthwave_35s.wav`.
+- **Previous version:** the v3 manifest is kept as `manifests/ep01-rachel-receptionist.v3.json`.
+
+| Item | Credits |
+|---|---|
+| 13C extension (4s) | 18.0 |
+| **Ep01 total to date** | **295.07** |
