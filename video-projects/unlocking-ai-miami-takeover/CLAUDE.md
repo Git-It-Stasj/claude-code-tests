@@ -21,6 +21,11 @@
 - To extend a shot, use the last frame of the current clip as the start image, so the cut is seamless.
 - Regenerate only failed shots. Keep retired takes listed in the manifest.
 
+## Evergreen event swaps
+
+- When the user asks to change the event date, time, link, promo or invite voiceover, follow `EVERGREEN.md`. Edit only `events/<id>.json` and the two VO slots (L6a in shot 10, sunglasses, max 1.2s; L6b in shot 11, invite card, max 3.7s). Never re-animate for an event swap.
+- Keep event-specific text out of episode manifests. It belongs in the event pack that `"event"` points to.
+
 ## Editing and QA
 
 - Never change an approved asset (music bed, voice, keyframe, logo) as a side effect of a different change. If the change seems to require altering it, ask first. Extending the runtime once led to unrequested "extended music", which the user reverted in favor of the original track.

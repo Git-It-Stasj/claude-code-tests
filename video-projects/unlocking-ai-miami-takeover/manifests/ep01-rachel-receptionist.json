@@ -574,5 +574,25 @@
     "name": "RACHEL",
     "role": "AI RECEPTIONIST",
     "file": "rachel_lt.png"
-  }
+  },
+  "event": "events/black-friday-2026.json",
+  "event_slots": {
+    "L6a": {
+      "shot": "10",
+      "beat": "Noelle lowers her sunglasses",
+      "at": 21.1,
+      "max_s": 1.2,
+      "caption": "c6",
+      "guide": "2-3 words, the event's name or hook (e.g. 'Black Friday.')"
+    },
+    "L6b": {
+      "shot": "11",
+      "beat": "Noelle hands over the black invite card",
+      "at": 22.4,
+      "max_s": 3.7,
+      "caption": "c7",
+      "guide": "8-10 words: challenge name and time (e.g. 'Unlocking AI Challenge. Three to five Eastern.')"
+    }
+  },
+  "_note_evergreen": "L6c 'I'll show you.' (shot 12) and everything before shot 10 are evergreen. Event-specific content lives only in the file named by 'event'."
 }

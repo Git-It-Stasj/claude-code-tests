@@ -242,6 +242,13 @@ Verify current models and prices with `models_explore` at the start of each epis
 
 ---
 
+## 8b. EVERGREEN DESIGN (required for every episode)
+
+The series is reused for each Challenge, 3–4 times a year. Build every episode so the event can be swapped without re-animating:
+- **Put everything event-specific in an event pack**, `events/<id>.json`: the event line, date, time, format, registration, promo, and Noelle's invite voiceover. The episode manifest only points at it with `"event"`. See `EVERGREEN.md`.
+- **The invite lines must be voiceover:** the sunglasses shot and the invite-card shot have no lip sync. Define their `event_slots` (timing, max seconds, caption id) in the episode manifest.
+- Keep everything before the sunglasses beat, and the "I'll show you" exit line, free of any date or event name.
+
 ## 9. PRODUCTION ORDER AND CHECKPOINTS
 
 | # | Step | Paid? | Checkpoint |

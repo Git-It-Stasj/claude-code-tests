@@ -11,6 +11,8 @@ Steps:
 Stems are written next to the output for re-mixing.
 """
 import json, os, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from manifest_util import load
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 W, H, FPS, SR = 1080, 1920, 24, 48000
@@ -30,12 +32,13 @@ def sfx_source(kind):
     if kind == "click":  # call-connect blip
         return ("aevalsrc='0.5*sin(2*PI*1400*t)*exp(-40*t)':s=48000:d=0.15", 0.15)
     if kind == "whoosh":  # band-swept noise
-        return ("anoisesrc=d=0.5:c=pink:a=0.6:r=48000,highpass=f=400,lowpass=f=5000,afade=t=in:d=0.25,afade=t=out:st=0.25:d=0.25", 0.5)
+        return ("anoisesrc=d=0.5:c=pink:a=0.6:r=48000:seed=7,highpass=f=400,lowpass=f=5000,afade=t=in:d=0.25,afade=t=out:st=0.25:d=0.25", 0.5)
     raise ValueError(kind)
 
 
 def main(manifest, out):
-    m = json.load(open(manifest))
+    m = load(manifest)
+    print("event:", m.get("_event_id", "(none)"))
     ep = os.path.dirname(os.path.dirname(os.path.abspath(manifest)))
     epdir = os.path.join(ROOT, m.get("episode_dir", "episodes/01-rachel-receptionist"))
     clips = os.path.join(epdir, "clips", "v")
@@ -69,12 +72,14 @@ def main(manifest, out):
     srcfile = {d["id"]: os.path.join(ROOT, d["file"]) for d in m["dialogue"]}
     ins, fl, labels = [], [], []
     for i, (key, e) in enumerate(m["audio_edit"].items()):
-        ins += ["-i", srcfile[e.get("src", key)]]
+        ins += ["-i", os.path.join(ROOT, e["file"]) if "file" in e else srcfile[e.get("src", key)]]
         parts = []
         for j, (a, b) in enumerate(e["segs"]):
             fl.append(f"[{i}:a]atrim={a}:{b},asetpts=PTS-STARTPTS,afade=t=in:d=0.02,afade=t=out:st={max(b-a-0.03,0)}:d=0.03[d{i}_{j}]")
             parts.append(f"[d{i}_{j}]")
         chain = f"{''.join(parts)}concat=n={len(parts)}:v=0:a=1,aresample={SR},aformat=channel_layouts=stereo"
+        if e.get("trim_silence"):  # freshly generated event VO: strip lead/tail silence
+            chain += ",silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse"
         if e.get("phone_eq"):
             chain += ",highpass=f=350,lowpass=f=3400,acompressor=threshold=-20dB:ratio=4,volume=2dB"
         at_ms = int(e["at"] * 1000)

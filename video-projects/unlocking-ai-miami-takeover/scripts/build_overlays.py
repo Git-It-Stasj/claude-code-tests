@@ -115,7 +115,9 @@ def caption(text, out, y=1330):
 
 
 if __name__ == "__main__":
-    m = json.load(open(sys.argv[1]))
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from manifest_util import load
+    m = load(sys.argv[1], check=False)
     out = sys.argv[2]
     os.makedirs(out, exist_ok=True)
     endcard(m, os.path.join(out, "endcard.png"))

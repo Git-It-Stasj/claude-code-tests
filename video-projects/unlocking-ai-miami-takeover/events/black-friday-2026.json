@@ -1,0 +1,41 @@
+{
+  "id": "black-friday-2026",
+  "label": "Black Friday Unlocking AI Challenge, Nov 27 2026",
+  "end_card": {
+    "event_line": "BLACK FRIDAY",
+    "date_line": "FRIDAY, NOVEMBER 27, 2026",
+    "time_line": "3:00-5:00 PM ET",
+    "format_line": "LIVE",
+    "registration": "stan.store/noelleai/unlockingai",
+    "promo": "USE CODE GTA6  •  $27 → $1"
+  },
+  "invite_vo": {
+    "L6a": {
+      "text": "Black Friday.",
+      "file": "audio/voices/ep01/L6_noelle.mp3",
+      "segs": [
+        [
+          0,
+          1.2
+        ]
+      ]
+    },
+    "L6b": {
+      "text": "Unlocking AI Challenge. Three to five Eastern.",
+      "file": "audio/voices/ep01/L6_noelle.mp3",
+      "segs": [
+        [
+          1.55,
+          5.25
+        ]
+      ]
+    }
+  },
+  "voice": {
+    "name": "Sloane",
+    "voice_id": "b57b22a0-f287-405b-bc82-6f08f5e6bb1f",
+    "stability": 0.45,
+    "similarity_boost": 0.8,
+    "model": "elevenlabs_v4"
+  }
+}

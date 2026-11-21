@@ -1,0 +1,29 @@
+{
+  "id": "<season>-<year>",
+  "label": "<Event name, date>",
+  "end_card": {
+    "event_line": "<EVENT HOOK, e.g. SPRING KICKOFF>",
+    "date_line": "<WEEKDAY, MONTH D, YYYY>",
+    "time_line": "<H:MM-H:MM PM ET>",
+    "format_line": "LIVE",
+    "registration": "stan.store/noelleai/unlockingai",
+    "promo": "<optional: USE CODE XXXX  •  $27 → $1, or delete this key>"
+  },
+  "invite_vo": {
+    "L6a": {
+      "text": "<2-3 words, max 1.2s>",
+      "file": "audio/voices/events/<id>/L6a.mp3"
+    },
+    "L6b": {
+      "text": "<8-10 words, max 3.7s>",
+      "file": "audio/voices/events/<id>/L6b.mp3"
+    }
+  },
+  "voice": {
+    "name": "Sloane",
+    "voice_id": "b57b22a0-f287-405b-bc82-6f08f5e6bb1f",
+    "stability": 0.45,
+    "similarity_boost": 0.8,
+    "model": "elevenlabs_v4"
+  }
+}
