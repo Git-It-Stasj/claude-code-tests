@@ -84,7 +84,9 @@
       "ratio": "9:16",
       "media_id": "f04ce47a-29dc-47b1-885c-52cf60775fe1",
       "desc": "Noelle identifies problem (laptop revenue dashboard)",
-      "dialogue": "L1"
+      "dialogue": "L1",
+      "file": "S05_lipsync.mp4",
+      "lipsync_job": "3114661a-e68e-4ab2-adac-a8372ac9e90d"
     },
     {
       "id": "06",
@@ -96,7 +98,9 @@
       "ratio": "3:4",
       "media_id": "9d2b958b-2e7d-4122-86e3-2c25419e1bbe",
       "desc": "Owner responds",
-      "dialogue": "L2"
+      "dialogue": "L2",
+      "file": "S06_lipsync.mp4",
+      "lipsync_job": "376b7709-4fd6-4dbd-9a1f-e1e088188903"
     },
     {
       "id": "07",
@@ -108,7 +112,9 @@
       "ratio": "9:16",
       "media_id": "93c7824f-c23a-462e-94e1-8285690211aa",
       "desc": "Noelle offers her phone",
-      "dialogue": "L3"
+      "dialogue": "L3",
+      "file": "S07_lipsync.mp4",
+      "lipsync_job": "5e3a0b01-9c92-4003-8516-db1c3519191a"
     },
     {
       "id": "08",
@@ -134,7 +140,9 @@
       "media_id": "366b00c4-a543-4ccd-b348-fc819f51a864",
       "desc": "Owner reacts in amazement",
       "dialogue": "L5",
-      "audio": "comedic sting"
+      "audio": "comedic sting",
+      "file": "S09_lipsync.mp4",
+      "lipsync_job": "a444506c-be60-45c1-9aed-ca2430808b6c"
     },
     {
       "id": "10",
@@ -525,5 +533,11 @@
     "S13_take1_walks_away.mp4",
     "S13_take2_head_through_roof.mp4",
     "S14.mp4 (duplicate car)"
-  ]
+  ],
+  "lipsync": {
+    "model": "sync_so",
+    "sync_mode": "cut_off",
+    "note": "active_speaker_detection coordinates caused a failure; default detection works on cel-shaded faces",
+    "audio": "audio/voices/ep01/lipsync/"
+  }
 }

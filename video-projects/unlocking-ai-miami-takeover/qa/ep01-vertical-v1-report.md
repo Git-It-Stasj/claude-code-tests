@@ -49,3 +49,30 @@ Remaining balance is 247.18. Re-voicing after you pick voices costs about 2 cred
 
 ## v2 (after review)
 `exports/vertical/EP01_rachel_9x16_v2_TEMPVOICES.mp4`. Shot 13 was re-animated so Noelle gets into the car; shot 14 was trimmed to remove a duplicate car; the end card now holds solid to the last frame. Ep01 total spend is **197.27 credits**.
+
+## v3 (lip sync, new ending, plate cutaway)
+`exports/vertical/EP01_rachel_9x16_v3.mp4`: 32.00s, −15.6 LUFS.
+
+- **Lip sync (Sync Lipsync 3):** S05 Noelle, S06 owner, S07 Noelle and S09 owner all PASS. Mouth shapes track the dialogue and the cel-shading holds without smearing.
+  - The first S05 attempt failed when manual `active_speaker_detection` coordinates were set. It was not charged, and default detection works.
+- **Noelle as voiceover after S10:** S10–S12 are not synced, as directed, and her mouth is closed in S10.
+- **New ending** from `S13B_user_rear_plate.png`, one 6s clip:
+  - She walks to the driver's door and ducks in fully below the roof (PASS).
+  - The 14A BBY TIGR plate cutaway is a free crop of the same image animated with a suspension dip and rebound (PASS).
+  - Then back to the door shutting and the car driving into the distance.
+- **Edit changes:**
+  - The end card now starts at the plate cutaway (28.9s), so it no longer covers Noelle walking to the car.
+  - The register link sits below the car.
+  - The opening was trimmed by 1.0s in total.
+- **Retired takes:** `S13_take1_walks_away.mp4`, `S13_take2_head_through_roof.mp4` and `S14.mp4` (duplicate car).
+
+### v3 spend
+| Item | Credits |
+|---|---|
+| New ending clip (6s) | 27.0 |
+| 14A plate clip (2s) | 9.0 |
+| Lip sync, 4 shots | 43.8 |
+| **v3 total** | **79.8** |
+| **Ep01 total to date** | **277.07** |
+
+Remaining balance is 153.88.
