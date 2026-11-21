@@ -1,0 +1,45 @@
+{
+  "_note": "Canonical reference registry. Higgsfield media IDs are reusable across episodes; do not regenerate approved assets.",
+  "series": "UNLOCKING AI: MIAMI TAKEOVER",
+  "master_sheets": {
+    "NOELLE_01": "references/noelle/NOELLE_01_master_sheet.png",
+    "SHOP_OWNER_01": "references/shop-owner-01/SHOP_OWNER_01_master_sheet.png",
+    "MIAMI_YELLOW_CAR_01": "references/vehicle/MIAMI_YELLOW_CAR_01_master_sheet.png"
+  },
+  "assets": {
+    "NOELLE_POSTER_HERO":        {"file": "references/noelle/NOELLE_POSTER_HERO.png",        "higgsfield_media_id": "07ee186f-fc60-4c66-b2e0-ced2e62a3e52", "status": "approved", "use": "style/universe anchor, Noelle + car together"},
+    "NOELLE_MASTER_FRONT":       {"file": "references/noelle/NOELLE_MASTER_FRONT.png",       "higgsfield_media_id": "dcadec1c-4b60-4127-bff4-f2b048eaa82b", "status": "approved"},
+    "NOELLE_MASTER_3Q":          {"file": "references/noelle/NOELLE_MASTER_3Q.png",          "higgsfield_media_id": null, "status": "approved (not uploaded yet)"},
+    "NOELLE_MASTER_SIDE":        {"file": "references/noelle/NOELLE_MASTER_SIDE.png",        "higgsfield_media_id": null, "status": "approved (not uploaded yet)"},
+    "NOELLE_MASTER_CLOSEUP":     {"file": "references/noelle/NOELLE_MASTER_CLOSEUP.png",     "higgsfield_media_id": "87043d62-a335-40a0-bb3c-eaca9f9bc1f0", "status": "approved", "use": "face + I-heart-AI shirt lock"},
+    "NOELLE_EXPR_PHONE":         {"file": "references/noelle/NOELLE_EXPR_PHONE.png",         "higgsfield_media_id": "52124dc9-d035-4550-bc8f-c3ce640443d8", "status": "approved"},
+    "NOELLE_EXPR_GLASSES_LOWER": {"file": "references/noelle/NOELLE_EXPR_GLASSES_LOWER.png", "higgsfield_media_id": "d0f174b4-648d-4ca9-984b-ebbf848816df", "status": "approved"},
+    "NOELLE_EXPR_LAUGH":         {"file": "references/noelle/NOELLE_EXPR_LAUGH.png",         "higgsfield_media_id": null, "status": "approved (not uploaded yet)"},
+    "SHOP_OWNER_01_MASTER":      {"file": "references/shop-owner-01/SHOP_OWNER_01_MASTER.png",      "higgsfield_media_id": "8b000450-d17c-4b68-acbd-8e2d68e722f5", "status": "approved"},
+    "SHOP_OWNER_01_EXPRESSIONS": {"file": "references/shop-owner-01/SHOP_OWNER_01_EXPRESSIONS.png", "higgsfield_media_id": "f99fbb25-c85d-4a13-a62b-57921417f69c", "status": "approved", "order": ["stressed","exhausted","curious","surprised","impressed","confident"]},
+    "SHOP_OWNER_01_TURNAROUND":  {"file": "references/shop-owner-01/SHOP_OWNER_01_TURNAROUND.png",  "higgsfield_media_id": null, "status": "approved (not uploaded yet)"},
+    "SHOP_01_COUNTER (from owner env ref)": {"file": "references/shop-owner-01/SHOP_OWNER_01_ENV_REF.png", "higgsfield_media_id": "0b579091-626f-4ceb-ba3e-fbb7672a30ec", "status": "approved as interior seed"},
+    "CAR_MASTER_FRONT_3Q":       {"file": "references/vehicle/CAR_MASTER_FRONT_3Q.png", "higgsfield_media_id": "6d914d51-a836-4798-83ea-1898bb9c64dc", "status": "approved"},
+    "CAR_MASTER_FRONT":          {"file": "references/vehicle/CAR_MASTER_FRONT.png",    "higgsfield_media_id": "306b413c-9763-46d3-b144-699578b3f692", "status": "approved"},
+    "CAR_MASTER_SIDE":           {"file": "references/vehicle/CAR_MASTER_SIDE.png",     "higgsfield_media_id": "89b14725-d97f-4307-8cb6-62996fc2a687", "status": "approved"},
+    "CAR_MASTER_REAR_3Q":        {"file": "references/vehicle/CAR_MASTER_REAR_3Q.png",  "higgsfield_media_id": "c0a9ddfa-0ac9-44b8-9312-e77b921f02e2", "status": "approved"},
+    "CAR_MASTER_REAR":           {"file": "references/vehicle/CAR_MASTER_REAR.png",     "higgsfield_media_id": null, "status": "approved (not uploaded yet)"},
+    "CAR_MASTER_INTERIOR":       {"file": "references/vehicle/CAR_MASTER_INTERIOR.png", "higgsfield_media_id": null, "status": "approved (not uploaded yet)"}
+  },
+  "missing_to_generate": [
+    "MIAMI_OCEAN_DRIVE_MASTER (empty plate, 9:16 + 16:9)",
+    "MIAMI_WATERFRONT_MASTER (empty plate, 9:16 + 16:9)",
+    "SHOP_01_EXTERIOR", "SHOP_01_INTERIOR_WIDE", "SHOP_01_ENTRANCE",
+    "AI_PHONE_CALL_SCREEN, AI_AGENT_WAVEFORM (build in post as vector/HTML graphics, not generative)",
+    "EVENT_END_CARD_BACKGROUND (generate textless plate; typography in post)"
+  ],
+  "continuity_notes": [
+    "Reference crops still carry sheet labels (e.g. 'DIRECT FRONT'); prompts must say 'no text, no labels'.",
+    "Sheet shows real-brand badges and a 'BBY TIGR' plate; prompts suppress badges/plate text so frames stay brand-neutral. Confirm whether the plate is wanted as a recurring easter egg."
+  ],
+  "voices": {
+    "NOELLE_VOICE_01":     {"provider": "ElevenLabs v4 via Higgsfield", "model": "elevenlabs_v4", "voice_type": "preset", "voice_id": "b57b22a0-f287-405b-bc82-6f08f5e6bb1f", "preset_name": "Sloane", "stability": 0.45, "similarity_boost": 0.8, "status": "candidate - needs listening approval", "note": "Stock synthetic voice. Not a clone of, or presented as, Noelle Russell."},
+    "SHOP_OWNER_01_VOICE": {"provider": "ElevenLabs v4 via Higgsfield", "model": "elevenlabs_v4", "voice_type": "preset", "voice_id": "6f98d3dd-324f-4845-8c28-c1d1647a06cd", "preset_name": "Marcus", "stability": 0.4, "similarity_boost": 0.8, "status": "candidate"},
+    "RACHEL_VOICE":        {"provider": "ElevenLabs v4 via Higgsfield", "model": "elevenlabs_v4", "voice_type": "preset", "voice_id": "6b3e3642-f7b7-4cb8-9688-51e233c4b92f", "preset_name": "Emily", "stability": 0.6, "similarity_boost": 0.8, "status": "candidate"}
+  }
+}
