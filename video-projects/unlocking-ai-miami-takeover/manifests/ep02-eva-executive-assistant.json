@@ -1,7 +1,7 @@
 {
   "episode": 2,
   "title": "The Overwhelmed Executive",
-  "version": 2,
+  "version": 3,
   "featured_ai_employee": {
     "name": "Eva",
     "role": "AI Executive Assistant",
@@ -36,7 +36,8 @@
       "gen_s": 3,
       "desc": "Arrival: yellow hardtop coupe cruises toward camera on wet neon boulevard",
       "prompt": "Low tracking shot. The yellow hardtop sports coupe drives toward camera along the wet neon boulevard, wheels turning, water spraying from the tires, palm shadows and neon reflections sliding over the paint. Noelle at the wheel, relaxed smile. Camera tracks backward with the car. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text.",
-      "media_id": "a091bef4-8380-4350-9ad3-6d46c8eca8af"
+      "media_id": "a091bef4-8380-4350-9ad3-6d46c8eca8af",
+      "file": "S01.mp4"
     },
     {
       "id": "02",
@@ -50,34 +51,20 @@
       "gen_s": 2,
       "desc": "Discovery: Noelle glances out the driver window at the stressed exec",
       "prompt": "Over-the-shoulder inside the car. Noelle slowly turns her head toward the office window; car glides slowly so the office slides a little in the window frame; palm reflections drift across the glass. The executive inside stays at her desk. Locked roof and window frame. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text.",
-      "media_id": "b0e7dda8-f1e6-42ac-a3d8-9543d40deed0"
+      "media_id": "b0e7dda8-f1e6-42ac-a3d8-9543d40deed0",
+      "file": "S02.mp4"
     },
     {
-      "id": "03A",
+      "id": "03",
       "t": [
         3.7,
-        4.5
-      ],
-      "ratio": "3:4",
-      "keyframe": "S03A_user.png",
-      "gen": "free",
-      "gen_s": 0,
-      "desc": "Office chaos 1: exec at desk (free slow push-in)",
-      "file": "S03A.mp4"
-    },
-    {
-      "id": "03B",
-      "t": [
-        4.5,
         6.1
       ],
       "ratio": "3:4",
-      "keyframe": "S03B_user.png",
-      "gen": "grok",
-      "gen_s": 2,
-      "desc": "Office chaos 2: notification cards pop and pulse around her",
-      "prompt": "The four floating glowing notification cards pulse and bob gently in place, the red badges flicker; she presses her fingers to her temple and sighs; coffee steam rises. Cards keep their exact icons and positions. Static camera, slight push-in. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text.",
-      "media_id": "247c9250-005d-4a52-9eec-8510f3bfa595"
+      "file": "S03.mp4",
+      "desc": "Office chaos: stressed exec (grok base S03_base.mp4, 3s, from image 3); 4 notification cards cut from image 4 pop in one at a time in post (scripts/ep02/notif_pop.py)",
+      "job": "251c98d6-3c3c-4949-9cec-f994f004374c",
+      "media_id": "66d9faf8-103d-4e28-ab78-9e56d1573c63"
     },
     {
       "id": "04",
@@ -90,9 +77,11 @@
       "gen": "grok",
       "gen_s": 4,
       "dialogue": "L1",
-      "desc": "Fixer enters: Noelle swings the glass door open, smirking",
+      "desc": "Fixer enters (take 2: exec stays stressed, facing Noelle). L1 lip-synced",
       "prompt": "Noelle pushes the glass door open with her right hand and steps one stride into the office, confident smirk, curls bouncing, sunglasses on. The executive in the foreground turns her head slightly toward her. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text.",
-      "media_id": "d9b9bf6f-3b9f-49ef-88c8-d34297db86f8"
+      "media_id": "d9b9bf6f-3b9f-49ef-88c8-d34297db86f8",
+      "file": "S04_lipsync.mp4",
+      "job": "0d720af2-3f7d-433e-8321-cc7b8e53b399"
     },
     {
       "id": "05",
@@ -107,7 +96,9 @@
       "dialogue": "L2",
       "desc": "Exec: 'I need another me!' (hands up)",
       "prompt": "The executive throws both hands up in exasperation and shakes her head once, speaking emphatically, curls bouncing. Static camera, coffee steam rising. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text.",
-      "media_id": "83cfc0fe-e352-4def-889c-d44b51291cef"
+      "media_id": "83cfc0fe-e352-4def-889c-d44b51291cef",
+      "file": "S05_lipsync.mp4",
+      "job": "b989fd0a-043b-4163-b421-b7a1f9af63e9"
     },
     {
       "id": "06",
@@ -122,7 +113,9 @@
       "dialogue": "L3",
       "desc": "Offer: Noelle presents phone with Eva",
       "prompt": "Noelle raises the phone a little toward camera and points at it with her other hand, playful grin. Exactly one phone. The laptop screen and phone screen stay unchanged (no text morphing). Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text.",
-      "media_id": "545a4c90-ece7-4bb0-b79b-5263500dc056"
+      "media_id": "545a4c90-ece7-4bb0-b79b-5263500dc056",
+      "file": "S06_lipsync.mp4",
+      "job": "9cdf3080-f3e7-4b39-896c-303a31743073"
     },
     {
       "id": "07",
@@ -131,12 +124,8 @@
         16.2
       ],
       "ratio": "3:4",
-      "keyframe": "S07_user.png",
-      "gen": "free",
-      "gen_s": 0,
-      "dialogue": "L4",
-      "desc": "Eva in action: interface close-up (free push-in + post UI highlights so text stays crisp)",
-      "file": "S07.mp4"
+      "file": "S07.mp4",
+      "desc": "Eva at work, built in post (scripts/ep02/eva_ui_anim.py): scan + checks on task cards, draft reply types, meetings red -> green, Conflict -> Resolved"
     },
     {
       "id": "08",
@@ -145,15 +134,9 @@
         19.2
       ],
       "ratio": "9:16",
-      "keyframe": "S08_user.png",
-      "gen": "grok",
-      "gen_s": 3,
-      "dialogue": "L5",
-      "desc": "Reaction: exec delighted, hand on chest",
-      "prompt": "The executive leans back in her chair, hands on her chest, then leans forward eagerly toward the laptop, big amazed smile. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text.",
-      "media_id": "af1a76d9-0162-41c6-8626-b850ca8398b2",
-      "file": "S08_take1_face_morph.mp4",
-      "_temp": "TEMP: take 1 has face morph at 1.8s; take 2 laptop vanishes. Awaiting director decision."
+      "file": "S08_lipsync.mp4",
+      "desc": "Reaction. minimax_h3_max start=end=keyframe (job 6caf7390-7a69-424f-8d56-9a4ac84220a8), src 0-2.62s retimed x1.15 -> S08_retimed.mp4, L5 lip-synced",
+      "media_id": "af1a76d9-0162-41c6-8626-b850ca8398b2"
     },
     {
       "id": "09",
@@ -168,7 +151,8 @@
       "dialogue": "L6a",
       "desc": "Signature: Noelle (standing, v2 frame) lowers her sunglasses (VO, mouth closed)",
       "prompt": "Noelle slowly slides her sunglasses down her nose with her right hand, revealing her eyes, knowing smirk, lips closed. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text.",
-      "media_id": "252107df-b8eb-48c7-a297-895b97d63e38"
+      "media_id": "252107df-b8eb-48c7-a297-895b97d63e38",
+      "file": "S09.mp4"
     },
     {
       "id": "10",
@@ -183,7 +167,8 @@
       "dialogue": "L6b",
       "desc": "Invite: Noelle hands over the black key card (VO)",
       "prompt": "Noelle extends one black card with a gold key into the executive's open palm; the executive takes it, delighted. Exactly one card, held, never floating. Noelle's lips stay closed. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text.",
-      "media_id": "e760c408-3e06-46ff-bdcd-b7eeca0252c8"
+      "media_id": "e760c408-3e06-46ff-bdcd-b7eeca0252c8",
+      "file": "S10.mp4"
     },
     {
       "id": "11",
@@ -198,48 +183,33 @@
       "dialogue": "L7",
       "desc": "Exit: exec cheers with card, Noelle walks out toward car (VO)",
       "prompt": "In the background Noelle walks out through the open door toward the street, feet on the ground, glancing back over her shoulder. In the foreground the executive pumps her fist holding the one glowing card. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text.",
-      "media_id": "e40057d8-6ecf-4b6c-baff-0d3f420edd67"
+      "media_id": "e40057d8-6ecf-4b6c-baff-0d3f420edd67",
+      "file": "S11.mp4"
+    },
+    {
+      "id": "12Z",
+      "t": [
+        26.4,
+        27.7
+      ],
+      "ratio": "9:16",
+      "file": "S12Z.mp4",
+      "desc": "Opens square-on to the BBY TIGR plate, pulls back to the exact first frame of S12 (scripts/ep02/plate_pullback.py)"
     },
     {
       "id": "12",
       "t": [
-        26.4,
-        27.8
+        27.7,
+        32.0
       ],
       "ratio": "9:16",
       "keyframe": "S12_user.png",
       "gen": "grok",
       "gen_s": 5,
-      "desc": "Drive-off: rear 3/4, car pulls away toward the sunset",
+      "desc": "Ferrari drives off into the distance under the end card",
       "prompt": "The yellow hardtop coupe accelerates away from camera down the wet waterfront boulevard toward the setting sun, wheels turning, tail lights glowing, reflections following, the car getting smaller. Camera stays still. Single car only, no other vehicles. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text.",
-      "media_id": "ca3c1a62-a76c-4ab6-9471-b86a419a848c"
-    },
-    {
-      "id": "12P",
-      "t": [
-        27.8,
-        28.8
-      ],
-      "ratio": "9:16",
-      "keyframe": "S12P_plate_crop.png",
-      "gen": "free",
-      "gen_s": 0,
-      "desc": "BBY TIGR plate cutaway (free crop, push-in + exhaust shimmer). End card ON from here",
-      "file": "S12P.mp4"
-    },
-    {
-      "id": "12B",
-      "t": [
-        28.8,
-        32.0
-      ],
-      "ratio": "9:16",
-      "keyframe": "S12_user.png",
-      "gen": "grok-cont",
-      "gen_s": 0,
-      "desc": "Drive-off continues (src_in into the S12 clip) under the end card",
-      "file": "S12.mp4",
-      "src_in": 1.4
+      "media_id": "ca3c1a62-a76c-4ab6-9471-b86a419a848c",
+      "file": "S12.mp4"
     }
   ],
   "dialogue": [
@@ -377,7 +347,7 @@
     {
       "file": "endcard.png",
       "t": [
-        27.8,
+        28.0,
         32.0
       ]
     }
@@ -402,15 +372,14 @@
       ]
     },
     "L2": {
-      "file": "audio/voices/ep02/candidates/EXEC_Elena.mp3",
+      "file": "audio/voices/ep02/L2_L5_exec_gia.mp3",
       "at": 9.7,
       "segs": [
         [
           0,
-          1.5
+          1.4
         ]
-      ],
-      "_temp": "Elena candidate until director picks"
+      ]
     },
     "L3": {
       "file": "audio/voices/ep02/L3_noelle.mp3",
@@ -427,35 +396,33 @@
       ]
     },
     "L4": {
-      "file": "audio/voices/ep02/candidates/EVA_Chloe.mp3",
+      "file": "audio/voices/ep02/L4_eva_imogen.mp3",
       "at": 13.3,
       "segs": [
         [
           0,
-          1.42
+          1.45
         ],
         [
-          1.62,
-          2.85
+          1.7,
+          2.82
         ]
       ],
-      "device_eq": true,
-      "_temp": "Chloe candidate until director picks"
+      "device_eq": true
     },
     "L5": {
-      "file": "audio/voices/ep02/candidates/EXEC_Elena.mp3",
+      "file": "audio/voices/ep02/L2_L5_exec_gia.mp3",
       "at": 16.3,
       "segs": [
         [
-          1.71,
-          2.95
+          1.78,
+          3.06
         ],
         [
-          3.25,
-          4.45
+          3.45,
+          4.5
         ]
-      ],
-      "_temp": "Elena candidate until director picks"
+      ]
     },
     "L7": {
       "file": "audio/voices/ep02/L7_noelle.mp3",
@@ -476,15 +443,19 @@
     },
     {
       "type": "ping",
-      "at": 4.55
+      "at": 4.0
     },
     {
       "type": "ping",
-      "at": 4.9
+      "at": 4.42
     },
     {
       "type": "ping",
-      "at": 5.3
+      "at": 4.82
+    },
+    {
+      "type": "ping",
+      "at": 5.2
     },
     {
       "type": "chime",
@@ -495,8 +466,36 @@
       "at": 13.0
     },
     {
+      "type": "click",
+      "at": 13.4
+    },
+    {
+      "type": "click",
+      "at": 13.65
+    },
+    {
+      "type": "click",
+      "at": 13.9
+    },
+    {
+      "type": "click",
+      "at": 14.15
+    },
+    {
+      "type": "click",
+      "at": 14.55
+    },
+    {
+      "type": "click",
+      "at": 14.85
+    },
+    {
+      "type": "chime",
+      "at": 15.15
+    },
+    {
       "type": "whoosh",
-      "at": 27.7
+      "at": 26.35
     },
     {
       "type": "native",
@@ -508,8 +507,10 @@
     {
       "type": "native",
       "shot": "12",
-      "at": 26.4,
-      "dur": 5.6,
+      "file": "S12.mp4",
+      "src_in": 0,
+      "at": 27.7,
+      "dur": 4.3,
       "gain_db": -6
     }
   ],
@@ -562,9 +563,18 @@
     "S10/S11 v2: chandelier removed; suite still has marble desk, gold sphere, orchid, art and shelves vs S03-S08 office.",
     "S11 v2: car outside the door still reads as a modern yellow coupe (background)."
   ],
-  "approval_status": "Animating (vertical). Exec + Eva voices pending director pick.",
+  "approval_status": "v2 final cut with lip sync - pending director review",
   "retired_takes": [
     "S08_take1_face_morph.mp4 (face/hair morph at 1.8s)",
-    "S08_take2_laptop_vanishes.mp4 (face drift + laptop closes and vanishes at 2.4s)"
-  ]
+    "S08_take2_laptop_vanishes.mp4 (face drift + laptop closes and vanishes at 2.4s)",
+    "S03A_retired_still.mp4 + S03B_retired_jumpcut.mp4 (jump cut, cards all at once)",
+    "S04_take1_exec_smiles.mp4 (exec smiles/turns away)",
+    "S12P plate cutaway (broke the flow, replaced by pull-back)",
+    "S08 take 1/2 grok (see above)"
+  ],
+  "voices": {
+    "NOELLE": "Sloane b57b22a0-f287-405b-bc82-6f08f5e6bb1f",
+    "EXEC_02": "Gia 530df032-c311-483b-a750-cb3c9e1bcdfd (stab 0.4, sim 0.8) - director pick",
+    "EVA": "Imogen 3811e986-0891-47cf-a1f5-78a1d62a547a (stab 0.6, sim 0.8) - director pick"
+  }
 }
