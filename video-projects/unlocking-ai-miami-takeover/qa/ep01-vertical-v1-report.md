@@ -87,7 +87,7 @@ Remaining balance is 153.88.
   - QA: one car, the shape holds, nothing new appears (PASS).
 - **End card** now holds from 28.9s to 35.0s.
 - **Engine audio:** the clip's own engine sound is mixed in at −9 dB.
-- **Music:** extended to 35s at no cost by crossfading in a matching 5s section from the same track (15.5–20.5s) at 31.5s, then fading out over the last 1.8s. Saved as `audio/music/ep01_synthwave_35s.wav`.
+- **Music (revised after review):** the original 32s track is back, fading out at 31.6–32.0s. The last 3s carry only the car sound (13C engine and tires at −6 dB), as the director requested. The `music_fade_out` setting is in the manifest.
 - **Previous version:** the v3 manifest is kept as `manifests/ep01-rachel-receptionist.v3.json`.
 
 | Item | Credits |

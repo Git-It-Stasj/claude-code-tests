@@ -549,7 +549,7 @@
       "src_in": 0.04,
       "at": 32.0,
       "dur": 3.0,
-      "gain_db": -9
+      "gain_db": -6
     }
   ],
   "retired_takes": [
@@ -563,5 +563,9 @@
     "note": "active_speaker_detection coordinates caused a failure; default detection works on cel-shaded faces",
     "audio": "audio/voices/ep01/lipsync/"
   },
-  "music_file": "audio/music/ep01_synthwave_35s.wav"
+  "music_file": "audio/music/ep01_synthwave_32s.mp3",
+  "music_fade_out": [
+    31.6,
+    0.4
+  ]
 }
