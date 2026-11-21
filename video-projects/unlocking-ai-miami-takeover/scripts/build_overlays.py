@@ -133,5 +133,5 @@ if __name__ == "__main__":
     lt = m.get("lower_third", {"name": "RACHEL", "role": "AI RECEPTIONIST", "file": "rachel_lt.png"})
     employee_lt(os.path.join(out, lt.get("file", "employee_lt.png")), lt["name"], lt["role"])
     for c in m.get("captions", []):
-        caption(c["text"], os.path.join(out, f"cap_{c['id']}.png"))
+        caption(c["text"], os.path.join(out, f"cap_{c['id']}.png"), y=c.get("y", 1330))
     print("ok")

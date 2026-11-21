@@ -6,9 +6,41 @@
     "registration": "stan.store/noelleai/unlockingai"
   },
   "invite_vo": {
-    "L6a": { "text": "Funny you ask.", "file": "audio/voices/events/evergreen/L6a.mp3" },
-    "L6b": { "text": "Unlocking AI Challenge. It's live. Bring your inbox.", "file": "audio/voices/events/evergreen/L6b.mp3" }
+    "L6a": {
+      "text": "Funny you ask.",
+      "file": "audio/voices/events/evergreen/L6a.mp3",
+      "segs": [
+        [
+          0,
+          1.25
+        ]
+      ]
+    },
+    "L6b": {
+      "text": "Unlocking AI Challenge. It's live. Bring your inbox.",
+      "file": "audio/voices/events/evergreen/L6b.mp3",
+      "segs": [
+        [
+          0,
+          1.9
+        ],
+        [
+          2.12,
+          2.98
+        ],
+        [
+          3.17,
+          4.38
+        ]
+      ]
+    }
   },
   "_note": "Registration link is the team-supplied Ep01 link. No promo key: the yellow promo pill is not drawn. L6b 'Bring your inbox' is Ep02-flavored; other episodes override L6b in their own pack or use the generic 'Unlocking AI Challenge. It's live.'",
-  "voice": { "name": "Sloane", "voice_id": "b57b22a0-f287-405b-bc82-6f08f5e6bb1f", "stability": 0.45, "similarity_boost": 0.8, "model": "elevenlabs_v4" }
+  "voice": {
+    "name": "Sloane",
+    "voice_id": "b57b22a0-f287-405b-bc82-6f08f5e6bb1f",
+    "stability": 0.45,
+    "similarity_boost": 0.8,
+    "model": "elevenlabs_v4"
+  }
 }

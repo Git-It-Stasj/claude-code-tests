@@ -2,6 +2,8 @@
 
 ## Preemptive Checks — run before starting this category of work
 
+- Before submitting paid Higgsfield jobs, submit at most 2 at once (all models share the cap). In Ep02 a third concurrent job was refused with "max 2 concurrent job(s)". Audio finishes in about 10s, so finish all voice lines before starting video pairs.
+- Before prompting a grok shot where a seated character leans toward camera, keep the head still ("head stays in the same position and size"). Ep02 S08 morphed the face mid-shot on both takes, and take 2 also made the laptop vanish.
 - Before submitting more than 3 paid Higgsfield jobs at once (grok, ElevenLabs, sync_so, music), submit in batches of at most 3 and wait for each batch to finish. Larger batches hit 429 rate limits, which previously forced resubmits on three different models.
 - Before animating a "character gets into a car" shot, use a rear or rear-quarter framing where the roof hides the body, lock the roofline in the prompt ("ducks fully below the roof, head never above it"), and cover the sit-down moment with a cutaway. Two earlier takes failed: in one she walked away from the car, in the other her head poked through the roof.
 - Before running sync_so lip sync, use default face detection and do not pass manual `active_speaker_detection` coordinates for a single speaker. The manual-coordinate job queued for a long time and then failed; the default worked on the cel-shaded faces.

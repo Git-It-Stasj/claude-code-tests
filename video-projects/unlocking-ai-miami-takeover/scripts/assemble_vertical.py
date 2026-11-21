@@ -31,6 +31,8 @@ def sfx_source(kind):
         return ("aevalsrc='0.4*sin(2*PI*1318*t)*exp(-3*t)+0.4*sin(2*PI*1046*(t-0.25))*exp(-3*(t-0.25))*gte(t,0.25)':s=48000:d=1.4", 1.4)
     if kind == "click":  # call-connect blip
         return ("aevalsrc='0.5*sin(2*PI*1400*t)*exp(-40*t)':s=48000:d=0.15", 0.15)
+    if kind == "ping":   # notification pop (Ep02 inbox chaos)
+        return ("aevalsrc='0.45*sin(2*PI*1760*t)*exp(-18*t)+0.3*sin(2*PI*2637*t)*exp(-22*t)':s=48000:d=0.3", 0.3)
     if kind == "whoosh":  # band-swept noise
         return ("anoisesrc=d=0.5:c=pink:a=0.6:r=48000:seed=7,highpass=f=400,lowpass=f=5000,afade=t=in:d=0.25,afade=t=out:st=0.25:d=0.25", 0.5)
     raise ValueError(kind)
@@ -61,7 +63,7 @@ def main(manifest, out):
             src, d = sfx_source(c["type"])
             ins += ["-f", "lavfi", "-i", src]
             idx = nin; nin += 1
-            gain = {"ring": -6, "chime": -4, "click": -2, "whoosh": -8}[c["type"]]
+            gain = {"ring": -6, "chime": -4, "click": -2, "whoosh": -8, "ping": -8}[c["type"]]
             fl.append(f"[{idx}:a]aformat=channel_layouts=stereo,volume={gain}dB,adelay={at_ms}|{at_ms}[s{i}]")
         labels.append(f"[s{i}]")
     fl.append(f"{''.join(labels)}amix=inputs={len(labels)}:normalize=0,apad=whole_dur={dur},atrim=0:{dur}[sfx]")
@@ -69,7 +71,7 @@ def main(manifest, out):
     run(["ffmpeg", "-v", "error", "-y", *ins, "-filter_complex", ";".join(fl), "-map", "[sfx]", "-ac", "2", "-ar", str(SR), sfx])
 
     # ---------- 2. Dialogue stem ----------
-    srcfile = {d["id"]: os.path.join(ROOT, d["file"]) for d in m["dialogue"]}
+    srcfile = {d["id"]: os.path.join(ROOT, d["file"]) for d in m["dialogue"] if "file" in d}
     ins, fl, labels = [], [], []
     for i, (key, e) in enumerate(m["audio_edit"].items()):
         ins += ["-i", os.path.join(ROOT, e["file"]) if "file" in e else srcfile[e.get("src", key)]]
@@ -80,6 +82,8 @@ def main(manifest, out):
         chain = f"{''.join(parts)}concat=n={len(parts)}:v=0:a=1,aresample={SR},aformat=channel_layouts=stereo"
         if e.get("trim_silence"):  # freshly generated event VO: strip lead/tail silence
             chain += ",silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse"
+        if e.get("device_eq"):  # laptop speaker: fuller than a phone
+            chain += ",highpass=f=250,lowpass=f=6000,acompressor=threshold=-20dB:ratio=3,volume=1dB"
         if e.get("phone_eq"):
             chain += ",highpass=f=350,lowpass=f=3400,acompressor=threshold=-20dB:ratio=4,volume=2dB"
         at_ms = int(e["at"] * 1000)
