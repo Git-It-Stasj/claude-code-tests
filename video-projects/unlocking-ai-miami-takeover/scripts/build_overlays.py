@@ -62,9 +62,17 @@ def endcard(m, out):
     y = big(img, W // 2, y, l[0].replace(" CHALLENGE", ""), font(BANG, 150), YELLOW) + 6   # UNLOCKING AI
     y = big(img, W // 2, y, "CHALLENGE", font(BANG, 150), YELLOW) + 34
     y = label(img, W // 2, y, l[1], font(ANTON, 50), WHITE) + 40                            # BUILD AN AI-AMPLIFIED BUSINESS
-    y = big(img, W // 2, y, l[2], font(BANG, 132), WHITE, shadow=PINK) + 30                 # BLACK FRIDAY
-    y = label(img, W // 2, y, l[3], font(ANTON, 58), YELLOW) + 22                           # FRIDAY, NOVEMBER 27, 2026
-    y = label(img, W // 2, y, f"{l[4]}  •  {l[5]}", font(ANTON, 58), BLACK, bg=YELLOW)      # 3:00-5:00 PM ET • LIVE
+    l = (l + ["", "", "", ""])[:6]
+    if l[2]:
+        y = big(img, W // 2, y, l[2], font(BANG, 132), WHITE, shadow=PINK) + 30             # BLACK FRIDAY (optional)
+    if l[3]:
+        y = label(img, W // 2, y, l[3], font(ANTON, 58), YELLOW) + 22                       # date (optional)
+    tail = "  •  ".join(x for x in (l[4], l[5]) if x)                                       # time • LIVE, or just LIVE
+    if tail:
+        if not (l[3] or l[4]):                                                              # evergreen: big LIVE badge
+            y = label(img, W // 2, y + 10, tail, font(BANG, 120), BLACK, bg=YELLOW, pad=(48, 10))
+        else:
+            y = label(img, W // 2, y, tail, font(ANTON, 58), BLACK, bg=YELLOW)
     # registration pill, above bottom UI safe zone
     ec = m["end_card"]
     promo = ec.get("promo")

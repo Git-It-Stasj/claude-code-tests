@@ -1,0 +1,462 @@
+{
+  "episode": 2,
+  "title": "The Overwhelmed Executive",
+  "version": 1,
+  "featured_ai_employee": {
+    "name": "Eva",
+    "role": "AI Executive Assistant",
+    "vendor": "Marblism",
+    "claim_scope": "Organizes the inbox, prepares draft replies for the user to review, helps with scheduling. Demo is a dramatization; nothing is shown as actually sent."
+  },
+  "business_problem": "Email, meeting requests, calendar conflicts",
+  "characters": [
+    "NOELLE_01",
+    "EXEC_02"
+  ],
+  "duration_s": 32,
+  "deliverable_scope": "VERTICAL first (9:16). 16:9 needs native widescreen keyframes from the director.",
+  "keyframe_source": "User-supplied images - DO NOT REGENERATE. episodes/02-eva-executive-assistant/keyframes/user/",
+  "three_by_four_handling": "03A, 03B, 05, 07 are 3:4: animate native, composite over blurred fill.",
+  "license_plate": "BBY TIGR - 12P cutaway is a free crop of S12_user.png.",
+  "video_model": {
+    "model": "grok_video_v15",
+    "resolution": "720p",
+    "cost_per_s": 4.5
+  },
+  "shots": [
+    {
+      "id": "01",
+      "t": [
+        0.0,
+        2.4
+      ],
+      "ratio": "9:16",
+      "keyframe": "S01_user.png",
+      "gen": "grok",
+      "gen_s": 3,
+      "desc": "Arrival: yellow hardtop coupe cruises toward camera on wet neon boulevard",
+      "prompt": "Low tracking shot. The yellow hardtop sports coupe drives toward camera along the wet neon boulevard, wheels turning, water spraying from the tires, palm shadows and neon reflections sliding over the paint. Noelle at the wheel, relaxed smile. Camera tracks backward with the car. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text."
+    },
+    {
+      "id": "02",
+      "t": [
+        2.4,
+        4.0
+      ],
+      "ratio": "9:16",
+      "keyframe": "S02_user.png",
+      "gen": "grok",
+      "gen_s": 2,
+      "desc": "Discovery: Noelle glances out the driver window at the stressed exec",
+      "prompt": "Over-the-shoulder inside the car. Noelle slowly turns her head toward the office window; car glides slowly so the office slides a little in the window frame; palm reflections drift across the glass. The executive inside stays at her desk. Locked roof and window frame. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text."
+    },
+    {
+      "id": "03A",
+      "t": [
+        4.0,
+        4.9
+      ],
+      "ratio": "3:4",
+      "keyframe": "S03A_user.png",
+      "gen": "free",
+      "gen_s": 0,
+      "desc": "Office chaos 1: exec at desk (free slow push-in)"
+    },
+    {
+      "id": "03B",
+      "t": [
+        4.9,
+        6.6
+      ],
+      "ratio": "3:4",
+      "keyframe": "S03B_user.png",
+      "gen": "grok",
+      "gen_s": 2,
+      "desc": "Office chaos 2: notification cards pop and pulse around her",
+      "prompt": "The four floating glowing notification cards pulse and bob gently in place, the red badges flicker; she presses her fingers to her temple and sighs; coffee steam rises. Cards keep their exact icons and positions. Static camera, slight push-in. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text."
+    },
+    {
+      "id": "04",
+      "t": [
+        6.6,
+        9.4
+      ],
+      "ratio": "9:16",
+      "keyframe": "S04_user.png",
+      "gen": "grok",
+      "gen_s": 3,
+      "dialogue": "L1",
+      "desc": "Fixer enters: Noelle swings the glass door open, smirking",
+      "prompt": "Noelle pushes the glass door open with her right hand and steps one stride into the office, confident smirk, curls bouncing, sunglasses on. The executive in the foreground turns her head slightly toward her. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text."
+    },
+    {
+      "id": "05",
+      "t": [
+        9.4,
+        10.9
+      ],
+      "ratio": "3:4",
+      "keyframe": "S05_user.png",
+      "gen": "grok",
+      "gen_s": 2,
+      "dialogue": "L2",
+      "desc": "Exec: 'I need another me!' (hands up)",
+      "prompt": "The executive throws both hands up in exasperation and shakes her head once, speaking emphatically, curls bouncing. Static camera, coffee steam rising. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text."
+    },
+    {
+      "id": "06",
+      "t": [
+        10.9,
+        12.7
+      ],
+      "ratio": "9:16",
+      "keyframe": "S06_user.png",
+      "gen": "grok",
+      "gen_s": 2,
+      "dialogue": "L3",
+      "desc": "Offer: Noelle presents phone with Eva",
+      "prompt": "Noelle raises the phone a little toward camera and points at it with her other hand, playful grin. Exactly one phone. The laptop screen and phone screen stay unchanged (no text morphing). Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text."
+    },
+    {
+      "id": "07",
+      "t": [
+        12.7,
+        15.8
+      ],
+      "ratio": "3:4",
+      "keyframe": "S07_user.png",
+      "gen": "free",
+      "gen_s": 0,
+      "dialogue": "L4",
+      "desc": "Eva in action: interface close-up (free push-in + post UI highlights so text stays crisp)"
+    },
+    {
+      "id": "08",
+      "t": [
+        15.8,
+        18.9
+      ],
+      "ratio": "9:16",
+      "keyframe": "S08_user.png",
+      "gen": "grok",
+      "gen_s": 3,
+      "dialogue": "L5",
+      "desc": "Reaction: exec delighted, hand on chest",
+      "prompt": "The executive leans back in her chair, hands on her chest, then leans forward eagerly toward the laptop, big amazed smile. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text."
+    },
+    {
+      "id": "09",
+      "t": [
+        18.9,
+        20.3
+      ],
+      "ratio": "9:16",
+      "keyframe": "S09_user.png",
+      "gen": "grok",
+      "gen_s": 2,
+      "dialogue": "L6a",
+      "desc": "Signature: Noelle lowers her sunglasses (VO, mouth closed)",
+      "prompt": "Noelle slowly slides her sunglasses down her nose with her right hand, revealing her eyes, knowing smirk, lips closed. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text."
+    },
+    {
+      "id": "10",
+      "t": [
+        20.3,
+        24.0
+      ],
+      "ratio": "9:16",
+      "keyframe": "S10_user.png",
+      "gen": "grok",
+      "gen_s": 3,
+      "dialogue": "L6b",
+      "desc": "Invite: Noelle hands over the black key card (VO)",
+      "prompt": "Noelle extends one black card with a gold key into the executive's open palm; the executive takes it, delighted. Exactly one card, held, never floating. Noelle's lips stay closed. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text."
+    },
+    {
+      "id": "11",
+      "t": [
+        24.0,
+        25.8
+      ],
+      "ratio": "9:16",
+      "keyframe": "S11_user.png",
+      "gen": "grok",
+      "gen_s": 2,
+      "dialogue": "L7",
+      "desc": "Exit: exec cheers with card, Noelle walks out toward car (VO)",
+      "prompt": "In the background Noelle walks out through the open door toward the street, feet on the ground, glancing back over her shoulder. In the foreground the executive pumps her fist holding the one glowing card. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text."
+    },
+    {
+      "id": "12",
+      "t": [
+        25.8,
+        27.6
+      ],
+      "ratio": "9:16",
+      "keyframe": "S12_user.png",
+      "gen": "grok",
+      "gen_s": 5,
+      "desc": "Drive-off: rear 3/4, car pulls away toward the sunset",
+      "prompt": "The yellow hardtop coupe accelerates away from camera down the wet waterfront boulevard toward the setting sun, wheels turning, tail lights glowing, reflections following, the car getting smaller. Camera stays still. Single car only, no other vehicles. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text."
+    },
+    {
+      "id": "12P",
+      "t": [
+        27.6,
+        28.6
+      ],
+      "ratio": "9:16",
+      "keyframe": "S12P_plate_crop.png",
+      "gen": "free",
+      "gen_s": 0,
+      "desc": "BBY TIGR plate cutaway (free crop, push-in + exhaust shimmer). End card ON from here"
+    },
+    {
+      "id": "12B",
+      "t": [
+        28.6,
+        32.0
+      ],
+      "ratio": "9:16",
+      "keyframe": "S12_user.png",
+      "gen": "grok-cont",
+      "gen_s": 0,
+      "desc": "Drive-off continues (src_in into the S12 clip) under the end card"
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "L1",
+      "speaker": "NOELLE",
+      "text": "Whoa. You running a business... or an inbox?",
+      "mode": "lipsync S04"
+    },
+    {
+      "id": "L2",
+      "speaker": "EXEC",
+      "text": "I need another me!",
+      "mode": "lipsync S05"
+    },
+    {
+      "id": "L3",
+      "speaker": "NOELLE",
+      "text": "Better. Meet Eva.",
+      "mode": "lipsync S06"
+    },
+    {
+      "id": "L4",
+      "speaker": "EVA",
+      "text": "Your inbox and schedule? Let's get organized.",
+      "mode": "device audio (laptop EQ), no lip sync"
+    },
+    {
+      "id": "L5",
+      "speaker": "EXEC",
+      "text": "She handles all that? Where do I sign up?",
+      "mode": "lipsync S08"
+    },
+    {
+      "id": "L6a",
+      "speaker": "NOELLE",
+      "text": "(event slot)",
+      "mode": "VO S09"
+    },
+    {
+      "id": "L6b",
+      "speaker": "NOELLE",
+      "text": "(event slot)",
+      "mode": "VO S10"
+    },
+    {
+      "id": "L7",
+      "speaker": "NOELLE",
+      "text": "I'll show you.",
+      "mode": "VO S11, back turned"
+    }
+  ],
+  "captions": [
+    {
+      "id": "c1",
+      "text": "Whoa. You running a business... or an inbox?",
+      "t": [
+        6.9,
+        9.4
+      ]
+    },
+    {
+      "id": "c2",
+      "text": "I need another me!",
+      "t": [
+        9.5,
+        10.9
+      ]
+    },
+    {
+      "id": "c3",
+      "text": "Better. Meet Eva.",
+      "t": [
+        11.0,
+        12.7
+      ]
+    },
+    {
+      "id": "c4",
+      "text": "\"Your inbox and schedule? Let's get organized.\"",
+      "t": [
+        13.0,
+        15.7
+      ]
+    },
+    {
+      "id": "c5",
+      "text": "She handles all that? Where do I sign up?",
+      "t": [
+        15.9,
+        18.9
+      ]
+    },
+    {
+      "id": "c6",
+      "text": "",
+      "t": [
+        19.0,
+        20.3
+      ]
+    },
+    {
+      "id": "c7",
+      "text": "",
+      "t": [
+        20.4,
+        24.0
+      ]
+    },
+    {
+      "id": "c8",
+      "text": "I'll show you.",
+      "t": [
+        24.2,
+        25.8
+      ]
+    }
+  ],
+  "overlays": [
+    {
+      "file": "title.png",
+      "t": [
+        0.3,
+        2.2
+      ]
+    },
+    {
+      "file": "eva_lt.png",
+      "t": [
+        12.8,
+        15.8
+      ]
+    },
+    {
+      "file": "endcard.png",
+      "t": [
+        27.6,
+        32.0
+      ]
+    }
+  ],
+  "audio_edit": {
+    "_status": "to be filled from measured TTS (step 4)"
+  },
+  "sfx_cues": [
+    {
+      "type": "whoosh",
+      "at": 2.3
+    },
+    {
+      "type": "ping",
+      "at": 4.95
+    },
+    {
+      "type": "ping",
+      "at": 5.3
+    },
+    {
+      "type": "ping",
+      "at": 5.7
+    },
+    {
+      "type": "chime",
+      "at": 6.6
+    },
+    {
+      "type": "whoosh",
+      "at": 12.6
+    },
+    {
+      "type": "whoosh",
+      "at": 27.5
+    },
+    {
+      "type": "native",
+      "shot": "01",
+      "at": 0.0,
+      "dur": 2.4,
+      "gain_db": -10
+    },
+    {
+      "type": "native",
+      "shot": "12",
+      "at": 25.8,
+      "dur": 6.2,
+      "gain_db": -6
+    }
+  ],
+  "end_card": {
+    "lines": [
+      "UNLOCKING AI CHALLENGE",
+      "BUILD AN AI-AMPLIFIED BUSINESS"
+    ],
+    "registration": "",
+    "window": [
+      27.6,
+      32.0
+    ]
+  },
+  "music_file": "audio/music/ep02_synthwave_32s.mp3",
+  "episode_dir": "episodes/02-eva-executive-assistant",
+  "lower_third": {
+    "name": "EVA",
+    "role": "AI EXECUTIVE ASSISTANT",
+    "file": "eva_lt.png"
+  },
+  "event": "events/evergreen.json",
+  "event_slots": {
+    "L6a": {
+      "shot": "09",
+      "beat": "Noelle lowers her sunglasses",
+      "at": 19.0,
+      "max_s": 1.2,
+      "caption": "c6",
+      "guide": "2-3 words, no date"
+    },
+    "L6b": {
+      "shot": "10",
+      "beat": "Noelle hands over the black key card",
+      "at": 20.4,
+      "max_s": 3.6,
+      "caption": "c7",
+      "guide": "<=10 words, challenge name"
+    }
+  },
+  "continuity_flags_on_user_frames": [
+    "S01/S12: real prancing-horse badges (hood, grille, wheels) - user-supplied; bible says flag, don't add.",
+    "S02: steering wheel and mirror are a modern-car interior with a real-brand hub badge, not the 80s coupe interior.",
+    "S06: laptop dock shows real app logos (chat, video, slides, sheets, PDF) and in-UI clock times; text may warp if animated - kept as near-static.",
+    "S07/S06: in-UI times (10:00 AM etc.) are fictional UI, not event info.",
+    "S08: exec wardrobe shifts from collared shirt to V-neck blouse + necklace (minor).",
+    "S10/S11: office changes to a luxury suite (ring chandelier, marble desk, shelves) vs S03-S08 office.",
+    "S11: car through the door reads as a modern yellow coupe, not the 80s hardtop (background, soft).",
+    "S12: driver silhouette has short updo hair + hoop earring - reads closer to the executive than Noelle; rear deck has garbled badge lettering.",
+    "Upload order 9/10 swapped to match story: image 10 (reaction) = S08, image 9 (sunglasses) = S09."
+  ],
+  "approval_status": "Pre-production: awaiting director go on mapping, voices, budget tier"
+}

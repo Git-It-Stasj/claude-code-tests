@@ -35,7 +35,8 @@ def load(manifest_path, check=True):
     # 1. End card: lines[0], [1] are evergreen; [2..5] come from the event
     ec = m["end_card"]
     e = ev["end_card"]
-    ec["lines"] = ec["lines"][:2] + [e["event_line"], e["date_line"], e["time_line"], e.get("format_line", "LIVE")]
+    # evergreen packs may omit event_line/date_line/time_line (empty string = line not drawn)
+    ec["lines"] = ec["lines"][:2] + [e.get("event_line", ""), e.get("date_line", ""), e.get("time_line", ""), e.get("format_line", "LIVE")]
     ec["registration"] = e["registration"]
     if e.get("promo"):
         ec["promo"] = e["promo"]
