@@ -67,7 +67,7 @@ def endcard(m, out):
     y = label(img, W // 2, y, f"{l[4]}  •  {l[5]}", font(ANTON, 58), BLACK, bg=YELLOW)      # 3:00-5:00 PM ET • LIVE
     # registration pill, above bottom UI safe zone
     url = m["end_card"]["registration"]
-    label(img, W // 2, 1440, "REGISTER: " + url, font(ANTON, 40), WHITE, bg=PINK, skew=-0.08)
+    label(img, W // 2, 1650, "REGISTER: " + url, font(ANTON, 44), WHITE, bg=PINK, skew=-0.08)
     img.save(out)
 
 
