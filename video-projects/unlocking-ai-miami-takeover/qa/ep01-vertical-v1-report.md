@@ -101,3 +101,6 @@ Remaining balance is 153.88.
 - Added a yellow promo pill under the register link: **USE CODE GTA6LI  •  $27 → $1**. The code and price came from the director.
 - The register pill moved up from y 1650 to y 1600 to make room. The promo pill ends around y 1720 and stays clear of the car and the bottom UI zone.
 - The →, $ and digits all render in Anton. No other changes.
+
+## v6 (promo code change)
+`exports/vertical/EP01_rachel_9x16_v6.mp4`: the promo code changed from GTA6LI to **GTA6** at the director's request. Nothing else changed, and it cost 0 credits.
