@@ -1,0 +1,532 @@
+{
+  "episode": 1,
+  "title": "The Phone Problem",
+  "version": 2,
+  "featured_ai_employee": {
+    "name": "Rachel",
+    "role": "AI Receptionist",
+    "vendor": "Marblism",
+    "claim_scope": "Answers calls, assists callers, handles supported booking workflows. Phone demo is a dramatization."
+  },
+  "business_problem": "Missed incoming calls",
+  "characters": [
+    "NOELLE_01",
+    "SHOP_OWNER_01"
+  ],
+  "duration_s": 32,
+  "deliverable_scope": "VERTICAL ONLY (9:16, 1080x1920) - approved by user 2026-11-21. Widescreen deferred.",
+  "keyframe_source": "User-supplied images - DO NOT REGENERATE. episodes/01-rachel-receptionist/keyframes/user/SNN_user.png",
+  "three_by_four_handling": "Shots 06, 09, 10, 11, 12 are 3:4 - animate at native 3:4, composite centered over blurred fill of the same clip in 9:16.",
+  "license_plate": "BBY TIGR - recurring easter egg; visible in shot 14.",
+  "registration_url": "https://stan.store/noelleai/unlockingai",
+  "video_model": {
+    "model": "grok_video_v15",
+    "resolution": "720p",
+    "cost_per_s": 4.5,
+    "note": "model audio discarded; separate stems used. Provider rate-limits at ~5 concurrent jobs."
+  },
+  "shots": [
+    {
+      "id": "01",
+      "t": [
+        0.0,
+        2.6
+      ],
+      "gen_s": 3,
+      "ratio": "9:16",
+      "media_id": "923b49f4-ba85-4921-8bbb-49820b49e7d5",
+      "desc": "Noelle driving through Miami (exterior, in front of car)",
+      "audio": "synth hit, engine, tires/spray"
+    },
+    {
+      "id": "02",
+      "t": [
+        2.6,
+        4.4
+      ],
+      "gen_s": 2,
+      "ratio": "9:16",
+      "media_id": "908c4260-0b6d-4cf6-9711-b9b2ee5b7b8d",
+      "desc": "POV inside car - spots struggling shop",
+      "audio": "engine idle, muffled ringing"
+    },
+    {
+      "id": "03",
+      "t": [
+        4.4,
+        6.2
+      ],
+      "gen_s": 2,
+      "ratio": "9:16",
+      "media_id": "78f19c2c-3280-4e93-b196-dd5dc6fb5be4",
+      "desc": "Shop owner overwhelmed (Noelle at door in bg)",
+      "audio": "phone rings x2"
+    },
+    {
+      "id": "04",
+      "t": [
+        6.2,
+        8.0
+      ],
+      "gen_s": 2,
+      "ratio": "9:16",
+      "media_id": "05046203-7b06-4695-80ae-eadc62c7c9fb",
+      "desc": "Noelle walks in - arrives at counter",
+      "audio": "door chime, heels"
+    },
+    {
+      "id": "05",
+      "t": [
+        8.0,
+        11.1
+      ],
+      "gen_s": 3,
+      "ratio": "9:16",
+      "media_id": "f04ce47a-29dc-47b1-885c-52cf60775fe1",
+      "desc": "Noelle identifies problem (laptop revenue dashboard)",
+      "dialogue": "L1"
+    },
+    {
+      "id": "06",
+      "t": [
+        11.1,
+        12.9
+      ],
+      "gen_s": 2,
+      "ratio": "3:4",
+      "media_id": "9d2b958b-2e7d-4122-86e3-2c25419e1bbe",
+      "desc": "Owner responds",
+      "dialogue": "L2"
+    },
+    {
+      "id": "07",
+      "t": [
+        12.9,
+        15.9
+      ],
+      "gen_s": 3,
+      "ratio": "9:16",
+      "media_id": "93c7824f-c23a-462e-94e1-8285690211aa",
+      "desc": "Noelle offers her phone",
+      "dialogue": "L3"
+    },
+    {
+      "id": "08",
+      "t": [
+        15.9,
+        18.6
+      ],
+      "gen_s": 3,
+      "ratio": "9:16",
+      "media_id": "8688b9a8-16fd-4bfc-bcb5-344a72b37006",
+      "desc": "AI receptionist answers (phone close-up)",
+      "dialogue": "L4",
+      "overlay": "'Rachel - AI Receptionist' lower third + small 'Dramatization'"
+    },
+    {
+      "id": "09",
+      "t": [
+        18.6,
+        21.8
+      ],
+      "gen_s": 4,
+      "ratio": "3:4",
+      "media_id": "366b00c4-a543-4ccd-b348-fc819f51a864",
+      "desc": "Owner reacts in amazement",
+      "dialogue": "L5",
+      "audio": "comedic sting"
+    },
+    {
+      "id": "10",
+      "t": [
+        21.8,
+        23.3
+      ],
+      "gen_s": 2,
+      "ratio": "3:4",
+      "media_id": "99cb3f54-feb6-4822-b64c-0ea73e9751e8",
+      "desc": "Noelle lowers sunglasses mischievously",
+      "dialogue": "L6a 'Black Friday.'"
+    },
+    {
+      "id": "11",
+      "t": [
+        23.3,
+        27.0
+      ],
+      "gen_s": 4,
+      "ratio": "3:4",
+      "media_id": "039586aa-23f6-4e67-911e-b4cdec907146",
+      "desc": "Noelle hands invite (black card, gold key)",
+      "dialogue": "L6b 'Unlocking AI Challenge. Three to five Eastern.'"
+    },
+    {
+      "id": "12",
+      "t": [
+        27.0,
+        28.3
+      ],
+      "gen_s": 2,
+      "ratio": "3:4",
+      "media_id": "4123c65f-a254-4b7e-b905-0cb3fa6d5ef6",
+      "desc": "Noelle walks out; owner stares at card",
+      "dialogue": "L6c 'I'll show you.'"
+    },
+    {
+      "id": "13",
+      "t": [
+        28.3,
+        31.0
+      ],
+      "gen_s": 3,
+      "ratio": "9:16",
+      "media_id": "d2a99a7f-6b60-43b8-8d24-fa5ad7d6aeb2",
+      "desc": "Noelle smiles, opens door, gets into car, car pulls away (take 2)",
+      "graphics": "END CARD in sky (top 45%)",
+      "takes": [
+        {
+          "take": 1,
+          "job": "4792c69b-e7c2-4cc0-accf-543e70d4b141",
+          "status": "REJECTED - walks away from car",
+          "file": "clips/v/S13_take1_walks_away.mp4"
+        },
+        {
+          "take": 2,
+          "job": "c63aa04f-7cf2-4b77-815f-347740331f89",
+          "status": "APPROVED"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "t": [
+        31.0,
+        32.0
+      ],
+      "gen_s": 2,
+      "ratio": "9:16",
+      "media_id": "9d0f8fc9-3f6b-4503-89b9-eacd4cebdb4b",
+      "desc": "Car drives off into the distance (BBY TIGR plate)",
+      "graphics": "END CARD holds + registration URL",
+      "audio": "final engine rev, music button",
+      "src_in": 1.17,
+      "slow": 1.15,
+      "note": "Clip 0.25-1.1s contains a duplicate car entering frame; use 1.17s onward only."
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "L1",
+      "speaker": "NOELLE",
+      "text": "Phones ringing? That's money walking out.",
+      "file": "audio/voices/ep01/L1_noelle.mp3",
+      "spoken_s": 3.06,
+      "place_in": 8.0
+    },
+    {
+      "id": "L2",
+      "speaker": "OWNER",
+      "text": "I can't keep up!",
+      "file": "audio/voices/ep01/L2_owner.mp3",
+      "spoken_s": 1.3,
+      "place_in": 11.3
+    },
+    {
+      "id": "L3",
+      "speaker": "NOELLE",
+      "text": "Relax. I made you something. Dial this.",
+      "file": "audio/voices/ep01/L3_noelle.mp3",
+      "spoken_s": 3.6,
+      "place_in": 12.9,
+      "fix": "tighten pauses to ~3.0s"
+    },
+    {
+      "id": "L4",
+      "speaker": "RACHEL",
+      "text": "Thanks for calling! How can I help?",
+      "file": "audio/voices/ep01/L4_rachel.mp3",
+      "spoken_s": 2.0,
+      "place_in": 16.3,
+      "fx": "phone-speaker EQ"
+    },
+    {
+      "id": "L5",
+      "speaker": "OWNER",
+      "text": "Wait... that's AI? How do I get it?",
+      "file": "audio/voices/ep01/L5_owner.mp3",
+      "spoken_s": 3.15,
+      "place_in": 18.7
+    },
+    {
+      "id": "L6",
+      "speaker": "NOELLE",
+      "text": "Black Friday. Unlocking AI Challenge. Three to five Eastern. I'll show you.",
+      "file": "audio/voices/ep01/L6_noelle.mp3",
+      "spoken_s": 6.26,
+      "place_in": 22.1,
+      "fix": "tighten pauses -> ends ~28.0 (spans shots 10-12)"
+    }
+  ],
+  "voices_status": "Candidates sent to user for selection; L1-L6 will be re-rendered in chosen voices (~1.5 credits).",
+  "end_card": {
+    "lines": [
+      "UNLOCKING AI CHALLENGE",
+      "BUILD AN AI-AMPLIFIED BUSINESS",
+      "BLACK FRIDAY",
+      "FRIDAY, NOVEMBER 27, 2026",
+      "3:00-5:00 PM ET",
+      "LIVE"
+    ],
+    "registration": "stan.store/noelleai/unlockingai",
+    "window": [
+      28.6,
+      32.0
+    ],
+    "style": "bold comic-book typography, white/yellow on black, built in post"
+  },
+  "continuity_flags_on_user_frames": [
+    "S02: real-brand horse badge on steering-wheel hub (brand neutrality was requested in the brief).",
+    "S03/S04/S05/S10: car parked outside reads as a generic yellow sedan, not MIAMI_YELLOW_CAR_01 (background, soft-focus).",
+    "S05: laptop shows illustrative revenue figures - fictional; fine as comedy, but no claims attached.",
+    "S07: phone screen already shows waveform UI - no post overlay needed there."
+  ],
+  "approval_status": "Animating (vertical)",
+  "captions": [
+    {
+      "id": "c1",
+      "text": "Phones ringing? That's money walking out.",
+      "t": [
+        8.0,
+        11.1
+      ]
+    },
+    {
+      "id": "c2",
+      "text": "I can't keep up!",
+      "t": [
+        11.25,
+        12.9
+      ]
+    },
+    {
+      "id": "c3",
+      "text": "Relax. I made you something. Dial this.",
+      "t": [
+        12.9,
+        15.9
+      ]
+    },
+    {
+      "id": "c4",
+      "text": "\"Thanks for calling! How can I help?\"",
+      "t": [
+        16.3,
+        18.5
+      ]
+    },
+    {
+      "id": "c5",
+      "text": "Wait... that's AI? How do I get it?",
+      "t": [
+        18.7,
+        21.8
+      ]
+    },
+    {
+      "id": "c6",
+      "text": "Black Friday.",
+      "t": [
+        22.1,
+        23.3
+      ]
+    },
+    {
+      "id": "c7",
+      "text": "Unlocking AI Challenge. Three to five Eastern.",
+      "t": [
+        23.4,
+        27.1
+      ]
+    },
+    {
+      "id": "c8",
+      "text": "I'll show you.",
+      "t": [
+        27.15,
+        28.3
+      ]
+    }
+  ],
+  "overlays": [
+    {
+      "file": "title.png",
+      "t": [
+        0.3,
+        2.5
+      ]
+    },
+    {
+      "file": "rachel_lt.png",
+      "t": [
+        16.0,
+        18.6
+      ]
+    },
+    {
+      "file": "endcard.png",
+      "t": [
+        28.3,
+        32.0
+      ]
+    }
+  ],
+  "audio_edit": {
+    "L1": {
+      "at": 8.0,
+      "segs": [
+        [
+          0,
+          3.24
+        ]
+      ]
+    },
+    "L2": {
+      "at": 11.25,
+      "segs": [
+        [
+          0,
+          1.4
+        ]
+      ]
+    },
+    "L3": {
+      "at": 12.9,
+      "segs": [
+        [
+          0,
+          0.95
+        ],
+        [
+          1.2,
+          2.33
+        ],
+        [
+          2.66,
+          3.62
+        ]
+      ]
+    },
+    "L4": {
+      "at": 16.3,
+      "segs": [
+        [
+          0,
+          2.1
+        ]
+      ],
+      "phone_eq": true
+    },
+    "L5": {
+      "at": 18.7,
+      "segs": [
+        [
+          0,
+          3.2
+        ]
+      ]
+    },
+    "L6a": {
+      "src": "L6",
+      "at": 22.1,
+      "segs": [
+        [
+          0,
+          1.2
+        ]
+      ]
+    },
+    "L6b": {
+      "src": "L6",
+      "at": 23.4,
+      "segs": [
+        [
+          1.55,
+          5.25
+        ]
+      ]
+    },
+    "L6c": {
+      "src": "L6",
+      "at": 27.15,
+      "segs": [
+        [
+          5.45,
+          6.4
+        ]
+      ]
+    }
+  },
+  "sfx_cues": [
+    {
+      "type": "ring",
+      "at": 3.0
+    },
+    {
+      "type": "ring",
+      "at": 4.6
+    },
+    {
+      "type": "ring",
+      "at": 6.0
+    },
+    {
+      "type": "chime",
+      "at": 6.3
+    },
+    {
+      "type": "ring",
+      "at": 7.4
+    },
+    {
+      "type": "whoosh",
+      "at": 2.45
+    },
+    {
+      "type": "ring",
+      "at": 15.6
+    },
+    {
+      "type": "click",
+      "at": 16.1
+    },
+    {
+      "type": "whoosh",
+      "at": 21.65
+    },
+    {
+      "type": "whoosh",
+      "at": 28.2
+    },
+    {
+      "type": "native",
+      "shot": "01",
+      "at": 0.0,
+      "dur": 2.6,
+      "gain_db": -10
+    },
+    {
+      "type": "native",
+      "shot": "14",
+      "at": 31.0,
+      "dur": 1.0,
+      "gain_db": -8
+    },
+    {
+      "type": "native",
+      "shot": "13",
+      "at": 29.9,
+      "dur": 1.1,
+      "gain_db": -8
+    }
+  ]
+}

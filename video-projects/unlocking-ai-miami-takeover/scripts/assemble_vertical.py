@@ -50,9 +50,9 @@ def main(manifest, out):
     for i, c in enumerate(m["sfx_cues"]):
         at_ms = int(c["at"] * 1000)
         if c["type"] == "native":
-            ins += ["-i", os.path.join(clips, f"S{c['shot']}.mp4")]
+            ins += ["-i", os.path.join(clips, c.get("file", f"S{c['shot']}.mp4"))]
             idx = nin; nin += 1
-            fl.append(f"[{idx}:a]atrim=0:{c['dur']},asetpts=PTS-STARTPTS,aresample={SR},volume={c['gain_db']}dB,"
+            fl.append(f"[{idx}:a]atrim={c.get('src_in',0)}:{c.get('src_in',0)+c['dur']},asetpts=PTS-STARTPTS,aresample={SR},volume={c['gain_db']}dB,"
                       f"afade=t=out:st={c['dur']-0.3}:d=0.3,adelay={at_ms}|{at_ms}[s{i}]")
         else:
             src, d = sfx_source(c["type"])
@@ -99,7 +99,7 @@ def main(manifest, out):
     ins, fl, vlabels = [], [], []
     for i, s in enumerate(m["shots"]):
         t0, t1 = s["t"]; d = round(t1 - t0, 3)
-        ins += ["-i", os.path.join(clips, f"S{s['id']}.mp4")]
+        ins += ["-i", os.path.join(clips, s.get("file", f"S{s['id']}.mp4"))]
         a0 = s.get("src_in", 0); sp = s.get("slow", 1.0)  # source in-point (s) and slow-down factor
         base = f"[{i}:v]trim={a0}:{a0 + d / sp},setpts=(PTS-STARTPTS)*{sp},fps={FPS},trim=0:{d},setpts=PTS-STARTPTS"
         if s["ratio"] == "3:4":
