@@ -164,7 +164,7 @@
       "id": "12",
       "t": [
         27.0,
-        28.6
+        28.3
       ],
       "gen_s": 2,
       "ratio": "3:4",
@@ -175,19 +175,32 @@
     {
       "id": "13",
       "t": [
-        28.6,
-        30.3
+        28.3,
+        31.0
       ],
-      "gen_s": 2,
+      "gen_s": 3,
       "ratio": "9:16",
       "media_id": "d2a99a7f-6b60-43b8-8d24-fa5ad7d6aeb2",
-      "desc": "Noelle poses by car before getting in",
-      "graphics": "END CARD in sky (top 45%)"
+      "desc": "Noelle smiles, opens door, gets into car, car pulls away (take 2)",
+      "graphics": "END CARD in sky (top 45%)",
+      "takes": [
+        {
+          "take": 1,
+          "job": "4792c69b-e7c2-4cc0-accf-543e70d4b141",
+          "status": "REJECTED - walks away from car",
+          "file": "clips/v/S13_take1_walks_away.mp4"
+        },
+        {
+          "take": 2,
+          "job": "c63aa04f-7cf2-4b77-815f-347740331f89",
+          "status": "APPROVED"
+        }
+      ]
     },
     {
       "id": "14",
       "t": [
-        30.3,
+        31.0,
         32.0
       ],
       "gen_s": 2,
@@ -195,7 +208,10 @@
       "media_id": "9d0f8fc9-3f6b-4503-89b9-eacd4cebdb4b",
       "desc": "Car drives off into the distance (BBY TIGR plate)",
       "graphics": "END CARD holds + registration URL",
-      "audio": "final engine rev, music button"
+      "audio": "final engine rev, music button",
+      "src_in": 1.17,
+      "slow": 1.15,
+      "note": "Clip 0.25-1.1s contains a duplicate car entering frame; use 1.17s onward only."
     }
   ],
   "dialogue": [
@@ -337,7 +353,7 @@
       "text": "I'll show you.",
       "t": [
         27.15,
-        28.5
+        28.3
       ]
     }
   ],
@@ -359,7 +375,7 @@
     {
       "file": "endcard.png",
       "t": [
-        28.6,
+        28.3,
         32.0
       ]
     }
@@ -489,7 +505,7 @@
     },
     {
       "type": "whoosh",
-      "at": 28.45
+      "at": 28.2
     },
     {
       "type": "native",
@@ -501,8 +517,15 @@
     {
       "type": "native",
       "shot": "14",
-      "at": 30.3,
-      "dur": 1.7,
+      "at": 31.0,
+      "dur": 1.0,
+      "gain_db": -8
+    },
+    {
+      "type": "native",
+      "shot": "13",
+      "at": 29.9,
+      "dur": 1.1,
       "gain_db": -8
     }
   ]

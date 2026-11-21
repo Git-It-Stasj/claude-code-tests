@@ -19,8 +19,8 @@
 | 10 Lowers glasses (3:4) | SOFT | The glasses barely move; this reads as a smirk and push-in. One regeneration at 2s costs about 9 credits |
 | 11 Invite card (3:4) | PASS | Clean card handoff, a single card |
 | 12 Walks out (3:4) | PASS | |
-| 13 Poses by car | SOFT | She walks toward camera instead of getting into the car; the end card covers the top |
-| 14 Drives off | PASS | The car is small in frame, so the plate isn't legible at this size |
+| 13 Poses by car | FIXED (v2) | Take 2 (13.5 credits): she smiles, opens the door, gets in and the car pulls away. Take 1 is kept as `S13_take1_walks_away.mp4` |
+| 14 Drives off | FIXED (v2) | The source clip has a duplicate car entering at 0.25–1.1s, so the edit uses 1.17s onward, slowed 15%. The plate isn't legible at this size |
 
 ## Identity and continuity
 Noelle's curls, sunglasses, purple suit and I♥AI shirt hold in every shot. The owner's glasses, beard, hair, shirt and apron hold in every shot.
@@ -46,3 +46,6 @@ Known source-frame drift: the car seen through the shop windows in S03, S04, S05
 | **Total Ep01 to date** | **183.77** |
 
 Remaining balance is 247.18. Re-voicing after you pick voices costs about 2 credits.
+
+## v2 (after review)
+`exports/vertical/EP01_rachel_9x16_v2_TEMPVOICES.mp4`. Shot 13 was re-animated so Noelle gets into the car; shot 14 was trimmed to remove a duplicate car; the end card now holds solid to the last frame. Ep01 total spend is **197.27 credits**.

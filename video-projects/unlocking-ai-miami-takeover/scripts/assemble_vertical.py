@@ -100,7 +100,8 @@ def main(manifest, out):
     for i, s in enumerate(m["shots"]):
         t0, t1 = s["t"]; d = round(t1 - t0, 3)
         ins += ["-i", os.path.join(clips, f"S{s['id']}.mp4")]
-        base = f"[{i}:v]trim=0:{d},setpts=PTS-STARTPTS,fps={FPS}"
+        a0 = s.get("src_in", 0); sp = s.get("slow", 1.0)  # source in-point (s) and slow-down factor
+        base = f"[{i}:v]trim={a0}:{a0 + d / sp},setpts=(PTS-STARTPTS)*{sp},fps={FPS},trim=0:{d},setpts=PTS-STARTPTS"
         if s["ratio"] == "3:4":
             fl.append(f"{base},split=2[a{i}][b{i}]")
             fl.append(f"[a{i}]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},boxblur=40:4,eq=brightness=-0.12:saturation=1.2[bg{i}]")
@@ -118,7 +119,8 @@ def main(manifest, out):
     for k, (f, (a, b)) in enumerate(items):
         ins += ["-loop", "1", "-t", str(dur), "-i", os.path.join(ovl, f)]
         idx = n + k
-        fade = f"[{idx}:v]format=rgba,fade=t=in:st={a}:d=0.15:alpha=1,fade=t=out:st={b-0.15}:d=0.15:alpha=1[o{k}]"
+        fout = "" if b >= dur else f",fade=t=out:st={b-0.15}:d=0.15:alpha=1"
+        fade = f"[{idx}:v]format=rgba,fade=t=in:st={a}:d=0.15:alpha=1{fout}[o{k}]"
         fl.append(fade)
         fl.append(f"{cur}[o{k}]overlay=0:0:enable='between(t,{a},{b})'[c{k}]")
         cur = f"[c{k}]"
