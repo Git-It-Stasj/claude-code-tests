@@ -56,8 +56,12 @@ def recipe_S08():
     mask = rrect_mask(K.shape[:2], screen, 26, 3)
     def layer(t):  # static, crisp re-composite of the user's own screen
         return K, mask
-    return dict(clip="S08_spliced.mp4", out="S08.mp4", K=K, s=0.8162, ox=0, oy=10, track=(230, 600, 545, 1180),
-                layer=layer, colour_box=screen, pushin=dict(last=0.35, zoom=0.12, centre=(390, 880)))
+    shot = os.environ.get("SHOT", "S08")
+    if shot == "S08B":
+        return dict(clip="S08B_lipsync.mp4", out="S08B.mp4", K=K, s=0.8162, ox=0, oy=10, track=(230, 600, 545, 1180),
+                    layer=layer, colour_box=screen, pushin=dict(last=0.35, zoom=0.12, centre=(390, 880)))
+    return dict(clip="S08a_lipsync.mp4", out="S08.mp4", K=K, s=0.8162, ox=0, oy=10, track=(230, 600, 545, 1180),
+                layer=layer, colour_box=screen, dur=2.3)
 
 
 def recipe_S09():
@@ -123,7 +127,7 @@ def recipe_S09():
             pa = 0.55 + 0.45 * np.sin((t - 2.55) * 9)
             glow(L, QUEUE, (190, 140, 255), pa, width=4, r=26); glow(L, SCHED, (190, 140, 255), pa * 0.9, width=3, r=12)
         return L[..., :3], mask
-    return dict(clip="S09_raw.mp4", out="S09.mp4", K=K, s=0.8162, ox=0, oy=10, track=(230, 570, 615, 1365),
+    return dict(clip="S09_raw.mp4", out="S09.mp4", K=K, s=0.8162, ox=0, oy=10, track=(230, 570, 615, 1365), keep_skin=(500, 600, 600, 1345),
                 layer=layer, colour_box=screen, dur=3.0)
 
 
@@ -152,7 +156,13 @@ def run(R):
         H, W = fr.shape[:2]
         g = cv2.cvtColor(fr, cv2.COLOR_RGB2GRAY).astype(np.float32)[tb[1]:tb[3], tb[0]:tb[2]]
         if ref is None:
-            ref = g; win = cv2.createHanningWindow((g.shape[1], g.shape[0]), cv2.CV_32F); dx = dy = 0.0
+            ref = g; win = cv2.createHanningWindow((g.shape[1], g.shape[0]), cv2.CV_32F)
+            # phone-local offset of frame 0 vs the keyframe map (a lean/drift before the window starts)
+            ksg = cv2.cvtColor(cv2.resize(R["K"], None, fx=s, fy=s, interpolation=cv2.INTER_AREA).astype(np.uint8), cv2.COLOR_RGB2GRAY).astype(np.float32)
+            kref = ksg[tb[1] + oy:tb[3] + oy, tb[0] + ox:tb[2] + ox]
+            (bx, by), resp0 = cv2.phaseCorrelate(kref * win, g * win)
+            print(f"frame-0 phone offset vs keyframe map: dx={bx:+.1f} dy={by:+.1f} (resp {resp0:.2f})")
+            dx = dy = 0.0
             if R["colour_box"]:  # match keyframe colours to the clip's rendering of the same screen
                 cb = R["colour_box"]; ks = cv2.resize(R["K"], None, fx=s, fy=s, interpolation=cv2.INTER_AREA)
                 kb = ks[int(cb[1] * s) - oy:int(cb[3] * s) - oy, int(cb[0] * s) - ox:int(cb[2] * s) - ox].reshape(-1, 3)
@@ -160,16 +170,27 @@ def run(R):
                 gain = np.clip(fb.mean(0) / np.maximum(kb.mean(0), 1), 0.8, 1.25)
         else:
             (dx, dy), _ = cv2.phaseCorrelate(ref * win, g * win)
+        dx_t, dy_t = dx + bx, dy + by
         rgb, alpha = R["layer"](t)
-        M = np.float32([[s, 0, -ox + dx], [0, s, -oy + dy]])
+        M = np.float32([[s, 0, -ox + dx_t], [0, s, -oy + dy_t]])
         lw = cv2.warpAffine(rgb, M, (W, H), flags=cv2.INTER_AREA) * gain
         aw = cv2.warpAffine(alpha.astype(np.float32), M, (W, H), flags=cv2.INTER_LINEAR)[..., None]
+        ks = R.get("keep_skin")
+        if ks:  # a finger reaching in from the right stays ON TOP of the post-built screen
+            x0, y0, x1, y1 = [int(round(v * s)) for v in ks]; x0 += int(-ox + dx_t); x1 += int(-ox + dx_t); y0 += int(-oy + dy_t); y1 += int(-oy + dy_t)
+            hsv = cv2.cvtColor(fr[y0:y1, x0:x1], cv2.COLOR_RGB2HSV)
+            sk = ((hsv[..., 0] <= 24) & (hsv[..., 1] >= 60) & (hsv[..., 2] >= 90)).astype(np.uint8)
+            nlab, lab = cv2.connectedComponents(sk)
+            edge = set(np.unique(lab[:, -3:])) - {0}  # only blobs touching the right edge of the strip (the finger)
+            keep = np.isin(lab, list(edge)).astype(np.float32)
+            keep = cv2.GaussianBlur(cv2.dilate(keep, np.ones((5, 5), np.uint8)), (0, 0), 1.5)
+            aw[y0:y1, x0:x1, 0] *= (1 - np.clip(keep * 1.3, 0, 1))
         o = fr.astype(np.float32) * (1 - aw) + lw * aw
         pi = R.get("pushin")
         if pi:
             T = R["total"]; z = 1 + pi["zoom"] * ease((t - (T - pi["last"])) / pi["last"]) if t > T - pi["last"] else 1.0
             if z > 1.0001:
-                cx, cy = pi["centre"][0] * s - ox + dx, pi["centre"][1] * s - oy + dy
+                cx, cy = pi["centre"][0] * s - ox + dx_t, pi["centre"][1] * s - oy + dy_t
                 Z = np.float32([[z, 0, cx - z * cx], [0, z, cy - z * cy]]); o = cv2.warpAffine(o, Z, (W, H), flags=cv2.INTER_LINEAR)
         if enc is None:
             enc = subprocess.Popen(["ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
@@ -180,7 +201,7 @@ def run(R):
 
 
 if __name__ == "__main__":
-    shot = sys.argv[1]; R = globals()[f"recipe_{shot}"]()
+    shot = sys.argv[1]; os.environ["SHOT"] = shot; R = globals()[f"recipe_{'S08' if shot == 'S08B' else shot}"]()
     if "pushin" in R:
         R["total"] = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", os.path.join(CL, R["clip"])], capture_output=True, text=True).stdout)
     run(R)

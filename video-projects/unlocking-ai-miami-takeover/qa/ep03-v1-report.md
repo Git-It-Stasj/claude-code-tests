@@ -53,3 +53,20 @@ No Black Friday, dates, times or promo. No follower/engagement/sales numbers ani
 2. S12A roofline.
 3. S05 customer's shopping bag (keep or retake ~13.5).
 4. S01 title card sits over the awning monogram for 1.4s (move lower if wanted, free).
+
+---
+# EP03 v2 (director notes 2026-11-22)
+File: `exports/vertical/EP03_sonny_9x16_v2.mp4`. 35.000s, 1080x1920, -16.6 LUFS, peak -1.1 dBFS. Changed shots: `qa/ep03/EP03_v2_changed_shots.jpg`.
+
+| Note | Fix | Verdict |
+|---|---|---|
+| S02 mouth doesn't move | Re-animated talking take + sync | PASS (motion follows audio) |
+| S06 mouth doesn't move | Talking take + sync; auto-detect synced Val, retake with coordinates on Noelle | PARTIAL: Noelle articulates "Val!", grins through the rest |
+| Val says "I barely have time to post" (new frame) | New shot 08V 14.10-16.20 | PASS |
+| "I know a guy" re-animate | New shot 08B (talking take + sync, 3x v1 motion) + push-in | PASS |
+| S09 finger goes into the phone | Fingertip kept above the post-built screen | PASS (free) |
+| S10 Val must say both lines | Take 2 retired (roles swapped); take 3 Val drops hand and talks, Noelle still | PASS |
+| S05 customer leaves | Customer takes bags and exits right; Val calls out | PASS |
+
+New lesson: in two-person shots sync_so auto-detect can pick the wrong face; pass `active_speaker_detection` {frame_number, coordinates}.
+Spend v2: ~146 credits (6 minimax 75, 1 grok 13.5, 7 sync ~57.5). Balance 479.61. Episode total ~399.

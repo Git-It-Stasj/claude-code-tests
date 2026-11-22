@@ -10,9 +10,12 @@
   "job": "5c65d7ee-a863-4de7-919a-49cdac7b19a5",
   "raw": "S02_raw.mp4",
   "src_in": 0.0,
-  "qc": "PASS take 1: face/curls/glasses stable, 2 hands, sign legible, Sonny sleeve still (8 frames 0-4.9s); lip sync L1 pending",
-  "file": "S02_lipsync.mp4",
-  "lipsync": "sync_so 33c6d312 take 1 used (take 2 68b3534e identical result). 'Hey,' articulated; 'you coming in?' low mouth motion. DIRECTOR REVIEW"
+  "qc": "v2: minimax talking take b191b8dd (src 1.6-3.6) + sync_so 315ca2f5. PASS: mouth motion follows audio (peaks 12.2/7.9/7.2 vs v1 7.2/1.2/2.2)",
+  "file": "S02t_lipsync.mp4",
+  "lipsync": "sync_so 33c6d312 take 1 used (take 2 68b3534e identical result). 'Hey,' articulated; 'you coming in?' low mouth motion. DIRECTOR REVIEW",
+  "retired": [
+   "S02_lipsync.mp4 (v1: mouth barely moved)"
+  ]
  },
  "03": {
   "job": "45cdd28b-659f-4ccd-94cf-aa4cca8c18d1",
@@ -35,32 +38,42 @@
   "job": "a02d214b-1cd2-49f9-81ce-a1dc692bb6ab",
   "raw": "S05_raw.mp4",
   "src_in": 0.0,
-  "qc": "PASS take 1 with note: dresses swing/shift naturally, Val frazzled (no smile), 2 arms, phone + palm tee stable (13 frames 0-2.95s). Note: customer gains a held pink shopping bag from ~0.7s (new prop, reads as her purchase). Director may veto.",
+  "qc": "v2: grok 7090d388 customer takes bags and exits right, src 0.5-2.9 + sync_so b6335e43. PASS: shapes on 'No-elle' and 'Girl'",
   "file": "S05_lipsync.mp4",
-  "lipsync": "sync_so bf92d71c PASS: distinct shapes on 'Noelle!' / 'Girl!'"
+  "lipsync": "sync_so bf92d71c PASS: distinct shapes on 'Noelle!' / 'Girl!'",
+  "retired": [
+   "S05_take1_customer_stays.mp4 + S05_take1_lipsync.mp4 (customer stayed, new bag prop)"
+  ]
  },
  "06": {
   "job": "b6ca1248-2a8d-45f5-9bef-825dbbaeb6bd",
   "raw": "S06_raw.mp4",
   "src_in": 0.0,
-  "qc": "PASS take 1: faces + compact curls stable, side hug natural, hangers held, 2 arms each (8 frames 0-3.5s)",
-  "file": "S06_raw.mp4",
-  "lipsync": "none by design: both faces mid-laugh; L4 plays over the laugh"
+  "qc": "v2: minimax talking take ecec1f0d + sync_so 85e0da03 (speaker coords on Noelle; auto-detect f82a01bf synced Val). PARTIAL: Noelle articulates 'Val!', grins through rest",
+  "file": "S06_lipsync.mp4",
+  "lipsync": "none by design: both faces mid-laugh; L4 plays over the laugh",
+  "retired": [
+   "S06_raw.mp4 (v1 laugh, no talking)",
+   "S06_take2_lipsync_wrong_speaker.mp4 (auto-detect synced Val)"
+  ]
  },
  "08": {
   "job": "ddbf0d28-dde8-4002-a3ba-cd8902d155a8",
   "raw": "S08_raw.mp4",
   "src_in": 0.0,
-  "qc": "PASS take 1: face/glasses/curls stable, mouth moves (lip-sync ready), phone + pointing hand steady (8 frames 0-5.5s); screen re-composited in post",
+  "qc": "v2: 11.80-14.10, L5 only. sync_so 4fa63382 (v1) + re-composited screen",
   "file": "S08.mp4",
   "lipsync": "sync_so 4fa63382 (L5, src 0-2.45) PASS + 83b9daf4 (L7, src 4.25-5.57) WEAK: grin held, slight lip motion. Spliced S08_spliced.mp4, then screen re-composite + push-in -> S08.mp4",
-  "post": "scripts/ep03/screen_comp.py S08: crisp user screen re-composited per frame (tracked), push-in last 0.35s"
+  "post": "scripts/ep03/screen_comp.py S08: crisp user screen re-composited per frame (tracked), push-in last 0.35s",
+  "retired": [
+   "S08_spliced (v1 single shot for L5-L7, replaced by 08/08V/08B split)"
+  ]
  },
  "09": {
   "job": "c5fe7fc7-fc6e-44eb-bacb-3d0356fe1a86",
   "raw": "S09_raw.mp4",
   "src_in": 0.0,
-  "qc": "PASS take 1: face/glasses/pointing hand stable, phone near-static, avatar unchanged (8 frames 0-4.5s); screen animated in post",
+  "qc": "v2: fingertip kept above post-built screen (keep_skin mask)",
   "file": "S09.mp4",
   "post": "scripts/ep03/screen_comp.py S09: banner wipe, posts pop (Draft), chips grey->green, waveform from L8 level, Queue+Schedule pulse (not pressed)"
  },
@@ -68,9 +81,13 @@
   "job": "e2c1b656-505d-4d1a-a6d6-720ef72db875",
   "raw": "S10_raw.mp4",
   "src_in": 0.0,
-  "qc": "PASS take 1: gasp reads, mouth visible beside hand (lip-sync ready), Noelle calm, clothes/phone/tee stable (8 frames 0-3.4s)",
+  "qc": "v2: minimax 8698a515 start-only take 3 (Val drops hand, talks; Noelle still) src 1.2-4.52 + sync_so 1ce0a6ae. PASS",
   "file": "S10_lipsync.mp4",
-  "lipsync": "sync_so 46c2eecf PASS: syllable shapes, closes in pause, no hand ghosting (1.8-2.2s)"
+  "lipsync": "sync_so 46c2eecf PASS: syllable shapes, closes in pause, no hand ghosting (1.8-2.2s)",
+  "retired": [
+   "S10_take2_roles_swapped.mp4 (minimax 0dd8ee05, start-only: Noelle does the gasp and talks, Val only smiles; director note v1: Val must say the line)",
+   "S10_take1_lipsync_gasp.mp4 (hand covered mouth, line not visible)"
+  ]
  },
  "11G": {
   "job": "df1f0c34-4856-49a9-9a5f-296e1d538a00",
@@ -114,5 +131,15 @@
   "src_in": 0.0,
   "qc": "PASS take 1: single car, hardtop/louvers/quad exhaust stable, pulls away toward sunset; plate BBY TIGR legible at 0/0.8/1.6/2.5s (2x crops) (8 frames 0-3.0s)",
   "file": "S13_raw.mp4"
+ },
+ "08V": {
+  "file": "S08V_lipsync.mp4",
+  "src_in": 0.0,
+  "qc": "v2 NEW (director frame): minimax 8e3a16c4 talking take src 0.2-2.3 + sync_so 8017f9ce. PASS"
+ },
+ "08B": {
+  "file": "S08B.mp4",
+  "src_in": 0.0,
+  "qc": "v2: minimax 721edb17 talking take src 1.55-2.70 + sync_so f5dd6840 (3x v1 motion) + re-composited screen (phone offset -13px measured) + push-in"
  }
 }

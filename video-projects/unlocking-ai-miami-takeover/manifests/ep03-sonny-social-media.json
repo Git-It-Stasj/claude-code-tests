@@ -88,8 +88,8 @@
    ],
    "camera": "static",
    "dialogue": "L1",
-   "file": "S02_lipsync.mp4",
-   "qc": "PASS take 1: face/curls/glasses stable, 2 hands, sign legible, Sonny sleeve still (8 frames 0-4.9s); lip sync L1 pending",
+   "file": "S02t_lipsync.mp4",
+   "qc": "v2: minimax talking take b191b8dd (src 1.6-3.6) + sync_so 315ca2f5. PASS: mouth motion follows audio (peaks 12.2/7.9/7.2 vs v1 7.2/1.2/2.2)",
    "revisions": [],
    "flags": [
     "Source is a 660x1183 JPEG (soft when upscaled).",
@@ -99,7 +99,10 @@
    "media_id": "177b26b5-6b5a-4673-b5ac-69641dad25aa",
    "job": "5c65d7ee-a863-4de7-919a-49cdac7b19a5",
    "raw": "S02_raw.mp4",
-   "src_in": 0.0
+   "src_in": 0.0,
+   "retired": [
+    "S02_lipsync.mp4 (v1: mouth barely moved)"
+   ]
   },
   {
    "id": "03",
@@ -199,7 +202,7 @@
    "camera": "static",
    "dialogue": "L3",
    "file": "S05_lipsync.mp4",
-   "qc": "PASS take 1 with note: dresses swing/shift naturally, Val frazzled (no smile), 2 arms, phone + palm tee stable (13 frames 0-2.95s). Note: customer gains a held pink shopping bag from ~0.7s (new prop, reads as her purchase). Director may veto.",
+   "qc": "v2: grok 7090d388 customer takes bags and exits right, src 0.5-2.9 + sync_so b6335e43. PASS: shapes on 'No-elle' and 'Girl'",
    "revisions": [],
    "lipsync": "sync_so bf92d71c PASS: distinct shapes on 'Noelle!' / 'Girl!'",
    "flags": [
@@ -208,7 +211,10 @@
    "media_id": "65286c1a-b92a-43f5-970a-078ffd72bbae",
    "job": "a02d214b-1cd2-49f9-81ce-a1dc692bb6ab",
    "raw": "S05_raw.mp4",
-   "src_in": 0.0
+   "src_in": 0.0,
+   "retired": [
+    "S05_take1_customer_stays.mp4 + S05_take1_lipsync.mp4 (customer stayed, new bag prop)"
+   ]
   },
   {
    "id": "06",
@@ -236,23 +242,27 @@
    ],
    "camera": "static",
    "dialogue": "L4",
-   "file": "S06_raw.mp4",
-   "qc": "PASS take 1: faces + compact curls stable, side hug natural, hangers held, 2 arms each (8 frames 0-3.5s)",
+   "file": "S06_lipsync.mp4",
+   "qc": "v2: minimax talking take ecec1f0d + sync_so 85e0da03 (speaker coords on Noelle; auto-detect f82a01bf synced Val). PARTIAL: Noelle articulates 'Val!', grins through rest",
    "revisions": [],
    "lipsync": "none by design: both faces mid-laugh; L4 plays over the laugh",
    "notes": "Arm check passed at 4x: Noelle has one arm across Val's back and one hand at Val's waist.",
    "media_id": "99792e2a-ffce-450d-9600-846ef774f666",
    "job": "b6ca1248-2a8d-45f5-9bef-825dbbaeb6bd",
    "raw": "S06_raw.mp4",
-   "src_in": 0.0
+   "src_in": 0.0,
+   "retired": [
+    "S06_raw.mp4 (v1 laugh, no talking)",
+    "S06_take2_lipsync_wrong_speaker.mp4 (auto-detect synced Val)"
+   ]
   },
   {
    "id": "08",
    "t": [
     11.8,
-    17.37
+    14.1
    ],
-   "dur": 5.57,
+   "dur": 2.3,
    "ratio": "9:16",
    "keyframe": "S08_user_instagram.png",
    "src_dims": [
@@ -261,25 +271,22 @@
    ],
    "sha256_12": "e22b72ab8550",
    "approval": "approved (user-supplied storyboard frame)",
-   "gen": "minimax_h3_max 768p start=end=keyframe (src 0-4.0s) + original screen re-composited",
-   "gen_s": 6,
-   "desc": "Noelle calls out the ghost-town Instagram; Val admits it; 'I know a guy'",
+   "gen": "minimax_h3_max 768p start=end=keyframe + sync_so (L5) + re-composited screen",
+   "gen_s": 5,
+   "desc": "Noelle calls out the ghost-town Instagram",
    "prompt": "Noelle holds the phone steady toward camera and points at it, with a small playful head tilt and a knowing smirk while she talks. The phone does not move or rotate. Val's hair at the left edge sways slightly. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
    "must_stay_still": [
     "phone size, position, angle and screen",
     "neon sign"
    ],
-   "camera": "static; last 0.35s free digital push-in toward the phone, matching S09's phone scale for the cut",
+   "camera": "static",
    "dialogue": [
-    "L5",
-    "L6",
-    "L7"
+    "L5"
    ],
    "file": "S08.mp4",
-   "qc": "PASS take 1: face/glasses/curls stable, mouth moves (lip-sync ready), phone + pointing hand steady (8 frames 0-5.5s); screen re-composited in post",
+   "qc": "v2: 11.80-14.10, L5 only. sync_so 4fa63382 (v1) + re-composited screen",
    "revisions": [],
    "screen": "The keyframe's own sparse-grid screen is masked and re-composited each frame so text can't warp.",
-   "lipsync": "sync_so 4fa63382 (L5, src 0-2.45) PASS + 83b9daf4 (L7, src 4.25-5.57) WEAK: grin held, slight lip motion. Spliced S08_spliced.mp4, then screen re-composite + push-in -> S08.mp4",
    "flags": [
     "Instagram-style profile shows '12 Posts' but only 3 tiles are filled. Harmless; leave it (no numbers are animated)."
    ],
@@ -287,13 +294,84 @@
    "job": "ddbf0d28-dde8-4002-a3ba-cd8902d155a8",
    "raw": "S08_raw.mp4",
    "src_in": 0.0,
-   "post": "scripts/ep03/screen_comp.py S08: crisp user screen re-composited per frame (tracked), push-in last 0.35s"
+   "lipsync": "sync_so 4fa63382 (L5, src 0-2.45) PASS + 83b9daf4 (L7, src 4.25-5.57) WEAK: grin held, slight lip motion. Spliced S08_spliced.mp4, then screen re-composite + push-in -> S08.mp4",
+   "post": "scripts/ep03/screen_comp.py S08: crisp user screen re-composited per frame (tracked), push-in last 0.35s",
+   "retired": [
+    "S08_spliced (v1 single shot for L5-L7, replaced by 08/08V/08B split)"
+   ]
+  },
+  {
+   "id": "08V",
+   "t": [
+    14.1,
+    16.2
+   ],
+   "dur": 2.1,
+   "ratio": "9:16",
+   "keyframe": "S08V_user_val.png",
+   "src_dims": [
+    941,
+    1672
+   ],
+   "sha256_12": "a0a5bc2d2006",
+   "approval": "approved (user-supplied storyboard frame)",
+   "gen": "minimax_h3_max 768p start=end=keyframe, talking prompt + sync_so (L6)",
+   "gen_s": 5,
+   "desc": "Val leans in to the phone: 'I barely have time to post!' (director-supplied frame, 2026-11-22)",
+   "prompt": "Val leans toward the phone, eyes wide, and complains with playful exasperation, saying 'I barely have time to post!'. Her mouth clearly opens and closes with each word. Noelle's hand holding the purple phone in the right foreground stays still. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "must_stay_still": [
+    "Noelle's hand and phone",
+    "neon sign",
+    "mannequin"
+   ],
+   "camera": "static",
+   "dialogue": [
+    "L6"
+   ],
+   "file": "S08V_lipsync.mp4",
+   "qc": "v2 NEW (director frame): minimax 8e3a16c4 talking take src 0.2-2.3 + sync_so 8017f9ce. PASS",
+   "revisions": [],
+   "media_id": "dcb59579-aa62-4d0b-8909-03579b831d94",
+   "src_in": 0.0
+  },
+  {
+   "id": "08B",
+   "t": [
+    16.2,
+    17.35
+   ],
+   "dur": 1.15,
+   "ratio": "9:16",
+   "keyframe": "S08_user_instagram.png",
+   "src_dims": [
+    941,
+    1672
+   ],
+   "sha256_12": "e22b72ab8550",
+   "approval": "approved (user-supplied storyboard frame)",
+   "gen": "minimax_h3_max 768p start=end=keyframe, talking prompt + sync_so (L7) + re-composited screen + push-in",
+   "gen_s": 5,
+   "desc": "Noelle: 'I know a guy.' Push-in toward the phone into S09",
+   "prompt": "Noelle leans in with a knowing smirk and says 'I know a guy.', her mouth clearly opening and closing with each word. She holds the phone steady toward camera and points at it. The phone does not move or rotate. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "must_stay_still": [
+    "phone size, position, angle and screen",
+    "neon sign"
+   ],
+   "camera": "static; last 0.35s digital push-in toward the phone",
+   "dialogue": [
+    "L7"
+   ],
+   "file": "S08B.mp4",
+   "qc": "v2: minimax 721edb17 talking take src 1.55-2.70 + sync_so f5dd6840 (3x v1 motion) + re-composited screen (phone offset -13px measured) + push-in",
+   "revisions": [],
+   "media_id": "1acc722a-8d29-4d69-92b1-af55515d0173",
+   "src_in": 0.0
   },
   {
    "id": "09",
    "t": [
-    17.37,
-    20.37
+    17.35,
+    20.35
    ],
    "dur": 3.0,
    "ratio": "9:16",
@@ -318,7 +396,7 @@
     "L8"
    ],
    "file": "S09.mp4",
-   "qc": "PASS take 1: face/glasses/pointing hand stable, phone near-static, avatar unchanged (8 frames 0-4.5s); screen animated in post",
+   "qc": "v2: fingertip kept above post-built screen (keep_skin mask)",
    "revisions": [],
    "cut_in": "Punch-in on a whoosh at 15.5: S08 ends on a digital push toward the phone, so the bigger S09 phone reads as Noelle thrusting it at Val, not as a jump cut between near-identical frames.",
    "screen": "post-built over the user's frame (scripts/ep03/sonny_ui_anim.py, Stage B): 15.5 Sonny header, waveform animating while L8 plays; banner '3 Posts Drafted for Your Approval' types in; Posts 1-3 pop in at 15.9/16.5/17.1 tagged 'Draft'; each 'Review' chip lights green with a tick 17.6/17.9/18.2; 'Queue to Instagram' and the Schedule tab pulse at 18.4 (highlighted, not pressed: Val still has to approve). All elements cut from this frame with feathered masks, so the layout is exactly the user's.",
@@ -333,8 +411,8 @@
   {
    "id": "10",
    "t": [
-    20.37,
-    23.69
+    20.35,
+    23.67
    ],
    "dur": 3.32,
    "ratio": "9:16",
@@ -358,19 +436,23 @@
    "camera": "static",
    "dialogue": "L9",
    "file": "S10_lipsync.mp4",
-   "qc": "PASS take 1: gasp reads, mouth visible beside hand (lip-sync ready), Noelle calm, clothes/phone/tee stable (8 frames 0-3.4s)",
+   "qc": "v2: minimax 8698a515 start-only take 3 (Val drops hand, talks; Noelle still) src 1.2-4.52 + sync_so 1ce0a6ae. PASS",
    "revisions": [],
    "lipsync": "sync_so 46c2eecf PASS: syllable shapes, closes in pause, no hand ghosting (1.8-2.2s)",
    "media_id": "3fcd56a3-9c4e-4440-977b-913f5c1213dc",
    "job": "e2c1b656-505d-4d1a-a6d6-720ef72db875",
    "raw": "S10_raw.mp4",
-   "src_in": 0.0
+   "src_in": 0.0,
+   "retired": [
+    "S10_take2_roles_swapped.mp4 (minimax 0dd8ee05, start-only: Noelle does the gasp and talks, Val only smiles; director note v1: Val must say the line)",
+    "S10_take1_lipsync_gasp.mp4 (hand covered mouth, line not visible)"
+   ]
   },
   {
    "id": "11G",
    "t": [
-    23.69,
-    24.89
+    23.67,
+    24.87
    ],
    "dur": 1.2,
    "ratio": "9:16",
@@ -407,8 +489,8 @@
   {
    "id": "11",
    "t": [
-    24.89,
-    27.89
+    24.87,
+    27.87
    ],
    "dur": 3.0,
    "ratio": "9:16",
@@ -444,8 +526,8 @@
   {
    "id": "12",
    "t": [
-    27.89,
-    29.19
+    27.87,
+    29.17
    ],
    "dur": 1.3,
    "ratio": "9:16",
@@ -483,8 +565,8 @@
   {
    "id": "12A",
    "t": [
-    29.19,
-    30.49
+    29.17,
+    30.47
    ],
    "dur": 1.3,
    "ratio": "9:16",
@@ -518,8 +600,8 @@
   {
    "id": "12B",
    "t": [
-    30.49,
-    32.49
+    30.47,
+    32.47
    ],
    "dur": 2.0,
    "ratio": "9:16",
@@ -558,10 +640,10 @@
   {
    "id": "13",
    "t": [
-    32.49,
+    32.47,
     35.0
    ],
-   "dur": 2.51,
+   "dur": 2.53,
    "ratio": "9:16",
    "keyframe": "S13_user.png",
    "src_dims": [
@@ -631,14 +713,14 @@
    "id": "L6",
    "speaker": "VAL",
    "text": "I barely have time to post!",
-   "shot": "08",
+   "shot": "08V",
    "mode": "off-camera"
   },
   {
    "id": "L7",
    "speaker": "NOELLE",
    "text": "I know a guy.",
-   "shot": "08",
+   "shot": "08B",
    "mode": "lipsync"
   },
   {
@@ -708,7 +790,7 @@
    "text": "Your Instagram's a ghost town!",
    "t": [
     11.85,
-    14.09
+    14.08
    ],
    "y": 1600
   },
@@ -716,17 +798,16 @@
    "id": "c6",
    "text": "I barely have time to post!",
    "t": [
-    14.11,
-    16.19
-   ],
-   "y": 1600
+    14.1,
+    16.18
+   ]
   },
   {
    "id": "c7",
    "text": "I know a guy.",
    "t": [
-    16.21,
-    17.37
+    16.2,
+    17.35
    ],
    "y": 1600
   },
@@ -734,8 +815,8 @@
    "id": "c8",
    "text": "\"Three posts ready for your approval.\"",
    "t": [
-    17.47,
-    19.9
+    17.45,
+    19.88
    ],
    "y": 1660
   },
@@ -743,24 +824,24 @@
    "id": "c9",
    "text": "Wait! He did all that? How do I get this?",
    "t": [
-    20.42,
-    23.66
+    20.4,
+    23.64
    ]
   },
   {
    "id": "c10",
    "text": "",
    "t": [
-    23.69,
-    24.84
+    23.67,
+    24.82
    ]
   },
   {
    "id": "c11",
    "text": "",
    "t": [
-    24.99,
-    27.94
+    24.97,
+    27.92
    ]
   }
  ],
@@ -775,14 +856,14 @@
   {
    "file": "sonny_lt.png",
    "t": [
-    17.47,
-    20.27
+    17.45,
+    20.25
    ]
   },
   {
    "file": "endcard.png",
    "t": [
-    33.09,
+    33.07,
     35.0
    ]
   }
@@ -844,7 +925,7 @@
   },
   "L6": {
    "file": "audio/voices/ep03/L6_val.mp3",
-   "at": 14.11,
+   "at": 14.09,
    "segs": [
     [
      0,
@@ -854,7 +935,7 @@
   },
   "L7": {
    "file": "audio/voices/ep03/L7_noelle.mp3",
-   "at": 16.2,
+   "at": 16.18,
    "segs": [
     [
      0,
@@ -864,7 +945,7 @@
   },
   "L8": {
    "file": "audio/voices/ep03/L8_sonny.mp3",
-   "at": 17.52,
+   "at": 17.5,
    "segs": [
     [
      0,
@@ -875,7 +956,7 @@
   },
   "L9": {
    "file": "audio/voices/ep03/L9_val.mp3",
-   "at": 20.47,
+   "at": 20.45,
    "segs": [
     [
      0,
@@ -912,7 +993,7 @@
   {
    "type": "boutique_ambience",
    "at": 5.6,
-   "dur": 23.590000000000003,
+   "dur": 23.57,
    "gain_db": -24
   },
   {
@@ -929,68 +1010,68 @@
   },
   {
    "type": "whoosh",
-   "at": 17.27,
+   "at": 17.25,
    "_note": "punch-in to S09"
   },
   {
    "type": "ping",
-   "at": 17.72
+   "at": 17.7
   },
   {
    "type": "ping",
-   "at": 18.12
+   "at": 18.1
   },
   {
    "type": "ping",
-   "at": 18.52
+   "at": 18.5
   },
   {
    "type": "click",
-   "at": 18.97
+   "at": 18.95
   },
   {
    "type": "click",
-   "at": 19.27
+   "at": 19.25
   },
   {
    "type": "click",
-   "at": 19.57
+   "at": 19.55
   },
   {
    "type": "chime",
-   "at": 19.92
+   "at": 19.9
   },
   {
    "type": "glint",
-   "at": 23.99,
+   "at": 23.97,
    "_note": "sunglasses"
   },
   {
    "type": "card_accent",
-   "at": 25.49
+   "at": 25.47
   },
   {
    "type": "door_open",
-   "at": 29.24
+   "at": 29.22
   },
   {
    "type": "door_close",
-   "at": 30.34
+   "at": 30.32
   },
   {
    "type": "click",
-   "at": 31.11
+   "at": 31.09
   },
   {
    "type": "click",
-   "at": 31.99
+   "at": 31.97
   },
   {
    "type": "native",
    "shot": "13",
    "file": "S13_raw.mp4",
-   "at": 32.49,
-   "dur": 2.51,
+   "at": 32.47,
+   "dur": 2.53,
    "gain_db": 2,
    "_note": "native drive-off engine (Ep02 pattern)"
   }
@@ -1002,7 +1083,7 @@
   ],
   "registration": "",
   "window": [
-   33.09,
+   33.07,
    35.0
   ]
  },
@@ -1018,7 +1099,7 @@
   "L6a": {
    "shot": "11G",
    "beat": "Noelle lowers her sunglasses",
-   "at": 23.74,
+   "at": 23.72,
    "max_s": 1.15,
    "caption": "c10",
    "guide": "2-3 words, no date"
@@ -1026,7 +1107,7 @@
   "L6b": {
    "shot": "11",
    "beat": "Noelle hands Val the black key card",
-   "at": 24.99,
+   "at": 24.97,
    "max_s": 2.9,
    "caption": "c11",
    "guide": "<=8 words"

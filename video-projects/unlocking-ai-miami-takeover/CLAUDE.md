@@ -13,6 +13,8 @@
 - Before building a crop-zoomed QA strip (mouths, plates, UI), grab one full frame and locate the target first. In Ep02 the lip-sync crops for S04 and S08 both missed the face on the first try and had to be redone.
 
 - Before lip-syncing Noelle, expect weak results on frames where she holds a toothy grin: in Ep03 S02 and S08b, sync_so articulated only the first word, and an identical re-run gave the same result. Val's neutral/open mouths synced well. Measure mouth-band motion against the audio level (`scripts/ep03/lipsync_check.py`) instead of eyeballing a few crops.
+- Before lip-syncing a two-person shot, pass `active_speaker_detection` {frame_number, coordinates} on the speaker. In Ep03 S06 auto-detect synced Val to Noelle's line. (The default-detection rule above is for single-speaker shots.)
+- Before animating a talking line, prompt the speaker by appearance and position ("the woman on the RIGHT with the copper bob...") and say who stays silent. Ep03 S10 take 2 swapped roles.
 - Before running ffmpeg inside a `while read` loop, pass `-nostdin`. In Ep03 ffmpeg consumed the loop's stdin and chopped the first letter off five filenames.
 - Before uploading more than ~10 files with media_upload, request at least 15 slots so the response is saved to a file you can read with jq; an inline response forces copying long signed URLs by hand.
 - Before timing a post-built tap highlight, measure fingertip contact (skin coverage near the target per frame). In Ep03 S12B the second tap landed on a different chip than planned.
