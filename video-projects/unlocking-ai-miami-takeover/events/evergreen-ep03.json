@@ -1,0 +1,44 @@
+{
+  "id": "evergreen-ep03",
+  "label": "Evergreen, Ep03 invite lines. No date, time or promo.",
+  "end_card": {
+    "format_line": "LIVE",
+    "registration": "stan.store/noelleai/unlockingai"
+  },
+  "invite_vo": {
+    "L6a": {
+      "text": "Glad you asked.",
+      "file": "audio/voices/events/evergreen-ep03/L6a.mp3",
+      "segs": [
+        [
+          0,
+          1.2
+        ]
+      ],
+      "status": "to generate (Sloane)"
+    },
+    "L6b": {
+      "text": "Unlocking AI Challenge. It's live.",
+      "file": "audio/voices/events/evergreen/L6b.mp3",
+      "segs": [
+        [
+          0,
+          1.9
+        ],
+        [
+          2.12,
+          2.98
+        ]
+      ],
+      "status": "re-uses approved Ep02 evergreen take, first two phrases only"
+    }
+  },
+  "_note": "Ep03 override of events/evergreen.json. Registration is the team-supplied link (unchanged). No promo key.",
+  "voice": {
+    "name": "Sloane",
+    "voice_id": "b57b22a0-f287-405b-bc82-6f08f5e6bb1f",
+    "stability": 0.45,
+    "similarity_boost": 0.8,
+    "model": "elevenlabs_v4"
+  }
+}

@@ -1,0 +1,856 @@
+{
+ "episode": 3,
+ "title": "Sonny: The Invisible Business",
+ "version": 1,
+ "featured_ai_employee": {
+  "name": "Sonny",
+  "role": "AI Social Media Manager",
+  "vendor": "Marblism",
+  "claim_scope": "Drafts social posts for the owner to review and approve. Nothing is shown as published; no follower, engagement or sales numbers. Demo is a dramatization."
+ },
+ "business_problem": "Neglected Instagram, no time to post",
+ "characters": [
+  "NOELLE_01",
+  "SHOP_OWNER_03 (Valentina 'Val' Cruz)",
+  "SONNY (face concealed)"
+ ],
+ "duration_s": 34.0,
+ "duration_alt_s": {
+  "without_12A": 32.5,
+  "with_sunglasses_insert": 35.2
+ },
+ "deliverable_scope": "VERTICAL first (9:16 1080x1920). 16:9 needs native widescreen frames from the director; reframe plan in the production sheet.",
+ "keyframe_source": "User-supplied images - DO NOT REGENERATE. episodes/03-sonny-social-media/keyframes/user/",
+ "license_plate": "BBY TIGR visible in S13 frame 0.",
+ "video_model": {
+  "model": "grok_video_v15",
+  "resolution": "720p",
+  "cost_per_s": 4.5,
+  "anchored": "minimax_h3_max 768p, 12.5 per 5s (verified 2026-11-22)"
+ },
+ "shots": [
+  {
+   "id": "01",
+   "t": [
+    0.0,
+    2.0
+   ],
+   "dur": 2.0,
+   "ratio": "9:16",
+   "keyframe": "S01_user.jpg",
+   "src_dims": [
+    662,
+    1182
+   ],
+   "sha256_12": "88571e764121",
+   "approval": "approved (user-supplied storyboard frame)",
+   "gen": "grok_video_v15 720p start_image",
+   "gen_s": 3,
+   "desc": "Arrival: Ferrari settles at the curb outside Val Cruz BOUTIQUE",
+   "prompt": "Low-angle shot. The yellow hardtop coupe rolls the last few inches to a stop at the curb and settles on its suspension. Palm fronds sway gently, neon reflections shimmer on the wet pavement, people stroll in the far background. Slow push-in toward the car. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "must_stay_still": [
+    "boutique awning text 'Val Cruz BOUTIQUE'",
+    "mannequins",
+    "roof and body geometry"
+   ],
+   "camera": "slow push-in",
+   "file": "S01.mp4",
+   "qc": "not started",
+   "revisions": [],
+   "flags": [
+    "Source is a 662x1182 JPEG: upscales soft to 1080x1920. Ask for the full-res original."
+   ]
+  },
+  {
+   "id": "02",
+   "t": [
+    2.0,
+    4.0
+   ],
+   "dur": 2.0,
+   "ratio": "9:16",
+   "keyframe": "S02_user.jpg",
+   "src_dims": [
+    660,
+    1183
+   ],
+   "sha256_12": "8e8e2c03a7e3",
+   "approval": "PENDING: storefront-signage correction (see gate)",
+   "gen": "minimax_h3_max 768p start=end=keyframe",
+   "gen_s": 5,
+   "desc": "Noelle asks Sonny if he's coming in (src 0-2.0s used)",
+   "prompt": "Noelle turns her head slightly toward the passenger and smiles, speaking a short line, curls moving softly. Her hands stay on the wheel and gear knob. The passenger's hand and phone stay still at the left edge. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "must_stay_still": [
+    "gear shifter",
+    "console",
+    "storefront sign in window",
+    "Sonny's sleeve and phone"
+   ],
+   "camera": "static",
+   "dialogue": "L1",
+   "file": "S02.mp4",
+   "qc": "not started",
+   "revisions": [],
+   "gate": "SIGNAGE: this upload already reads 'Val Cruz BOUTIQUE' with the VC monogram (checked at 4x crop), so it looks like the corrected revision. No approval record exists; needs an explicit yes from the director before animation.",
+   "flags": [
+    "Source is a 660x1183 JPEG (soft when upscaled).",
+    "S01 and S02 were uploaded with the same original filename DD9142E8...; confirm S02 is the corrected revision, not an older take."
+   ],
+   "lipsync": true
+  },
+  {
+   "id": "03",
+   "t": [
+    4.0,
+    5.5
+   ],
+   "dur": 1.5,
+   "ratio": "9:16",
+   "keyframe": "S03_user.png",
+   "src_dims": [
+    941,
+    1671
+   ],
+   "sha256_12": "b2c91a363e25",
+   "approval": "approved (user-supplied storyboard frame)",
+   "gen": "grok_video_v15 720p start_image",
+   "gen_s": 2,
+   "desc": "Mystery passenger: Sonny answers off-camera, thumb moving on phone",
+   "prompt": "Sonny, seen from the neck down in his red suit, scrolls his glowing phone with a small thumb movement and settles back in the seat. Neon light flickers across the cabin from the boulevard outside. Sonny's face stays hidden (cropped by frame and covered by his long black hair); he never turns toward camera. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "must_stay_still": [
+    "gear shifter",
+    "console knobs",
+    "Noelle's curls in the right foreground"
+   ],
+   "camera": "static",
+   "dialogue": "L2",
+   "file": "S03.mp4",
+   "qc": "not started",
+   "revisions": []
+  },
+  {
+   "id": "04",
+   "t": [
+    5.5,
+    7.0
+   ],
+   "dur": 1.5,
+   "ratio": "9:16",
+   "keyframe": "S04_user.png",
+   "src_dims": [
+    942,
+    1670
+   ],
+   "sha256_12": "accca6fd0e7a",
+   "approval": "approved (user-supplied storyboard frame)",
+   "gen": "grok_video_v15 720p start_image",
+   "gen_s": 2,
+   "desc": "Noelle walks into the boutique alone, Ferrari parked outside",
+   "prompt": "Noelle walks forward into the boutique toward camera with a confident stride, smiling, curls bouncing slightly. The yellow coupe stays parked outside the doorway; nobody follows her. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "must_stay_still": [
+    "parked Ferrari",
+    "door frames",
+    "mannequin on the right"
+   ],
+   "camera": "static",
+   "file": "S04.mp4",
+   "qc": "not started",
+   "revisions": []
+  },
+  {
+   "id": "05",
+   "t": [
+    7.0,
+    9.5
+   ],
+   "dur": 2.5,
+   "ratio": "9:16",
+   "keyframe": "S05_user.png",
+   "src_dims": [
+    942,
+    1670
+   ],
+   "sha256_12": "4f2109fe32f8",
+   "approval": "approved (user-supplied storyboard frame)",
+   "gen": "grok_video_v15 720p start_image",
+   "gen_s": 3,
+   "desc": "Val overwhelmed, juggling dresses; looks up and greets Noelle",
+   "prompt": "Val shifts the armfuls of dresses on their hangers, struggling to keep hold, fabric swaying under its own weight, then looks up, surprised but still frazzled (no smile yet), and calls out. The white palm-print T-shirt stays on her shoulder and the purple phone stays in her pocket. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "must_stay_still": [
+    "neon sign",
+    "mannequin",
+    "chandelier",
+    "phone in pocket"
+   ],
+   "camera": "static",
+   "dialogue": "L3",
+   "file": "S05.mp4",
+   "qc": "not started",
+   "revisions": [],
+   "lipsync": true,
+   "flags": [
+    "Right edge shows part of a third person (sleek dark hair, white top, gold bangles) who is not Noelle. Plan: 1.12x centered-left post crop to drop the right ~12%. Director to confirm."
+   ]
+  },
+  {
+   "id": "06",
+   "t": [
+    9.5,
+    11.5
+   ],
+   "dur": 2.0,
+   "ratio": "9:16",
+   "keyframe": "S06_user.png",
+   "src_dims": [
+    941,
+    1671
+   ],
+   "sha256_12": "cc81ba523666",
+   "approval": "approved (user-supplied storyboard frame)",
+   "gen": "minimax_h3_max 768p start=end=keyframe",
+   "gen_s": 5,
+   "desc": "Friendly reunion: shared laugh (src 0-2.0s used)",
+   "prompt": "Noelle and Val laugh together warmly; Noelle gives Val a gentle side hug, Val keeps holding all the hangers. Small natural head and shoulder movement only, curls moving softly. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "must_stay_still": [
+    "neon sign",
+    "chandelier",
+    "dresses on hangers"
+   ],
+   "camera": "static",
+   "dialogue": "L4",
+   "file": "S06.mp4",
+   "qc": "not started",
+   "revisions": [],
+   "lipsync": "test on Noelle only; fallback: line plays over the laugh, no sync",
+   "notes": "Arm check passed at 4x: Noelle has one arm across Val's back and one hand at Val's waist."
+  },
+  {
+   "id": "PH",
+   "t": [
+    11.5,
+    19.0
+   ],
+   "dur": 7.5,
+   "ratio": "9:16",
+   "keyframe": "S08_user_instagram.png",
+   "src_dims": [
+    941,
+    1672
+   ],
+   "sha256_12": "e22b72ab8550",
+   "approval": "approved (user-supplied storyboard frame)",
+   "gen": "minimax_h3_max 768p start=end=keyframe + post-built phone screen",
+   "gen_s": 8,
+   "desc": "Merged S07+S08+S09: Noelle calls out the ghost-town Instagram, Val admits it, 'I know a guy', screen transforms into Sonny's drafts",
+   "prompt": "Noelle holds the phone steady toward camera and points at it, with a small playful head tilt and a knowing smirk while she talks. The phone does not move or rotate. Val's hair at the left edge sways slightly. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "must_stay_still": [
+    "phone size, position, angle and screen (screen is replaced in post)",
+    "neon sign"
+   ],
+   "camera": "static",
+   "dialogue": [
+    "L5",
+    "L6",
+    "L7",
+    "L8"
+   ],
+   "file": "SPH.mp4",
+   "qc": "not started",
+   "revisions": [],
+   "screen": "post-built (scripts/ep03/sonny_ui_anim.py, Stage B): 11.5-15.8 sparse grid from S08 frame; 15.8 wipe to Sonny UI; drafts 1-3 pop at 16.0/16.6/17.2 marked 'Draft'; Review chips turn green 17.8-18.4; 'Queue to Instagram' stays unpressed. Thumbnails and layout cut from S09_user_sonny_drafts.png with a feathered mask and fitted to the S08 phone with a perspective warp.",
+   "why_merged": "Only one keyframe exists for S07/S08, and S08/S09 are near-identical compositions. Project rule: never jump-cut near-identical keyframes; merge and build the change in post.",
+   "lipsync": "Noelle lines L5 and L7 only",
+   "secondary_keyframe": {
+    "keyframe": "S09_user_sonny_drafts.png",
+    "src_dims": [
+     941,
+     1670
+    ],
+    "sha256_12": "baa44140915a"
+   },
+   "flags": [
+    "S09 app header shows Sonny's full face as the avatar, which breaks the 'face concealed' rule. Plan: replace it in post with a hair-silhouette and waveform badge.",
+    "Instagram-style profile shows '12 Posts' but only 3 tiles are filled. Harmless, and leave it (no numbers are animated)."
+   ]
+  },
+  {
+   "id": "10",
+   "t": [
+    19.0,
+    21.6
+   ],
+   "dur": 2.6,
+   "ratio": "9:16",
+   "keyframe": "S10_user.png",
+   "src_dims": [
+    941,
+    1672
+   ],
+   "sha256_12": "1c49862e9c38",
+   "approval": "approved (user-supplied storyboard frame)",
+   "gen": "minimax_h3_max 768p start=end=keyframe",
+   "gen_s": 5,
+   "desc": "Val's amazed reaction (src 0-2.6s)",
+   "prompt": "Val's eyes widen and she gasps in delighted disbelief, hand at her mouth, then speaks excitedly, holding her clothes. Noelle beside her smiles calmly at her phone. Small natural movement only. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "must_stay_still": [
+    "phones",
+    "clothes bundle",
+    "neon sign",
+    "Noelle's curls (compact)"
+   ],
+   "camera": "static",
+   "dialogue": "L9",
+   "file": "S10.mp4",
+   "qc": "not started",
+   "revisions": [],
+   "lipsync": true
+  },
+  {
+   "id": "11",
+   "t": [
+    21.6,
+    25.1
+   ],
+   "dur": 3.5,
+   "ratio": "9:16",
+   "keyframe": "S11_user.png",
+   "src_dims": [
+    941,
+    1672
+   ],
+   "sha256_12": "72a1b8e442a7",
+   "approval": "approved (user-supplied storyboard frame)",
+   "gen": "grok_video_v15 720p start_image",
+   "gen_s": 4,
+   "desc": "Black-key invitation handoff; Val juggles clothes to take it",
+   "prompt": "Noelle holds out the black card with the gold key; Val, juggling her armful of clothes and hangers, fumbles slightly, then takes the card with one hand. Exactly one card, always held, never floating. Noelle's other hand stays in her pocket and her lips stay closed. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "must_stay_still": [
+    "neon sign",
+    "chandelier",
+    "gold key emblem on card"
+   ],
+   "camera": "static",
+   "dialogue": [
+    "L6a",
+    "L6b"
+   ],
+   "file": "S11.mp4",
+   "qc": "not started",
+   "revisions": [],
+   "notes": "Arm check passed at 4x: Noelle has one hand in her pocket and one holding the card; Val has one hand on the hangers and one on the card.",
+   "sunglasses_gate": "No Ep03 frame shows Noelle lowering her sunglasses. Per the brief it is NOT invented here. Options: (a) director supplies a frame and it is inserted before S11 (+1.2s), (b) skip the gesture this episode."
+  },
+  {
+   "id": "12",
+   "t": [
+    25.1,
+    26.6
+   ],
+   "dur": 1.5,
+   "ratio": "9:16",
+   "keyframe": "S12_user.png",
+   "src_dims": [
+    941,
+    1672
+   ],
+   "sha256_12": "c0091c9a2e19",
+   "approval": "approved (user-supplied storyboard frame)",
+   "gen": "grok_video_v15 720p start_image",
+   "gen_s": 2,
+   "desc": "Exit: Noelle walks out, Val stays inside with the card",
+   "prompt": "Noelle walks away from camera through the open glass doors toward the parked yellow coupe, steady stride, heels on the floor. Val in the left foreground holds the card and clothes, smiling after her. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "must_stay_still": [
+    "door frames",
+    "neon sign",
+    "parked car"
+   ],
+   "camera": "static",
+   "dialogue": [
+    "L6b (tail)"
+   ],
+   "file": "S12.mp4",
+   "qc": "not started",
+   "revisions": [],
+   "flags": [
+    "The car through the door reads as a modern yellow coupe (round tail lamps), not exactly the 80s wedge. Background and small, so acceptable."
+   ]
+  },
+  {
+   "id": "12A",
+   "t": [
+    26.6,
+    28.1
+   ],
+   "dur": 1.5,
+   "ratio": "9:16",
+   "keyframe": "S12A_user_rev03.png",
+   "src_dims": [
+    941,
+    1671
+   ],
+   "sha256_12": "a491a14c28b1",
+   "approval": "approved Rev03 per brief, but see gate",
+   "gen": "grok_video_v15 720p start_image",
+   "gen_s": 2,
+   "desc": "Noelle settles into the driver's seat (Rev03)",
+   "prompt": "Noelle lowers herself the last few inches into the driver's seat and pulls the door toward her with her right hand. The door panel stays rigid. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "must_stay_still": [
+    "door panel shape",
+    "side strakes",
+    "wheel",
+    "boutique signage"
+   ],
+   "camera": "static",
+   "file": "S12A.mp4",
+   "qc": "not started",
+   "revisions": [],
+   "gate": "ROOF: at 4x no roof is visible above Noelle. Her head and torso sit above the door-glass line and the car reads as open-top or targa, which conflicts with 'never a convertible'. Project history: Ep01 lost two takes on this exact problem. Options: (a) director confirms Rev03 anyway, (b) supply a rear-quarter 12A where the roof hides her, (c) drop 12A and cut S12 to S12B with door-open/close SFX bridging (runtime 32.5s). Recommend (c) until a fix arrives."
+  },
+  {
+   "id": "12B",
+   "t": [
+    28.1,
+    30.6
+   ],
+   "dur": 2.5,
+   "ratio": "9:16",
+   "keyframe": "S12B_user.png",
+   "src_dims": [
+    942,
+    1670
+   ],
+   "sha256_12": "27b81d92e800",
+   "approval": "approved (user-supplied storyboard frame)",
+   "gen": "minimax_h3_max 768p start=end=keyframe + post-built phone screen",
+   "gen_s": 5,
+   "desc": "Payoff: Sonny never stopped working, 3 drafts ready for Val's review",
+   "prompt": "Sonny's index finger taps the phone screen twice; his other hand holds the phone steady. His red trouser legs shift slightly. The phone does not move. Sonny's face stays hidden (cropped by frame and covered by his long black hair); he never turns toward camera. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "must_stay_still": [
+    "phone position and size",
+    "gear knob",
+    "console",
+    "dash badge"
+   ],
+   "camera": "static",
+   "file": "S12B.mp4",
+   "qc": "not started",
+   "revisions": [],
+   "screen": "post: re-use the Sonny UI from PH, one tap highlights 'Review' on Post 2 in sync with the finger. No counts, follower or engagement numbers.",
+   "flags": [
+    "The app avatar shows a small male face. Plan: replace it with the same silhouette badge as PH.",
+    "Prancing-horse dash badge is a real brand mark, as in Ep01/Ep02 user frames. Flagged; not altered."
+   ]
+  },
+  {
+   "id": "13",
+   "t": [
+    30.6,
+    34.0
+   ],
+   "dur": 3.4,
+   "ratio": "9:16",
+   "keyframe": "S13_user.png",
+   "src_dims": [
+    941,
+    1671
+   ],
+   "sha256_12": "8536f8690bdd",
+   "approval": "approved (user-supplied storyboard frame)",
+   "gen": "grok_video_v15 720p start_image",
+   "gen_s": 4,
+   "desc": "Ferrari departs into the sunset; end card from 31.4s",
+   "prompt": "The yellow hardtop coupe accelerates gently away from camera down the boulevard toward the setting sun, wheels turning, tail lights glowing, reflections following on the wet road. Camera stays still. Single car only. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "must_stay_still": [
+    "license plate 'BBY TIGR'",
+    "roofline",
+    "quad exhaust",
+    "palms"
+   ],
+   "camera": "static",
+   "file": "S13.mp4",
+   "qc": "not started",
+   "revisions": [],
+   "notes": "Plate is already readable in frame 0, so no separate plate pull-back (12M) is needed. Plate legibility is QA'd frame-by-frame."
+  }
+ ],
+ "dialogue": [
+  {
+   "id": "L1",
+   "speaker": "NOELLE",
+   "text": "Hey, you coming in?",
+   "shot": "02",
+   "mode": "lipsync"
+  },
+  {
+   "id": "L2",
+   "speaker": "SONNY",
+   "text": "Nah, I'm good here.",
+   "shot": "03",
+   "mode": "off-camera, no sync"
+  },
+  {
+   "id": "L3",
+   "speaker": "VAL",
+   "text": "Noelle! Girl!",
+   "shot": "05",
+   "mode": "lipsync"
+  },
+  {
+   "id": "L4",
+   "speaker": "NOELLE",
+   "text": "Val! What is going on here?",
+   "shot": "06",
+   "mode": "over laugh (sync test)"
+  },
+  {
+   "id": "L5",
+   "speaker": "NOELLE",
+   "text": "Your Instagram's a ghost town!",
+   "shot": "PH",
+   "mode": "lipsync"
+  },
+  {
+   "id": "L6",
+   "speaker": "VAL",
+   "text": "I barely have time to post!",
+   "shot": "PH",
+   "mode": "off-camera"
+  },
+  {
+   "id": "L7",
+   "speaker": "NOELLE",
+   "text": "I know a guy.",
+   "shot": "PH",
+   "mode": "lipsync"
+  },
+  {
+   "id": "L8",
+   "speaker": "SONNY",
+   "text": "Three posts ready for your approval.",
+   "shot": "PH",
+   "mode": "device audio (phone EQ)"
+  },
+  {
+   "id": "L9",
+   "speaker": "VAL",
+   "text": "Wait! He did all that? How do I get this?",
+   "shot": "10",
+   "mode": "lipsync"
+  },
+  {
+   "id": "L6a",
+   "speaker": "NOELLE",
+   "text": "(event slot)",
+   "shot": "11",
+   "mode": "VO, lips closed"
+  },
+  {
+   "id": "L6b",
+   "speaker": "NOELLE",
+   "text": "(event slot)",
+   "shot": "11-12",
+   "mode": "VO"
+  }
+ ],
+ "captions": [
+  {
+   "id": "c1",
+   "text": "Hey, you coming in?",
+   "t": [
+    2.35,
+    3.95
+   ]
+  },
+  {
+   "id": "c2",
+   "text": "Nah, I'm good here.",
+   "t": [
+    4.1,
+    5.45
+   ]
+  },
+  {
+   "id": "c3",
+   "text": "Noelle! Girl!",
+   "t": [
+    8.05,
+    9.45
+   ]
+  },
+  {
+   "id": "c4",
+   "text": "Val! What is going on here?",
+   "t": [
+    9.7,
+    11.45
+   ]
+  },
+  {
+   "id": "c5",
+   "text": "Your Instagram's a ghost town!",
+   "t": [
+    11.65,
+    13.5
+   ],
+   "y": 1600
+  },
+  {
+   "id": "c6",
+   "text": "I barely have time to post!",
+   "t": [
+    13.55,
+    15.1
+   ],
+   "y": 1600
+  },
+  {
+   "id": "c7",
+   "text": "I know a guy.",
+   "t": [
+    15.15,
+    16.2
+   ],
+   "y": 1600
+  },
+  {
+   "id": "c8",
+   "text": "\"Three posts ready for your approval.\"",
+   "t": [
+    16.25,
+    18.95
+   ],
+   "y": 1600
+  },
+  {
+   "id": "c9",
+   "text": "Wait! He did all that? How do I get this?",
+   "t": [
+    19.05,
+    21.55
+   ]
+  },
+  {
+   "id": "c10",
+   "text": "",
+   "t": [
+    21.7,
+    22.9
+   ]
+  },
+  {
+   "id": "c11",
+   "text": "",
+   "t": [
+    23.0,
+    26.0
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "file": "title.png",
+   "t": [
+    0.3,
+    1.9
+   ]
+  },
+  {
+   "file": "sonny_lt.png",
+   "t": [
+    15.8,
+    18.9
+   ]
+  },
+  {
+   "file": "endcard.png",
+   "t": [
+    31.4,
+    34.0
+   ]
+  }
+ ],
+ "audio_edit": {
+  "L1": {
+   "file": "audio/voices/ep03/L1_noelle.mp3",
+   "at": 2.4
+  },
+  "L2": {
+   "file": "audio/voices/ep03/L2_sonny.mp3",
+   "at": 4.15
+  },
+  "L3": {
+   "file": "audio/voices/ep03/L3_val.mp3",
+   "at": 8.1
+  },
+  "L4": {
+   "file": "audio/voices/ep03/L4_noelle.mp3",
+   "at": 9.75
+  },
+  "L5": {
+   "file": "audio/voices/ep03/L5_noelle.mp3",
+   "at": 11.7
+  },
+  "L6": {
+   "file": "audio/voices/ep03/L6_val.mp3",
+   "at": 13.6
+  },
+  "L7": {
+   "file": "audio/voices/ep03/L7_noelle.mp3",
+   "at": 15.2
+  },
+  "L8": {
+   "file": "audio/voices/ep03/L8_sonny.mp3",
+   "at": 16.3,
+   "device_eq": true
+  },
+  "L9": {
+   "file": "audio/voices/ep03/L9_val.mp3",
+   "at": 19.1
+  }
+ },
+ "sfx_cues": [
+  {
+   "type": "native",
+   "shot": "01",
+   "at": 0.0,
+   "dur": 2.0,
+   "gain_db": -10,
+   "_note": "engine settle/idle"
+  },
+  {
+   "type": "engine_idle_bed",
+   "at": 2.0,
+   "dur": 3.5,
+   "gain_db": -18,
+   "_note": "muffled cabin idle under S02-S03"
+  },
+  {
+   "type": "boutique_ambience",
+   "at": 5.5,
+   "dur": 19.6,
+   "gain_db": -24
+  },
+  {
+   "type": "door_chime",
+   "at": 5.6
+  },
+  {
+   "type": "fabric_rustle",
+   "at": 7.1
+  },
+  {
+   "type": "fabric_rustle",
+   "at": 8.6
+  },
+  {
+   "type": "whoosh",
+   "at": 15.75,
+   "_note": "screen wipe to Sonny UI"
+  },
+  {
+   "type": "ping",
+   "at": 16.0
+  },
+  {
+   "type": "ping",
+   "at": 16.6
+  },
+  {
+   "type": "ping",
+   "at": 17.2
+  },
+  {
+   "type": "click",
+   "at": 17.8
+  },
+  {
+   "type": "click",
+   "at": 18.1
+  },
+  {
+   "type": "click",
+   "at": 18.4
+  },
+  {
+   "type": "card_accent",
+   "at": 22.1,
+   "_note": "low shimmer + soft hit as the card changes hands"
+  },
+  {
+   "type": "door_open",
+   "at": 26.7
+  },
+  {
+   "type": "door_close",
+   "at": 27.95
+  },
+  {
+   "type": "click",
+   "at": 29.0
+  },
+  {
+   "type": "click",
+   "at": 29.6
+  },
+  {
+   "type": "engine_rev_accel",
+   "at": 30.5,
+   "dur": 3.5,
+   "gain_db": -6
+  }
+ ],
+ "end_card": {
+  "lines": [
+   "UNLOCKING AI CHALLENGE",
+   "BUILD AN AI-AMPLIFIED BUSINESS"
+  ],
+  "registration": "",
+  "window": [
+   31.4,
+   34.0
+  ]
+ },
+ "music_file": "audio/music/ep03_retro_action_34s.mp3",
+ "episode_dir": "episodes/03-sonny-social-media",
+ "lower_third": {
+  "name": "SONNY",
+  "role": "AI SOCIAL MEDIA MANAGER",
+  "file": "sonny_lt.png"
+ },
+ "event": "events/evergreen-ep03.json",
+ "event_slots": {
+  "L6a": {
+   "shot": "11",
+   "beat": "Noelle offers the black key card",
+   "at": 21.75,
+   "max_s": 1.2,
+   "caption": "c10",
+   "guide": "2-3 words, no date"
+  },
+  "L6b": {
+   "shot": "11-12",
+   "beat": "Val takes the card / Noelle exits",
+   "at": 23.0,
+   "max_s": 3.0,
+   "caption": "c11",
+   "guide": "<=8 words"
+  }
+ },
+ "voices": {
+  "NOELLE": "Sloane b57b22a0-f287-405b-bc82-6f08f5e6bb1f (locked)",
+  "VAL": "TBD: 3 candidates (production sheet)",
+  "SONNY": "TBD: 3 candidates (production sheet)"
+ },
+ "gates_open": [
+  "G1 S02 signage approval",
+  "G2 S12A roof",
+  "G3 sunglasses frame (supply or skip)",
+  "G4 avatar face replacement in post (S09/S12B)",
+  "G5 S05 right-edge crop",
+  "G6 Val + Sonny voice picks",
+  "G7 Sonny canonical reference sheet not in repo",
+  "G8 spend authorization"
+ ],
+ "approval_status": "Stage A pre-production: nothing paid has run",
+ "retired_takes": []
+}
