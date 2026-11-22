@@ -70,3 +70,10 @@ File: `exports/vertical/EP03_sonny_9x16_v2.mp4`. 35.000s, 1080x1920, -16.6 LUFS,
 
 New lesson: in two-person shots sync_so auto-detect can pick the wrong face; pass `active_speaker_detection` {frame_number, coordinates}.
 Spend v2: ~146 credits (6 minimax 75, 1 grok 13.5, 7 sync ~57.5). Balance 479.61. Episode total ~399.
+
+## v3 (final)
+- S06 hug: minimax take 3 (Val silent) + sync_so on Noelle (coords 610,330). Mouth-band motion on Noelle tracks L4 (peaks 0.25–0.5s, 1.0–2.25s); Val's opening open grin (frames 0–17) held to her closed smile in post (feathered mouth patch from frame 18, phase-correlation aligned). Val mouth motion ≤1 after patch except head-move residue; strips at 4 fps across 9.3–11.8s confirm.
+- S09 finger: unchanged per director (push-in + screen animation is enough).
+- S10: L9 +0.08s, L9b +0.30s; cross-correlation lag ~0 on both parts.
+- S12B: green tap glows removed; click SFX kept.
+- Export EP03_sonny_9x16_v3.mp4: 35.000s, -16.7 LUFS, -1.1 dBTP.

@@ -46,15 +46,16 @@
   ]
  },
  "06": {
-  "job": "b6ca1248-2a8d-45f5-9bef-825dbbaeb6bd",
+  "job": "69422f4d-fb40-4ecc-ba8f-8bece972af3c",
   "raw": "S06_raw.mp4",
-  "src_in": 0.0,
-  "qc": "v2: minimax talking take ecec1f0d + sync_so 85e0da03 (speaker coords on Noelle; auto-detect f82a01bf synced Val). PARTIAL: Noelle articulates 'Val!', grins through rest",
-  "file": "S06_lipsync.mp4",
-  "lipsync": "none by design: both faces mid-laugh; L4 plays over the laugh",
+  "src_in": 0,
+  "qc": "v3: minimax take 3 (Val silent) + sync_so on Noelle (610,330, job 69422f4d); Val's opening open-grin held to closed smile in post (frames 0-17 mouth patch from frame 18)",
+  "file": "S06_lipsync_v3h.mp4",
+  "lipsync": "sync_so on Noelle (speaker coords)",
   "retired": [
    "S06_raw.mp4 (v1 laugh, no talking)",
-   "S06_take2_lipsync_wrong_speaker.mp4 (auto-detect synced Val)"
+   "S06_take2_lipsync_wrong_speaker.mp4 (auto-detect synced Val)",
+   "S06_lipsync.mp4 (v2 partial sync: Noelle articulated only 'Val!')"
   ]
  },
  "08": {
