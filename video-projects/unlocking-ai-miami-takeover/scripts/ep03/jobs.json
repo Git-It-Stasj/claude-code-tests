@@ -81,8 +81,8 @@
   "job": "e2c1b656-505d-4d1a-a6d6-720ef72db875",
   "raw": "S10_raw.mp4",
   "src_in": 0.0,
-  "qc": "v2: minimax 8698a515 start-only take 3 (Val drops hand, talks; Noelle still) src 1.2-4.52 + sync_so 1ce0a6ae. PASS",
-  "file": "S10_lipsync.mp4",
+  "qc": "v2: minimax 8698a515 start-only take 3 (Val drops hand, talks; Noelle still) src 1.2-4.52 + sync_so 1ce0a6ae. PASS | v3: L9 split, voice +0.08s (part 1) / +0.30s (part 2) to match measured mouth lag; last frame held 0.23s",
+  "file": "S10_final.mp4",
   "lipsync": "sync_so 46c2eecf PASS: syllable shapes, closes in pause, no hand ghosting (1.8-2.2s)",
   "retired": [
    "S10_take2_roles_swapped.mp4 (minimax 0dd8ee05, start-only: Noelle does the gasp and talks, Val only smiles; director note v1: Val must say the line)",
@@ -123,7 +123,7 @@
   "src_in": 0.0,
   "qc": "PASS take 1: finger taps, phone steady, face hidden (hair only), console stable (8 frames 0-3.0s); screen animated in post",
   "file": "S12B.mp4",
-  "post": "scripts/ep03/screen_comp.py S12B: tap glows at measured fingertip contacts 0.62s (Post 2 Review) / 1.50s (Post 1 Review)"
+  "post": "v3: tap glows removed (director)"
  },
  "13": {
   "job": "ea6bb9fd-657b-4946-b5c3-3d4887a4f09f",

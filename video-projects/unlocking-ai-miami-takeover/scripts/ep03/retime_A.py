@@ -34,7 +34,8 @@ LINES = {  # id: (file, segs)
  "L6": ("audio/voices/ep03/L6_val.mp3", [[0, 99]]),
  "L7": ("audio/voices/ep03/L7_noelle.mp3", [[0, 99]]),
  "L8": ("audio/voices/ep03/L8_sonny.mp3", [[0, 99]]),
- "L9": ("audio/voices/ep03/L9_val.mp3", [[0, 0.57], [0.83, 2.14], [2.50, 3.87]]),
+ "L9": ("audio/voices/ep03/L9_val.mp3", [[0, 0.57], [0.83, 2.14]]),
+ "L9b": ("audio/voices/ep03/L9_val.mp3", [[2.50, 3.87]]),  # 'How do I get this?' placed separately (v3 sync nudge)
  "L6a": ("audio/voices/events/evergreen-ep03/L6a.mp3", [[0, 99]]),
 }
 
@@ -55,11 +56,13 @@ def apply(m):
     s0 = t; e = put("L6", s0 + 0.04); shot("08V", round(e + 0.06 - s0, 2))
     s0 = t; e = put("L7", s0 + 0.04); shot("08B", round(e + 0.12 - s0, 2))
     shot("09", 3.0); put("L8", T["09"][0] + 0.15)
-    s10 = t; e = put("L9", s10 + 0.1); shot("10", round(e + 0.15 - s10, 2))
+    # v3: voice nudged later to match the synced mouth (measured lag: 2 frames on part 1, 7-8 frames on part 2)
+    s10 = t; e = put("L9", s10 + 0.1 + 0.08)
+    e = put("L9b", place["L9"][0] + 1.88 + 0.22 + M["L9b"][2]); shot("10", round(e + 0.08 - s10, 2))
     shot("11G", 1.2); put("L6a", T["11G"][0] + 0.05)
     shot("11", 3.0); L6b_at = round(T["11"][0] + 0.1, 2)
-    shot("12", 1.3); shot("12A", 1.3); shot("12B", 2.0); shot("13", round(TOTAL - t, 2))
-    owner = {"L1": "02", "L2": "03", "L3": "05", "L4": "06", "L5": "08", "L6": "08V", "L7": "08B", "L8": "09", "L9": "10", "L6a": "11G"}
+    shot("12", 1.3); shot("12A", 1.1); shot("12B", 2.0); shot("13", round(TOTAL - t, 2))
+    owner = {"L1": "02", "L2": "03", "L3": "05", "L4": "06", "L5": "08", "L6": "08V", "L7": "08B", "L8": "09", "L9": "10", "L9b": "10", "L6a": "11G"}
     for lid, sid in owner.items():
         a, b = T[sid]; assert a <= place[lid][1] and place[lid][2] <= b + 1e-6, (lid, place[lid], T[sid])
     assert T["13"][1] - T["13"][0] >= 2.5, T["13"]
@@ -70,7 +73,8 @@ def apply(m):
     txt = {d["id"]: d["text"] for d in m["dialogue"]}
     caps = []
     for i, lid in enumerate(["L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8", "L9"], 1):
-        a, b = T[owner[lid]]; c = {"id": f"c{i}", "text": txt[lid] if lid != "L8" else f"\"{txt[lid]}\"", "t": [round(max(a, place[lid][1] - 0.05), 2), round(min(b, place[lid][2] + 0.12), 2)]}
+        endp = place["L9b"][2] if lid == "L9" else place[lid][2]
+        a, b = T[owner[lid]]; c = {"id": f"c{i}", "text": txt[lid] if lid != "L8" else f"\"{txt[lid]}\"", "t": [round(max(a, place[lid][1] - 0.05), 2), round(min(b, endp + 0.12), 2)]}
         if lid in ("L5", "L7"): c["y"] = 1600
         if lid == "L8": c["y"] = 1660
         caps.append(c)

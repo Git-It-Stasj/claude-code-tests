@@ -134,7 +134,7 @@ def recipe_S09():
 def recipe_S12B():
     K = cv2.cvtColor(cv2.imread(os.path.join(KF, "S12B_user.png")), cv2.COLOR_BGR2RGB).astype(np.float32)
     # taps measured from fingertip contact (skin coverage peaks): 0.62s on Post 2 'Review', 1.50s on Post 1 'Review'
-    TAPS = [(0.62, (418, 643, 460, 666)), (1.50, (410, 594, 450, 614))]
+    TAPS = []  # v3 director: no green highlight over Sonny's finger (was 0.62s Post 2 / 1.50s Post 1)
     def layer(t):
         L = np.zeros(K.shape[:2] + (4,), np.float32)
         for at, chip in TAPS:
