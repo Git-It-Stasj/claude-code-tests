@@ -150,3 +150,15 @@ These frames are 9:16; cropping to 16:9 would lose two-thirds of the frame and c
 **Timing v2 (34.7s):** 01–10 unchanged (0–21.6). **11G sunglasses 21.6–22.8** (L6a "Glad you asked.", VO), **11 card 22.8–25.8** (L6b), 12 exit 25.8–27.3, 12A 27.3–28.8, 12B 28.8–31.3, 13 drive-off 31.3–34.7, end card 32.1–34.7.
 
 **Budget v2:** grok 23s = 103.5 · Minimax 6×5s = 75.0 · lip sync ~34 · voices ~4 · music ~5 → **~222**, **~255** with the 15% buffer (+5 vs the approved ~250 because of the sunglasses shot). Balance 878.22.
+
+## 11. Timing A (director-approved, 2026-11-22): measured dialogue, 35.0s
+
+Recorded lines ran ~2.2s over v2. Fix without speeding up voices: trim the internal pauses in L4 and L9 (segs), lengthen the dialogue shots, shorten the holds without dialogue. Lines are placed by measured speech onset; `scripts/ep03/retime_A.py` asserts each line ends inside its shot.
+
+| Shot | 01 | 02 | 03 | 04 | 05 | 06 | 08 | 09 | 10 | 11G | 11 | 12 | 12A | 12B | 13 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| In (s) | 0.00 | 1.80 | 3.80 | 5.60 | 6.90 | 9.30 | 11.80 | 17.37 | 20.37 | 23.69 | 24.89 | 27.89 | 29.19 | 30.49 | 32.49 |
+| Len (s) | 1.80 | 2.00 | 1.80 | 1.30 | 2.40 | 2.50 | 5.57 | 3.00 | 3.32 | 1.20 | 3.00 | 1.30 | 1.30 | 2.00 | 2.51 |
+
+End card 33.09–35.0 (1.9s). S08 now needs a 6s Minimax generation (+2.5 cr). Budget ~224, ~258 with buffer.
+Voices: Val = Ines, Sonny = Caspian (registered in `reference-assets.json`). Dialogue spend: ~4.9 cr (candidates + 10 lines).

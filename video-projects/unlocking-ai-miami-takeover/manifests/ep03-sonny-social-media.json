@@ -14,7 +14,7 @@
   "SHOP_OWNER_03 (Valentina 'Val' Cruz)",
   "SONNY (face concealed)"
  ],
- "duration_s": 34.7,
+ "duration_s": 35.0,
  "deliverable_scope": "VERTICAL first (9:16 1080x1920). 16:9 needs native widescreen frames from the director; reframe plan in the production sheet.",
  "keyframe_source": "User-supplied images - DO NOT REGENERATE. episodes/03-sonny-social-media/keyframes/user/",
  "license_plate": "BBY TIGR visible in S13 frame 0.",
@@ -29,9 +29,9 @@
    "id": "01",
    "t": [
     0.0,
-    2.0
+    1.8
    ],
-   "dur": 2.0,
+   "dur": 1.8,
    "ratio": "9:16",
    "keyframe": "S01_user.jpg",
    "src_dims": [
@@ -60,8 +60,8 @@
   {
    "id": "02",
    "t": [
-    2.0,
-    4.0
+    1.8,
+    3.8
    ],
    "dur": 2.0,
    "ratio": "9:16",
@@ -96,10 +96,10 @@
   {
    "id": "03",
    "t": [
-    4.0,
-    5.5
+    3.8,
+    5.6
    ],
-   "dur": 1.5,
+   "dur": 1.8,
    "ratio": "9:16",
    "keyframe": "S03_user.png",
    "src_dims": [
@@ -126,10 +126,10 @@
   {
    "id": "04",
    "t": [
-    5.5,
-    7.0
+    5.6,
+    6.9
    ],
-   "dur": 1.5,
+   "dur": 1.3,
    "ratio": "9:16",
    "keyframe": "S04_user.png",
    "src_dims": [
@@ -155,10 +155,10 @@
   {
    "id": "05",
    "t": [
-    7.0,
-    9.5
+    6.9,
+    9.3
    ],
-   "dur": 2.5,
+   "dur": 2.4,
    "ratio": "9:16",
    "keyframe": "S05_user.png",
    "src_dims": [
@@ -190,10 +190,10 @@
   {
    "id": "06",
    "t": [
-    9.5,
-    11.5
+    9.3,
+    11.8
    ],
-   "dur": 2.0,
+   "dur": 2.5,
    "ratio": "9:16",
    "keyframe": "S06_user.png",
    "src_dims": [
@@ -222,10 +222,10 @@
   {
    "id": "08",
    "t": [
-    11.5,
-    15.5
+    11.8,
+    17.37
    ],
-   "dur": 4.0,
+   "dur": 5.57,
    "ratio": "9:16",
    "keyframe": "S08_user_instagram.png",
    "src_dims": [
@@ -235,7 +235,7 @@
    "sha256_12": "e22b72ab8550",
    "approval": "approved (user-supplied storyboard frame)",
    "gen": "minimax_h3_max 768p start=end=keyframe (src 0-4.0s) + original screen re-composited",
-   "gen_s": 5,
+   "gen_s": 6,
    "desc": "Noelle calls out the ghost-town Instagram; Val admits it; 'I know a guy'",
    "prompt": "Noelle holds the phone steady toward camera and points at it, with a small playful head tilt and a knowing smirk while she talks. The phone does not move or rotate. Val's hair at the left edge sways slightly. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
    "must_stay_still": [
@@ -260,10 +260,10 @@
   {
    "id": "09",
    "t": [
-    15.5,
-    19.0
+    17.37,
+    20.37
    ],
-   "dur": 3.5,
+   "dur": 3.0,
    "ratio": "9:16",
    "keyframe": "S09_user_sonny_drafts.png",
    "src_dims": [
@@ -290,15 +290,16 @@
    "revisions": [],
    "cut_in": "Punch-in on a whoosh at 15.5: S08 ends on a digital push toward the phone, so the bigger S09 phone reads as Noelle thrusting it at Val, not as a jump cut between near-identical frames.",
    "screen": "post-built over the user's frame (scripts/ep03/sonny_ui_anim.py, Stage B): 15.5 Sonny header, waveform animating while L8 plays; banner '3 Posts Drafted for Your Approval' types in; Posts 1-3 pop in at 15.9/16.5/17.1 tagged 'Draft'; each 'Review' chip lights green with a tick 17.6/17.9/18.2; 'Queue to Instagram' and the Schedule tab pulse at 18.4 (highlighted, not pressed: Val still has to approve). All elements cut from this frame with feathered masks, so the layout is exactly the user's.",
-   "notes": "Sonny's face on the app avatar is intentional (director): concealed in person, revealed only as his app profile. Keep as drawn."
+   "notes": "Sonny's face on the app avatar is intentional (director): concealed in person, revealed only as his app profile. Keep as drawn.",
+   "extra_timing": "drafts pop +0.35/+0.75/+1.15s, Review ticks +1.6/+1.9/+2.2s, Queue+Schedule pulse +2.55s (shot-relative)"
   },
   {
    "id": "10",
    "t": [
-    19.0,
-    21.6
+    20.37,
+    23.69
    ],
-   "dur": 2.6,
+   "dur": 3.32,
    "ratio": "9:16",
    "keyframe": "S10_user.png",
    "src_dims": [
@@ -327,8 +328,8 @@
   {
    "id": "11G",
    "t": [
-    21.6,
-    22.8
+    23.69,
+    24.89
    ],
    "dur": 1.2,
    "ratio": "9:16",
@@ -361,8 +362,8 @@
   {
    "id": "11",
    "t": [
-    22.8,
-    25.8
+    24.89,
+    27.89
    ],
    "dur": 3.0,
    "ratio": "9:16",
@@ -394,10 +395,10 @@
   {
    "id": "12",
    "t": [
-    25.8,
-    27.3
+    27.89,
+    29.19
    ],
-   "dur": 1.5,
+   "dur": 1.3,
    "ratio": "9:16",
    "keyframe": "S12_user.png",
    "src_dims": [
@@ -429,10 +430,10 @@
   {
    "id": "12A",
    "t": [
-    27.3,
-    28.8
+    29.19,
+    30.49
    ],
-   "dur": 1.5,
+   "dur": 1.3,
    "ratio": "9:16",
    "keyframe": "S12A_user_rev03.png",
    "src_dims": [
@@ -460,10 +461,10 @@
   {
    "id": "12B",
    "t": [
-    28.8,
-    31.3
+    30.49,
+    32.49
    ],
-   "dur": 2.5,
+   "dur": 2.0,
    "ratio": "9:16",
    "keyframe": "S12B_user.png",
    "src_dims": [
@@ -495,10 +496,10 @@
   {
    "id": "13",
    "t": [
-    31.3,
-    34.7
+    32.49,
+    35.0
    ],
-   "dur": 3.4,
+   "dur": 2.51,
    "ratio": "9:16",
    "keyframe": "S13_user.png",
    "src_dims": [
@@ -608,40 +609,40 @@
    "id": "c1",
    "text": "Hey, you coming in?",
    "t": [
-    2.35,
-    3.95
+    2.1,
+    3.53
    ]
   },
   {
    "id": "c2",
    "text": "Nah, I'm good here.",
    "t": [
-    4.1,
-    5.45
+    3.85,
+    5.56
    ]
   },
   {
    "id": "c3",
    "text": "Noelle! Girl!",
    "t": [
-    8.05,
-    9.45
+    7.55,
+    9.3
    ]
   },
   {
    "id": "c4",
    "text": "Val! What is going on here?",
    "t": [
-    9.7,
-    11.45
+    9.35,
+    11.8
    ]
   },
   {
    "id": "c5",
    "text": "Your Instagram's a ghost town!",
    "t": [
-    11.65,
-    13.5
+    11.85,
+    14.09
    ],
    "y": 1600
   },
@@ -649,8 +650,8 @@
    "id": "c6",
    "text": "I barely have time to post!",
    "t": [
-    13.55,
-    15.1
+    14.11,
+    16.19
    ],
    "y": 1600
   },
@@ -658,8 +659,8 @@
    "id": "c7",
    "text": "I know a guy.",
    "t": [
-    15.15,
-    16.2
+    16.21,
+    17.37
    ],
    "y": 1600
   },
@@ -667,8 +668,8 @@
    "id": "c8",
    "text": "\"Three posts ready for your approval.\"",
    "t": [
-    16.25,
-    18.95
+    17.47,
+    19.9
    ],
    "y": 1660
   },
@@ -676,24 +677,24 @@
    "id": "c9",
    "text": "Wait! He did all that? How do I get this?",
    "t": [
-    19.05,
-    21.55
+    20.42,
+    23.66
    ]
   },
   {
    "id": "c10",
    "text": "",
    "t": [
-    21.7,
-    22.75
+    23.69,
+    24.84
    ]
   },
   {
    "id": "c11",
    "text": "",
    "t": [
-    22.9,
-    25.9
+    24.99,
+    27.94
    ]
   }
  ],
@@ -702,61 +703,127 @@
    "file": "title.png",
    "t": [
     0.3,
-    1.9
+    1.7
    ]
   },
   {
    "file": "sonny_lt.png",
    "t": [
-    15.6,
-    18.9
+    17.47,
+    20.27
    ]
   },
   {
    "file": "endcard.png",
    "t": [
-    32.1,
-    34.7
+    33.09,
+    35.0
    ]
   }
  ],
  "audio_edit": {
   "L1": {
    "file": "audio/voices/ep03/L1_noelle.mp3",
-   "at": 2.4
+   "at": 2.08,
+   "segs": [
+    [
+     0,
+     99
+    ]
+   ]
   },
   "L2": {
    "file": "audio/voices/ep03/L2_sonny.mp3",
-   "at": 4.15
+   "at": 3.83,
+   "segs": [
+    [
+     0,
+     99
+    ]
+   ]
   },
   "L3": {
    "file": "audio/voices/ep03/L3_val.mp3",
-   "at": 8.1
+   "at": 7.54,
+   "segs": [
+    [
+     0,
+     99
+    ]
+   ]
   },
   "L4": {
    "file": "audio/voices/ep03/L4_noelle.mp3",
-   "at": 9.75
+   "at": 9.35,
+   "segs": [
+    [
+     0,
+     0.82
+    ],
+    [
+     1.02,
+     2.69
+    ]
+   ]
   },
   "L5": {
    "file": "audio/voices/ep03/L5_noelle.mp3",
-   "at": 11.7
+   "at": 11.83,
+   "segs": [
+    [
+     0,
+     99
+    ]
+   ]
   },
   "L6": {
    "file": "audio/voices/ep03/L6_val.mp3",
-   "at": 13.6
+   "at": 14.11,
+   "segs": [
+    [
+     0,
+     99
+    ]
+   ]
   },
   "L7": {
    "file": "audio/voices/ep03/L7_noelle.mp3",
-   "at": 15.2
+   "at": 16.2,
+   "segs": [
+    [
+     0,
+     99
+    ]
+   ]
   },
   "L8": {
    "file": "audio/voices/ep03/L8_sonny.mp3",
-   "at": 16.3,
+   "at": 17.52,
+   "segs": [
+    [
+     0,
+     99
+    ]
+   ],
    "device_eq": true
   },
   "L9": {
    "file": "audio/voices/ep03/L9_val.mp3",
-   "at": 19.1
+   "at": 20.47,
+   "segs": [
+    [
+     0,
+     0.57
+    ],
+    [
+     0.83,
+     2.14
+    ],
+    [
+     2.5,
+     3.87
+    ]
+   ]
   }
  },
  "sfx_cues": [
@@ -764,98 +831,97 @@
    "type": "native",
    "shot": "01",
    "at": 0.0,
-   "dur": 2.0,
+   "dur": 1.8,
    "gain_db": -10,
    "_note": "engine settle/idle"
   },
   {
    "type": "engine_idle_bed",
-   "at": 2.0,
-   "dur": 3.5,
+   "at": 1.8,
+   "dur": 3.8,
    "gain_db": -18,
-   "_note": "muffled cabin idle under S02-S03"
+   "_note": "muffled cabin idle"
   },
   {
    "type": "boutique_ambience",
-   "at": 5.5,
-   "dur": 21.0,
+   "at": 5.6,
+   "dur": 23.590000000000003,
    "gain_db": -24
   },
   {
    "type": "door_chime",
-   "at": 5.6
+   "at": 5.7
   },
   {
    "type": "fabric_rustle",
-   "at": 7.1
+   "at": 7.0
   },
   {
    "type": "fabric_rustle",
-   "at": 8.6
+   "at": 8.4
   },
   {
    "type": "whoosh",
-   "at": 15.4,
+   "at": 17.27,
    "_note": "punch-in to S09"
   },
   {
    "type": "ping",
-   "at": 15.9
+   "at": 17.72
   },
   {
    "type": "ping",
-   "at": 16.5
+   "at": 18.12
   },
   {
    "type": "ping",
-   "at": 17.1
+   "at": 18.52
   },
   {
    "type": "click",
-   "at": 17.6
+   "at": 18.97
   },
   {
    "type": "click",
-   "at": 17.9
+   "at": 19.27
   },
   {
    "type": "click",
-   "at": 18.2
+   "at": 19.57
   },
   {
    "type": "chime",
-   "at": 18.4
-  },
-  {
-   "type": "card_accent",
-   "at": 23.3,
-   "_note": "low shimmer + soft hit as the card changes hands"
+   "at": 19.92
   },
   {
    "type": "glint",
-   "at": 21.9,
+   "at": 23.99,
    "_note": "sunglasses"
   },
   {
+   "type": "card_accent",
+   "at": 25.49
+  },
+  {
    "type": "door_open",
-   "at": 27.4
+   "at": 29.24
   },
   {
    "type": "door_close",
-   "at": 28.65
+   "at": 30.34
   },
   {
    "type": "click",
-   "at": 29.7
+   "at": 31.09
   },
   {
    "type": "click",
-   "at": 30.3
+   "at": 31.69
   },
   {
    "type": "engine_rev_accel",
-   "at": 31.2,
-   "dur": 3.5,
+   "at": 32.39,
+   "dur": 2.61,
    "gain_db": -6
   }
  ],
@@ -866,8 +932,8 @@
   ],
   "registration": "",
   "window": [
-   32.1,
-   34.7
+   33.09,
+   35.0
   ]
  },
  "music_file": "audio/music/ep03_retro_action_35s.mp3",
@@ -882,16 +948,16 @@
   "L6a": {
    "shot": "11G",
    "beat": "Noelle lowers her sunglasses",
-   "at": 21.75,
-   "max_s": 1.2,
+   "at": 23.74,
+   "max_s": 1.15,
    "caption": "c10",
    "guide": "2-3 words, no date"
   },
   "L6b": {
    "shot": "11",
    "beat": "Noelle hands Val the black key card",
-   "at": 22.9,
-   "max_s": 3.0,
+   "at": 24.99,
+   "max_s": 2.9,
    "caption": "c11",
    "guide": "<=8 words"
   }
@@ -913,9 +979,9 @@
   "Budget approved (~250 credits)"
  ],
  "open_items": [
-  "Dialogue runs ~2.2s long vs v2 timing: retime pending director choice",
   "Sonny UI: Queue/Schedule highlighted, not pressed (default unless director says otherwise)"
  ],
  "approval_status": "Stage B authorized: voice candidates next",
- "retired_takes": []
+ "retired_takes": [],
+ "timing_version": "A (director-approved 2026-11-22): measured dialogue, 35.0s"
 }
