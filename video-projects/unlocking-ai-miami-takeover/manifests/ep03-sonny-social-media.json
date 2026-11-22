@@ -14,11 +14,7 @@
   "SHOP_OWNER_03 (Valentina 'Val' Cruz)",
   "SONNY (face concealed)"
  ],
- "duration_s": 34.0,
- "duration_alt_s": {
-  "without_12A": 32.5,
-  "with_sunglasses_insert": 35.2
- },
+ "duration_s": 34.7,
  "deliverable_scope": "VERTICAL first (9:16 1080x1920). 16:9 needs native widescreen frames from the director; reframe plan in the production sheet.",
  "keyframe_source": "User-supplied images - DO NOT REGENERATE. episodes/03-sonny-social-media/keyframes/user/",
  "license_plate": "BBY TIGR visible in S13 frame 0.",
@@ -75,7 +71,7 @@
     1183
    ],
    "sha256_12": "8e8e2c03a7e3",
-   "approval": "PENDING: storefront-signage correction (see gate)",
+   "approval": "approved (director confirmed corrected signage revision, 2026-11-22)",
    "gen": "minimax_h3_max 768p start=end=keyframe",
    "gen_s": 5,
    "desc": "Noelle asks Sonny if he's coming in (src 0-2.0s used)",
@@ -91,10 +87,9 @@
    "file": "S02.mp4",
    "qc": "not started",
    "revisions": [],
-   "gate": "SIGNAGE: this upload already reads 'Val Cruz BOUTIQUE' with the VC monogram (checked at 4x crop), so it looks like the corrected revision. No approval record exists; needs an explicit yes from the director before animation.",
    "flags": [
     "Source is a 660x1183 JPEG (soft when upscaled).",
-    "S01 and S02 were uploaded with the same original filename DD9142E8...; confirm S02 is the corrected revision, not an older take."
+    "Director confirmed S02 is the corrected signage revision."
    ],
    "lipsync": true
   },
@@ -175,7 +170,7 @@
    "gen": "grok_video_v15 720p start_image",
    "gen_s": 3,
    "desc": "Val overwhelmed, juggling dresses; looks up and greets Noelle",
-   "prompt": "Val shifts the armfuls of dresses on their hangers, struggling to keep hold, fabric swaying under its own weight, then looks up, surprised but still frazzled (no smile yet), and calls out. The white palm-print T-shirt stays on her shoulder and the purple phone stays in her pocket. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "prompt": "Val shifts the armfuls of dresses on their hangers, struggling to keep hold, fabric swaying under its own weight, then looks up, surprised but still frazzled (no smile yet), and calls out. The customer at the right edge stays at the counter, turned toward Val. The white palm-print T-shirt stays on her shoulder and the purple phone stays in her pocket. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
    "must_stay_still": [
     "neon sign",
     "mannequin",
@@ -189,7 +184,7 @@
    "revisions": [],
    "lipsync": true,
    "flags": [
-    "Right edge shows part of a third person (sleek dark hair, white top, gold bangles) who is not Noelle. Plan: 1.12x centered-left post crop to drop the right ~12%. Director to confirm."
+    "Right-edge figure is a customer Val is helping before Noelle arrives (director). Keep full frame, no crop."
    ]
   },
   {
@@ -295,9 +290,7 @@
    "revisions": [],
    "cut_in": "Punch-in on a whoosh at 15.5: S08 ends on a digital push toward the phone, so the bigger S09 phone reads as Noelle thrusting it at Val, not as a jump cut between near-identical frames.",
    "screen": "post-built over the user's frame (scripts/ep03/sonny_ui_anim.py, Stage B): 15.5 Sonny header, waveform animating while L8 plays; banner '3 Posts Drafted for Your Approval' types in; Posts 1-3 pop in at 15.9/16.5/17.1 tagged 'Draft'; each 'Review' chip lights green with a tick 17.6/17.9/18.2; 'Queue to Instagram' and the Schedule tab pulse at 18.4 (highlighted, not pressed: Val still has to approve). All elements cut from this frame with feathered masks, so the layout is exactly the user's.",
-   "flags": [
-    "App avatar shows Sonny's full face, which breaks 'face concealed' (G4). Plan: cover it in post with a hair-silhouette and waveform badge."
-   ]
+   "notes": "Sonny's face on the app avatar is intentional (director): concealed in person, revealed only as his app profile. Keep as drawn."
   },
   {
    "id": "10",
@@ -332,12 +325,46 @@
    "lipsync": true
   },
   {
-   "id": "11",
+   "id": "11G",
    "t": [
     21.6,
-    25.1
+    22.8
    ],
-   "dur": 3.5,
+   "dur": 1.2,
+   "ratio": "9:16",
+   "keyframe": "S11G_user_sunglasses.png",
+   "src_dims": [
+    941,
+    1672
+   ],
+   "sha256_12": "0ed5cd3b471e",
+   "approval": "approved (user-supplied storyboard frame)",
+   "gen": "grok_video_v15 720p start_image",
+   "gen_s": 2,
+   "desc": "Signature gesture: Noelle lowers her sunglasses ('Glad you asked.' VO)",
+   "prompt": "Noelle slowly slides her sunglasses a little further down her nose with her right hand, revealing her eyes, raising one eyebrow with a knowing smirk, lips closed. Curls move slightly. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "must_stay_still": [
+    "neon sign",
+    "clothing rack",
+    "doorway and parked car in background"
+   ],
+   "camera": "static",
+   "dialogue": "L6a",
+   "file": "S11G.mp4",
+   "qc": "not started",
+   "revisions": [],
+   "notes": "Director-supplied reference (image 2, 2026-11-22). Placed at the invitation reveal, the only sunglasses beat in the episode.",
+   "flags": [
+    "Car through the door reads as a modern yellow coupe; small, background. Acceptable."
+   ]
+  },
+  {
+   "id": "11",
+   "t": [
+    22.8,
+    25.8
+   ],
+   "dur": 3.0,
    "ratio": "9:16",
    "keyframe": "S11_user.png",
    "src_dims": [
@@ -347,7 +374,7 @@
    "sha256_12": "72a1b8e442a7",
    "approval": "approved (user-supplied storyboard frame)",
    "gen": "grok_video_v15 720p start_image",
-   "gen_s": 4,
+   "gen_s": 3,
    "desc": "Black-key invitation handoff; Val juggles clothes to take it",
    "prompt": "Noelle holds out the black card with the gold key; Val, juggling her armful of clothes and hangers, fumbles slightly, then takes the card with one hand. Exactly one card, always held, never floating. Noelle's other hand stays in her pocket and her lips stay closed. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
    "must_stay_still": [
@@ -357,20 +384,18 @@
    ],
    "camera": "static",
    "dialogue": [
-    "L6a",
     "L6b"
    ],
    "file": "S11.mp4",
    "qc": "not started",
    "revisions": [],
-   "notes": "Arm check passed at 4x: Noelle has one hand in her pocket and one holding the card; Val has one hand on the hangers and one on the card.",
-   "sunglasses_gate": "No Ep03 frame shows Noelle lowering her sunglasses. Per the brief it is NOT invented here. Options: (a) director supplies a frame and it is inserted before S11 (+1.2s), (b) skip the gesture this episode."
+   "notes": "Arm check passed at 4x: Noelle has one hand in her pocket and one holding the card; Val has one hand on the hangers and one on the card."
   },
   {
    "id": "12",
    "t": [
-    25.1,
-    26.6
+    25.8,
+    27.3
    ],
    "dur": 1.5,
    "ratio": "9:16",
@@ -404,8 +429,8 @@
   {
    "id": "12A",
    "t": [
-    26.6,
-    28.1
+    27.3,
+    28.8
    ],
    "dur": 1.5,
    "ratio": "9:16",
@@ -415,11 +440,11 @@
     1671
    ],
    "sha256_12": "a491a14c28b1",
-   "approval": "approved Rev03 per brief, but see gate",
+   "approval": "approved Rev03 (director confirmed hardtop, 2026-11-22)",
    "gen": "grok_video_v15 720p start_image",
    "gen_s": 2,
    "desc": "Noelle settles into the driver's seat (Rev03)",
-   "prompt": "Noelle lowers herself the last few inches into the driver's seat and pulls the door toward her with her right hand. The door panel stays rigid. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "prompt": "Noelle lowers herself the last few inches into the driver's seat and pulls the door toward her with her right hand. The fixed yellow hardtop roof stays in place above her; the door panel stays rigid. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
    "must_stay_still": [
     "door panel shape",
     "side strakes",
@@ -430,13 +455,13 @@
    "file": "S12A.mp4",
    "qc": "not started",
    "revisions": [],
-   "gate": "ROOF: at 4x no roof is visible above Noelle. Her head and torso sit above the door-glass line and the car reads as open-top or targa, which conflicts with 'never a convertible'. Project history: Ep01 lost two takes on this exact problem. Options: (a) director confirms Rev03 anyway, (b) supply a rear-quarter 12A where the roof hides her, (c) drop 12A and cut S12 to S12B with door-open/close SFX bridging (runtime 32.5s). Recommend (c) until a fix arrives."
+   "qc_watch": "Roofline: check for any open-top read across sampled frames; regenerate only if the roof changes."
   },
   {
    "id": "12B",
    "t": [
-    28.1,
-    30.6
+    28.8,
+    31.3
    ],
    "dur": 2.5,
    "ratio": "9:16",
@@ -463,15 +488,15 @@
    "revisions": [],
    "screen": "post: re-use the Sonny UI from PH, one tap highlights 'Review' on Post 2 in sync with the finger. No counts, follower or engagement numbers.",
    "flags": [
-    "The app avatar shows a small male face. Plan: replace it with the same silhouette badge as PH.",
+    "App avatar face is intentional (director).",
     "Prancing-horse dash badge is a real brand mark, as in Ep01/Ep02 user frames. Flagged; not altered."
    ]
   },
   {
    "id": "13",
    "t": [
-    30.6,
-    34.0
+    31.3,
+    34.7
    ],
    "dur": 3.4,
    "ratio": "9:16",
@@ -484,7 +509,7 @@
    "approval": "approved (user-supplied storyboard frame)",
    "gen": "grok_video_v15 720p start_image",
    "gen_s": 4,
-   "desc": "Ferrari departs into the sunset; end card from 31.4s",
+   "desc": "Ferrari departs into the sunset; end card from 32.1s",
    "prompt": "The yellow hardtop coupe accelerates gently away from camera down the boulevard toward the setting sun, wheels turning, tail lights glowing, reflections following on the wet road. Camera stays still. Single car only. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
    "must_stay_still": [
     "license plate 'BBY TIGR'",
@@ -567,14 +592,14 @@
    "id": "L6a",
    "speaker": "NOELLE",
    "text": "(event slot)",
-   "shot": "11",
+   "shot": "11G",
    "mode": "VO, lips closed"
   },
   {
    "id": "L6b",
    "speaker": "NOELLE",
    "text": "(event slot)",
-   "shot": "11-12",
+   "shot": "11",
    "mode": "VO"
   }
  ],
@@ -660,15 +685,15 @@
    "text": "",
    "t": [
     21.7,
-    22.9
+    22.75
    ]
   },
   {
    "id": "c11",
    "text": "",
    "t": [
-    23.0,
-    26.0
+    22.9,
+    25.9
    ]
   }
  ],
@@ -690,8 +715,8 @@
   {
    "file": "endcard.png",
    "t": [
-    31.4,
-    34.0
+    32.1,
+    34.7
    ]
   }
  ],
@@ -753,7 +778,7 @@
   {
    "type": "boutique_ambience",
    "at": 5.5,
-   "dur": 19.6,
+   "dur": 21.0,
    "gain_db": -24
   },
   {
@@ -803,28 +828,33 @@
   },
   {
    "type": "card_accent",
-   "at": 22.1,
+   "at": 23.3,
    "_note": "low shimmer + soft hit as the card changes hands"
   },
   {
+   "type": "glint",
+   "at": 21.9,
+   "_note": "sunglasses"
+  },
+  {
    "type": "door_open",
-   "at": 26.7
+   "at": 27.4
   },
   {
    "type": "door_close",
-   "at": 27.95
+   "at": 28.65
   },
   {
    "type": "click",
-   "at": 29.0
+   "at": 29.7
   },
   {
    "type": "click",
-   "at": 29.6
+   "at": 30.3
   },
   {
    "type": "engine_rev_accel",
-   "at": 30.5,
+   "at": 31.2,
    "dur": 3.5,
    "gain_db": -6
   }
@@ -836,11 +866,11 @@
   ],
   "registration": "",
   "window": [
-   31.4,
-   34.0
+   32.1,
+   34.7
   ]
  },
- "music_file": "audio/music/ep03_retro_action_34s.mp3",
+ "music_file": "audio/music/ep03_retro_action_35s.mp3",
  "episode_dir": "episodes/03-sonny-social-media",
  "lower_third": {
   "name": "SONNY",
@@ -850,17 +880,17 @@
  "event": "events/evergreen-ep03.json",
  "event_slots": {
   "L6a": {
-   "shot": "11",
-   "beat": "Noelle offers the black key card",
+   "shot": "11G",
+   "beat": "Noelle lowers her sunglasses",
    "at": 21.75,
    "max_s": 1.2,
    "caption": "c10",
    "guide": "2-3 words, no date"
   },
   "L6b": {
-   "shot": "11-12",
-   "beat": "Val takes the card / Noelle exits",
-   "at": 23.0,
+   "shot": "11",
+   "beat": "Noelle hands Val the black key card",
+   "at": 22.9,
    "max_s": 3.0,
    "caption": "c11",
    "guide": "<=8 words"
@@ -871,16 +901,20 @@
   "VAL": "TBD: 3 candidates (production sheet)",
   "SONNY": "TBD: 3 candidates (production sheet)"
  },
- "gates_open": [
-  "G1 S02 signage approval",
-  "G2 S12A roof",
-  "G3 sunglasses frame (supply or skip)",
-  "G4 avatar face replacement in post (S09/S12B)",
-  "G5 S05 right-edge crop",
-  "G6 Val + Sonny voice picks",
-  "G7 Sonny canonical reference sheet not in repo",
-  "G8 spend authorization"
+ "director_decisions_2026-11-22": [
+  "S02 corrected signage approved",
+  "S12A hardtop confirmed, keep",
+  "Sonny's face on the app avatar is intentional",
+  "Sunglasses frame supplied (S11G)",
+  "S05 right-edge figure is a customer, keep",
+  "Voice candidate plan approved",
+  "No Sonny reference sheet: frames are the reference",
+  "Budget approved (~250 credits)"
  ],
- "approval_status": "Stage A pre-production: nothing paid has run",
+ "open_items": [
+  "Pick Val + Sonny voices from candidates",
+  "Sonny UI: Queue/Schedule highlighted, not pressed (default unless director says otherwise)"
+ ],
+ "approval_status": "Stage B authorized: voice candidates next",
  "retired_takes": []
 }

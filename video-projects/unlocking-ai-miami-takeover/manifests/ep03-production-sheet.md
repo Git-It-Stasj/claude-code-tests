@@ -133,3 +133,20 @@ Balance 878.22 → ~628 after the full episode incl. buffer. Ep02 cost 260.
 ## 9. Widescreen 16:9 (deferred, per project rule)
 
 These frames are 9:16; cropping to 16:9 would lose two-thirds of the frame and cut the characters. Native widescreen frames are needed from the director. Shot list to request: W01 arrival wide, W02/W03 cabin two-shot (Sonny face hidden), W04 entrance, W05/W06 boutique wide with Val + racks, W07 phone over-shoulder, W08 reaction two-shot, W09 card handoff, W10 exit through doors, W11 Sonny phone insert, W12 drive-off. Post-built screens and overlays carry over 1:1.
+
+## 10. Director decisions, 2026-11-22 (these supersede sections 3, 4 and 8 where they differ)
+
+| Gate | Decision |
+|---|---|
+| G1 | S02 is the corrected signage frame. Approved. |
+| G2 | S12A has a hardtop. Keep. QC watches the roofline across sampled frames. |
+| G3 | Sunglasses frame supplied: `S11G_user_sunglasses.png`, new shot 11G before the card. |
+| G4 | Sonny's face on the app avatar is intentional. Keep as drawn (he stays hidden in person). |
+| G5 | Right-edge figure in S05 is a customer Val is helping. Keep, no crop. |
+| G6 | Voice candidate plan approved. |
+| G7 | No Sonny sheet: the frames are the reference. |
+| G8 | Budget approved. |
+
+**Timing v2 (34.7s):** 01–10 unchanged (0–21.6). **11G sunglasses 21.6–22.8** (L6a "Glad you asked.", VO), **11 card 22.8–25.8** (L6b), 12 exit 25.8–27.3, 12A 27.3–28.8, 12B 28.8–31.3, 13 drive-off 31.3–34.7, end card 32.1–34.7.
+
+**Budget v2:** grok 23s = 103.5 · Minimax 6×5s = 75.0 · lip sync ~34 · voices ~4 · music ~5 → **~222**, **~255** with the 15% buffer (+5 vs the approved ~250 because of the sunglasses shot). Balance 878.22.
