@@ -1,7 +1,7 @@
 {
   "episode": 2,
   "title": "The Overwhelmed Executive",
-  "version": 3,
+  "version": 4,
   "featured_ai_employee": {
     "name": "Eva",
     "role": "AI Executive Assistant",
@@ -187,19 +187,22 @@
       "file": "S11.mp4"
     },
     {
-      "id": "12Z",
+      "id": "12M",
       "t": [
         26.4,
-        27.7
+        28.99
       ],
       "ratio": "9:16",
-      "file": "S12Z.mp4",
-      "desc": "Opens square-on to the BBY TIGR plate, pulls back to the exact first frame of S12 (scripts/ep02/plate_pullback.py)"
+      "file": "S12M_pullback.mp4",
+      "slow": 0.5,
+      "job": "5f3619df-6f50-4273-a901-9abb82da2ebb",
+      "media_id": "35185263-b038-4e95-95d0-64b594475102",
+      "desc": "Animated pull-back: minimax_h3_max start=plate close-up crop, end=S12 keyframe (= drive-off frame 0); 5.18s played at 2x"
     },
     {
       "id": "12",
       "t": [
-        27.7,
+        28.99,
         32.0
       ],
       "ratio": "9:16",
@@ -347,7 +350,7 @@
     {
       "file": "endcard.png",
       "t": [
-        28.0,
+        27.9,
         32.0
       ]
     }
@@ -509,8 +512,8 @@
       "shot": "12",
       "file": "S12.mp4",
       "src_in": 0,
-      "at": 27.7,
-      "dur": 4.3,
+      "at": 26.4,
+      "dur": 5.6,
       "gain_db": -6
     }
   ],
@@ -570,7 +573,8 @@
     "S03A_retired_still.mp4 + S03B_retired_jumpcut.mp4 (jump cut, cards all at once)",
     "S04_take1_exec_smiles.mp4 (exec smiles/turns away)",
     "S12P plate cutaway (broke the flow, replaced by pull-back)",
-    "S08 take 1/2 grok (see above)"
+    "S08 take 1/2 grok (see above)",
+    "S12Z.mp4 (still-image pull-back, car frozen 1.3s)"
   ],
   "voices": {
     "NOELLE": "Sloane b57b22a0-f287-405b-bc82-6f08f5e6bb1f",

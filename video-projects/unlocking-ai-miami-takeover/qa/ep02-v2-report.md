@@ -25,3 +25,9 @@ Voices: Noelle = Sloane, Exec = **Gia**, Eva = **Imogen** (director picks, regis
 | v1 rough cut | 161.1 |
 | v2: S03 base 3s, S04 retake 4s, S08 Minimax 5s, lip sync ~11s | 84.1 |
 | **Episode total** | **245.2** (balance 1135.88 → 890.72) |
+
+## v3: animated plate pull-back (director request)
+- `S12M_pullback.mp4`: minimax_h3_max, start = plate close-up crop, end = S12 keyframe (= drive-off frame 0), 5.18s played at 2x (26.4–28.99s).
+- QA, 10 frames: plate stays "BBY TIGR", roof, louvers and quad exhausts stable, single car, road moving throughout. PASS.
+- Seam into S12 at 28.99s checked frame-by-frame: no visible jump. Engine audio runs continuously from 26.4s. End card from 27.9s, once the full car is revealed.
+- `exports/vertical/EP02_eva_9x16_v3.mp4`: 32.000s, 1080x1920, -15.9 LUFS. Cost ~15 credits (episode total ~260).
