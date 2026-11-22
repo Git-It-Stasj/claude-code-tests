@@ -2,13 +2,17 @@
  "01": {
   "job": "c81587bf-e22d-4833-863b-7401d58210e6",
   "raw": "S01_raw.mp4",
-  "qc": "PASS take 1: single car, hardtop, sign stable, smooth push-in (8 frames 0-2.95s)"
+  "qc": "PASS take 1: single car, hardtop, sign stable, smooth push-in (8 frames 0-2.95s)",
+  "file": "S01_raw.mp4",
+  "src_in": 0.0
  },
  "02": {
   "job": "5c65d7ee-a863-4de7-919a-49cdac7b19a5",
   "raw": "S02_raw.mp4",
   "src_in": 0.0,
-  "qc": "PASS take 1: face/curls/glasses stable, 2 hands, sign legible, Sonny sleeve still (8 frames 0-4.9s); lip sync L1 pending"
+  "qc": "PASS take 1: face/curls/glasses stable, 2 hands, sign legible, Sonny sleeve still (8 frames 0-4.9s); lip sync L1 pending",
+  "file": "S02_lipsync.mp4",
+  "lipsync": "sync_so 33c6d312 take 1 used (take 2 68b3534e identical result). 'Hey,' articulated; 'you coming in?' low mouth motion. DIRECTOR REVIEW"
  },
  "03": {
   "job": "45cdd28b-659f-4ccd-94cf-aa4cca8c18d1",
@@ -17,49 +21,98 @@
    "S03_take1_face_reveal.mp4 (grok fffc0078: camera pulls back at ~1.1s, Sonny's head enters frame with a blank face, phone and Noelle's curls vanish)"
   ],
   "raw": "S03_raw.mp4",
-  "src_in": 0.0
+  "src_in": 0.0,
+  "file": "S03_raw.mp4"
  },
  "04": {
   "job": "993cd302-cfef-4144-9bf2-ba189f7a60e1",
   "raw": "S04_raw.mp4",
-  "qc": "PASS take 1: walk natural, face/suit stable, 2 arms, car parked outside (8 frames 0-1.95s)"
+  "qc": "PASS take 1: walk natural, face/suit stable, 2 arms, car parked outside (8 frames 0-1.95s)",
+  "file": "S04_raw.mp4",
+  "src_in": 0.0
  },
  "05": {
   "job": "a02d214b-1cd2-49f9-81ce-a1dc692bb6ab",
   "raw": "S05_raw.mp4",
   "src_in": 0.0,
-  "qc": "PASS take 1 with note: dresses swing/shift naturally, Val frazzled (no smile), 2 arms, phone + palm tee stable (13 frames 0-2.95s). Note: customer gains a held pink shopping bag from ~0.7s (new prop, reads as her purchase). Director may veto."
+  "qc": "PASS take 1 with note: dresses swing/shift naturally, Val frazzled (no smile), 2 arms, phone + palm tee stable (13 frames 0-2.95s). Note: customer gains a held pink shopping bag from ~0.7s (new prop, reads as her purchase). Director may veto.",
+  "file": "S05_lipsync.mp4",
+  "lipsync": "sync_so bf92d71c PASS: distinct shapes on 'Noelle!' / 'Girl!'"
  },
  "06": {
   "job": "b6ca1248-2a8d-45f5-9bef-825dbbaeb6bd",
   "raw": "S06_raw.mp4",
   "src_in": 0.0,
-  "qc": "PASS take 1: faces + compact curls stable, side hug natural, hangers held, 2 arms each (8 frames 0-3.5s)"
+  "qc": "PASS take 1: faces + compact curls stable, side hug natural, hangers held, 2 arms each (8 frames 0-3.5s)",
+  "file": "S06_raw.mp4",
+  "lipsync": "none by design: both faces mid-laugh; L4 plays over the laugh"
  },
  "08": {
   "job": "ddbf0d28-dde8-4002-a3ba-cd8902d155a8",
   "raw": "S08_raw.mp4",
   "src_in": 0.0,
-  "qc": "PASS take 1: face/glasses/curls stable, mouth moves (lip-sync ready), phone + pointing hand steady (8 frames 0-5.5s); screen re-composited in post"
+  "qc": "PASS take 1: face/glasses/curls stable, mouth moves (lip-sync ready), phone + pointing hand steady (8 frames 0-5.5s); screen re-composited in post",
+  "file": "S08.mp4",
+  "lipsync": "sync_so 4fa63382 (L5, src 0-2.45) PASS + 83b9daf4 (L7, src 4.25-5.57) WEAK: grin held, slight lip motion. Spliced S08_spliced.mp4, then screen re-composite + push-in -> S08.mp4",
+  "post": "scripts/ep03/screen_comp.py S08: crisp user screen re-composited per frame (tracked), push-in last 0.35s"
  },
  "09": {
   "job": "c5fe7fc7-fc6e-44eb-bacb-3d0356fe1a86",
   "raw": "S09_raw.mp4",
   "src_in": 0.0,
-  "qc": "PASS take 1: face/glasses/pointing hand stable, phone near-static, avatar unchanged (8 frames 0-4.5s); screen animated in post"
+  "qc": "PASS take 1: face/glasses/pointing hand stable, phone near-static, avatar unchanged (8 frames 0-4.5s); screen animated in post",
+  "file": "S09.mp4",
+  "post": "scripts/ep03/screen_comp.py S09: banner wipe, posts pop (Draft), chips grey->green, waveform from L8 level, Queue+Schedule pulse (not pressed)"
  },
  "10": {
   "job": "e2c1b656-505d-4d1a-a6d6-720ef72db875",
   "raw": "S10_raw.mp4",
   "src_in": 0.0,
-  "qc": "PASS take 1: gasp reads, mouth visible beside hand (lip-sync ready), Noelle calm, clothes/phone/tee stable (8 frames 0-3.4s)"
+  "qc": "PASS take 1: gasp reads, mouth visible beside hand (lip-sync ready), Noelle calm, clothes/phone/tee stable (8 frames 0-3.4s)",
+  "file": "S10_lipsync.mp4",
+  "lipsync": "sync_so 46c2eecf PASS: syllable shapes, closes in pause, no hand ghosting (1.8-2.2s)"
  },
  "11G": {
   "job": "df1f0c34-4856-49a9-9a5f-296e1d538a00",
-  "qc": "rendering"
+  "raw": "S11G_raw.mp4",
+  "src_in": 0.75,
+  "qc": "PASS take 1: glasses go up 0.25-0.75s then slide down revealing eyes + eyebrow raise 0.75-1.95s; use src 0.75-1.95 (single lowering gesture). Face/curls/shirt stable, lips closed (8 frames 0-1.95s)",
+  "file": "S11G_raw.mp4"
  },
  "11": {
   "job": "08545676-a178-4260-b5cc-e49b725bff36",
-  "qc": "rendering"
+  "raw": "S11_raw.mp4",
+  "src_in": 0.0,
+  "qc": "PASS take 1: Val fumbles hangers then takes the single key card ~2.0s, Noelle returns hand to pocket, card always held, 2 arms each (8 frames 0-2.95s)",
+  "file": "S11_raw.mp4"
+ },
+ "12": {
+  "job": "e40faa51-93b6-4af6-8490-0ee3c6174148",
+  "raw": "S12_raw.mp4",
+  "src_in": 0.0,
+  "qc": "PASS take 1: steady walk to door, Val holds card + clothes smiling, door geometry stable, car parked (8 frames 0-1.95s)",
+  "file": "S12_raw.mp4"
+ },
+ "12A": {
+  "job": "de3dc9a4-2cec-4a8a-a987-4d00ac8a568a",
+  "raw": "S12A_raw.mp4",
+  "src_in": 0.0,
+  "qc": "DIRECTOR REVIEW: motion PASS (settles into seat, 2 arms, door/strakes rigid); roofline: no roof visible above her once seated (1.2-1.95s), reads open-top. Inherited from Rev03 keyframe; a retake from the same frame cannot add a roof (8 frames 0-1.95s)",
+  "file": "S12A_raw.mp4"
+ },
+ "12B": {
+  "job": "aa4e6e83-ec14-4bf2-b646-eab3d929f334",
+  "raw": "S12B_raw.mp4",
+  "src_in": 0.0,
+  "qc": "PASS take 1: finger taps, phone steady, face hidden (hair only), console stable (8 frames 0-3.0s); screen animated in post",
+  "file": "S12B.mp4",
+  "post": "scripts/ep03/screen_comp.py S12B: tap glows at measured fingertip contacts 0.62s (Post 2 Review) / 1.50s (Post 1 Review)"
+ },
+ "13": {
+  "job": "ea6bb9fd-657b-4946-b5c3-3d4887a4f09f",
+  "raw": "S13_raw.mp4",
+  "src_in": 0.0,
+  "qc": "PASS take 1: single car, hardtop/louvers/quad exhaust stable, pulls away toward sunset; plate BBY TIGR legible at 0/0.8/1.6/2.5s (2x crops) (8 frames 0-3.0s)",
+  "file": "S13_raw.mp4"
  }
 }

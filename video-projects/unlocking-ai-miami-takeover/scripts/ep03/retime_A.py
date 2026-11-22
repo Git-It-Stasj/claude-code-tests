@@ -81,7 +81,7 @@ def apply(m):
     m["event_slots"]["L6a"].update({"at": place["L6a"][0], "max_s": 1.15}); m["event_slots"]["L6b"].update({"at": L6b_at, "max_s": 2.9})
     S = lambda sid, off: round(T[sid][0] + off, 2)
     m["sfx_cues"] = [
-     {"type": "native", "shot": "01", "at": 0.0, "dur": T["01"][1], "gain_db": -10, "_note": "engine settle/idle"},
+     {"type": "native", "shot": "01", "file": "S01_raw.mp4", "at": 0.0, "dur": T["01"][1], "gain_db": -4, "_note": "native engine settle"},
      {"type": "engine_idle_bed", "at": T["02"][0], "dur": T["04"][0] - T["02"][0], "gain_db": -18, "_note": "muffled cabin idle"},
      {"type": "boutique_ambience", "at": T["04"][0], "dur": T["12A"][0] - T["04"][0], "gain_db": -24},
      {"type": "door_chime", "at": S("04", 0.1)},
@@ -92,8 +92,8 @@ def apply(m):
      {"type": "glint", "at": S("11G", 0.3), "_note": "sunglasses"},
      {"type": "card_accent", "at": S("11", 0.6)},
      {"type": "door_open", "at": S("12A", 0.05)}, {"type": "door_close", "at": S("12A", 1.15)},
-     {"type": "click", "at": S("12B", 0.6)}, {"type": "click", "at": S("12B", 1.2)},
-     {"type": "engine_rev_accel", "at": S("13", -0.1), "dur": round(TOTAL - T["13"][0] + 0.1, 2), "gain_db": -6},
+     {"type": "click", "at": S("12B", 0.62)}, {"type": "click", "at": S("12B", 1.5)},
+     {"type": "native", "shot": "13", "file": "S13_raw.mp4", "at": T["13"][0], "dur": round(TOTAL - T["13"][0], 2), "gain_db": 2, "_note": "native drive-off engine (Ep02 pattern)"},
     ]
     m["overlays"] = [{"file": "title.png", "t": [0.3, 1.7]}, {"file": "sonny_lt.png", "t": [S("09", 0.1), S("09", 2.9)]}, {"file": "endcard.png", "t": [S("13", 0.6), TOTAL]}]
     m["end_card"]["window"] = [S("13", 0.6), TOTAL]

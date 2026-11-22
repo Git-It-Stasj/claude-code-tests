@@ -50,13 +50,16 @@
     "roof and body geometry"
    ],
    "camera": "slow push-in",
-   "file": "S01.mp4",
-   "qc": "not started",
+   "file": "S01_raw.mp4",
+   "qc": "PASS take 1: single car, hardtop, sign stable, smooth push-in (8 frames 0-2.95s)",
    "revisions": [],
    "flags": [
     "Source is a 662x1182 JPEG: upscales soft to 1080x1920. Ask for the full-res original."
    ],
-   "media_id": "54f134d9-cfde-4668-9d02-56113f679ee4"
+   "media_id": "54f134d9-cfde-4668-9d02-56113f679ee4",
+   "job": "c81587bf-e22d-4833-863b-7401d58210e6",
+   "raw": "S01_raw.mp4",
+   "src_in": 0.0
   },
   {
    "id": "02",
@@ -85,15 +88,18 @@
    ],
    "camera": "static",
    "dialogue": "L1",
-   "file": "S02.mp4",
-   "qc": "not started",
+   "file": "S02_lipsync.mp4",
+   "qc": "PASS take 1: face/curls/glasses stable, 2 hands, sign legible, Sonny sleeve still (8 frames 0-4.9s); lip sync L1 pending",
    "revisions": [],
    "flags": [
     "Source is a 660x1183 JPEG (soft when upscaled).",
     "Director confirmed S02 is the corrected signage revision."
    ],
-   "lipsync": true,
-   "media_id": "177b26b5-6b5a-4673-b5ac-69641dad25aa"
+   "lipsync": "sync_so 33c6d312 take 1 used (take 2 68b3534e identical result). 'Hey,' articulated; 'you coming in?' low mouth motion. DIRECTOR REVIEW",
+   "media_id": "177b26b5-6b5a-4673-b5ac-69641dad25aa",
+   "job": "5c65d7ee-a863-4de7-919a-49cdac7b19a5",
+   "raw": "S02_raw.mp4",
+   "src_in": 0.0
   },
   {
    "id": "03",
@@ -121,10 +127,16 @@
    ],
    "camera": "static",
    "dialogue": "L2",
-   "file": "S03.mp4",
-   "qc": "not started",
+   "file": "S03_raw.mp4",
+   "qc": "PASS take 2 (minimax anchored): framing locked, head never enters frame, phone + thumb + foreground curls stable (8 frames 0-4.5s)",
    "revisions": [],
-   "media_id": "2610979a-c600-4c86-afb5-af6d0e6c833f"
+   "media_id": "2610979a-c600-4c86-afb5-af6d0e6c833f",
+   "job": "45cdd28b-659f-4ccd-94cf-aa4cca8c18d1",
+   "retired": [
+    "S03_take1_face_reveal.mp4 (grok fffc0078: camera pulls back at ~1.1s, Sonny's head enters frame with a blank face, phone and Noelle's curls vanish)"
+   ],
+   "raw": "S03_raw.mp4",
+   "src_in": 0.0
   },
   {
    "id": "04",
@@ -151,10 +163,13 @@
     "mannequin on the right"
    ],
    "camera": "static",
-   "file": "S04.mp4",
-   "qc": "not started",
+   "file": "S04_raw.mp4",
+   "qc": "PASS take 1: walk natural, face/suit stable, 2 arms, car parked outside (8 frames 0-1.95s)",
    "revisions": [],
-   "media_id": "908a0649-5f10-4809-ad41-dff897659f74"
+   "media_id": "908a0649-5f10-4809-ad41-dff897659f74",
+   "job": "993cd302-cfef-4144-9bf2-ba189f7a60e1",
+   "raw": "S04_raw.mp4",
+   "src_in": 0.0
   },
   {
    "id": "05",
@@ -183,14 +198,17 @@
    ],
    "camera": "static",
    "dialogue": "L3",
-   "file": "S05.mp4",
-   "qc": "not started",
+   "file": "S05_lipsync.mp4",
+   "qc": "PASS take 1 with note: dresses swing/shift naturally, Val frazzled (no smile), 2 arms, phone + palm tee stable (13 frames 0-2.95s). Note: customer gains a held pink shopping bag from ~0.7s (new prop, reads as her purchase). Director may veto.",
    "revisions": [],
-   "lipsync": true,
+   "lipsync": "sync_so bf92d71c PASS: distinct shapes on 'Noelle!' / 'Girl!'",
    "flags": [
     "Right-edge figure is a customer Val is helping before Noelle arrives (director). Keep full frame, no crop."
    ],
-   "media_id": "65286c1a-b92a-43f5-970a-078ffd72bbae"
+   "media_id": "65286c1a-b92a-43f5-970a-078ffd72bbae",
+   "job": "a02d214b-1cd2-49f9-81ce-a1dc692bb6ab",
+   "raw": "S05_raw.mp4",
+   "src_in": 0.0
   },
   {
    "id": "06",
@@ -218,12 +236,15 @@
    ],
    "camera": "static",
    "dialogue": "L4",
-   "file": "S06.mp4",
-   "qc": "not started",
+   "file": "S06_raw.mp4",
+   "qc": "PASS take 1: faces + compact curls stable, side hug natural, hangers held, 2 arms each (8 frames 0-3.5s)",
    "revisions": [],
-   "lipsync": "test on Noelle only; fallback: line plays over the laugh, no sync",
+   "lipsync": "none by design: both faces mid-laugh; L4 plays over the laugh",
    "notes": "Arm check passed at 4x: Noelle has one arm across Val's back and one hand at Val's waist.",
-   "media_id": "99792e2a-ffce-450d-9600-846ef774f666"
+   "media_id": "99792e2a-ffce-450d-9600-846ef774f666",
+   "job": "b6ca1248-2a8d-45f5-9bef-825dbbaeb6bd",
+   "raw": "S06_raw.mp4",
+   "src_in": 0.0
   },
   {
    "id": "08",
@@ -255,14 +276,18 @@
     "L7"
    ],
    "file": "S08.mp4",
-   "qc": "not started",
+   "qc": "PASS take 1: face/glasses/curls stable, mouth moves (lip-sync ready), phone + pointing hand steady (8 frames 0-5.5s); screen re-composited in post",
    "revisions": [],
    "screen": "The keyframe's own sparse-grid screen is masked and re-composited each frame so text can't warp.",
-   "lipsync": "Noelle lines L5 and L7 only",
+   "lipsync": "sync_so 4fa63382 (L5, src 0-2.45) PASS + 83b9daf4 (L7, src 4.25-5.57) WEAK: grin held, slight lip motion. Spliced S08_spliced.mp4, then screen re-composite + push-in -> S08.mp4",
    "flags": [
     "Instagram-style profile shows '12 Posts' but only 3 tiles are filled. Harmless; leave it (no numbers are animated)."
    ],
-   "media_id": "1acc722a-8d29-4d69-92b1-af55515d0173"
+   "media_id": "1acc722a-8d29-4d69-92b1-af55515d0173",
+   "job": "ddbf0d28-dde8-4002-a3ba-cd8902d155a8",
+   "raw": "S08_raw.mp4",
+   "src_in": 0.0,
+   "post": "scripts/ep03/screen_comp.py S08: crisp user screen re-composited per frame (tracked), push-in last 0.35s"
   },
   {
    "id": "09",
@@ -293,13 +318,17 @@
     "L8"
    ],
    "file": "S09.mp4",
-   "qc": "not started",
+   "qc": "PASS take 1: face/glasses/pointing hand stable, phone near-static, avatar unchanged (8 frames 0-4.5s); screen animated in post",
    "revisions": [],
    "cut_in": "Punch-in on a whoosh at 15.5: S08 ends on a digital push toward the phone, so the bigger S09 phone reads as Noelle thrusting it at Val, not as a jump cut between near-identical frames.",
    "screen": "post-built over the user's frame (scripts/ep03/sonny_ui_anim.py, Stage B): 15.5 Sonny header, waveform animating while L8 plays; banner '3 Posts Drafted for Your Approval' types in; Posts 1-3 pop in at 15.9/16.5/17.1 tagged 'Draft'; each 'Review' chip lights green with a tick 17.6/17.9/18.2; 'Queue to Instagram' and the Schedule tab pulse at 18.4 (highlighted, not pressed: Val still has to approve). All elements cut from this frame with feathered masks, so the layout is exactly the user's.",
    "notes": "Sonny's face on the app avatar is intentional (director): concealed in person, revealed only as his app profile. Keep as drawn.",
    "extra_timing": "drafts pop +0.35/+0.75/+1.15s, Review ticks +1.6/+1.9/+2.2s, Queue+Schedule pulse +2.55s (shot-relative)",
-   "media_id": "73589236-6bcf-4b82-acf2-e3d161e160ea"
+   "media_id": "73589236-6bcf-4b82-acf2-e3d161e160ea",
+   "job": "c5fe7fc7-fc6e-44eb-bacb-3d0356fe1a86",
+   "raw": "S09_raw.mp4",
+   "src_in": 0.0,
+   "post": "scripts/ep03/screen_comp.py S09: banner wipe, posts pop (Draft), chips grey->green, waveform from L8 level, Queue+Schedule pulse (not pressed)"
   },
   {
    "id": "10",
@@ -328,11 +357,14 @@
    ],
    "camera": "static",
    "dialogue": "L9",
-   "file": "S10.mp4",
-   "qc": "not started",
+   "file": "S10_lipsync.mp4",
+   "qc": "PASS take 1: gasp reads, mouth visible beside hand (lip-sync ready), Noelle calm, clothes/phone/tee stable (8 frames 0-3.4s)",
    "revisions": [],
-   "lipsync": true,
-   "media_id": "3fcd56a3-9c4e-4440-977b-913f5c1213dc"
+   "lipsync": "sync_so 46c2eecf PASS: syllable shapes, closes in pause, no hand ghosting (1.8-2.2s)",
+   "media_id": "3fcd56a3-9c4e-4440-977b-913f5c1213dc",
+   "job": "e2c1b656-505d-4d1a-a6d6-720ef72db875",
+   "raw": "S10_raw.mp4",
+   "src_in": 0.0
   },
   {
    "id": "11G",
@@ -360,14 +392,17 @@
    ],
    "camera": "static",
    "dialogue": "L6a",
-   "file": "S11G.mp4",
-   "qc": "not started",
+   "file": "S11G_raw.mp4",
+   "qc": "PASS take 1: glasses go up 0.25-0.75s then slide down revealing eyes + eyebrow raise 0.75-1.95s; use src 0.75-1.95 (single lowering gesture). Face/curls/shirt stable, lips closed (8 frames 0-1.95s)",
    "revisions": [],
    "notes": "Director-supplied reference (image 2, 2026-11-22). Placed at the invitation reveal, the only sunglasses beat in the episode.",
    "flags": [
     "Car through the door reads as a modern yellow coupe; small, background. Acceptable."
    ],
-   "media_id": "3f89974a-5871-47a8-be02-197b7f408bd9"
+   "media_id": "3f89974a-5871-47a8-be02-197b7f408bd9",
+   "job": "df1f0c34-4856-49a9-9a5f-296e1d538a00",
+   "raw": "S11G_raw.mp4",
+   "src_in": 0.75
   },
   {
    "id": "11",
@@ -397,11 +432,14 @@
    "dialogue": [
     "L6b"
    ],
-   "file": "S11.mp4",
-   "qc": "not started",
+   "file": "S11_raw.mp4",
+   "qc": "PASS take 1: Val fumbles hangers then takes the single key card ~2.0s, Noelle returns hand to pocket, card always held, 2 arms each (8 frames 0-2.95s)",
    "revisions": [],
    "notes": "Arm check passed at 4x: Noelle has one hand in her pocket and one holding the card; Val has one hand on the hangers and one on the card.",
-   "media_id": "6c1f98cb-dda8-4f64-97ce-9945c4a3b27e"
+   "media_id": "6c1f98cb-dda8-4f64-97ce-9945c4a3b27e",
+   "job": "08545676-a178-4260-b5cc-e49b725bff36",
+   "raw": "S11_raw.mp4",
+   "src_in": 0.0
   },
   {
    "id": "12",
@@ -431,13 +469,16 @@
    "dialogue": [
     "L6b (tail)"
    ],
-   "file": "S12.mp4",
-   "qc": "not started",
+   "file": "S12_raw.mp4",
+   "qc": "PASS take 1: steady walk to door, Val holds card + clothes smiling, door geometry stable, car parked (8 frames 0-1.95s)",
    "revisions": [],
    "flags": [
     "The car through the door reads as a modern yellow coupe (round tail lamps), not exactly the 80s wedge. Background and small, so acceptable."
    ],
-   "media_id": "4a6526ae-3d47-4c4f-a366-048093d5c611"
+   "media_id": "4a6526ae-3d47-4c4f-a366-048093d5c611",
+   "job": "e40faa51-93b6-4af6-8490-0ee3c6174148",
+   "raw": "S12_raw.mp4",
+   "src_in": 0.0
   },
   {
    "id": "12A",
@@ -465,11 +506,14 @@
     "boutique signage"
    ],
    "camera": "static",
-   "file": "S12A.mp4",
-   "qc": "not started",
+   "file": "S12A_raw.mp4",
+   "qc": "DIRECTOR REVIEW: motion PASS (settles into seat, 2 arms, door/strakes rigid); roofline: no roof visible above her once seated (1.2-1.95s), reads open-top. Inherited from Rev03 keyframe; a retake from the same frame cannot add a roof (8 frames 0-1.95s)",
    "revisions": [],
    "qc_watch": "Roofline: check for any open-top read across sampled frames; regenerate only if the roof changes.",
-   "media_id": "23a62701-59d7-41ea-9644-653bbf117ab9"
+   "media_id": "23a62701-59d7-41ea-9644-653bbf117ab9",
+   "job": "de3dc9a4-2cec-4a8a-a987-4d00ac8a568a",
+   "raw": "S12A_raw.mp4",
+   "src_in": 0.0
   },
   {
    "id": "12B",
@@ -498,14 +542,18 @@
    ],
    "camera": "static",
    "file": "S12B.mp4",
-   "qc": "not started",
+   "qc": "PASS take 1: finger taps, phone steady, face hidden (hair only), console stable (8 frames 0-3.0s); screen animated in post",
    "revisions": [],
    "screen": "post: re-use the Sonny UI from PH, one tap highlights 'Review' on Post 2 in sync with the finger. No counts, follower or engagement numbers.",
    "flags": [
     "App avatar face is intentional (director).",
     "Prancing-horse dash badge is a real brand mark, as in Ep01/Ep02 user frames. Flagged; not altered."
    ],
-   "media_id": "d58005a6-f137-4506-a24a-532f3afb1259"
+   "media_id": "d58005a6-f137-4506-a24a-532f3afb1259",
+   "job": "aa4e6e83-ec14-4bf2-b646-eab3d929f334",
+   "raw": "S12B_raw.mp4",
+   "src_in": 0.0,
+   "post": "scripts/ep03/screen_comp.py S12B: tap glows at measured fingertip contacts 0.62s (Post 2 Review) / 1.50s (Post 1 Review)"
   },
   {
    "id": "13",
@@ -533,11 +581,14 @@
     "palms"
    ],
    "camera": "static",
-   "file": "S13.mp4",
-   "qc": "not started",
+   "file": "S13_raw.mp4",
+   "qc": "PASS take 1: single car, hardtop/louvers/quad exhaust stable, pulls away toward sunset; plate BBY TIGR legible at 0/0.8/1.6/2.5s (2x crops) (8 frames 0-3.0s)",
    "revisions": [],
    "notes": "Plate is already readable in frame 0, so no separate plate pull-back (12M) is needed. Plate legibility is QA'd frame-by-frame.",
-   "media_id": "109a6dec-e33f-4ac0-834a-321eb044e834"
+   "media_id": "109a6dec-e33f-4ac0-834a-321eb044e834",
+   "job": "ea6bb9fd-657b-4946-b5c3-3d4887a4f09f",
+   "raw": "S13_raw.mp4",
+   "src_in": 0.0
   }
  ],
  "dialogue": [
@@ -845,10 +896,11 @@
   {
    "type": "native",
    "shot": "01",
+   "file": "S01_raw.mp4",
    "at": 0.0,
    "dur": 1.8,
-   "gain_db": -10,
-   "_note": "engine settle/idle"
+   "gain_db": -4,
+   "_note": "native engine settle"
   },
   {
    "type": "engine_idle_bed",
@@ -927,17 +979,20 @@
   },
   {
    "type": "click",
-   "at": 31.09
+   "at": 31.11
   },
   {
    "type": "click",
-   "at": 31.69
+   "at": 31.99
   },
   {
-   "type": "engine_rev_accel",
-   "at": 32.39,
-   "dur": 2.61,
-   "gain_db": -6
+   "type": "native",
+   "shot": "13",
+   "file": "S13_raw.mp4",
+   "at": 32.49,
+   "dur": 2.51,
+   "gain_db": 2,
+   "_note": "native drive-off engine (Ep02 pattern)"
   }
  ],
  "end_card": {

@@ -23,8 +23,27 @@ def run(cmd):
     subprocess.run(cmd, check=True)
 
 
-def sfx_source(kind):
-    """Return (lavfi expression, duration) for a synthesized cue."""
+def sfx_source(kind, dur=None):
+    """Return (lavfi expression, duration) for a synthesized cue. `dur` sizes the bed-type cues (Ep03+)."""
+    # --- Ep03 additions (additive: Ep01/Ep02 cue types below are unchanged) ---
+    if kind == "door_chime":
+        kind = "chime"
+    if kind == "fabric_rustle":  # soft cloth swish
+        return ("anoisesrc=d=0.45:c=pink:a=0.5:r=48000:seed=11,bandpass=f=3200:w=2500,tremolo=f=14:d=0.6,afade=t=in:d=0.08,afade=t=out:st=0.2:d=0.25", 0.45)
+    if kind == "glint":  # rising sparkle for the sunglasses beat
+        return ("aevalsrc='0.25*sin(2*PI*(1800+2600*t)*t)*exp(-5*t)+0.15*sin(2*PI*4200*t)*exp(-9*t)':s=48000:d=0.45", 0.45)
+    if kind == "card_accent":  # soft low hit + shimmer as the key card changes hands
+        return ("aevalsrc='0.5*sin(2*PI*70*t)*exp(-7*t)+0.18*sin(2*PI*1568*t)*exp(-3*t)+0.12*sin(2*PI*2349*t)*exp(-3.5*t)':s=48000:d=0.9", 0.9)
+    if kind == "door_open":  # latch click + short swish
+        return ("aevalsrc='0.5*sin(2*PI*900*t)*exp(-60*t)+0.25*(2*random(0)-1)*sin(PI*t/0.45)':s=48000:d=0.45,lowpass=f=2500", 0.45)
+    if kind == "door_close":  # car-door thud
+        return ("aevalsrc='0.8*sin(2*PI*62*t)*exp(-14*t)+0.3*sin(2*PI*130*t)*exp(-20*t)':s=48000:d=0.5", 0.5)
+    if kind == "boutique_ambience":  # quiet room tone
+        d = dur or 5.0
+        return (f"anoisesrc=d={d}:c=brown:a=0.35:r=48000:seed=21,lowpass=f=1200,highpass=f=80,afade=t=in:d=0.4,afade=t=out:st={max(d - 0.4, 0)}:d=0.4", d)
+    if kind == "engine_idle_bed":  # muffled idle heard from inside the cabin
+        d = dur or 3.0
+        return (f"aevalsrc='0.35*sin(2*PI*41*t)*(0.65+0.35*sin(2*PI*8.5*t))+0.15*sin(2*PI*82*t)':s=48000:d={d},lowpass=f=300,afade=t=in:d=0.2,afade=t=out:st={max(d - 0.3, 0)}:d=0.3", d)
     if kind == "ring":   # vintage desk-phone bell: 440+480 Hz, 20 Hz trill, 0.9 s
         return ("aevalsrc='0.35*(sin(2*PI*440*t)+sin(2*PI*480*t))*(0.5+0.5*sgn(sin(2*PI*20*t)))*exp(-0.6*t)':s=48000:d=0.9", 0.9)
     if kind == "chime":  # two-note door chime
@@ -60,10 +79,12 @@ def main(manifest, out):
             fl.append(f"[{idx}:a]atrim={c.get('src_in',0)}:{c.get('src_in',0)+c['dur']},asetpts=PTS-STARTPTS,aresample={SR},volume={c['gain_db']}dB,"
                       f"afade=t=out:st={c['dur']-0.3}:d=0.3,adelay={at_ms}|{at_ms}[s{i}]")
         else:
-            src, d = sfx_source(c["type"])
+            src, d = sfx_source(c["type"], c.get("dur"))
             ins += ["-f", "lavfi", "-i", src]
             idx = nin; nin += 1
-            gain = {"ring": -6, "chime": -4, "click": -2, "whoosh": -8, "ping": -8}[c["type"]]
+            gain = c.get("gain_db", {"ring": -6, "chime": -4, "click": -2, "whoosh": -8, "ping": -8, "door_chime": -6, "fabric_rustle": -14,
+                                     "glint": -10, "card_accent": -6, "door_open": -8, "door_close": -6,
+                                     "boutique_ambience": -26, "engine_idle_bed": -14}[c["type"]])
             fl.append(f"[{idx}:a]aformat=channel_layouts=stereo,volume={gain}dB,adelay={at_ms}|{at_ms}[s{i}]")
         labels.append(f"[s{i}]")
     fl.append(f"{''.join(labels)}amix=inputs={len(labels)}:normalize=0,apad=whole_dur={dur},atrim=0:{dur}[sfx]")

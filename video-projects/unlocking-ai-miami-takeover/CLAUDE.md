@@ -12,11 +12,19 @@
 - Before compositing post-built graphics onto a grok clip, measure the keyframe-to-clip mapping by scaling the keyframe, cropping, and comparing with the clip's first frame. Grok outputs in Ep02 were the keyframe scaled 0.765 with a 0–7px crop. Guessing the scale would misplace overlays and break seamless cuts.
 - Before building a crop-zoomed QA strip (mouths, plates, UI), grab one full frame and locate the target first. In Ep02 the lip-sync crops for S04 and S08 both missed the face on the first try and had to be redone.
 
+- Before lip-syncing Noelle, expect weak results on frames where she holds a toothy grin: in Ep03 S02 and S08b, sync_so articulated only the first word, and an identical re-run gave the same result. Val's neutral/open mouths synced well. Measure mouth-band motion against the audio level (`scripts/ep03/lipsync_check.py`) instead of eyeballing a few crops.
+- Before running ffmpeg inside a `while read` loop, pass `-nostdin`. In Ep03 ffmpeg consumed the loop's stdin and chopped the first letter off five filenames.
+- Before uploading more than ~10 files with media_upload, request at least 15 slots so the response is saved to a file you can read with jq; an inline response forces copying long signed URLs by hand.
+- Before timing a post-built tap highlight, measure fingertip contact (skin coverage near the target per frame). In Ep03 S12B the second tap landed on a different chip than planned.
+- When blanking areas of a post-built UI, blend the app's background colour in through a feathered mask. cv2.inpaint over large regions produced diagonal streaks and pulled colour from neighbouring art.
+
 ## Campaign decisions (user's calls)
 
 - Use only the user-supplied keyframes. Never generate or regenerate shot images; ask for them.
 - Run vertical 9:16 first. Widescreen 16:9 is deferred until the user asks for it.
 - Voices are approved and fixed: Noelle = Sloane, Owner = Marcus, Rachel = Emily (IDs in `manifests/reference-assets.json`).
+- Voices (Ep03): Val = Ines (`023ebf5e-1970-40d8-825c-a5ef6a1dd4ff`, stab 0.4), Sonny = Caspian (`ef70cc83-3015-4bad-9359-0ea968c43ec0`, stab 0.6, phone `device_eq` on his app line).
+- Sonny's face stays hidden in person; his face on the app avatar is intentional (director, Ep03).
 - Voices (Ep02): Exec = Gia (`530df032-c311-483b-a750-cb3c9e1bcdfd`, stab 0.4), Eva = Imogen (`3811e986-0891-47cf-a1f5-78a1d62a547a`, stab 0.6, laptop `device_eq`). New supporting characters and employees still get 3 candidate samples before use.
 - In Ep01, Noelle is voiceover after shot 10: no lip sync or mouth animation from there on. Lip sync only shots where the speaker is on screen.
 - BBY TIGR is a recurring plate detail.
