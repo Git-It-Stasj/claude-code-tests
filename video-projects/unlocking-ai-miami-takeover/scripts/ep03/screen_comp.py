@@ -15,6 +15,10 @@ CL = os.path.join(ROOT, "episodes/03-sonny-social-media/clips/v")
 FPS = 24
 
 
+def smooth(x):
+    x = min(max(x, 0.0), 1.0); return x * x * (3 - 2 * x)
+
+
 def ease(x):
     x = min(max(x, 0.0), 1.0); return 1 - (1 - x) ** 3
 
@@ -59,7 +63,7 @@ def recipe_S08():
     shot = os.environ.get("SHOT", "S08")
     if shot == "S08B":
         return dict(clip="S08B_lipsync.mp4", out="S08B.mp4", K=K, s=0.8162, ox=0, oy=10, track=(230, 600, 545, 1180),
-                    layer=layer, colour_box=screen, pushin=dict(last=0.35, zoom=0.12, centre=(390, 880)))
+                    layer=layer, colour_box=screen, pushin=dict(last=0.6, zoom=1.32, centre=(390, 887), target=(421, 972), blend_frames=5, blend_to="S09.mp4", end=27 / 24))
     return dict(clip="S08a_lipsync.mp4", out="S08.mp4", K=K, s=0.8162, ox=0, oy=10, track=(230, 600, 545, 1180),
                 layer=layer, colour_box=screen, dur=2.3)
 
@@ -182,16 +186,33 @@ def run(R):
             sk = ((hsv[..., 0] <= 24) & (hsv[..., 1] >= 60) & (hsv[..., 2] >= 90)).astype(np.uint8)
             nlab, lab = cv2.connectedComponents(sk)
             edge = set(np.unique(lab[:, -3:])) - {0}  # only blobs touching the right edge of the strip (the finger)
-            keep = np.isin(lab, list(edge)).astype(np.float32)
-            keep = cv2.GaussianBlur(cv2.dilate(keep, np.ones((5, 5), np.uint8)), (0, 0), 1.5)
+            keep = np.isin(lab, list(edge)).astype(np.uint8)
+            # the pale nail tip is low-saturation, so the skin test misses it: add bright, unsaturated pixels hugging the finger
+            near = cv2.dilate(keep, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (25, 25)))
+            nail = ((hsv[..., 2] >= 140) & (hsv[..., 1] <= 110) & (near > 0)).astype(np.uint8)
+            nl, nlab = cv2.connectedComponents(keep | nail)
+            touch = set(np.unique(nlab[keep > 0])) - {0}
+            keep = np.isin(nlab, list(touch)).astype(np.uint8)
+            keep = cv2.morphologyEx(keep, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))).astype(np.float32)
+            keep = cv2.GaussianBlur(cv2.dilate(keep, np.ones((3, 3), np.uint8)), (0, 0), 1.0)
             aw[y0:y1, x0:x1, 0] *= (1 - np.clip(keep * 1.3, 0, 1))
         o = fr.astype(np.float32) * (1 - aw) + lw * aw
         pi = R.get("pushin")
         if pi:
-            T = R["total"]; z = 1 + pi["zoom"] * ease((t - (T - pi["last"])) / pi["last"]) if t > T - pi["last"] else 1.0
-            if z > 1.0001:
-                cx, cy = pi["centre"][0] * s - ox + dx_t, pi["centre"][1] * s - oy + dy_t
-                Z = np.float32([[z, 0, cx - z * cx], [0, z, cy - z * cy]]); o = cv2.warpAffine(o, Z, (W, H), flags=cv2.INTER_LINEAR)
+            T = pi.get("end", R["total"]); TL = T - 1 / FPS  # TL = time of the last frame shown in the edit
+            e = smooth((t - (TL - pi["last"])) / pi["last"]) if t > TL - pi["last"] else 0.0
+            if e > 1e-4:  # phone-matched push-in: centre P moves to target Q while scaling to zoom, so the last frame lines up with the next shot's phone
+                z = 1 + (pi["zoom"] - 1) * e
+                px, py = pi["centre"][0] * s - ox + dx_t, pi["centre"][1] * s - oy + dy_t
+                qx, qy = pi["target"][0] * s - ox, pi["target"][1] * s - oy
+                tx, ty = px + e * (qx - px), py + e * (qy - py)
+                Z = np.float32([[z, 0, tx - z * px], [0, z, ty - z * py]]); o = cv2.warpAffine(o, Z, (W, H), flags=cv2.INTER_LINEAR)
+            nb = pi.get("blend_frames", 0)
+            if nb and i >= int(round(T * FPS)) - nb:  # dissolve into the next shot's first frame
+                if "_next" not in pi:
+                    pi["_next"] = next(read_frames(os.path.join(CL, pi["blend_to"]))).astype(np.float32)
+                k = min(1.0, (i - (int(round(T * FPS)) - nb) + 1) / nb)
+                o = o * (1 - k) + pi["_next"] * k
         if enc is None:
             enc = subprocess.Popen(["ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
                                     "-c:v", "libx264", "-crf", "14", "-preset", "slow", "-pix_fmt", "yuv420p", out], stdin=subprocess.PIPE)

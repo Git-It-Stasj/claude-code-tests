@@ -74,7 +74,7 @@
   "job": "c5fe7fc7-fc6e-44eb-bacb-3d0356fe1a86",
   "raw": "S09_raw.mp4",
   "src_in": 0.0,
-  "qc": "v2: fingertip kept above post-built screen (keep_skin mask)",
+  "qc": "v2: fingertip kept above post-built screen (keep_skin mask); v4: nail tip added to keep mask (pale, low-saturation pixels hugging the finger), tighter edge",
   "file": "S09.mp4",
   "post": "scripts/ep03/screen_comp.py S09: banner wipe, posts pop (Draft), chips grey->green, waveform from L8 level, Queue+Schedule pulse (not pressed)"
  },
@@ -141,6 +141,6 @@
  "08B": {
   "file": "S08B.mp4",
   "src_in": 0.0,
-  "qc": "v2: minimax 721edb17 talking take src 1.55-2.70 + sync_so f5dd6840 (3x v1 motion) + re-composited screen (phone offset -13px measured) + push-in"
+  "qc": "v2: minimax 721edb17 talking take src 1.55-2.70 + sync_so f5dd6840 (3x v1 motion) + re-composited screen (phone offset -13px measured) + push-in; v4: phone-matched push-in (last 0.6s, x1.32, phone centre -> S09 phone centre) + 5-frame dissolve into S09 frame 0"
  }
 }

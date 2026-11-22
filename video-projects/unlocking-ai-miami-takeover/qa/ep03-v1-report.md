@@ -77,3 +77,8 @@ Spend v2: ~146 credits (6 minimax 75, 1 grok 13.5, 7 sync ~57.5). Balance 479.61
 - S10: L9 +0.08s, L9b +0.30s; cross-correlation lag ~0 on both parts.
 - S12B: green tap glows removed; click SFX kept.
 - Export EP03_sonny_9x16_v3.mp4: 35.000s, -16.7 LUFS, -1.1 dBTP.
+
+## v4
+- 08B → 09 jump: 08B push-in now phone-matched (last 0.6s, ×1.32, S08 phone centre (390,887) → S09 phone centre (421,972), keyframe px) and dissolves into S09 frame 0 over 5 frames; strips at 12 fps across 16.6–17.8s show one continuous move.
+- S09 fingertip: pale nail tip was outside the skin mask and got covered by the screen layer; mask now adds bright low-saturation pixels hugging the finger, tighter edge. Crops at 0.4/0.5/0.6/0.8/1.4/2.2s match the raw clip's full nail.
+- Export EP03_sonny_9x16_v4.mp4: 35.000s.
