@@ -189,5 +189,10 @@ m = {
 }
 import sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import retime_A; m = retime_A.apply(m)
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_media = json.load(open(os.path.join(_HERE, "media_ids.json"))); _jobs = json.load(open(os.path.join(_HERE, "jobs.json")))
+for _s in m["shots"]:
+    _s["media_id"] = _media.get(_s["keyframe"])
+    if _s["id"] in _jobs: _s.update(_jobs[_s["id"]])
 json.dump(m, open(os.path.join(ROOT, "manifests/ep03-sonny-social-media.json"), "w"), indent=1)
 print("shots", len(shots), "sum", round(sum(s["dur"] for s in shots), 2))
