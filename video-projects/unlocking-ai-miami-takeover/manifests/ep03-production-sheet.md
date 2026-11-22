@@ -28,9 +28,9 @@ Files are in `episodes/03-sonny-social-media/keyframes/user/`: byte-identical co
 | 04 | S04_user.png | 942x1670 | OK. Ferrari parked outside, Noelle alone. |
 | 05 | S05_user.png | 942x1670 | **G5.** Right edge shows part of a third person (straight dark hair, white top) who is not Noelle. Plan: 1.12x post crop. |
 | 06 | S06_user.png | 941x1671 | OK. Arms: Noelle 2 (back + waist), Val 2 (hangers). |
-| 07 | — | — | **No frame.** Merged into shot PH (see 4). |
+| 07 | — | — | **No frame.** Its line plays in shot 08 (see 4). |
 | 08 | S08_user_instagram.png | 941x1672 | OK. Sparse grid, 3 tiles. |
-| 09 | S09_user_sonny_drafts.png | 941x1670 | **G4.** App avatar shows Sonny's **full face**, which breaks "face concealed". Used as the screen-content source only. |
+| 09 | S09_user_sonny_drafts.png | 941x1670 | **G4.** App avatar shows Sonny's **full face**, which breaks "face concealed". Its own shot, 15.5–19.0s. |
 | 10 | S10_user.png | 941x1672 | OK. Val gasp, Noelle compact curls. |
 | 11 | S11_user.png | 941x1672 | OK. Arms: Noelle 2 (pocket + card), Val 2. Gold key readable. |
 | 12 | S12_user.png | 941x1672 | OK. Car through the door reads a bit modern (round tail lamps), minor. |
@@ -63,15 +63,16 @@ Files are in `episodes/03-sonny-social-media/keyframes/user/`: byte-identical co
 | 4 | 04 | 5.5–7.0 | grok 2s | Noelle walks in alone | door chime, ambience in |
 | 5 | 05 | 7.0–9.5 | grok 3s + 1.12x crop | Juggling dresses, frazzled, **L3 lip sync** | rustle |
 | 6 | 06 | 9.5–11.5 | minimax anchored 5s (0–2.0) | Laugh/hug | **L4** over laugh |
-| 7 | **PH** (07+08+09) | 11.5–19.0 | minimax anchored 8s on S08 + **post-built screen** | Ghost-town grid, then wipe at 15.8 to Sonny UI; drafts pop 16.0/16.6/17.2 tagged *Draft*; Review chips go green 17.8–18.4; *Queue* never pressed. Lower third SONNY 15.8–18.9 | **L5, L7** lip sync; **L6** Val off-cam; **L8** Sonny phone-EQ; whoosh, 3 pings, 3 clicks |
-| 8 | 10 | 19.0–21.6 | minimax anchored 5s (0–2.6) | Gasp → delight, **L9 lip sync** | — |
-| 9 | 11 | 21.6–25.1 | grok 4s | Card offered; Val fumbles clothes, takes it | **L6a** "Glad you asked." (VO), card accent, **L6b** from 23.0 |
-| 10 | 12 | 25.1–26.6 | grok 2s | Noelle exits, Val keeps card | L6b tail |
-| 11 | 12A | 26.6–28.1 | grok 2s (**G2**) | Settles into seat | door open/close |
-| 12 | 12B | 28.1–30.6 | minimax anchored 5s + post screen | Two taps; "Review" highlights. Payoff to "I'm good here" | 2 clicks |
-| 13 | 13 | 30.6–34.0 | grok 4s | Drive-off; end card 31.4–34.0 | engine rev + accel; music out ~33.5 |
+| 7 | **08** (brief 07+08) | 11.5–15.5 | minimax anchored 5s (0–4.0) | Noelle shows the ghost-town grid (original screen re-composited); last 0.35s digital push toward the phone | **L5, L7** lip sync; **L6** Val off-cam |
+| 8 | **09** Sonny at work | 15.5–19.0 | minimax anchored 5s (0–3.5) on **your S09 frame** + post-built screen | Punch-in on a whoosh. Waveform animates while Sonny speaks; banner types in; Posts 1–3 pop in as *Draft* (15.9/16.5/17.1); Review chips tick green (17.6–18.2); *Queue to Instagram* + Schedule tab pulse at 18.4 (highlighted, not pressed). Lower third SONNY 15.6–18.9 | **L8** Sonny phone-EQ; whoosh, 3 pings, 3 clicks, chime |
+| 9 | 10 | 19.0–21.6 | minimax anchored 5s (0–2.6) | Gasp → delight, **L9 lip sync** | — |
+| 10 | 11 | 21.6–25.1 | grok 4s | Card offered; Val fumbles clothes, takes it | **L6a** "Glad you asked." (VO), card accent, **L6b** from 23.0 |
+| 11 | 12 | 25.1–26.6 | grok 2s | Noelle exits, Val keeps card | L6b tail |
+| 12 | 12A | 26.6–28.1 | grok 2s (**G2**) | Settles into seat | door open/close |
+| 13 | 12B | 28.1–30.6 | minimax anchored 5s + post screen | Two taps; "Review" highlights. Payoff to "I'm good here" | 2 clicks |
+| 14 | 13 | 30.6–34.0 | grok 4s | Drive-off; end card 31.4–34.0 | engine rev + accel; music out ~33.5 |
 
-Why PH is one shot: there is only one frame for brief shots 07/08, and S08/S09 are near-identical compositions. Project rule: never jump-cut near-identical frames; merge them and build the change in post. That also gives the "drafts appear sequentially, review indicators" beat crisp text that grok can't warp.
+Shots 08 and 09: v1 of this sheet merged them and only borrowed S09's screen, so the S09 frame never appeared. Corrected at the director's note: S09 is its own shot. Brief shot 07 has no frame, so its line plays in 08. The 08→09 cut is a motivated punch-in (S09's phone is larger), not a jump cut between near-identical frames. All on-screen UI is animated in post, so the text stays crisp.
 
 Why no 12M plate pull-back: BBY TIGR is already readable in S13 frame 0 and the car is moving, so the drive-off itself flows continuously.
 
@@ -120,14 +121,14 @@ Timing changes vs. the brief (proposed, not forced): S10 2.0 → 2.6s and S11 3.
 | Item | Credits |
 |---|---|
 | grok: S01 3, S03 2, S04 2, S05 3, S11 4, S12 2, S12A 2, S13 4 = 22s | 99.0 |
-| minimax anchored: S02, S06, S10, S12B (4×5s) + PH 8s | 50.0 + ~20.0 |
+| minimax anchored: S02, S06, S08, S09, S10, S12B (6×5s) | 75.0 |
 | sync_so lip sync ~9.5s (L1, L3, L5, L7, L9, L4 test) | ~34 |
 | Voices: 6 candidates + 10 lines | ~4 |
 | Music 34s | ~5 |
-| **Subtotal** | **~212** (~203 without 12A) |
-| +15% retake buffer | **~245** |
+| **Subtotal** | **~217** (~208 without 12A) |
+| +15% retake buffer | **~250** |
 
-Balance 878.22 → ~633 after the full episode incl. buffer. Ep02 cost 260.
+Balance 878.22 → ~628 after the full episode incl. buffer. Ep02 cost 260.
 
 ## 9. Widescreen 16:9 (deferred, per project rule)
 

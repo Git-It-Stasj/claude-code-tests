@@ -225,12 +225,12 @@
    "notes": "Arm check passed at 4x: Noelle has one arm across Val's back and one hand at Val's waist."
   },
   {
-   "id": "PH",
+   "id": "08",
    "t": [
     11.5,
-    19.0
+    15.5
    ],
-   "dur": 7.5,
+   "dur": 4.0,
    "ratio": "9:16",
    "keyframe": "S08_user_instagram.png",
    "src_dims": [
@@ -239,38 +239,64 @@
    ],
    "sha256_12": "e22b72ab8550",
    "approval": "approved (user-supplied storyboard frame)",
-   "gen": "minimax_h3_max 768p start=end=keyframe + post-built phone screen",
-   "gen_s": 8,
-   "desc": "Merged S07+S08+S09: Noelle calls out the ghost-town Instagram, Val admits it, 'I know a guy', screen transforms into Sonny's drafts",
+   "gen": "minimax_h3_max 768p start=end=keyframe (src 0-4.0s) + original screen re-composited",
+   "gen_s": 5,
+   "desc": "Noelle calls out the ghost-town Instagram; Val admits it; 'I know a guy'",
    "prompt": "Noelle holds the phone steady toward camera and points at it, with a small playful head tilt and a knowing smirk while she talks. The phone does not move or rotate. Val's hair at the left edge sways slightly. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
    "must_stay_still": [
-    "phone size, position, angle and screen (screen is replaced in post)",
+    "phone size, position, angle and screen",
     "neon sign"
    ],
-   "camera": "static",
+   "camera": "static; last 0.35s free digital push-in toward the phone, matching S09's phone scale for the cut",
    "dialogue": [
     "L5",
     "L6",
-    "L7",
-    "L8"
+    "L7"
    ],
-   "file": "SPH.mp4",
+   "file": "S08.mp4",
    "qc": "not started",
    "revisions": [],
-   "screen": "post-built (scripts/ep03/sonny_ui_anim.py, Stage B): 11.5-15.8 sparse grid from S08 frame; 15.8 wipe to Sonny UI; drafts 1-3 pop at 16.0/16.6/17.2 marked 'Draft'; Review chips turn green 17.8-18.4; 'Queue to Instagram' stays unpressed. Thumbnails and layout cut from S09_user_sonny_drafts.png with a feathered mask and fitted to the S08 phone with a perspective warp.",
-   "why_merged": "Only one keyframe exists for S07/S08, and S08/S09 are near-identical compositions. Project rule: never jump-cut near-identical keyframes; merge and build the change in post.",
+   "screen": "The keyframe's own sparse-grid screen is masked and re-composited each frame so text can't warp.",
    "lipsync": "Noelle lines L5 and L7 only",
-   "secondary_keyframe": {
-    "keyframe": "S09_user_sonny_drafts.png",
-    "src_dims": [
-     941,
-     1670
-    ],
-    "sha256_12": "baa44140915a"
-   },
    "flags": [
-    "S09 app header shows Sonny's full face as the avatar, which breaks the 'face concealed' rule. Plan: replace it in post with a hair-silhouette and waveform badge.",
-    "Instagram-style profile shows '12 Posts' but only 3 tiles are filled. Harmless, and leave it (no numbers are animated)."
+    "Instagram-style profile shows '12 Posts' but only 3 tiles are filled. Harmless; leave it (no numbers are animated)."
+   ]
+  },
+  {
+   "id": "09",
+   "t": [
+    15.5,
+    19.0
+   ],
+   "dur": 3.5,
+   "ratio": "9:16",
+   "keyframe": "S09_user_sonny_drafts.png",
+   "src_dims": [
+    941,
+    1670
+   ],
+   "sha256_12": "baa44140915a",
+   "approval": "approved (user-supplied storyboard frame)",
+   "gen": "minimax_h3_max 768p start=end=keyframe (src 0-3.5s) + post-built screen animation",
+   "gen_s": 5,
+   "desc": "Noelle shows Sonny at work on her phone: drafts appear and get queued for Val's review",
+   "prompt": "Noelle holds the phone up close to camera and points at the screen with her other hand, confident smirk, curls moving softly. The phone does not move or rotate. Val's shoulder and hair stay in the left foreground. Static camera. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. Exactly two arms and two hands per person. No other cars, no new people, no duplicated props, no new text.",
+   "must_stay_still": [
+    "phone size, position, angle and screen (screen animated in post)",
+    "neon sign",
+    "chandelier"
+   ],
+   "camera": "static",
+   "dialogue": [
+    "L8"
+   ],
+   "file": "S09.mp4",
+   "qc": "not started",
+   "revisions": [],
+   "cut_in": "Punch-in on a whoosh at 15.5: S08 ends on a digital push toward the phone, so the bigger S09 phone reads as Noelle thrusting it at Val, not as a jump cut between near-identical frames.",
+   "screen": "post-built over the user's frame (scripts/ep03/sonny_ui_anim.py, Stage B): 15.5 Sonny header, waveform animating while L8 plays; banner '3 Posts Drafted for Your Approval' types in; Posts 1-3 pop in at 15.9/16.5/17.1 tagged 'Draft'; each 'Review' chip lights green with a tick 17.6/17.9/18.2; 'Queue to Instagram' and the Schedule tab pulse at 18.4 (highlighted, not pressed: Val still has to approve). All elements cut from this frame with feathered masks, so the layout is exactly the user's.",
+   "flags": [
+    "App avatar shows Sonny's full face, which breaks 'face concealed' (G4). Plan: cover it in post with a hair-silhouette and waveform badge."
    ]
   },
   {
@@ -506,28 +532,28 @@
    "id": "L5",
    "speaker": "NOELLE",
    "text": "Your Instagram's a ghost town!",
-   "shot": "PH",
+   "shot": "08",
    "mode": "lipsync"
   },
   {
    "id": "L6",
    "speaker": "VAL",
    "text": "I barely have time to post!",
-   "shot": "PH",
+   "shot": "08",
    "mode": "off-camera"
   },
   {
    "id": "L7",
    "speaker": "NOELLE",
    "text": "I know a guy.",
-   "shot": "PH",
+   "shot": "08",
    "mode": "lipsync"
   },
   {
    "id": "L8",
    "speaker": "SONNY",
    "text": "Three posts ready for your approval.",
-   "shot": "PH",
+   "shot": "09",
    "mode": "device audio (phone EQ)"
   },
   {
@@ -619,7 +645,7 @@
     16.25,
     18.95
    ],
-   "y": 1600
+   "y": 1660
   },
   {
    "id": "c9",
@@ -657,7 +683,7 @@
   {
    "file": "sonny_lt.png",
    "t": [
-    15.8,
+    15.6,
     18.9
    ]
   },
@@ -744,31 +770,35 @@
   },
   {
    "type": "whoosh",
-   "at": 15.75,
-   "_note": "screen wipe to Sonny UI"
+   "at": 15.4,
+   "_note": "punch-in to S09"
   },
   {
    "type": "ping",
-   "at": 16.0
+   "at": 15.9
   },
   {
    "type": "ping",
-   "at": 16.6
+   "at": 16.5
   },
   {
    "type": "ping",
-   "at": 17.2
+   "at": 17.1
   },
   {
    "type": "click",
-   "at": 17.8
+   "at": 17.6
   },
   {
    "type": "click",
-   "at": 18.1
+   "at": 17.9
   },
   {
    "type": "click",
+   "at": 18.2
+  },
+  {
+   "type": "chime",
    "at": 18.4
   },
   {
