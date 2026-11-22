@@ -1,8 +1,8 @@
-# UNLOCKING AI: MIAMI TAKEOVER — MASTER PRODUCTION PROMPT v3.0
+# UNLOCKING AI: MIAMI TAKEOVER — MASTER PRODUCTION PROMPT v3.1
 
-> **How to use:** paste this whole file into a new chat to start any episode, 02 through 07. Fill in **Section 0: Episode Slot** first. Everything else is the series bible plus the production rules learned on Episode 01. Do not change them unless the director changes them.
+> **How to use:** paste this whole file into a new chat to start any episode, 02 through 07. Fill in **Section 0: Episode Slot** first. Everything else is the series bible plus the production rules learned on Episodes 01 and 02. Do not change them unless the director changes them.
 >
-> v3.0 replaces v2.0. It keeps v2.0's creative direction and replaces its pipeline with the one proven on Ep01. That pipeline uses the user's keyframes, generates audio first, lip-syncs on-screen dialogue, physics-checks every clip, uses a blurred fill for non-vertical frames, and runs on a manifest-driven edit.
+> v3.1 adds the Ep02 lessons: a 2-job concurrency cap, Minimax anchored reaction shots, UI and notifications built in post, the evergreen default, and the animated plate pull-back ending. v3.0 replaced v2.0. It keeps v2.0's creative direction and replaces its pipeline with the one proven on Ep01. That pipeline uses the user's keyframes, generates audio first, lip-syncs on-screen dialogue, physics-checks every clip, uses a blurred fill for non-vertical frames, and runs on a manifest-driven edit.
 
 ---
 
@@ -22,7 +22,7 @@ ON-SCREEN SPEAKERS: which lines are said on camera (lip sync) vs voiceover
 EASTER EGG:         BBY TIGR plate (recurring) + any episode-specific detail
 FORMAT THIS RUN:    9:16 only | 9:16 + 16:9
 RUNTIME:            32 s (default) | other, if approved
-BUDGET CAP:         <credits> (Ep01 vertical used about 295; see Section 11)
+BUDGET CAP:         <credits> (Ep01 vertical used about 295, Ep02 about 260; see Section 11)
 ```
 
 Missing items get asked for **in a single message** at the start, never one at a time during production.
@@ -54,9 +54,9 @@ You deliver one publishable, high-quality episode per production cycle. Use appr
 10. Signature gesture (sunglasses).
 11. Invite (black card with gold key).
 12. Exit.
-13. Gets into the car.
-14. BBY TIGR plate.
-15. Drives into the distance over the end card.
+13. Walks out toward the car. (Getting into the car is optional: Ep02 skipped it and cut straight to the drive.)
+14. Opens tight and square-on to the BBY TIGR plate, then an **animated** pull-back reveals the whole car while it keeps moving (Section 7, "Ending").
+15. Drives into the distance over the end card, with no frozen frames and no static plate cutaway.
 
 **Tone:** clever, playful, empowering, fast, cinematic. *"She doesn't just know people. She knows AI employees."* Entertain first, impress second, make them curious about the Challenge third.
 
@@ -74,12 +74,15 @@ The style is original and only inspired by retro Miami crime-comedy. No propriet
 ### Supporting owners (SHOP_OWNER_0X)
 - Each episode's owner is locked to their own master sheet: hair, facial hair, glasses, wardrobe and proportions.
 - Use the six-emotion library: stressed, exhausted, curious, surprised, impressed, relieved.
-- **Voice:** a male owner uses **Marcus**, `6f98d3dd-324f-4845-8c28-c1d1647a06cd` (stability 0.4, similarity_boost 0.8). A new owner who needs a different voice gets 2–3 candidate samples, the director picks one, and the ID is logged in `manifests/reference-assets.json`.
+- Owners stay **stressed until the AI employee is revealed**: no smiles, no turning away from Noelle before the demo (Ep02 S04 take 1 was rejected for an early smile).
+- **Voice:** a female owner uses **Gia**, `530df032-c311-483b-a750-cb3c9e1bcdfd` (stability 0.4, similarity_boost 0.8; Ep02 executive). A male owner uses **Marcus**, `6f98d3dd-324f-4845-8c28-c1d1647a06cd` (stability 0.4, similarity_boost 0.8). A new owner who needs a different voice gets 2–3 candidate samples, the director picks one, and the ID is logged in `manifests/reference-assets.json`.
 
 ### AI employees
 - Each AI employee is heard through the phone with a phone EQ, and has a name label on screen.
 - Rachel uses **Emily**, `6b3e3642-f7b7-4cb8-9688-51e233c4b92f`, stability 0.6, similarity_boost 0.8.
-- New employees get 2–3 candidate samples sent to the director before use.
+- Eva uses **Imogen**, `3811e986-0891-47cf-a1f5-78a1d62a547a`, stability 0.6, similarity_boost 0.8. She's heard through the laptop, so use `device_eq` (highpass 250 / lowpass 6000), not the phone EQ.
+- New employees get 2–3 candidate samples sent to the director before use. Generating samples is cheap (about 0.2 credits each), so send real samples rather than preset preview links.
+- **Every demo must visibly show the employee working**: state changes such as red→green, ticks, text typing in or counters moving. Build it in post over the director's keyframe (Ep02: `scripts/ep02/eva_ui_anim.py`). A static screen was flagged as not enough.
 
 ### MIAMI_YELLOW_CAR_01
 - Same wedge silhouette, side strakes, rectangular lights, yellow paint and dark trim, wheel size, window geometry and **roof height**.
@@ -166,21 +169,23 @@ The style is original and only inspired by retro Miami crime-comedy. No propriet
 
 ## 7. ANIMATION PIPELINE (Higgsfield)
 
-Verify current models and prices with `models_explore` at the start of each episode. The models below were in use on Ep01.
+Verify current models and prices with `models_explore` at the start of each episode. The models below were in use on Ep01 and Ep02.
 
 | Job | Model | Notes |
 |---|---|---|
 | Image-to-video | `grok_video_v15` | 720p, about **4.5 credits/s**, `start_image` role, 2–6s clips. Generates native audio. |
+| Anchored shots (reactions, ending pull-back) | `minimax_h3_max` | 768p, 5s minimum, about **12.5–15 credits/5s**. Roles `start_image` + `end_image`. Use the same keyframe for both to lock a face, or a different end frame to land exactly on the next clip's first frame. |
 | Lip sync | `sync_so` (Sync Lipsync 3) | About **3.6 credits/s**. Roles: `input_video` (a job id works), `input_audio`. `sync_mode: cut_off`. **Use default face detection**; manual `active_speaker_detection` coordinates made Ep01's first attempt fail. |
 | Voices | `elevenlabs_v4` | Locked IDs in Section 3 |
 | Music | `elevenlabs_music_v2_5` | About 4.7 credits for 32s |
 
 **Execution rules:**
-- **Submit at most 3 concurrent jobs.** Larger batches hit 429s on every model in Ep01. Wait with `jobs_wait`; a foreground `sleep` is blocked.
+- **Submit at most 2 concurrent jobs, across all models.** The account cap is 2: in Ep02 a third job was refused with "max 2 concurrent job(s)". Finish all voice lines first, since they return in about 10s, then run video in pairs. Wait with `jobs_wait`; a foreground `sleep` is blocked.
 - Upload flow: `media_upload` → curl PUT with the exact Content-Type → `media_confirm`. Audio for lip sync is uploaded as mp3 (`audio/mpeg`).
 - **Lip-sync input:**
   - For each synced shot, build an audio file the exact length of the raw clip, with the line placed at its exact on-screen offset.
   - Sync the **raw clip** before any overlays, then re-assemble.
+  - If the shot needs a retime (`slow`) or trim, render the retimed clip first, upload it, and sync that. Syncing the raw clip and retiming afterwards breaks the sync (Ep02 S08).
   - Test **one shot first**, review it, then run the rest.
 - Every prompt states:
   - what must stay (identity, wardrobe, car geometry, style);
@@ -198,6 +203,10 @@ Verify current models and prices with `models_explore` at the start of each epis
 | **Handing over a phone or card** | Passed, using these prompts. | Name the object, which hand holds it, and that there is "one card" or "one phone". Check that it is a single object in QA. |
 | **Signature sunglasses lower** | QA first said "barely moves". The frames showed it does lower. | Judge from frames at several timestamps, never from a guess. |
 | **Dialogue close-up** | The model invents mouth motion that doesn't match the TTS. | Run the lip-sync pass on these shots (Section 6.3). |
+| **Reaction / expression shot** (laughing, gasping, leaning in) | Ep02 S08: two grok takes failed. Take 1 morphed the face at 1.8s; take 2 drifted the face and made the laptop fold shut and vanish, even with "head stays in the same position". | Use `minimax_h3_max` with the keyframe as **both** `start_image` and `end_image`. Use the stable range and retime it into the slot. |
+| **On-screen UI, notifications, any readable text** | Grok warps text and duplicates UI: Ep02 S03B grew 4 notification cards to 6. | Build it in post. Cut elements from the director's keyframe with a rounded, feathered mask and composite them over the clip (`scripts/ep02/notif_pop.py`). Don't pixel-diff two keyframes to find the elements: they are separate renders and not aligned. |
+| **Two near-identical keyframes** (e.g. "desk" then "desk + notifications") | Cutting between them reads as a jump. | Merge them into one shot: animate the plain frame, add the new elements in post, popping in one at a time. |
+| **Ending: plate → drive-off** | Ep01's static plate cutaway broke the flow. Ep02's first fix, a zoom on a still, froze the car for 1.3s. | `minimax_h3_max`: `start_image` = full-res plate close-up crop, `end_image` = the drive-off keyframe (which is the grok clip's frame 0). Play it at about 2× (`slow: 0.5`), then cut to the drive-off clip at frame 0. No visible seam (Ep02 shot 12M). |
 
 ---
 
@@ -213,7 +222,9 @@ Verify current models and prices with `models_explore` at the start of each epis
 - **Assembly:** `python3 scripts/assemble_vertical.py <manifest> exports/vertical/<name>.mp4`.
   - Set the Bash timeout to at least 600000 ms.
   - The command writes stems next to the output.
-- **Retiming:** `slow` between 0.8 and 1.2 is invisible. Beyond that, trim with `src_in` instead.
+- **Retiming:** `slow` between 0.8 and 1.2 is invisible. Beyond that, trim with `src_in` instead. Exception: a moving-car or camera-move clip can play at 2× (`slow: 0.5`) without looking wrong (Ep02 pull-back).
+- **Post-built shot helpers (Ep02, reusable):** `scripts/ep02/notif_pop.py` (cards pop over a clip), `scripts/ep02/eva_ui_anim.py` (UI working animation), `scripts/ep02/plate_pullback.py` (still-image pull-back, now a fallback only), `scripts/ep02/lipsync_audio.py` (per-clip lip-sync track), `scripts/qa_strip5.sh` (5-frame QA strip).
+- **Compositing onto grok clips:** grok output is the keyframe scaled (0.765 in Ep02) with a 0–7px crop. Measure it against the clip's first frame before placing graphics; never guess it.
 
 **Layout (1080×1920, mobile-safe):**
 
@@ -221,17 +232,16 @@ Verify current models and prices with `models_explore` at the start of each epis
 |---|---|
 | Title "UNLOCKING AI / MIAMI TAKEOVER" | Top of frame, over the opening car shot |
 | AI employee name label (name and role) | **Top of frame (y≈210)** so it never collides with captions; "Dramatization" note at y≈1560 |
-| Captions | y≈1330, Anton 62, white with black stroke, max width 860 |
-| End card | Starts **at the plate cutaway**, not before. It must **never cover Noelle walking to or entering the car**. It holds to the last frame. |
+| Captions | y≈1330, Anton 62, white with black stroke, max width 860. On a 3:4 demo-screen shot, set the caption's `"y"` to ≈1600 so it sits below the screen (y=1330 covered Eva's UI; y=1700 ran into the phone app's bottom bar). |
+| End card | Starts once the plate pull-back has revealed the full car (Ep02: about 1.5s into the pull-back), not before. It must **never cover Noelle walking to or entering the car**, or the plate close-up. It holds to the last frame. |
 | Register pill | `REGISTER: stan.store/noelleai/unlockingai` at **y≈1650, under the car**, above the bottom UI zone |
 | Promo line (optional, `end_card.promo`) | Yellow pill under the register pill, e.g. `USE CODE GTA6  •  $27 → $1`. With a promo, the register pill moves up to y≈1600, so the promo pill ends around y≈1720. Use only codes and prices the director supplies. |
 
 **End card text (verify every episode):**
 - UNLOCKING AI CHALLENGE
 - BUILD AN AI-AMPLIFIED BUSINESS
-- BLACK FRIDAY
-- FRIDAY, NOVEMBER 27, 2026
-- 3:00–5:00 PM ET • LIVE
+- LIVE
+- Only with a dated event pack: event line, date and time (e.g. the Black Friday pack in `events/black-friday-2026.json`). The default `events/evergreen.json` has none of these and no promo.
 
 **Registration:** https://stan.store/noelleai/unlockingai. Never invent another link.
 
@@ -244,7 +254,7 @@ Verify current models and prices with `models_explore` at the start of each epis
 
 ## 8b. EVERGREEN DESIGN (required for every episode)
 
-The series is reused for each Challenge, 3–4 times a year. Build every episode so the event can be swapped without re-animating:
+The series is reused for each Challenge, 3–4 times a year. **Episodes are evergreen by default** (director's call, Ep02): no dates, times or promo codes in picture, captions or VO, and `"event": "events/evergreen.json"` unless the director asks for a dated pack. Build every episode so the event can be swapped without re-animating:
 - **Put everything event-specific in an event pack**, `events/<id>.json`: the event line, date, time, format, registration, promo, and Noelle's invite voiceover. The episode manifest only points at it with `"event"`. See `EVERGREEN.md`.
 - **The invite lines must be voiceover:** the sunglasses shot and the invite-card shot have no lip sync. Define their `event_slots` (timing, max seconds, caption id) in the episode manifest.
 - Keep everything before the sunglasses beat, and the "I'll show you" exit line, free of any date or event name.
@@ -258,7 +268,7 @@ The series is reused for each Challenge, 3–4 times a year. Build every episode
 | 3 | Voice lines; candidate samples for any *new* voice. | about 2 credits | **Director picks new voices** |
 | 4 | Timing pass: build `audio_edit`, set shot durations, plan lip sync vs voiceover. | – | – |
 | 5 | **Cost estimate**: clips, lip sync, music, plus about a 15% retake buffer. | – | **Director authorizes the spend** |
-| 6 | Animate all shots, at most 3 at a time. | yes | – |
+| 6 | Animate all shots, at most 2 at a time. | yes | – |
 | 7 | **Physics and continuity QA on every clip** (Section 10). Regenerate only failures, at most 1 retake per shot before escalating to the director. | yes, retakes only | – |
 | 8 | Lip sync: **one test shot**, review it, then the rest. | yes | – |
 | 9 | Music, graphics, assembly, loudness. | about 5 credits | – |
@@ -311,7 +321,7 @@ Commit after each milestone so no work is left untracked.
 
 ### E. Graphics and marketing
 - No overlay covers the key action: Noelle entering the car, the demo screen, or faces.
-- Date, time and spelling are exact.
+- Spelling is exact. In evergreen episodes, no date, time or promo appears anywhere. With a dated pack, date and time are exact.
 - The register link is correct, the Dramatization note is shown, and there are no unsupported claims.
 
 ### F. Technical
@@ -335,7 +345,9 @@ Commit after each milestone so no work is left untracked.
 | Lip sync, 4 shots | 44 |
 | Extension | 18 |
 
-**Target for later episodes: about 230–260 credits** for vertical, if the high-risk patterns in Section 7 are prompted correctly the first time.
+**Reference spend for Ep02 (vertical, about 260 credits):** 13 grok clips plus 2 failed S08 takes (~153), voices and candidates (~3), music (~5), first director-tweak round (~84: S03 base, S04 retake, S08 Minimax, 4 lip syncs), animated plate pull-back (~15).
+
+**Target for later episodes: about 230–260 credits** for vertical, if the high-risk patterns in Section 7 are prompted correctly the first time. Ep02's avoidable spend was the two grok S08 takes (~27) and the still-image ending that was later replaced.
 
 **Rules:**
 - Estimate before spending, and get authorization.
