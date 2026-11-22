@@ -181,9 +181,9 @@ m = {
  "event": "events/evergreen-ep03.json",
  "event_slots": {"L6a": {"shot": "11G", "beat": "Noelle lowers her sunglasses", "at": 21.75, "max_s": 1.2, "caption": "c10", "guide": "2-3 words, no date"},
                  "L6b": {"shot": "11", "beat": "Noelle hands Val the black key card", "at": 22.9, "max_s": 3.0, "caption": "c11", "guide": "<=8 words"}},
- "voices": {"NOELLE": "Sloane b57b22a0-f287-405b-bc82-6f08f5e6bb1f (locked)", "VAL": "TBD: 3 candidates (production sheet)", "SONNY": "TBD: 3 candidates (production sheet)"},
+ "voices": {"NOELLE": "Sloane b57b22a0-f287-405b-bc82-6f08f5e6bb1f (locked)", "VAL": "Ines 023ebf5e-1970-40d8-825c-a5ef6a1dd4ff (stab 0.4, sim 0.8) - director pick", "SONNY": "Caspian ef70cc83-3015-4bad-9359-0ea968c43ec0 (stab 0.6, sim 0.8) - director pick", "_jobs": "L1 39edc790, L2 4b796695, L3 5f7fcb1d, L4 f4b1b0c0, L5 d0610711, L6 65fc3665, L7 a28b779b, L8 0e40dfb5, L9 5f515d1c, L6a 32b6a94f"},
  "director_decisions_2026-11-22": ["S02 corrected signage approved", "S12A hardtop confirmed, keep", "Sonny's face on the app avatar is intentional", "Sunglasses frame supplied (S11G)", "S05 right-edge figure is a customer, keep", "Voice candidate plan approved", "No Sonny reference sheet: frames are the reference", "Budget approved (~250 credits)"],
- "open_items": ["Pick Val + Sonny voices from candidates", "Sonny UI: Queue/Schedule highlighted, not pressed (default unless director says otherwise)"],
+ "open_items": ["Dialogue runs ~2.2s long vs v2 timing: retime pending director choice", "Sonny UI: Queue/Schedule highlighted, not pressed (default unless director says otherwise)"],
  "approval_status": "Stage B authorized: voice candidates next",
  "retired_takes": [],
 }
