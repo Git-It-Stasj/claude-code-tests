@@ -3,8 +3,9 @@
   "job": "c81587bf-e22d-4833-863b-7401d58210e6",
   "raw": "S01_raw.mp4",
   "qc": "PASS take 1: single car, hardtop, sign stable, smooth push-in (8 frames 0-2.95s)",
-  "file": "S01_raw.mp4",
-  "src_in": 0.0
+  "file": "S01_raw_nologo.mp4",
+  "src_in": 0.0,
+  "post": "v5: car-brand badges removed (scripts/ep03/logo_clean.py; re-run it after re-rendering the source clip)"
  },
  "02": {
   "job": "5c65d7ee-a863-4de7-919a-49cdac7b19a5",
@@ -116,22 +117,24 @@
   "raw": "S12A_raw.mp4",
   "src_in": 0.0,
   "qc": "DIRECTOR REVIEW: motion PASS (settles into seat, 2 arms, door/strakes rigid); roofline: no roof visible above her once seated (1.2-1.95s), reads open-top. Inherited from Rev03 keyframe; a retake from the same frame cannot add a roof (8 frames 0-1.95s)",
-  "file": "S12A_raw.mp4"
+  "file": "S12A_raw_nologo.mp4",
+  "post": "v5: car-brand badges removed (scripts/ep03/logo_clean.py; re-run it after re-rendering the source clip)"
  },
  "12B": {
   "job": "aa4e6e83-ec14-4bf2-b646-eab3d929f334",
   "raw": "S12B_raw.mp4",
   "src_in": 0.0,
   "qc": "PASS take 1: finger taps, phone steady, face hidden (hair only), console stable (8 frames 0-3.0s); screen animated in post",
-  "file": "S12B.mp4",
-  "post": "v3: tap glows removed (director)"
+  "file": "S12B_nologo.mp4",
+  "post": "v3: tap glows removed (director); v5: car-brand badges removed (scripts/ep03/logo_clean.py; re-run it after re-rendering the source clip)"
  },
  "13": {
   "job": "ea6bb9fd-657b-4946-b5c3-3d4887a4f09f",
   "raw": "S13_raw.mp4",
   "src_in": 0.0,
   "qc": "PASS take 1: single car, hardtop/louvers/quad exhaust stable, pulls away toward sunset; plate BBY TIGR legible at 0/0.8/1.6/2.5s (2x crops) (8 frames 0-3.0s)",
-  "file": "S13_raw.mp4"
+  "file": "S13_raw_nologo.mp4",
+  "post": "v5: car-brand badges removed (scripts/ep03/logo_clean.py; re-run it after re-rendering the source clip)"
  },
  "08V": {
   "file": "S08V_lipsync.mp4",

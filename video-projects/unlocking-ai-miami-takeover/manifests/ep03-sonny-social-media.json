@@ -50,7 +50,7 @@
     "roof and body geometry"
    ],
    "camera": "slow push-in",
-   "file": "S01_raw.mp4",
+   "file": "S01_raw_nologo.mp4",
    "qc": "PASS take 1: single car, hardtop, sign stable, smooth push-in (8 frames 0-2.95s)",
    "revisions": [],
    "flags": [
@@ -59,7 +59,8 @@
    "media_id": "54f134d9-cfde-4668-9d02-56113f679ee4",
    "job": "c81587bf-e22d-4833-863b-7401d58210e6",
    "raw": "S01_raw.mp4",
-   "src_in": 0.0
+   "src_in": 0.0,
+   "post": "v5: car-brand badges removed (scripts/ep03/logo_clean.py; re-run it after re-rendering the source clip)"
   },
   {
    "id": "02",
@@ -589,14 +590,15 @@
     "boutique signage"
    ],
    "camera": "static",
-   "file": "S12A_raw.mp4",
+   "file": "S12A_raw_nologo.mp4",
    "qc": "DIRECTOR REVIEW: motion PASS (settles into seat, 2 arms, door/strakes rigid); roofline: no roof visible above her once seated (1.2-1.95s), reads open-top. Inherited from Rev03 keyframe; a retake from the same frame cannot add a roof (8 frames 0-1.95s)",
    "revisions": [],
    "qc_watch": "Roofline: check for any open-top read across sampled frames; regenerate only if the roof changes.",
    "media_id": "23a62701-59d7-41ea-9644-653bbf117ab9",
    "job": "de3dc9a4-2cec-4a8a-a987-4d00ac8a568a",
    "raw": "S12A_raw.mp4",
-   "src_in": 0.0
+   "src_in": 0.0,
+   "post": "v5: car-brand badges removed (scripts/ep03/logo_clean.py; re-run it after re-rendering the source clip)"
   },
   {
    "id": "12B",
@@ -624,7 +626,7 @@
     "dash badge"
    ],
    "camera": "static",
-   "file": "S12B.mp4",
+   "file": "S12B_nologo.mp4",
    "qc": "PASS take 1: finger taps, phone steady, face hidden (hair only), console stable (8 frames 0-3.0s); screen animated in post",
    "revisions": [],
    "screen": "post: re-use the Sonny UI from PH, one tap highlights 'Review' on Post 2 in sync with the finger. No counts, follower or engagement numbers.",
@@ -636,7 +638,7 @@
    "job": "aa4e6e83-ec14-4bf2-b646-eab3d929f334",
    "raw": "S12B_raw.mp4",
    "src_in": 0.0,
-   "post": "v3: tap glows removed (director)"
+   "post": "v3: tap glows removed (director); v5: car-brand badges removed (scripts/ep03/logo_clean.py; re-run it after re-rendering the source clip)"
   },
   {
    "id": "13",
@@ -664,14 +666,15 @@
     "palms"
    ],
    "camera": "static",
-   "file": "S13_raw.mp4",
+   "file": "S13_raw_nologo.mp4",
    "qc": "PASS take 1: single car, hardtop/louvers/quad exhaust stable, pulls away toward sunset; plate BBY TIGR legible at 0/0.8/1.6/2.5s (2x crops) (8 frames 0-3.0s)",
    "revisions": [],
    "notes": "Plate is already readable in frame 0, so no separate plate pull-back (12M) is needed. Plate legibility is QA'd frame-by-frame.",
    "media_id": "109a6dec-e33f-4ac0-834a-321eb044e834",
    "job": "ea6bb9fd-657b-4946-b5c3-3d4887a4f09f",
    "raw": "S13_raw.mp4",
-   "src_in": 0.0
+   "src_in": 0.0,
+   "post": "v5: car-brand badges removed (scripts/ep03/logo_clean.py; re-run it after re-rendering the source clip)"
   }
  ],
  "dialogue": [

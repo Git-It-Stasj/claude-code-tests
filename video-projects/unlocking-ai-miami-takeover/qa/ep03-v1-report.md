@@ -82,3 +82,8 @@ Spend v2: ~146 credits (6 minimax 75, 1 grok 13.5, 7 sync ~57.5). Balance 479.61
 - 08B → 09 jump: 08B push-in now phone-matched (last 0.6s, ×1.32, S08 phone centre (390,887) → S09 phone centre (421,972), keyframe px) and dissolves into S09 frame 0 over 5 frames; strips at 12 fps across 16.6–17.8s show one continuous move.
 - S09 fingertip: pale nail tip was outside the skin mask and got covered by the screen layer; mask now adds bright low-saturation pixels hugging the finger, tighter edge. Crops at 0.4/0.5/0.6/0.8/1.4/2.2s match the raw clip's full nail.
 - Export EP03_sonny_9x16_v4.mp4: 35.000s.
+
+## v5: Ferrari badges removed
+- Found by full-frame review of every car shot: 01 hood badge + both wheel-cap emblems; 12A front wheel-cap emblem; 12B dashboard horse; 13 rear horse, small emblem above grille, engine-lid ornament, model script badge. S04/S12 background cars are too small to carry a readable badge.
+- `scripts/ep03/logo_clean.py`: per-badge ORB/affine tracking (badge-local ROI where the camera arcs), fills: inpaint on paint, per-frame blob detection for the hood badge, grille/louvre/leather clone for badges on patterned surfaces, yellow-cap fill for wheel emblems. Before/after crops at 4+ frames per shot show no remaining badge; 12B uses a static mask (camera locked).
+- Export EP03_sonny_9x16_v5.mp4: 35.000s.
