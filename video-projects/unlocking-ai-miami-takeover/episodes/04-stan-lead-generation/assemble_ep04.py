@@ -90,9 +90,18 @@ def main(edit_path, out):
     }
     ins, fg, labels = [], [], []
     for k, c in enumerate(e["sfx"]):
+        ms = int(c["at"] * 1000)
+        if c["type"] == "file":  # recorded/generated SFX: trim [in, in+dur] with short fades
+            ins += ["-i", os.path.join(HERE, c["file"])]
+            src_in = c.get("in", 0)
+            fo = c.get("fade_out", 0.3)
+            fg.append(f"[{k}:a]aresample={SR},atrim={src_in}:{src_in + c['dur']},asetpts=PTS-STARTPTS,"
+                      f"afade=t=in:d=0.03,afade=t=out:st={max(c['dur'] - fo, 0)}:d={fo},"
+                      f"aformat=channel_layouts=stereo,volume={c.get('gain_db', 0)}dB,adelay={ms}|{ms}[s{k}]")
+            labels.append(f"[s{k}]")
+            continue
         expr = srcs[c["type"]].format(d=c["dur"], fo=max(c["dur"] - 0.6, 0), h=c["dur"] / 2)
         ins += ["-f", "lavfi", "-i", expr]
-        ms = int(c["at"] * 1000)
         fg.append(f"[{k}:a]aformat=channel_layouts=stereo,volume={c.get('gain_db', 0)}dB,adelay={ms}|{ms}[s{k}]")
         labels.append(f"[s{k}]")
     fg.append(f"{''.join(labels)}amix=inputs={len(labels)}:normalize=0,apad,atrim=0:{total}[sfx]")
@@ -103,7 +112,7 @@ def main(edit_path, out):
     mu = e["music"]
     drop = "+".join(f"between(t,{a},{b})" for a, b in mu.get("drops", [])) or "0"
     mfil = (f"[0:a]aresample={SR},aformat=channel_layouts=stereo,atrim=0:{total},asetpts=PTS-STARTPTS,"
-            f"volume={mu.get('gain_db', -6)}dB,volume='if({drop},0.12,1)':eval=frame,"
+            f"volume={mu.get('gain_db', -6)}dB,volume='if({drop},{mu.get('drop_level', 0.0)},1)':eval=frame,"
             f"afade=t=out:st={total - mu.get('fade_out', 1.5)}:d={mu.get('fade_out', 1.5)}[m];"
             f"[1:a]asplit=2[sc][dl];[m][sc]sidechaincompress=threshold=0.03:ratio=8:attack=20:release=300[md];"
             f"[md][dl][2:a]amix=inputs=3:normalize=0,alimiter=limit=0.95[mix]")
