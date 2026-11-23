@@ -41,3 +41,30 @@ Estimated runtime with the added lines: ~38–40s (spec 32–35s). Way back to s
 | Voice samples (6) + Noelle lines (3) | ~2.5 |
 | Image edits (S08, S16, S05) + S07 upscale | 8 |
 | S01 clip (Grok 2s) | 9 |
+| S01 v2 + S02–S16 clips (Grok), incl. retired S12 Grok take | ~198 |
+| Lip sync S07, S10, S11, S14 (sync_so) | ~38 |
+| Marcus lines (Sterling) | ~0.5 |
+| **Balance after clips** | **840** |
+
+## Clip status (all internal QA passed; awaiting SQA)
+| Shot | File | Notes |
+|---|---|---|
+| S01 | clips/S01_v2.mp4 | car fixed centre, street scrolls bottom→top (v1 retired) |
+| S02 | clips/S02.mp4 | head tilt + glint, roof closed |
+| S03 | clips/S03.mp4 | dolly to window |
+| S05 (+S04) | clips/S05.mp4 | push through glass, Noelle walks in |
+| S06 | clips/S06.mp4 | Marcus head-turn back, arms crossed |
+| S07 | clips/S07_lipsync.mp4 | glasses down + "…where are the leads?" (glasses come fully off) |
+| S08 | clips/S08.mp4 | empty pipeline, static screen |
+| S09 | clips/S09.mp4 | tumbleweed; Grok re-framed palms slightly vs keyframe |
+| S10 | clips/S10_lipsync.mp4 | cuff + "I'm working on that." |
+| S11 | clips/S11_lipsync.mp4 | "I know a guy." |
+| S11A | clips/S11A.mp4 | cursor → Bring Online glow |
+| S12–S13 | clips/S12.mp4 | built in post from keyframe (Grok take altered Stan's face + "Pipeline" label → retired) |
+| S14 | clips/S14_lipsync.mp4 | "He finds leads AND writes the emails?" ("Wait." trimmed) |
+| S15 | clips/S15.mp4 | one card, clean handoff |
+| S15A | clips/S15A.mp4 | look-back first, then walks out |
+| S16 | clips/S16.mp4 | drives away up the lane, BBY TIGR legible |
+
+Voices: Marcus Vega = Sterling (dc382508-c8bd-443c-8cb2-46e57b8d2e6f), Stan = Kevin (f1373f24-3b96-433f-9a68-e595810ef608).
+Review reel (raw clips in order, no music): review/EP04_clips_review_reel.mp4 (44.6s raw → ~38–40s after trims).
