@@ -1,6 +1,6 @@
 const { chromium } = require('playwright'); const { spawn } = require('child_process');
 (async () => {
-  const o = process.argv[2], V = o === 'v', FPS = 60, N = 30 * FPS;
+  const o = process.argv[2], V = o === 'v', FPS = 60, N = 32 * FPS;
   const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: V ? 1080 : 1920, height: V ? 1920 : 1080 } });
   await p.goto('file://' + __dirname + '/index30.html?o=' + o); await p.waitForFunction('window.READY');
   const ff = spawn('ffmpeg', ['-loglevel', 'error', '-y', '-f', 'image2pipe', '-framerate', String(FPS), '-i', '-',

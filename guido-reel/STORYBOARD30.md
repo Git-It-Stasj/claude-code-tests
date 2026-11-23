@@ -13,7 +13,7 @@ caption can be read. Every chapter carries a plain-language caption card (headli
 | 24–32 | 12.9–17.1 | 05 Finite elements (drop on B24) | Simulate before you build / Femap-Nastran FEA + BioFET MEMS design |
 | 32–40 | 17.1–21.4 | 06 Soft robotics | Teaching by building / camp mentor: molds, silicone hand, Arduino + Python |
 | 40–49 | 21.4–26.3 | Flurry, 1.5 beats per card | P6 scheduling · traffic signals · fluent Spanish · licensed EMT · biomimicry · TA |
-| 49–56 | 26.3–30.0 | 07 Fin | End card (no caption) |
+| 49–59.7 | 26.3–32.0 | 07 Fin | End card (no caption), held 2 s longer at the end |
 
 9:16 framing: each chapter has its own crop (scale + center x in `CHN`), eased across boundaries.
 Headline card sits above the picture, the sentence card below it.

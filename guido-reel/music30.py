@@ -1,7 +1,7 @@
-"""Score + SFX for the 30 s cut. 112 BPM, 30 s, synthesized locally (no paid generation).
+"""Score + SFX for the 30 s cut (32 s with the end-card hold). 112 BPM, synthesized locally (no paid generation).
 Writes qa/master30_raw.wav; loudness is normalized afterwards with ffmpeg loudnorm (-14 LUFS, -1.2 dBTP)."""
 import numpy as np, wave
-SR = 48000; DUR = 30.0; N = int(SR * DUR); P = 60 / 112
+SR = 48000; DUR = 32.0; N = int(SR * DUR); P = 60 / 112
 B = lambda n: n * P
 MAP = [[0, 0], [4, 4], [4.9, 4.9], [5.8, 5.15], [7.4, 6.6], [10, 7.0], [12, 8], [16, 12], [17, 13], [23.4, 15.4], [23.45, 15.45], [24, 16],
   [25, 17], [26.6, 18.6], [31.55, 19.55], [32, 20], [39.5, 23.5], [40, 24], [41.5, 25], [43, 26], [44.5, 26.5], [46, 27], [47.5, 27.5], [48.7, 27.78],
@@ -51,10 +51,10 @@ for bar in range(15):
     for off, nt in [(0, 2), (B(1.5), 1), (B(3), 0)]:
         f = tones[nt] * 2; a = lp(saw(f, .45, (-.004, .004)), 3) * np.exp(-tt(.45) * 5) * np.minimum(1, tt(.45) * 300)
         i = int((t0 + off) * SR); n = max(0, min(len(a), N - i)); lead[i:i + n] += a[:n] * 0.09
-g_pad = env([(0, .4), (B(4), .7), (B(24), .9), (B(40), 1.1), (B(49), 1.2), (30, 1)])
-g_bass = env([(0, 0), (B(12) - .01, 0), (B(12), .7), (B(23.5), .9), (B(23.5) + .01, 0), (B(24), 0), (B(24) + .01, 1), (B(40) - .01, 1), (B(40), 0), (B(49) - .01, 0), (B(49), .6), (30, .3)])
-g_arp = env([(0, 0), (B(4) - .01, 0), (B(4), .45), (B(23.5), .9), (B(23.5) + .01, 0), (B(24), 0), (B(24) + .01, .8), (B(40), .8), (B(40) + .01, .4), (B(49), .4), (B(49) + .01, .5), (30, .2)])
-g_lead = env([(0, 0), (B(24) - .01, 0), (B(24), 1), (B(40) - .01, 1), (B(40), 0), (B(49), 0), (B(49) + .01, .7), (30, .4)])
+g_pad = env([(0, .4), (B(4), .7), (B(24), .9), (B(40), 1.1), (B(49), 1.2), (32, 1)])
+g_bass = env([(0, 0), (B(12) - .01, 0), (B(12), .7), (B(23.5), .9), (B(23.5) + .01, 0), (B(24), 0), (B(24) + .01, 1), (B(40) - .01, 1), (B(40), 0), (B(49) - .01, 0), (B(49), .6), (32, .3)])
+g_arp = env([(0, 0), (B(4) - .01, 0), (B(4), .45), (B(23.5), .9), (B(23.5) + .01, 0), (B(24), 0), (B(24) + .01, .8), (B(40), .8), (B(40) + .01, .4), (B(49), .4), (B(49) + .01, .5), (32, .2)])
+g_lead = env([(0, 0), (B(24) - .01, 0), (B(24), 1), (B(40) - .01, 1), (B(40), 0), (B(49), 0), (B(49) + .01, .7), (32, .4)])
 kicks = [B(b) for b in [1, 2, 3]] + [B(b) for b in range(4, 24)] + [B(b) for b in range(24, 40)] + [B(b) for b in range(49, 56)]
 sc = np.ones(N)
 for kt in kicks:
@@ -96,7 +96,7 @@ for j in range(0, 44, 2): put(click(), Bo(29.2 + j / 44), 0.18)
 for j in range(0, 52, 2): put(click(), Bo(30.2 + j / 52), 0.14)
 put(pop(440), Bo(30), 0.7)                                                          # final period
 st = tt(3); put(sum(np.sin(2 * np.pi * f * st) for f in [1174.7, 1760, 2349.3]) * np.exp(-st * 1.2) * 0.06, Bo(31), 1)
-fade = np.clip((30 - T) / 0.3, 0, 1); L *= fade; R *= fade
+fade = np.clip((32 - T) / 0.6, 0, 1); L *= fade; R *= fade
 m = max(np.abs(L).max(), np.abs(R).max()); out = (np.stack([L, R], 1) / m * 0.7 * 32767).astype(np.int16)
 with wave.open('qa/master30_raw.wav', 'wb') as w: w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(out.tobytes())
 print('ok')

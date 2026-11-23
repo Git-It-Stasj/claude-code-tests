@@ -3,13 +3,13 @@
 // into slow holds. Plain-language captions say what she did; the 9:16 cut gets a per-chapter crop.
 const VERT = new URLSearchParams(location.search).get('o') === 'v';
 window.VERT = VERT;
-const SW = VERT ? 1080 : 1920, SH = VERT ? 1920 : 1080, END30 = 30, PN = 60 / 112, BN = (n) => n * PN;
+const SW = VERT ? 1080 : 1920, SH = VERT ? 1920 : 1080, END30 = 32, PN = 60 / 112, TOTB = END30 / PN, BN = (n) => n * PN;
 cv.width = SW; cv.height = SH;
 
 // [new beat, old beat] keyframes (old beats are reel.js's 129 BPM grid)
 const MAP = [[0, 0], [4, 4], [4.9, 4.9], [5.8, 5.15], [7.4, 6.6], [10, 7.0], [12, 8], [16, 12], [17, 13], [23.4, 15.4], [23.45, 15.45], [24, 16],
   [25, 17], [26.6, 18.6], [31.55, 19.55], [32, 20], [39.5, 23.5], [40, 24], [41.5, 25], [43, 26], [44.5, 26.5], [46, 27], [47.5, 27.5], [48.7, 27.78],
-  [49, 28], [53, 31], [56, 32.25]];
+  [49, 28], [53, 31], [56, 32.25], [END30 * 112 / 60, 33.4]];  // last segment: 2 s hold on the end card
 function oldT(t) {
   const b = t / PN;
   for (let i = 1; i < MAP.length; i++) if (b <= MAP[i][0]) { const [n0, o0] = MAP[i - 1], [n1, o1] = MAP[i]; return lr(o0, o1, (b - n0) / (n1 - n0)) * P; }
@@ -31,7 +31,7 @@ const CHN = [
   [47.5, '·· TOOLPATHS', 0.54, 960, 'Teaching assistant', 'Additive Manufacturing at SDSU, 2026.'],
   [49, '07 · FIN', 0.8, 960, null, null],
 ];
-const SEGN = [0, 4, 12, 16, 24, 32, 40, 49, 56];
+const SEGN = [0, 4, 12, 16, 24, 32, 40, 49, TOTB];
 function chAt(b) { let i = 0; CHN.forEach((c, j) => { if (b >= c[0] - 1e-6) i = j; }); return i; }
 
 function wrap(s, maxW) { const out = []; let cur = ''; for (const w of s.split(' ')) { const tst = cur ? cur + ' ' + w : w; if (x.measureText(tst).width > maxW && cur) { out.push(cur); cur = w; } else cur = tst; } if (cur) out.push(cur); return out; }
@@ -41,7 +41,7 @@ function camera(b) { // 9:16 crop: scale + center x, eased across chapter bounda
 }
 function captions(t, mode) {
   const b = t / PN, i = chAt(b), c = CHN[i]; if (!c[4]) return;
-  const nxt = CHN[i + 1] ? CHN[i + 1][0] : 56, len = nxt - c[0], fast = len < 2;
+  const nxt = CHN[i + 1] ? CHN[i + 1][0] : TOTB, len = nxt - c[0], fast = len < 2;
   const inK = E.o3(pr(b, c[0] + (fast ? 0.05 : 0.3), fast ? 0.3 : 0.6)), inK2 = E.o3(pr(b, c[0] + (fast ? 0.15 : 0.55), fast ? 0.3 : 0.6)), outK = 1 - pr(b, nxt - (fast ? 0.12 : 0.35), fast ? 0.1 : 0.3);
   const ink = mode === 'paper', col = ink ? C.ink : C.white, sub = ink ? 'rgba(11,13,16,0.78)' : 'rgba(246,243,236,0.82)';
   const card = (x0, y0, w, hh, a) => { x.globalAlpha = a; rr(x0, y0, w, hh, 10); x.fillStyle = ink ? 'rgba(236,232,223,0.93)' : 'rgba(11,13,16,0.88)'; x.fill(); x.globalAlpha = 1; };
@@ -75,7 +75,7 @@ function hud30(t, mode, fr) {
   const pad = (n) => String(n).padStart(2, '0');
   mono(`TC 00:00:${pad(Math.floor(fr / FPS))}:${pad(fr % FPS)}`, 72, 110, mode === 'paper' ? 'rgba(11,13,16,0.5)' : 'rgba(241,241,241,0.5)', 13);
   const bx = VERT ? 72 : 1208, bw = VERT ? SW - 144 : 640, by = VERT ? SH - 86 : 1022, f = t / END30;
-  for (let i = 0; i < SEGN.length - 1; i++) { const x0 = bx + (SEGN[i] / 56) * bw + (i ? 2 : 0), x1 = bx + (SEGN[i + 1] / 56) * bw - (i < SEGN.length - 2 ? 2 : 0);
+  for (let i = 0; i < SEGN.length - 1; i++) { const x0 = bx + (SEGN[i] / TOTB) * bw + (i ? 2 : 0), x1 = bx + (SEGN[i + 1] / TOTB) * bw - (i < SEGN.length - 2 ? 2 : 0);
     x.fillStyle = mode === 'paper' ? 'rgba(11,13,16,0.16)' : 'rgba(255,255,255,0.26)'; x.fillRect(x0, by, x1 - x0, 5);
     x.fillStyle = acc; x.fillRect(x0, by, cl(bx + f * bw - x0, 0, x1 - x0), 5); }
   circ(bx + f * bw, by + 2.5, 7.5, acc);
