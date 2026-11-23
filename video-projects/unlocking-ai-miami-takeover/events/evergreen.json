@@ -1,0 +1,21 @@
+{
+  "id": "evergreen",
+  "label": "Fully evergreen: no day, date or time anywhere in the video",
+  "end_card": {
+    "event_line": "LIVE ONLINE",
+    "format_line": "LIMITED SEATS",
+    "registration": "stan.store/noelleai/unlockingai",
+    "promo": "USE CODE GTA6  •  $27 → $1"
+  },
+  "invite_vo": {
+    "L6a": { "text": "You're invited.", "file": "audio/voices/events/evergreen/L6a.mp3" },
+    "L6b": { "text": "Unlocking AI Challenge. Grab your seat at the link.", "file": "audio/voices/events/evergreen/L6b.mp3" }
+  },
+  "voice": {
+    "name": "Sloane",
+    "voice_id": "b57b22a0-f287-405b-bc82-6f08f5e6bb1f",
+    "stability": 0.45,
+    "similarity_boost": 0.8,
+    "model": "elevenlabs_v4"
+  }
+}

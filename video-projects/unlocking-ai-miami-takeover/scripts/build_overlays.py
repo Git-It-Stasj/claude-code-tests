@@ -62,9 +62,13 @@ def endcard(m, out):
     y = big(img, W // 2, y, l[0].replace(" CHALLENGE", ""), font(BANG, 150), YELLOW) + 6   # UNLOCKING AI
     y = big(img, W // 2, y, "CHALLENGE", font(BANG, 150), YELLOW) + 34
     y = label(img, W // 2, y, l[1], font(ANTON, 50), WHITE) + 40                            # BUILD AN AI-AMPLIFIED BUSINESS
-    y = big(img, W // 2, y, l[2], font(BANG, 132), WHITE, shadow=PINK) + 30                 # BLACK FRIDAY
-    y = label(img, W // 2, y, l[3], font(ANTON, 58), YELLOW) + 22                           # FRIDAY, NOVEMBER 27, 2026
-    y = label(img, W // 2, y, f"{l[4]}  •  {l[5]}", font(ANTON, 58), BLACK, bg=YELLOW)      # 3:00-5:00 PM ET • LIVE
+    if l[2]:
+        y = big(img, W // 2, y, l[2], font(BANG, 132), WHITE, shadow=PINK) + 30             # BLACK FRIDAY
+    if l[3]:
+        y = label(img, W // 2, y, l[3], font(ANTON, 58), YELLOW) + 22                       # FRIDAY, NOVEMBER 27, 2026
+    pill = "  •  ".join(x for x in l[4:6] if x)
+    if pill:
+        y = label(img, W // 2, y, pill, font(ANTON, 58), BLACK, bg=YELLOW)                  # 3:00-5:00 PM ET • LIVE
     # registration pill, above bottom UI safe zone
     ec = m["end_card"]
     promo = ec.get("promo")
