@@ -1,0 +1,62 @@
+{
+  "_note": "EP04 vertical edit v1. Times in seconds on the output timeline. Shot starts: S01 0, S02 2.5, S03 4.3, S05 6.1, S06 8.9, S07 11.5, S08 14.5, S09 15.5, S10 16.5, S11 19.2, S11A 21.2, S12 23.6, S14 27.6, S15 30.6, S15A 33.6, S16 37.1, end 43.1",
+  "shots": [
+    {"id": "S01",  "file": "clips/S01_v2.mp4",        "in": 0.0, "dur": 2.5},
+    {"id": "S02",  "file": "clips/S02.mp4",           "in": 0.0, "dur": 1.8},
+    {"id": "S03",  "file": "clips/S03.mp4",           "in": 0.0, "dur": 1.8},
+    {"id": "S05",  "file": "clips/S05.mp4",           "in": 0.0, "dur": 2.8},
+    {"id": "S06",  "file": "clips/S06_lipsync.mp4",   "in": 0.4, "dur": 2.6},
+    {"id": "S07",  "file": "clips/S07_v2_lipsync.mp4","in": 0.0, "dur": 3.0},
+    {"id": "S08",  "file": "clips/S08.mp4",           "in": 0.5, "dur": 1.0},
+    {"id": "S09",  "file": "clips/S09.mp4",           "in": 0.6, "dur": 1.0},
+    {"id": "S10",  "file": "clips/S10_lipsync.mp4",   "in": 0.3, "dur": 2.7},
+    {"id": "S11",  "file": "clips/S11_lipsync.mp4",   "in": 0.0, "dur": 2.0},
+    {"id": "S11A", "file": "clips/S11A.mp4",          "in": 0.4, "dur": 2.4},
+    {"id": "S12",  "file": "clips/S12.mp4",           "in": 0.0, "dur": 4.0},
+    {"id": "S14",  "file": "clips/S14_lipsync.mp4",   "in": 0.0, "dur": 3.0},
+    {"id": "S15",  "file": "clips/S15_v2.mp4",        "in": 0.0, "dur": 3.0},
+    {"id": "S15A", "file": "clips/S15A_v2.mp4",       "in": 0.0, "dur": 3.5, "hold_first": 0.5},
+    {"id": "S16",  "file": "clips/S16_v3.mp4",        "in": 0.0, "dur": 6.0}
+  ],
+  "dialogue": [
+    {"id": "L1a", "file": "audio/L1a_noelle_nice_office.mp3",        "at": 7.3},
+    {"id": "L0",  "file": "audio/L0_marcus_business_booming.mp3",    "at": 9.55},
+    {"id": "L1b", "file": "audio/L1b_noelle_where_leads.mp3",        "at": 12.95},
+    {"id": "L2",  "file": "audio/L2_marcus_working_on_that.mp3",     "at": 17.2},
+    {"id": "L3",  "file": "audio/L3_noelle_i_know_a_guy.mp3",        "at": 19.5},
+    {"id": "L4",  "file": "audio/L4_stan_prospects_matched.mp3",     "at": 24.2, "screen_eq": true},
+    {"id": "L5",  "file": "audio/L5_marcus_finds_leads_trim.mp3",    "at": 27.9},
+    {"id": "L6",  "file": "audio/L6_noelle_thought_youd_ask.mp3",    "at": 31.0},
+    {"id": "L6b", "file": "../../audio/voices/events/evergreen/L6b.mp3", "at": 33.8}
+  ],
+  "captions": [
+    {"id": "c0", "text": "Nice office...",                         "t": [7.3, 8.8]},
+    {"id": "c1", "text": "Business is booming!",                   "t": [9.55, 11.4]},
+    {"id": "c2", "text": "...where are the leads?",                "t": [12.95, 14.5]},
+    {"id": "c3", "text": "I'm working on that.",                   "t": [17.2, 19.0]},
+    {"id": "c4", "text": "I know a guy.",                          "t": [19.5, 21.1]},
+    {"id": "c5", "text": "\"Prospects matched. Outreach drafted.\"", "t": [24.2, 27.3]},
+    {"id": "c6", "text": "He finds leads AND writes the emails?",  "t": [27.9, 30.5]},
+    {"id": "c7", "text": "I thought you'd ask.",                   "t": [31.0, 32.8]},
+    {"id": "c8", "text": "Unlocking AI Challenge. Grab your seat at the link.", "t": [33.8, 37.9]}
+  ],
+  "title_window": [0.3, 2.4],
+  "lower_third": {"name": "STAN", "role": "AI LEAD GENERATION & OUTREACH", "window": [23.6, 27.5]},
+  "end_card": {
+    "lines": ["UNLOCKING AI CHALLENGE", "BUILD AN AI-AMPLIFIED BUSINESS", "", "", "LIVE", ""],
+    "registration": "stan.store/noelleai/unlockingai",
+    "window": [39.6, 43.1]
+  },
+  "sfx": [
+    {"type": "engine", "at": 0.0,  "dur": 4.3, "gain_db": 0},
+    {"type": "whoosh", "at": 5.9,  "dur": 0.5, "gain_db": -6},
+    {"type": "wind",   "at": 14.5, "dur": 2.1, "gain_db": 3},
+    {"type": "type",   "at": 21.3, "dur": 1.1, "gain_db": -8},
+    {"type": "ui",     "at": 22.7, "dur": 0.4, "gain_db": -4},
+    {"type": "ui",     "at": 23.8, "dur": 0.4, "gain_db": -6},
+    {"type": "card",   "at": 31.6, "dur": 0.15, "gain_db": -2},
+    {"type": "engine", "at": 37.1, "dur": 6.0, "gain_db": 0},
+    {"type": "whoosh", "at": 39.4, "dur": 0.5, "gain_db": -6}
+  ],
+  "music": {"file": "audio/music/ep04_synthwave_44s.mp3", "gain_db": -7, "drops": [[14.5, 16.5]], "fade_out": 1.5}
+}

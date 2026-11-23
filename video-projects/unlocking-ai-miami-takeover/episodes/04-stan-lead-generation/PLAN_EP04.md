@@ -68,3 +68,14 @@ Estimated runtime with the added lines: ~38–40s (spec 32–35s). Way back to s
 
 Voices: Marcus Vega = Sterling (dc382508-c8bd-443c-8cb2-46e57b8d2e6f), Stan = Kevin (f1373f24-3b96-433f-9a68-e595810ef608).
 Review reel (raw clips in order, no music): review/EP04_clips_review_reel.mp4 (44.6s raw → ~38–40s after trims).
+
+## Round 3 (SQA notes 1–8) — v1 assembled cut
+- S07 v2: new keyframe in S11's crisp style (keyframes/final/S07_v2_crop.png), clips/S07_v2_lipsync.mp4
+- S06: new line L0 "Business is booming!" (Sterling), clips/S06_lipsync.mp4
+- S08/S09 cut to 1.0s each; music ducks to ~12% across both (desert beat)
+- S15 v2: Marcus low buzz cut (head-only composite), clips/S15_v2.mp4
+- S15A v2: Stan dashboard on laptop, watch removed, look-back held (+0.5s freeze in edit), clips/S15A_v2.mp4
+- S16 v3: street-level plate → crane up to overhead, MiniMax H3 6s, clips/S16_v3.mp4
+- Music: new 44s original synthwave (ElevenLabs Music v2.5), audio/music/ep04_synthwave_44s.mp3
+- Edit: edit.json + assemble_ep04.py → exports/vertical/EP04_stan_9x16_v1.mp4 (43.1s, -14 LUFS)
+- Round 3 spend ≈ 87 credits (keyframes 8, Grok 3×13.5, MiniMax 12, lip sync ~21, music 6, voice 0.2)
