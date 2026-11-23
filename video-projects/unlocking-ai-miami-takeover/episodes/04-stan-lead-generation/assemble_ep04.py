@@ -95,7 +95,8 @@ def main(edit_path, out):
             ins += ["-i", os.path.join(HERE, c["file"])]
             src_in = c.get("in", 0)
             fo = c.get("fade_out", 0.3)
-            fg.append(f"[{k}:a]aresample={SR},atrim={src_in}:{src_in + c['dur']},asetpts=PTS-STARTPTS,"
+            extra = (c["af"] + ",") if c.get("af") else ""  # optional per-cue filter, e.g. highpass
+            fg.append(f"[{k}:a]aresample={SR},{extra}atrim={src_in}:{src_in + c['dur']},asetpts=PTS-STARTPTS,"
                       f"afade=t=in:d=0.03,afade=t=out:st={max(c['dur'] - fo, 0)}:d={fo},"
                       f"aformat=channel_layouts=stereo,volume={c.get('gain_db', 0)}dB,adelay={ms}|{ms}[s{k}]")
             labels.append(f"[s{k}]")

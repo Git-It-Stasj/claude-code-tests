@@ -85,3 +85,4 @@ Review reel (raw clips in order, no music): review/EP04_clips_review_reel.mp4 (4
 - S15A v3 (MiniMax 5s): look back, then one smooth walk out (no stutter); 0.6s hold on the look-back in edit
 - S16 v4 (MiniMax 6s): three-lane street throughout, street-level plate → crane to overhead
 - Round 4 spend ≈ 26 credits (image 2, MiniMax 2×12, SFX ~0.5)
+- v3: desert beat SFX swapped — crickets (high-passed 1.5 kHz) on S08, prairie breeze (high-passed 400 Hz, no rumble) on S09; vulture and old wind retired. exports/vertical/EP04_stan_9x16_v3.mp4 (~0.5 credits)

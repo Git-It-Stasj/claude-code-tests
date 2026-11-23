@@ -263,21 +263,23 @@
   },
   {
    "type": "file",
-   "file": "audio/sfx/vulture.mp3",
-   "at": 14.55,
+   "file": "audio/sfx/crickets.mp3",
+   "at": 14.5,
    "in": 0.0,
-   "dur": 1.0,
+   "dur": 1.1,
    "gain_db": 0,
-   "fade_out": 0.25
+   "fade_out": 0.2,
+   "af": "highpass=f=1500"
   },
   {
    "type": "file",
-   "file": "audio/sfx/desert_wind.mp3",
-   "at": 15.3,
-   "in": 0.2,
-   "dur": 1.6,
-   "gain_db": 10,
-   "fade_out": 0.4
+   "file": "audio/sfx/prairie_breeze.mp3",
+   "at": 15.45,
+   "in": 0.3,
+   "dur": 1.4,
+   "gain_db": 6,
+   "fade_out": 0.4,
+   "af": "highpass=f=400,highpass=f=400,lowpass=f=7000"
   },
   {
    "type": "type",
