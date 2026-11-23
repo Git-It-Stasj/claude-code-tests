@@ -1,7 +1,7 @@
 {
   "episode": 2,
   "title": "The Overwhelmed Executive",
-  "version": 4,
+  "version": 5,
   "featured_ai_employee": {
     "name": "Eva",
     "role": "AI Executive Assistant",
@@ -37,7 +37,8 @@
       "desc": "Arrival: yellow hardtop coupe cruises toward camera on wet neon boulevard",
       "prompt": "Low tracking shot. The yellow hardtop sports coupe drives toward camera along the wet neon boulevard, wheels turning, water spraying from the tires, palm shadows and neon reflections sliding over the paint. Noelle at the wheel, relaxed smile. Camera tracks backward with the car. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text.",
       "media_id": "a091bef4-8380-4350-9ad3-6d46c8eca8af",
-      "file": "S01.mp4"
+      "file": "S01_nologo.mp4",
+      "file_with_logos": "S01.mp4"
     },
     {
       "id": "02",
@@ -52,7 +53,8 @@
       "desc": "Discovery: Noelle glances out the driver window at the stressed exec",
       "prompt": "Over-the-shoulder inside the car. Noelle slowly turns her head toward the office window; car glides slowly so the office slides a little in the window frame; palm reflections drift across the glass. The executive inside stays at her desk. Locked roof and window frame. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text.",
       "media_id": "b0e7dda8-f1e6-42ac-a3d8-9543d40deed0",
-      "file": "S02.mp4"
+      "file": "S02_nologo.mp4",
+      "file_with_logos": "S02.mp4"
     },
     {
       "id": "03",
@@ -193,11 +195,12 @@
         28.99
       ],
       "ratio": "9:16",
-      "file": "S12M_pullback.mp4",
+      "file": "S12M_pullback_nologo.mp4",
       "slow": 0.5,
       "job": "5f3619df-6f50-4273-a901-9abb82da2ebb",
       "media_id": "35185263-b038-4e95-95d0-64b594475102",
-      "desc": "Animated pull-back: minimax_h3_max start=plate close-up crop, end=S12 keyframe (= drive-off frame 0); 5.18s played at 2x"
+      "desc": "Animated pull-back: minimax_h3_max start=plate close-up crop, end=S12 keyframe (= drive-off frame 0); 5.18s played at 2x",
+      "file_with_logos": "S12M_pullback.mp4"
     },
     {
       "id": "12",
@@ -212,7 +215,8 @@
       "desc": "Ferrari drives off into the distance under the end card",
       "prompt": "The yellow hardtop coupe accelerates away from camera down the wet waterfront boulevard toward the setting sun, wheels turning, tail lights glowing, reflections following, the car getting smaller. Camera stays still. Single car only, no other vehicles. Keep identity, wardrobe, car geometry (fixed hardtop roof) and cel-shaded graphic-novel style exactly as the start frame. No other cars, no new people, no duplicated props, no new text.",
       "media_id": "ca3c1a62-a76c-4ab6-9471-b86a419a848c",
-      "file": "S12.mp4"
+      "file": "S12_nologo.mp4",
+      "file_with_logos": "S12.mp4"
     }
   ],
   "dialogue": [
@@ -566,7 +570,7 @@
     "S10/S11 v2: chandelier removed; suite still has marble desk, gold sphere, orchid, art and shelves vs S03-S08 office.",
     "S11 v2: car outside the door still reads as a modern yellow coupe (background)."
   ],
-  "approval_status": "v2 final cut with lip sync - pending director review",
+  "approval_status": "v4: Ferrari marks painted out in post - pending director review",
   "retired_takes": [
     "S08_take1_face_morph.mp4 (face/hair morph at 1.8s)",
     "S08_take2_laptop_vanishes.mp4 (face drift + laptop closes and vanishes at 2.4s)",
@@ -580,5 +584,15 @@
     "NOELLE": "Sloane b57b22a0-f287-405b-bc82-6f08f5e6bb1f",
     "EXEC_02": "Gia 530df032-c311-483b-a750-cb3c9e1bcdfd (stab 0.4, sim 0.8) - director pick",
     "EVA": "Imogen 3811e986-0891-47cf-a1f5-78a1d62a547a (stab 0.6, sim 0.8) - director pick"
+  },
+  "logo_paintout": {
+    "script": "scripts/ep02/logo_paintout.py",
+    "tracks": "scripts/ep02/logo_tracks/",
+    "removed": [
+      "S01 hood badge, grille horse, front wheel-cap shield",
+      "S02 steering-wheel hub badge (now a plain dark hub)",
+      "S12M + S12 rear FERRARI lettering"
+    ],
+    "checked_clean": "No Apple logos in any shot. S06 dock shows Slack/Zoom/Office/Acrobat-style icons (not yet treated). S08 laptop lid has a generic wave mark."
   }
 }
