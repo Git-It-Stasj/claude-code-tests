@@ -26,8 +26,8 @@ function mono(s, px, py, col, size = 16, opt = {}) { txt(s, px, py, 'Mono', size
 function circ(cx, cy, r, col) { x.beginPath(); x.arc(cx, cy, Math.max(0, r), 0, Math.PI * 2); x.fillStyle = col; x.fill(); }
 function ell(cx, cy, rx, ry, col) { x.beginPath(); x.ellipse(cx, cy, Math.max(0, rx), Math.max(0, ry), 0, 0, Math.PI * 2); x.fillStyle = col; x.fill(); }
 function rr(px, py, w, hh, r) { x.beginPath(); x.roundRect(px, py, w, hh, r); }
-function bg(col) { x.fillStyle = col; x.fillRect(0, 0, W, H); }
-function dotGrid(col = 'rgba(236,232,223,0.07)') { x.fillStyle = col; for (let gy = 24; gy < H; gy += 48) for (let gx = 24; gx < W; gx += 48) x.fillRect(gx - 1.3, gy - 1.3, 2.6, 2.6); }
+function bg(col) { x.fillStyle = col; x.fillRect(-4000, -4000, W + 8000, H + 8000); }
+function dotGrid(col = 'rgba(236,232,223,0.07)') { x.fillStyle = col; for (let gy = 24 - 1248; gy < H + 1440; gy += 48) for (let gx = 24 - 672; gx < W + 672; gx += 48) x.fillRect(gx - 1.3, gy - 1.3, 2.6, 2.6); }
 function line(x1, y1, x2, y2, col, lw = 2) { x.beginPath(); x.moveTo(x1, y1); x.lineTo(x2, y2); x.strokeStyle = col; x.lineWidth = lw; x.stroke(); }
 function bead(cx, cy, r, sx = 1, sy = 1, col = C.acc, glow = 0) {
   x.save(); x.translate(cx, cy); x.scale(sx, sy);
@@ -51,7 +51,7 @@ function cursor(px, py, col = C.ink, fill = C.white) {
 function vignette(a = 0.5) { const g = x.createRadialGradient(W / 2, H / 2, H * 0.35, W / 2, H / 2, H * 1.05); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, `rgba(0,0,0,${a})`); x.fillStyle = g; x.fillRect(0, 0, W, H); }
 function noise(fr, cells, a = 1, pal = [C.ink, C.acc, C.yel, C.paper, C.ink, C.ink2]) {
   const s = cells; x.globalAlpha = a;
-  for (let gy = 0; gy < H; gy += s) for (let gx = 0; gx < W; gx += s) { x.fillStyle = pal[Math.floor(h(gx * 0.13 + gy * 7.7 + fr * 91.3) * pal.length)]; x.fillRect(gx, gy, s, s); }
+  for (let gy = -1240; gy < H + 1440; gy += s) for (let gx = -680; gx < W + 680; gx += s) { x.fillStyle = pal[Math.floor(h(gx * 0.13 + gy * 7.7 + fr * 91.3) * pal.length)]; x.fillRect(gx, gy, s, s); }
   x.globalAlpha = 1;
 }
 
@@ -94,7 +94,7 @@ function beadY(t) {
 function ch1(t) {
   bg(C.ink); dotGrid();
   // nozzle + heater block
-  x.fillStyle = '#2A2F37'; rr(900, -10, 120, 150, 8); x.fill(); x.fillStyle = C.acc; x.globalAlpha = 0.85; x.fillRect(900, 70, 120, 12); x.globalAlpha = 1;
+  x.fillStyle = '#2A2F37'; rr(900, -1300, 120, 1440, 8); x.fill(); x.fillStyle = C.acc; x.globalAlpha = 0.85; x.fillRect(900, 70, 120, 12); x.globalAlpha = 1;
   x.beginPath(); x.moveTo(925, 140); x.lineTo(995, 140); x.lineTo(968, NOZ - 10); x.lineTo(952, NOZ - 10); x.closePath(); x.fillStyle = '#C9A15A'; x.fill();
   mono('HOT END', 1040, 60, 'rgba(236,232,223,0.45)', 13); mono('FDM', 1040, 84, C.acc, 13);
   // build plate ruler
@@ -253,11 +253,11 @@ function ch4(t) {
   const g = x.createLinearGradient(1480, 0, 1860, 0); g.addColorStop(0, C.ink); g.addColorStop(0.6, C.acc); g.addColorStop(1, '#FFE0C8');
   x.fillStyle = g; x.fillRect(1480, 520, 380, 12); mono('0 V', 1480, 556, rgba(C.ink, 0.6), 13); mono('5 V', 1860, 556, rgba(C.ink, 0.6), 13, { align: 'right' });
   x.globalAlpha = 1;
-  txt('1.91 µF', 120, 940, 'Ser', 92, C.acc, { a: pr(t, B(14.5), 0.25) });
-  mono('INTERDIGITATED ELECTRODES · SIMULATED', 124, 975, rgba(C.ink, 0.55), 14, { a: pr(t, B(14.5), 0.25) });
+  txt('1.91 µF', window.VERT ? 480 : 120, 940, 'Ser', 92, C.acc, { a: pr(t, B(14.5), 0.25) });
+  mono('INTERDIGITATED ELECTRODES · SIMULATED', window.VERT ? 484 : 124, 975, rgba(C.ink, 0.55), 14, { a: pr(t, B(14.5), 0.25) });
   // pre-drop: iris closes on B15.5–B16
   const ik = pr(t, B(15.45), B(0.55));
-  if (ik > 0) { x.save(); x.beginPath(); x.rect(0, 0, W, H); x.arc(ROWX(3) + 60, H / 2, lr(1300, 0, E.i3(ik)), 0, Math.PI * 2, true); x.fillStyle = C.ink; x.fill('evenodd'); x.restore(); }
+  if (ik > 0) { x.save(); x.beginPath(); x.rect(-4000, -4000, W + 8000, H + 8000); x.arc(ROWX(3) + 60, H / 2, lr(1300, 0, E.i3(ik)), 0, Math.PI * 2, true); x.fillStyle = C.ink; x.fill('evenodd'); x.restore(); }
   return ik > 0.6 ? 'dark' : 'paper';
 }
 
@@ -365,8 +365,8 @@ function fGantt(t) {
 }
 function fSignal(t) {
   bg(C.ink); const k = pr(t, B(25), P);
-  x.save(); x.beginPath(); x.rect(0, 0, W, H); x.clip(); x.translate(W / 2, H / 2); x.rotate(-0.5);
-  for (let i = -30; i < 30; i++) { if (i % 2) continue; x.fillStyle = C.yel; x.fillRect(i * 70 + (k * 140) % 140, -1400, 70, 2800); } x.restore();
+  x.save(); x.beginPath(); x.rect(-4000, -4000, W + 8000, H + 8000); x.clip(); x.translate(W / 2, H / 2); x.rotate(-0.5);
+  for (let i = -50; i < 50; i++) { if (i % 2) continue; x.fillStyle = C.yel; x.fillRect(i * 70 + (k * 140) % 140, -3000, 70, 6000); } x.restore();
   x.fillStyle = C.ink; rr(W / 2 - 150, 150, 300, 780, 40); x.fill();
   [[C.acc, 0.25], [C.yel, 1], [C.paper, 0.15]].forEach(([c, a], i) => { x.save(); if (a === 1) { x.shadowColor = c; x.shadowBlur = 60; } circ(W / 2, 290 + i * 250, 100, rgba(c, a)); x.restore(); });
   x.beginPath(); x.arc(W / 2, 540, 460, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * E.io3(k)); x.strokeStyle = C.paper; x.lineWidth = 10; x.stroke();
@@ -393,7 +393,7 @@ function fECG(t) {
 }
 function fBumps(t) {
   bg(C.acc); const k = pr(t, B(27), P / 2);
-  for (let r = 0; r < 12; r++) for (let c = 0; c < 22; c++) { const cx = c * 96 + (r % 2) * 48 - 20, cy = r * 92 + 20; const g = E.bo(cl(k * 2.4 - h(r * 22 + c) * 0.8), 2);
+  for (let r = -12; r < 26; r++) for (let c = -8; c < 30; c++) { const cx = c * 96 + (r % 2) * 48 - 20, cy = r * 92 + 20; const g = E.bo(cl(k * 2.4 - h(r * 22 + c) * 0.8), 2);
     ell(cx, cy, 34 * g, 28 * g, C.yel); ell(cx - 8, cy - 8, 12 * g, 9 * g, 'rgba(255,255,255,0.55)');
     if (h(r * 7 + c) > 0.7) circ(cx + 18, cy + 22 + k * 30, 9 * g, C.paper); }
   x.fillStyle = C.ink; rr(140, 860, 640, 70, 6); x.fill(); mono('BIOMIMICRY · WATER CAPTURE · SLA', 164, 905, C.yel, 16);
@@ -461,9 +461,7 @@ function hud(t, mode, fr) {
 }
 
 // ---------- master ----------
-function frame(t) {
-  const fr = Math.round(t * FPS);
-  x.setTransform(1, 0, 0, 1, 0, 0); x.globalAlpha = 1; x.filter = 'none'; x.shadowBlur = 0; x.globalCompositeOperation = 'source-over';
+function scene(t, fr) {
   let mode;
   if (t < B(4)) mode = ch1(t);
   else if (t < B(8)) mode = ch2(t);
@@ -479,18 +477,26 @@ function frame(t) {
   else if (t < B(28)) mode = fPath(t, fr);
   else mode = ch7(t, fr);
   x.shadowBlur = 0; x.globalAlpha = 1;
-  // flashes, computed per frame (seek-safe)
+  return mode;
+}
+function flashA(t) {
   let fl = 0;
   fl = Math.max(fl, pr(t, B(3.82), B(4) - B(3.82)) * (t < B(4) ? 1 : 0), t >= B(4) ? 1 - pr(t, B(4), 0.14) : 0);
   if (t >= B(8)) fl = Math.max(fl, 0.5 * (1 - pr(t, B(8), 0.08)));
   if (t >= B(24)) fl = Math.max(fl, 0.35 * (1 - pr(t, B(24), 0.06)));
+  return fl;
+}
+function frame(t) {
+  const fr = Math.round(t * FPS);
+  x.setTransform(1, 0, 0, 1, 0, 0); x.globalAlpha = 1; x.filter = 'none'; x.shadowBlur = 0; x.globalCompositeOperation = 'source-over';
+  const mode = scene(t, fr), fl = flashA(t);
   if (fl > 0) { x.fillStyle = `rgba(255,255,255,${fl})`; x.fillRect(0, 0, W, H); }
   vignette(mode === 'dark' ? 0.55 : 0.28);
   hud(t, mode, fr);
   const fo = pr(t, END - 0.25, 0.25); if (fo > 0) { x.fillStyle = `rgba(0,0,0,${fo})`; x.fillRect(0, 0, W, H); }
 }
 window.seek = frame;
-document.fonts.ready.then(async () => {
+if (!window.CUT30) document.fonts.ready.then(async () => {
   await Promise.all([document.fonts.load('900 100px Disp'), document.fonts.load('100px Ser'), document.fonts.load('500 16px Mono')]);
   measure(); frame(0); window.READY = true;
   const q = new URLSearchParams(location.search).get('t'); if (q) frame(+q);
