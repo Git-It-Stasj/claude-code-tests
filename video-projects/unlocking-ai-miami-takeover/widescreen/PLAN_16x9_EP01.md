@@ -15,9 +15,9 @@ The audio is locked: VO, music, SFX and timings are identical to `EP01_rachel_9x
 | S08 | OK | The RACHEL name tag is added in the edit |
 | S09 | OK | Lip sync, large face |
 | S10 | OK | VO only |
-| S11 | FIX? | The car seen through the window is a different modern supercar, not the yellow Testarossa-style car |
-| S12 | FIX? | The car seen through the door is a yellow sedan/taxi, not the hero car |
-| S13 | **FIX** | The shirt reads "I ♥ AI I" (garbled), and she is large and in focus |
+| S11 | OK (v2) | Wrong car removed; only a dark car silhouette is left |
+| S12 | OK (v2) | Wrong car removed |
+| S13 | OK (v2) | Shirt fixed to "I ♥ AI"; v1 kept as S13_v1_retired.png |
 | S14A | OK | BBY TIGR is clean |
 | S13C | OK* | The tiny plate is gibberish and the taillights are round. It shrinks as the car drives away; acceptable |
 
@@ -61,4 +61,4 @@ The 1080p native option (grok at 8/s) would add about 147 credits. It isn't reco
 2. S05, 4s, plus lip sync (18 + about 15). This tests lip sync on a small face.
 3. S07, 4s, plus lip sync (18 + about 15). This tests lip sync with two faces in frame.
 
-S13 (the car entry, 27) waits until the fixed S13 keyframe arrives.
+S13 (the car entry, 27) can now run in batch 2.
