@@ -1,7 +1,7 @@
 {
   "base": "manifests/ep01-rachel-receptionist.json",
   "_note": "16:9 native re-shoot. Inherits audio, captions, SFX timing, music and event from the 9:16 manifest; overrides picture and layout only.",
-  "version": 1,
+  "version": 2,
   "frame": [
     1920,
     1080
@@ -108,8 +108,10 @@
         27.3,
         28.9
       ],
-      "file": "S13.mp4",
-      "src_in": 1.0
+      "file": "S13_ending_minimax.mp4",
+      "src_in": 0.8,
+      "slow": 0.64,
+      "note": "walk to door + duck in (ends ~3.3s source)"
     },
     {
       "id": "14A",
@@ -123,18 +125,12 @@
       "id": "13B",
       "t": [
         29.9,
-        32.0
-      ],
-      "file": "S13.mp4",
-      "src_in": 3.9
-    },
-    {
-      "id": "13C",
-      "t": [
-        32.0,
         35.0
       ],
-      "file": "S13C.mp4"
+      "file": "S13_ending_minimax.mp4",
+      "src_in": 4.4,
+      "slow": 0.9,
+      "note": "door shut, one continuous drive-off to tail lights (MiniMax H3 10s, replaces grok S13 + S13C)"
     }
   ],
   "sfx_cues": [
@@ -216,6 +212,14 @@
     {
       "file": "S13_take1_spoiler.mp4",
       "why": "model added a rear wing to the car mid-shot"
+    },
+    {
+      "file": "S13.mp4",
+      "why": "camera orbited the car; ending re-done as one continuous MiniMax shot"
+    },
+    {
+      "file": "S13C.mp4",
+      "why": "separate drive-off image caused a jump; merged into continuous ending"
     }
   ]
 }
