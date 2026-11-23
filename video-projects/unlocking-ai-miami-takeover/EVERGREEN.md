@@ -66,7 +66,10 @@ Claude then does these steps:
    ```
    python3 scripts/build_overlays.py manifests/ep01-rachel-receptionist.json episodes/01-rachel-receptionist/overlays
    python3 scripts/assemble_vertical.py manifests/ep01-rachel-receptionist.json exports/vertical/EP01_rachel_9x16_<id>.mp4
+   python3 scripts/build_overlays.py manifests/ep01-rachel-receptionist-16x9.json episodes/01-rachel-receptionist/overlays_h
+   python3 scripts/assemble_vertical.py manifests/ep01-rachel-receptionist-16x9.json exports/widescreen/EP01_rachel_16x9_<id>.mp4
    ```
+   The 16:9 manifest inherits from the 9:16 one; set `"event"` in both (or remove it from the 16:9 file to follow the 9:16 one).
    If a line runs longer than its slot, the build **stops and says which line is too long and by how much**. Claude then shortens the line or re-generates it with a faster delivery.
 5. QA: checks a frame of the end card (date, time, link, promo) and listens to shots 10–12.
 

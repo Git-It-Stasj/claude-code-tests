@@ -104,3 +104,13 @@ Remaining balance is 153.88.
 
 ## v6 (promo code change)
 `exports/vertical/EP01_rachel_9x16_v6.mp4`: the promo code changed from GTA6LI to **GTA6** at the director's request. Nothing else changed, and it cost 0 credits.
+
+
+## 16:9 v1 and vertical v7 (fully evergreen)
+
+- `exports/widescreen/EP01_rachel_16x9_v1.mp4`: 1920x1080, 35.0s, -16.0 LUFS. Native re-shoot from 15 user 16:9 keyframes; audio, music, SFX and timing identical to the 9:16 cut.
+- `exports/vertical/EP01_rachel_9x16_v7_evergreen.mp4`: 35.0s. Same picture as v6; evergreen pack (no day/date/time): "I know a gal." / "Unlocking AI Challenge. Grab your seat at the link." / end card LIVE ONLINE • LIMITED SEATS + link + GTA6 promo.
+- Continuity fix: shots 03-04 merged into one flux start/end-frame camera move (take 2, owner moving).
+- Retakes: S13 (model added a rear wing to the car), 03-04 flux (owner was static). S02 was missed in the first queue and added.
+- Lip sync (sync_so, default detection): S05, S06, S07, S09 all locked onto the correct face.
+- Spend for 16:9 + evergreen VO: 327.7 credits (balance 458.11 -> 130.42).
