@@ -1,0 +1,221 @@
+{
+  "base": "manifests/ep01-rachel-receptionist.json",
+  "_note": "16:9 native re-shoot. Inherits audio, captions, SFX timing, music and event from the 9:16 manifest; overrides picture and layout only.",
+  "version": 1,
+  "frame": [
+    1920,
+    1080
+  ],
+  "clips_subdir": "h",
+  "overlay_subdir": "overlays_h",
+  "keyframe_source": "keyframes/user/16x9/",
+  "event": "events/evergreen.json",
+  "shots": [
+    {
+      "id": "01",
+      "t": [
+        0,
+        2.2
+      ],
+      "file": "S01.mp4"
+    },
+    {
+      "id": "02",
+      "t": [
+        2.2,
+        4.0
+      ],
+      "file": "S02.mp4"
+    },
+    {
+      "id": "03-04",
+      "t": [
+        4.0,
+        7.0
+      ],
+      "file": "S03_04_flux.mp4",
+      "src_in": 0.0,
+      "slow": 1.0,
+      "note": "flux take 2 (owner moves); start=S03 end=S04; 0-3.0s used, before the pose change"
+    },
+    {
+      "id": "05",
+      "t": [
+        7.0,
+        10.1
+      ],
+      "file": "S05_lipsync.mp4"
+    },
+    {
+      "id": "06",
+      "t": [
+        10.1,
+        11.9
+      ],
+      "file": "S06_lipsync.mp4"
+    },
+    {
+      "id": "07",
+      "t": [
+        11.9,
+        14.9
+      ],
+      "file": "S07_lipsync.mp4"
+    },
+    {
+      "id": "08",
+      "t": [
+        14.9,
+        17.6
+      ],
+      "file": "S08.mp4"
+    },
+    {
+      "id": "09",
+      "t": [
+        17.6,
+        20.8
+      ],
+      "file": "S09_lipsync.mp4"
+    },
+    {
+      "id": "10",
+      "t": [
+        20.8,
+        22.3
+      ],
+      "file": "S10.mp4"
+    },
+    {
+      "id": "11",
+      "t": [
+        22.3,
+        26.0
+      ],
+      "file": "S11.mp4"
+    },
+    {
+      "id": "12",
+      "t": [
+        26.0,
+        27.3
+      ],
+      "file": "S12.mp4"
+    },
+    {
+      "id": "13",
+      "t": [
+        27.3,
+        28.9
+      ],
+      "file": "S13.mp4",
+      "src_in": 1.0
+    },
+    {
+      "id": "14A",
+      "t": [
+        28.9,
+        29.9
+      ],
+      "file": "S14A.mp4"
+    },
+    {
+      "id": "13B",
+      "t": [
+        29.9,
+        32.0
+      ],
+      "file": "S13.mp4",
+      "src_in": 3.9
+    },
+    {
+      "id": "13C",
+      "t": [
+        32.0,
+        35.0
+      ],
+      "file": "S13C.mp4"
+    }
+  ],
+  "sfx_cues": [
+    {
+      "type": "ring",
+      "at": 2.6
+    },
+    {
+      "type": "ring",
+      "at": 3.9
+    },
+    {
+      "type": "ring",
+      "at": 5.3
+    },
+    {
+      "type": "chime",
+      "at": 5.3
+    },
+    {
+      "type": "ring",
+      "at": 6.4
+    },
+    {
+      "type": "whoosh",
+      "at": 2.45
+    },
+    {
+      "type": "ring",
+      "at": 14.6
+    },
+    {
+      "type": "click",
+      "at": 15.1
+    },
+    {
+      "type": "whoosh",
+      "at": 20.65
+    },
+    {
+      "type": "whoosh",
+      "at": 28.8
+    },
+    {
+      "type": "native",
+      "shot": "01",
+      "file": "../v/S01.mp4",
+      "at": 0.0,
+      "dur": 2.2,
+      "gain_db": -10,
+      "note": "approved vertical sound"
+    },
+    {
+      "type": "native",
+      "shot": "13B",
+      "file": "../v/S13_v3_rear.mp4",
+      "src_in": 4.2,
+      "at": 29.9,
+      "dur": 2.1,
+      "gain_db": -6,
+      "note": "approved vertical sound"
+    },
+    {
+      "type": "native",
+      "shot": "13C",
+      "file": "../v/S13C_driveoff.mp4",
+      "src_in": 0.04,
+      "at": 32.0,
+      "dur": 3.0,
+      "gain_db": -6,
+      "note": "approved vertical sound (tyre squeal)"
+    }
+  ],
+  "retired_takes": [
+    {
+      "file": "S03_04_flux_take1_static_owner.mp4",
+      "why": "owner static, director asked for movement"
+    },
+    {
+      "file": "S13_take1_spoiler.mp4",
+      "why": "model added a rear wing to the car mid-shot"
+    }
+  ]
+}

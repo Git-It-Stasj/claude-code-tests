@@ -37,12 +37,14 @@ def sfx_source(kind):
 
 
 def main(manifest, out):
+    global W, H
     m = load(manifest)
-    print("event:", m.get("_event_id", "(none)"))
+    W, H = m.get("frame", [W, H])
+    print("event:", m.get("_event_id", "(none)"), "frame:", W, H)
     ep = os.path.dirname(os.path.dirname(os.path.abspath(manifest)))
     epdir = os.path.join(ROOT, m.get("episode_dir", "episodes/01-rachel-receptionist"))
-    clips = os.path.join(epdir, "clips", "v")
-    ovl = os.path.join(epdir, "overlays")
+    clips = os.path.join(epdir, "clips", m.get("clips_subdir", "v"))
+    ovl = os.path.join(epdir, m.get("overlay_subdir", "overlays"))
     work = os.path.join(os.path.dirname(os.path.abspath(out)), "stems_" + os.path.splitext(os.path.basename(out))[0])
     os.makedirs(work, exist_ok=True)
     dur = m["duration_s"]
@@ -108,7 +110,7 @@ def main(manifest, out):
         ins += ["-i", os.path.join(clips, s.get("file", f"S{s['id']}.mp4"))]
         a0 = s.get("src_in", 0); sp = s.get("slow", 1.0)  # source in-point (s) and slow-down factor
         base = f"[{i}:v]trim={a0}:{a0 + d / sp},setpts=(PTS-STARTPTS)*{sp},fps={FPS},trim=0:{d},setpts=PTS-STARTPTS"
-        if s["ratio"] == "3:4":
+        if s.get("ratio") == "3:4":
             fl.append(f"{base},split=2[a{i}][b{i}]")
             fl.append(f"[a{i}]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},boxblur=40:4,eq=brightness=-0.12:saturation=1.2[bg{i}]")
             fl.append(f"[b{i}]scale={W}:-2[fg{i}]")

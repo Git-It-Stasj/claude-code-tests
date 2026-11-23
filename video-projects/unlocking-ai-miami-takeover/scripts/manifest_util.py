@@ -26,6 +26,10 @@ def speech_len(path, a=0.0, b=None):
 
 def load(manifest_path, check=True):
     m = json.load(open(manifest_path))
+    if m.get("base"):  # derived cut (e.g. 16:9): inherit the base manifest, override top-level keys
+        b = json.load(open(os.path.join(ROOT, m["base"])))
+        b.update({k: v for k, v in m.items() if k != "base"})
+        m = b
     ev_path = m.get("event")
     if not ev_path:
         return m

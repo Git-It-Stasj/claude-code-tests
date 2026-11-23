@@ -118,16 +118,83 @@ def caption(text, out, y=1330):
     img.save(out)
 
 
+# ---------------- 16:9 (1920x1080) layouts ----------------
+def endcard_wide(m, out):
+    """Top band over the sky (title + event lines), bottom band (register + promo). Car/plate in the middle stays clear."""
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sd = ImageDraw.Draw(img)
+    for i in range(0, 380):                       # top scrim
+        sd.line([(0, i), (W, i)], fill=(20, 0, 40, int(170 * (1 - i / 380))))
+    for i in range(0, 260):                       # bottom scrim
+        sd.line([(0, H - i), (W, H - i)], fill=(20, 0, 40, int(170 * (1 - i / 260))))
+    l = m["end_card"]["lines"]
+    y = 40
+    y = big(img, W // 2, y, l[0], font(BANG, 120), YELLOW) + 14                              # UNLOCKING AI CHALLENGE
+    y = label(img, W // 2, y, l[1], font(ANTON, 40), WHITE) + 16                             # BUILD AN AI-AMPLIFIED BUSINESS
+    parts = [x for x in l[2:6] if x]
+    if parts:
+        label(img, W // 2, y, "  •  ".join(parts), font(ANTON, 44), BLACK, bg=YELLOW)         # LIVE ONLINE • LIMITED SEATS
+    ec = m["end_card"]
+    promo = ec.get("promo")
+    y = H - 200 if promo else H - 130
+    y = label(img, W // 2, y, "REGISTER: " + ec["registration"], font(ANTON, 42), WHITE, bg=PINK, skew=-0.08)
+    if promo:
+        label(img, W // 2, y + 12, promo, font(ANTON, 40), BLACK, bg=YELLOW, skew=-0.08)
+    img.save(out)
+
+
+def title_wide(out):
+    """Title in the open sky, upper right (S01 has buildings on the left)."""
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    cx = int(W * 0.70)
+    y = big(img, cx, 90, "UNLOCKING AI", font(BANG, 120), WHITE, shadow=(0, 0, 0, 180)) + 4
+    big(img, cx, y, "MIAMI TAKEOVER", font(BANG, 132), PINK, stroke=8, shadow=(0, 0, 0, 180))
+    img.save(out)
+
+
+def employee_lt_wide(out, name="RACHEL", role="AI RECEPTIONIST"):
+    """Name label top-left over the soft background of the phone insert."""
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    cx = 380
+    y = label(img, cx, 70, name.upper(), font(BANG, 84), YELLOW) + 10
+    label(img, cx, y, role.upper(), font(ANTON, 40), WHITE)
+    d = ImageDraw.Draw(img)
+    s, f = "Dramatization", font(ANTON, 26)
+    d.text((40, H - 60), s, font=f, fill=(255, 255, 255, 190), stroke_width=2, stroke_fill=BLACK)
+    img.save(out)
+
+
+def caption_wide(text, out):
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    f = font(ANTON, 58)
+    words, lines, cur = text.split(), [], ""
+    for w_ in words:
+        t = (cur + " " + w_).strip()
+        if text_w(d, t, f)[0] > 1500 and cur:
+            lines.append(cur); cur = w_
+        else:
+            cur = t
+    lines.append(cur)
+    y = H - 70 - 76 * len(lines)
+    for i, ln in enumerate(lines):
+        tw, th = text_w(d, ln, f)
+        d.text(((W - tw) // 2, y + i * 76), ln, font=f, fill=WHITE, stroke_width=7, stroke_fill=BLACK)
+    img.save(out)
+
+
 if __name__ == "__main__":
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     from manifest_util import load
     m = load(sys.argv[1], check=False)
     out = sys.argv[2]
     os.makedirs(out, exist_ok=True)
-    endcard(m, os.path.join(out, "endcard.png"))
-    title(os.path.join(out, "title.png"))
+    W, H = m.get("frame", [W, H])
+    wide = W > H
+    (endcard_wide if wide else endcard)(m, os.path.join(out, "endcard.png"))
+    (title_wide if wide else title)(os.path.join(out, "title.png"))
     lt = m.get("lower_third", {"name": "RACHEL", "role": "AI RECEPTIONIST", "file": "rachel_lt.png"})
-    employee_lt(os.path.join(out, lt.get("file", "employee_lt.png")), lt["name"], lt["role"])
+    (employee_lt_wide if wide else employee_lt)(os.path.join(out, lt.get("file", "employee_lt.png")), lt["name"], lt["role"])
     for c in m.get("captions", []):
-        caption(c["text"], os.path.join(out, f"cap_{c['id']}.png"))
+        (caption_wide if wide else caption)(c["text"], os.path.join(out, f"cap_{c['id']}.png"))
     print("ok")
