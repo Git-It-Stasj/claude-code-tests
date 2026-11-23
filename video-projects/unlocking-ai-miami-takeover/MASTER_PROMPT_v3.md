@@ -248,6 +248,8 @@ The series is reused for each Challenge, 3–4 times a year. Build every episode
 - **Put everything event-specific in an event pack**, `events/<id>.json`: the event line, date, time, format, registration, promo, and Noelle's invite voiceover. The episode manifest only points at it with `"event"`. See `EVERGREEN.md`.
 - **The invite lines must be voiceover:** the sunglasses shot and the invite-card shot have no lip sync. Define their `event_slots` (timing, max seconds, caption id) in the episode manifest.
 - Keep everything before the sunglasses beat, and the "I'll show you" exit line, free of any date or event name.
+- **Sunglasses line (L6a) is the series catchphrase:** "I know a gal." for a female AI employee, "I know a guy." for a male one (Sonny, Stan, Walter).
+- **Default to the fully evergreen pack:** no day, date or time in VO or on screen.
 
 ## 9. PRODUCTION ORDER AND CHECKPOINTS
 
@@ -258,7 +260,7 @@ The series is reused for each Challenge, 3–4 times a year. Build every episode
 | 3 | Voice lines; candidate samples for any *new* voice. | about 2 credits | **Director picks new voices** |
 | 4 | Timing pass: build `audio_edit`, set shot durations, plan lip sync vs voiceover. | – | – |
 | 5 | **Cost estimate**: clips, lip sync, music, plus about a 15% retake buffer. | – | **Director authorizes the spend** |
-| 6 | Animate all shots, at most 3 at a time. | yes | – |
+| 6 | Animate all shots, at most 2 at a time (account concurrency cap). | yes | – |
 | 7 | **Physics and continuity QA on every clip** (Section 10). Regenerate only failures, at most 1 retake per shot before escalating to the director. | yes, retakes only | – |
 | 8 | Lip sync: **one test shot**, review it, then the rest. | yes | – |
 | 9 | Music, graphics, assembly, loudness. | about 5 credits | – |

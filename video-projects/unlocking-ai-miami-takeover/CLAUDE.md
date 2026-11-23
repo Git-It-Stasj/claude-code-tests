@@ -2,7 +2,7 @@
 
 ## Preemptive Checks — run before starting this category of work
 
-- Before submitting more than 3 paid Higgsfield jobs at once (grok, ElevenLabs, sync_so, music), submit in batches of at most 3 and wait for each batch to finish. Larger batches hit 429 rate limits, which previously forced resubmits on three different models.
+- Before submitting paid Higgsfield jobs (grok, flux, ElevenLabs, sync_so, music), submit at most 2 at a time and wait for them to finish. The account now caps concurrency at 2; a 3-job batch had its third job rejected.
 - Before animating a "character gets into a car" shot, use a rear or rear-quarter framing where the roof hides the body, lock the roofline in the prompt ("ducks fully below the roof, head never above it"), and cover the sit-down moment with a cutaway. Two earlier takes failed: in one she walked away from the car, in the other her head poked through the roof.
 - Before running sync_so lip sync, use default face detection and do not pass manual `active_speaker_detection` coordinates for a single speaker. The manual-coordinate job queued for a long time and then failed; the default worked on the cel-shaded faces.
 - Before running `scripts/assemble_vertical.py`, set the Bash timeout to at least 600000 ms. A full render takes longer than the 120s default.
@@ -22,6 +22,9 @@
 - Regenerate only failed shots. Keep retired takes listed in the manifest.
 
 ## Evergreen event swaps
+
+- Shot 10 (sunglasses) line is the series catchphrase: "I know a gal." when the AI employee is female, "I know a guy." when male (Sonny, Stan, Walter). Use it in every episode.
+- Ep01 runs the fully evergreen pack (`events/evergreen.json`): no day, date or time anywhere, in VO or on screen.
 
 - When the user asks to change the event date, time, link, promo or invite voiceover, follow `EVERGREEN.md`. Edit only `events/<id>.json` and the two VO slots (L6a in shot 10, sunglasses, max 1.2s; L6b in shot 11, invite card, max 3.7s). Never re-animate for an event swap.
 - Keep event-specific text out of episode manifests. It belongs in the event pack that `"event"` points to.

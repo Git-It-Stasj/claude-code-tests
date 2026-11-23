@@ -12,7 +12,7 @@ A swap re-records two short voiceover lines and redraws the end card. **No re-an
 | Time | Shot | Beat | Changes per event? |
 |---|---|---|---|
 | 0–20.8s | 1–9 | Drive-in, problem, Rachel demo, owner amazed | **No**, evergreen |
-| 20.8–22.3s | **10** | **Noelle lowers her sunglasses** | **Yes. VO slot L6a, max 1.2s (2–3 words).** Today: *"Black Friday."* |
+| 20.8–22.3s | **10** | **Noelle lowers her sunglasses** | **Fixed catchphrase, slot L6a (max 1.2s):** *"I know a gal."* ("I know a guy." for male AI employees) |
 | 22.3–26.0s | **11** | Noelle hands over the black invite card | **Yes. VO slot L6b, max 3.7s (8–10 words).** Today: *"Unlocking AI Challenge. Three to five Eastern."* |
 | 26.0–27.3s | 12 | Walks out | No. *"I'll show you."* stays |
 | 28.9–35.0s | 14A–13C | Plate, drive-off, **end card** | **Yes: event line, date, time, registration link, promo code** |

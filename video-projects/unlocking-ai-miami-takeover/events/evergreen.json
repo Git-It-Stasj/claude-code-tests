@@ -8,8 +8,15 @@
     "promo": "USE CODE GTA6  •  $27 → $1"
   },
   "invite_vo": {
-    "L6a": { "text": "You're invited.", "file": "audio/voices/events/evergreen/L6a.mp3" },
-    "L6b": { "text": "Unlocking AI Challenge. Grab your seat at the link.", "file": "audio/voices/events/evergreen/L6b.mp3" }
+    "L6a": {
+      "text": "I know a gal.",
+      "file": "audio/voices/events/evergreen/L6a.mp3",
+      "_note": "Series catchphrase: 'I know a gal.' for female AI employees, 'I know a guy.' for male ones (Sonny, Stan, Walter)."
+    },
+    "L6b": {
+      "text": "Unlocking AI Challenge. Grab your seat at the link.",
+      "file": "audio/voices/events/evergreen/L6b.mp3"
+    }
   },
   "voice": {
     "name": "Sloane",
