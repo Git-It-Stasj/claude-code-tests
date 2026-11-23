@@ -25,7 +25,8 @@
         2.2,
         4.0
       ],
-      "file": "S02.mp4"
+      "file": "S02_clean.mp4",
+      "logo_removed": "Ferrari badge on wheel hub (scripts/delogo_track.py --badge)"
     },
     {
       "id": "03-04",
@@ -52,7 +53,8 @@
         10.1,
         11.9
       ],
-      "file": "S06_lipsync.mp4"
+      "file": "S06_lipsync_clean.mp4",
+      "logo_removed": "Apple logo on laptop lid (scripts/delogo_track.py)"
     },
     {
       "id": "07",

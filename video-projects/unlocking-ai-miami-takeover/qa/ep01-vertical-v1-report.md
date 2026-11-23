@@ -119,3 +119,8 @@ Remaining balance is 153.88.
 
 - Shots 13/13B/13C replaced by one MiniMax H3 10s shot from the S13 keyframe (locked camera; no orbit). Order now matches the vertical: walk + duck in (27.3–28.9), 14A plate cutaway (28.9–29.9), door shut and one unbroken drive-off to the horizon (29.9–35.0). Frame-difference scan: no jump cuts.
 - Cost 20 credits.
+
+## Logo removal: vertical v8, 16:9 v3
+
+- Apple logo on the laptop lid in shot 06 and the Ferrari badge on the wheel hub in shot 02 painted out in post (`scripts/delogo_track.py`), in both cuts. Lip sync untouched; 0 credits.
+- Still present (left by choice, option C): the small background Apple logo in shot 03–04, and the car's Testarossa-style body shape.

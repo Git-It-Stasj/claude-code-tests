@@ -48,7 +48,9 @@
       "ratio": "9:16",
       "media_id": "908c4260-0b6d-4cf6-9711-b9b2ee5b7b8d",
       "desc": "POV inside car - spots struggling shop",
-      "audio": "engine idle, muffled ringing"
+      "audio": "engine idle, muffled ringing",
+      "file": "S02_clean.mp4",
+      "logo_removed": "Ferrari badge on wheel hub (scripts/delogo_track.py --badge)"
     },
     {
       "id": "03",
@@ -99,8 +101,9 @@
       "media_id": "9d2b958b-2e7d-4122-86e3-2c25419e1bbe",
       "desc": "Owner responds",
       "dialogue": "L2",
-      "file": "S06_lipsync.mp4",
-      "lipsync_job": "376b7709-4fd6-4dbd-9a1f-e1e088188903"
+      "file": "S06_lipsync_clean.mp4",
+      "lipsync_job": "376b7709-4fd6-4dbd-9a1f-e1e088188903",
+      "logo_removed": "Apple logo on laptop lid (scripts/delogo_track.py)"
     },
     {
       "id": "07",
