@@ -79,3 +79,9 @@ Review reel (raw clips in order, no music): review/EP04_clips_review_reel.mp4 (4
 - Music: new 44s original synthwave (ElevenLabs Music v2.5), audio/music/ep04_synthwave_44s.mp3
 - Edit: edit.json + assemble_ep04.py → exports/vertical/EP04_stan_9x16_v1.mp4 (43.1s, -14 LUFS)
 - Round 3 spend ≈ 87 credits (keyframes 8, Grok 3×13.5, MiniMax 12, lip sync ~21, music 6, voice 0.2)
+
+## Round 4 — v2 cut (exports/vertical/EP04_stan_9x16_v2.mp4, 43.6s, -14.7 LUFS)
+- Desert beat: music fully muted 14.45–16.5s; vulture screech (audio/sfx/vulture.mp3) + whistling wind (audio/sfx/desert_wind.mp3)
+- S15A v3 (MiniMax 5s): look back, then one smooth walk out (no stutter); 0.6s hold on the look-back in edit
+- S16 v4 (MiniMax 6s): three-lane street throughout, street-level plate → crane to overhead
+- Round 4 spend ≈ 26 credits (image 2, MiniMax 2×12, SFX ~0.5)
