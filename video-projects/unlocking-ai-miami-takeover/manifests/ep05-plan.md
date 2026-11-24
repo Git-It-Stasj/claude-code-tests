@@ -22,7 +22,7 @@ Voices: separate stems (Noelle = Sloane, fixed). Mimi and Penny are new voices a
 | 07 "Girl. We need to talk." | Noelle solo close-up | — | 4s | off | 5.0 |
 | 08 Website problem | Noelle shows website, Mimi doubtful | — | 5s | off | 6.25 |
 | 09 "Meet Penny" | Penny screen, clean | Penny screen, 3 feature panels | 4s | off | 5.0 |
-| 10 Penny works | `S10_start_clean.png` (received) | Workflow cards + "Draft ready" | 8s | off | 10.0 |
+| 10 Penny works | `S10_start_clean.png` | `S10_end_cards.png` | 8s | off | 10.0 |
 | 11a Card reveal | Noelle pulls card from blazer | Noelle hands card over | 4s | off | 5.0 |
 | 11b Handoff | Noelle hands card over | Noelle retrieves phone | 4s | off | 5.0 |
 | 11c Retrieval | Noelle retrieves phone | — | 3s | off | 3.75 |
@@ -92,3 +92,9 @@ Audition text (intro is audition-only): "Hi, I'm Penny, your AI SEO and blog wri
 Round 1 (A–C) rejected: "sound like old ladies". Imogen is already Eva's voice (EP02); never reuse it. Round 2 (D–F): younger, accent OK, stability 0.5.
 
 S10 start frame replaced with the user's corrected version (`S10_start_clean.png`); the first one is kept as `S10_start_clean_v1_retired.png`.
+
+**Penny voice: approved = Tamsin.**
+
+S10 background: the start frame shows an ottoman and side table that the end frame doesn't. User's call: accept it, because the cards cover that area as they appear.
+
+All 16 approved stills plus the corrected S10 pair are in `episodes/05-penny-seo-content/keyframes/` under their shot names.

@@ -18,7 +18,7 @@
 - Use only the user-supplied keyframes. Never generate or regenerate shot images; ask for them.
 - 16:9 is a native re-shoot from user-supplied 16:9 keyframes (`keyframes/user/16x9/`). No AI reframe or blurred pillarbox; the user rejected both as "tacky" for the main YouTube asset. `manifests/*-16x9.json` inherits audio, captions and event from the 9:16 manifest via `"base"` and overrides only picture and layout.
 - No visible third-party logos (user's call, EP01 v8 / 16:9 v3). The Ferrari badge and Apple logos were painted out in post with `scripts/delogo_track.py` (`--badge` mode for round badges). In keyframe QA for new episodes, flag any logo before animating so it can be fixed in the image instead.
-- Voices are approved and fixed: Noelle = Sloane, Owner = Marcus, Rachel = Emily, EP05 owner Mimi = Zoe with the `_fast` post-process (+12% speed, ~+1 semitone; IDs and filter in `manifests/reference-assets.json`).
+- Voices are approved and fixed: Noelle = Sloane, Owner = Marcus, Rachel = Emily, EP05 Penny = Tamsin, Eva (EP02) = Imogen (never reuse it), EP05 owner Mimi = Zoe with the `_fast` post-process (+12% speed, ~+1 semitone; IDs and filter in `manifests/reference-assets.json`).
 - In Ep01, Noelle is voiceover after shot 10: no lip sync or mouth animation from there on. Lip sync only shots where the speaker is on screen.
 - BBY TIGR is a recurring plate detail.
 - Registration: https://stan.store/noelleai/unlockingai. The link sits low in frame, under the car.
