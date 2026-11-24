@@ -27,10 +27,12 @@
         3.0,
         7.8
       ],
-      "file": "clips/final/S02_ls.mp4",
+      "file": "clips/raw/S02_wan.mp4",
       "in": 0.0,
       "orig_file": "clips/raw/S02_t2.mp4",
-      "lipsynced": true
+      "lipsynced": true,
+      "retired_file": "clips/final/S02_ls.mp4",
+      "gen": "wan2_7 audio-driven, 1080p"
     },
     {
       "id": "S03",
@@ -60,9 +62,11 @@
         12.95,
         15.9
       ],
-      "file": "clips/raw/S05_t1.mp4",
+      "file": "clips/raw/S05_wan.mp4",
       "in": 0.0,
-      "speed": 0.8814
+      "retired_file": "clips/raw/S05_t1.mp4",
+      "lipsynced": true,
+      "gen": "wan2_7 audio-driven, 1080p"
     },
     {
       "id": "S06",
