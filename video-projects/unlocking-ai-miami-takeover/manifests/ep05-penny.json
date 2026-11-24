@@ -27,8 +27,10 @@
         3.0,
         7.8
       ],
-      "file": "clips/raw/S02_t2.mp4",
-      "in": 0.0
+      "file": "clips/final/S02_ls.mp4",
+      "in": 0.0,
+      "orig_file": "clips/raw/S02_t2.mp4",
+      "lipsynced": true
     },
     {
       "id": "S03",
@@ -88,8 +90,10 @@
         23.175,
         28.0
       ],
-      "file": "clips/raw/S08_t1.mp4",
-      "in": 0.0
+      "file": "clips/final/S08_ls.mp4",
+      "in": 0.0,
+      "orig_file": "clips/raw/S08_t1.mp4",
+      "lipsynced": true
     },
     {
       "id": "S09",
@@ -115,8 +119,10 @@
         37.0,
         40.842
       ],
-      "file": "clips/raw/S11a_t1.mp4",
-      "in": 0.0
+      "file": "clips/final/S11a_ls.mp4",
+      "in": 0.0,
+      "orig_file": "clips/raw/S11a_t1.mp4",
+      "lipsynced": true
     },
     {
       "id": "S11b",
@@ -133,8 +139,10 @@
         45.642,
         47.842
       ],
-      "file": "clips/raw/S11c_t1.mp4",
-      "in": 0.0
+      "file": "clips/final/S11c_ls.mp4",
+      "in": 0.0,
+      "orig_file": "clips/raw/S11c_t1.mp4",
+      "lipsynced": true
     },
     {
       "id": "S12A",
