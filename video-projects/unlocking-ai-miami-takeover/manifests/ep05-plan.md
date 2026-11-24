@@ -110,3 +110,31 @@ Shot 11 dialogue order: Mimi "She writes blogs about MY business?!" → Noelle "
 EP05 Shot 11 invite VO: **"Unlocking AI Challenge. Grab your seat at the link if you're ready."** It replaces both L6b and "Ready to unlock AI?". Mimi's "Oh, ABSOLUTELY!" answers "if you're ready".
 EP01 keeps its own L6b unchanged. EP05's line is recorded new (Sloane) and stored in the evergreen pack as `L6b_ep05` (`audio/voices/events/evergreen/L6b_ep05.mp3`), so event swaps still edit only the pack.
 Storyboard: `qa/EP05_storyboard.jpg`.
+
+## Voice lines recorded (approved): `audio/voices/ep05/`
+Trimmed stems; Mimi lines carry the approved `_fast` filter. Raw takes are in `raw/`, job files in `jobs.tsv`.
+L01 Mimi 4.23 · L02 Noelle 3.16 · L03 Mimi 3.68 · L04 Noelle 0.81 · L05 Mimi 1.44 · L06 Noelle 2.27 · L07 Noelle 2.93 · L08 Mimi 1.28 · L09 Noelle 3.32 · L10 Penny 2.40 · L11 Mimi 1.93 · L12 Noelle 1.18 · L13 Noelle invite (= `L6b_ep05`) 4.34 · L14 Mimi 1.38 · L15 Noelle "I'll show you." (S12A VO, user's call) 0.86
+
+S08 still replaced with the user's gold-phone version; the black-phone one is kept as `S08_website_v1_retired.png`.
+
+## Locked timeline v1 (animatic `qa/EP05_animatic_v1.mp4`, 57.2s)
+| Shot | In–Out | Cut | Gen | Lines (start) |
+|---|---|---|---|---|
+| S01 | 0.0–3.0 | 3.0 | 4s, sound on | — |
+| S02 | 3.0–7.8 | 4.8 | 5s | L01 @3.3 |
+| S03 | 7.8–11.8 | 4.0 | 4s | L02 @8.2 |
+| S04 | 11.8–14.8 | 3.0 | 4s | L03 @12.1 (runs into S05) |
+| S05 | 14.8–17.3 | 2.5 | 3s | — |
+| S06 | 17.3–20.8 | 3.5 | 4s | L04 @17.5, L05 @18.9 |
+| S07 | 20.8–24.3 | 3.5 | 4s | L06 @21.4 |
+| S08 | 24.3–29.1 | 4.8 | 5s | L07 @24.5, L08 @27.65 |
+| S09 | 29.1–33.1 | 4.0 | 5s | L09 @29.4 (VO) |
+| S10 | 33.1–40.1 | 7.0 | 8s | L10 @37.4 (Penny) |
+| S11a | 40.1–43.9 | 3.8 | 4s | L11 @40.3, L12 @42.5 |
+| S11b | 43.9–48.5 | 4.6 | 5s | L13 invite @44.0 (VO) |
+| S11c | 48.5–50.7 | 2.2 | 3s | L14 @48.8 |
+| S12A | 50.7–52.7 | 2.0 | 3s | L15 @51.2 (VO) |
+| S12B | 52.7–57.2 | 4.5 | 5s, sound on | end card |
+
+Runtime is 57.2s against the brief's 50–55s. Ways back to spec: S10 7.0→5.5 and S05 2.5→1.5 gives about 54.7s.
+Revised clip budget: 57s pro silent ×1.25 + 9s sound-on ≈ **88 credits**. Lip sync ≈ 24s × 3.5 ≈ **84**.

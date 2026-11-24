@@ -16,6 +16,11 @@
     "L6b": {
       "text": "Unlocking AI Challenge. Grab your seat at the link.",
       "file": "audio/voices/events/evergreen/L6b.mp3"
+    },
+    "L6b_ep05": {
+      "text": "Unlocking AI Challenge. Grab your seat at the link if you're ready.",
+      "file": "audio/voices/events/evergreen/L6b_ep05.mp3",
+      "_note": "EP05 only (S11a-S11b card handoff, 4.34s). EP01 keeps L6b."
     }
   },
   "voice": {
