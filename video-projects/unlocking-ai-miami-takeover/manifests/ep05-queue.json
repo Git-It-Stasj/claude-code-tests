@@ -24,7 +24,8 @@
       "dur": 4,
       "sound": "off",
       "prompt": "Camera: static medium two-shot at eye level with a slight push-in, no reframing; the owner in floral kimono on the left, Noelle in purple suit on the right. Action: the owner leans forward with a huge welcoming smile, arms spread wide and gesturing enthusiastically, her oversized clear glasses catching the warm light, her bob swinging and settling. Noelle stays composed with an amused half-smile, hand in her pocket. The women stay apart: no hug, no touching.",
-      "job": "1cd2722b-4f59-456f-b020-3b3120babed9"
+      "job": "1cd2722b-4f59-456f-b020-3b3120babed9",
+      "qa": "FAIL: from ~2.4s the owner's arm wraps behind Noelle (contact/hug). Retake t2."
     },
     {
       "shot": "S04",
@@ -32,7 +33,8 @@
       "dur": 4,
       "sound": "off",
       "prompt": "Camera: static medium two-shot, gentle push toward Noelle, no reframing; the owner on the left, Noelle on the right. Action: Noelle simply holds her sunglasses where they are with her fingers on the frame; the sunglasses do not move or lower at all. She raises one eyebrow and gives a subtle knowing smirk toward the owner. The owner laughs and talks rapidly, gesturing excitedly with open hands, shoulders bouncing.",
-      "job": "1b1fa729-e743-4c3f-a6f9-d5bef5b49675"
+      "job": "1b1fa729-e743-4c3f-a6f9-d5bef5b49675",
+      "qa": "PASS for 0-3.0s cut: glasses held still, owner gestures. After 3.2s Noelle takes the glasses off (outside the cut)."
     },
     {
       "shot": "S05",
@@ -40,7 +42,8 @@
       "end": "S06_and_google",
       "dur": 3,
       "sound": "off",
-      "prompt": "Camera: locked static two-shot, no camera movement; the owner on the left, Noelle on the right. Action: a quick transition: the owner happily counts on her fingers, shoulders bouncing, then stops as Noelle turns toward her with an open questioning hand, and the owner's face shifts into puzzled confusion. Every hand keeps five fingers."
+      "prompt": "Camera: locked static two-shot, no camera movement; the owner on the left, Noelle on the right. Action: a quick transition: the owner happily counts on her fingers, shoulders bouncing, then stops as Noelle turns toward her with an open questioning hand, and the owner's face shifts into puzzled confusion. Every hand keeps five fingers.",
+      "job": "76ce0e9b-3178-41fd-927b-01fc0fe9a064"
     },
     {
       "shot": "S06",
@@ -99,7 +102,16 @@
       "start": "S02_enters",
       "dur": 5,
       "sound": "off",
-      "prompt": "Camera: static interior view of the boutique, very subtle push toward the two women, no reframing; the owner in floral kimono on the left facing the camera, Noelle in purple suit on the right by the glass door. Action: Noelle walks a few steps forward from the doorway toward the owner, calm and confident, curls swaying. The owner stays facing the camera the whole time and never turns around; she bounces on her toes with arms open wide in an excited welcome, talking fast with a huge smile. Noelle answers with a cool, amused half-smile. The women stay apart, no hug, no contact."
+      "prompt": "Camera: static interior view of the boutique, very subtle push toward the two women, no reframing; the owner in floral kimono on the left facing the camera, Noelle in purple suit on the right by the glass door. Action: Noelle walks a few steps forward from the doorway toward the owner, calm and confident, curls swaying. The owner stays facing the camera the whole time and never turns around; she bounces on her toes with arms open wide in an excited welcome, talking fast with a huge smile. Noelle answers with a cool, amused half-smile. The women stay apart, no hug, no contact.",
+      "job": "a36a431a-9832-44ff-8348-86bed91a3f8e"
+    },
+    {
+      "shot": "S03",
+      "take": 2,
+      "start": "S03_ambush",
+      "dur": 4,
+      "sound": "off",
+      "prompt": "Camera: locked static medium two-shot at eye level, no camera movement; the owner in floral kimono stays on the left half of the frame, Noelle in purple suit stays on the right half. Action: the owner, staying in place on the left, beams a huge welcoming smile and gestures enthusiastically with both hands in front of her own body, her clear glasses catching the warm light and her bob bouncing. Her arms never reach toward Noelle and never cross the middle of the frame. Noelle stays composed with an amused half-smile, one hand in her pocket. The two women never touch."
     }
   ]
 }
