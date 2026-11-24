@@ -93,12 +93,12 @@
         21.825,
         26.65
       ],
-      "file": "clips/final/S08_ls2.mp4",
+      "file": "clips/final/S08_ls3.mp4",
       "in": 0.0,
       "orig_file": "clips/raw/S08_t1.mp4",
       "lipsynced": true,
-      "retired_file": "clips/raw/S08_wan.mp4",
-      "gen": "kling_o3_flf take 2 + sync_so segments"
+      "retired_file": "clips/final/S08_ls2.mp4",
+      "gen": "S08_ls2 0-3.1s (Noelle) + Kling extension reaction (Mimi lips closed) 1.3-3.025s with sync_so on L08"
     },
     {
       "id": "S09",
