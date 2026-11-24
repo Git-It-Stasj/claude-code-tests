@@ -2,27 +2,104 @@
   "_note": "EP05 remaining 12 clips (user-approved). kling_o3_flf pro, 9:16. Submit 2 at a time. STYLE is appended to every prompt.",
   "STYLE": "Keep faces, hair, glasses, jewelry, outfits and the black T-shirt reading 'I [purple heart] AI' exactly as in the frame. Premium 2.5D graphic-novel cel shading, refined ink lines. No new props, no text changes, no speech bubbles.",
   "queue": [
-    {"shot": "S01", "start": "S01_arrival", "dur": 4, "sound": "on", "job": "1599bd81-7f18-4d7b-a0c2-7ef99fe92dd7"},
-    {"shot": "S02", "start": "S02_enters", "dur": 5, "sound": "off", "job": "db0353e1-6e34-4289-8989-484badc4ce32"},
-    {"shot": "S03", "start": "S03_ambush", "dur": 4, "sound": "off",
-     "prompt": "Camera: static medium two-shot at eye level with a slight push-in, no reframing; the owner in floral kimono on the left, Noelle in purple suit on the right. Action: the owner leans forward with a huge welcoming smile, arms spread wide and gesturing enthusiastically, her oversized clear glasses catching the warm light, her bob swinging and settling. Noelle stays composed with an amused half-smile, hand in her pocket. The women stay apart: no hug, no touching."},
-    {"shot": "S04", "start": "S04_sunglasses_referrals", "dur": 4, "sound": "off",
-     "prompt": "Camera: static medium two-shot, gentle push toward Noelle, no reframing; the owner on the left, Noelle on the right. Action: Noelle simply holds her sunglasses where they are with her fingers on the frame; the sunglasses do not move or lower at all. She raises one eyebrow and gives a subtle knowing smirk toward the owner. The owner laughs and talks rapidly, gesturing excitedly with open hands, shoulders bouncing."},
-    {"shot": "S05", "start": "S05_finger_count", "end": "S06_and_google", "dur": 3, "sound": "off",
-     "prompt": "Camera: locked static two-shot, no camera movement; the owner on the left, Noelle on the right. Action: a quick transition: the owner happily counts on her fingers, shoulders bouncing, then stops as Noelle turns toward her with an open questioning hand, and the owner's face shifts into puzzled confusion. Every hand keeps five fingers."},
-    {"shot": "S06", "start": "S06_and_google", "dur": 4, "sound": "off",
-     "prompt": "Camera: static two-shot with a very subtle push toward the owner's face; the owner on the left, Noelle on the right. Action: Noelle keeps one hand extended in a casual questioning gesture with a cool deadpan smile. The owner is frozen in genuine confusion: head tilting a little more, eyebrows rising, lips parting as she asks a question. The small yellow question marks above her head stay as they are. No exaggerated cartoon deformation."},
-    {"shot": "S08", "start": "S08_website", "dur": 5, "sound": "off",
-     "prompt": "Camera: static two-shot with a gentle drift toward the phone, both faces stay visible; the owner on the left, Noelle on the right holding a gold phone. Action: Noelle holds the gold phone steady toward the owner and taps the blog section of the website with her index finger while talking. The owner leans closer, hand at her chin, studying the screen; her expression goes from curious to sheepish realization. The website on the screen stays exactly the same: same layout, same products, same single blog post and date."},
-    {"shot": "S09", "start": "S09_penny_screen_clean", "end": "S09_penny_screen_features", "dur": 5, "sound": "off",
-     "prompt": "Camera: close-up on the gold phone held in two hands, very slow push-in, no reframing. Action: on the purple screen under 'Penny, AI SEO & Blog Writer', three feature panels slide up into place one at a time: 'Keyword Research', then 'SEO + AI Search', then 'Blog Drafts & Publishing', and finally the gold 'Draft ready for review' pill glows on. The portrait at the top stays exactly the same. Fingers stay still. Text stays crisp, no flicker, no morphing letters."},
-    {"shot": "S11b", "start": "S11b_handoff", "end": "S11c_retrieval", "dur": 5, "sound": "off",
-     "prompt": "Camera: locked-off medium two-shot, no camera movement; the owner on the left holding the gold phone, Noelle on the right. Action: the owner takes the black card with the gold key from Noelle with her right hand and lifts it up to admire it, completely mesmerized. Noelle then reaches across with her right hand toward the gold phone in the owner's left hand, while Noelle's left hand rests on her hip. Exactly one phone and one card in the scene. Hands keep five fingers."},
-    {"shot": "S11c", "start": "S11c_retrieval", "dur": 3, "sound": "off",
-     "prompt": "Camera: locked-off medium two-shot, no camera movement. Action: Noelle smoothly slides the gold phone out of the owner's left hand with her right hand and brings it back toward herself with a sly smile, left hand on her hip. The owner stays totally focused on the black card with the gold key, grinning, unaware the phone is gone. Exactly one phone and one card. Hands keep five fingers."},
-    {"shot": "S12A", "start": "S12A_walkout", "dur": 3, "sound": "off",
-     "prompt": "Camera: static interior view, no camera movement; the doorway and the yellow car outside stay in place. Action: Noelle walks confidently toward the open glass door, away from camera, her purple suit moving naturally and her long curls swaying, and glances back over her shoulder with a small knowing smile. The owner on the left admires the black card with the gold key, smiling."},
-    {"shot": "S12B", "start": "S12B_driveaway", "dur": 5, "sound": "on",
-     "prompt": "Camera: locked-off static rear view of the waterfront street, never orbits; the boutique stays on the right, the sunset at the end of the road. Action: the yellow fixed-roof coupe accelerates smoothly away from camera toward the sunset, its taillights glowing, the Florida plate reading BBY TIGR. The car stays exactly as in the frame: no spoiler, no rear emblem, nothing added to the car. The owner stands outside the boutique on the right, waving the black card with the gold key toward the departing car. No other cars or pedestrians enter. Sound: engine revving and pulling away, waterfront street ambience, no music, no voices."}
+    {
+      "shot": "S01",
+      "start": "S01_arrival",
+      "dur": 4,
+      "sound": "on",
+      "job": "1599bd81-7f18-4d7b-a0c2-7ef99fe92dd7",
+      "qa": "PASS: car rolls in and stops, Noelle smiles, owner waves in window. Use 0-3.0s. Wheel badge to paint out."
+    },
+    {
+      "shot": "S02",
+      "start": "S02_enters",
+      "dur": 5,
+      "sound": "off",
+      "job": "db0353e1-6e34-4289-8989-484badc4ce32",
+      "qa": "FAIL: owner spins her back to camera at ~3s (kills lip sync); Noelle barely walks. Retake t2."
+    },
+    {
+      "shot": "S03",
+      "start": "S03_ambush",
+      "dur": 4,
+      "sound": "off",
+      "prompt": "Camera: static medium two-shot at eye level with a slight push-in, no reframing; the owner in floral kimono on the left, Noelle in purple suit on the right. Action: the owner leans forward with a huge welcoming smile, arms spread wide and gesturing enthusiastically, her oversized clear glasses catching the warm light, her bob swinging and settling. Noelle stays composed with an amused half-smile, hand in her pocket. The women stay apart: no hug, no touching.",
+      "job": "1cd2722b-4f59-456f-b020-3b3120babed9"
+    },
+    {
+      "shot": "S04",
+      "start": "S04_sunglasses_referrals",
+      "dur": 4,
+      "sound": "off",
+      "prompt": "Camera: static medium two-shot, gentle push toward Noelle, no reframing; the owner on the left, Noelle on the right. Action: Noelle simply holds her sunglasses where they are with her fingers on the frame; the sunglasses do not move or lower at all. She raises one eyebrow and gives a subtle knowing smirk toward the owner. The owner laughs and talks rapidly, gesturing excitedly with open hands, shoulders bouncing.",
+      "job": "1b1fa729-e743-4c3f-a6f9-d5bef5b49675"
+    },
+    {
+      "shot": "S05",
+      "start": "S05_finger_count",
+      "end": "S06_and_google",
+      "dur": 3,
+      "sound": "off",
+      "prompt": "Camera: locked static two-shot, no camera movement; the owner on the left, Noelle on the right. Action: a quick transition: the owner happily counts on her fingers, shoulders bouncing, then stops as Noelle turns toward her with an open questioning hand, and the owner's face shifts into puzzled confusion. Every hand keeps five fingers."
+    },
+    {
+      "shot": "S06",
+      "start": "S06_and_google",
+      "dur": 4,
+      "sound": "off",
+      "prompt": "Camera: static two-shot with a very subtle push toward the owner's face; the owner on the left, Noelle on the right. Action: Noelle keeps one hand extended in a casual questioning gesture with a cool deadpan smile. The owner is frozen in genuine confusion: head tilting a little more, eyebrows rising, lips parting as she asks a question. The small yellow question marks above her head stay as they are. No exaggerated cartoon deformation."
+    },
+    {
+      "shot": "S08",
+      "start": "S08_website",
+      "dur": 5,
+      "sound": "off",
+      "prompt": "Camera: static two-shot with a gentle drift toward the phone, both faces stay visible; the owner on the left, Noelle on the right holding a gold phone. Action: Noelle holds the gold phone steady toward the owner and taps the blog section of the website with her index finger while talking. The owner leans closer, hand at her chin, studying the screen; her expression goes from curious to sheepish realization. The website on the screen stays exactly the same: same layout, same products, same single blog post and date."
+    },
+    {
+      "shot": "S09",
+      "start": "S09_penny_screen_clean",
+      "end": "S09_penny_screen_features",
+      "dur": 5,
+      "sound": "off",
+      "prompt": "Camera: close-up on the gold phone held in two hands, very slow push-in, no reframing. Action: on the purple screen under 'Penny, AI SEO & Blog Writer', three feature panels slide up into place one at a time: 'Keyword Research', then 'SEO + AI Search', then 'Blog Drafts & Publishing', and finally the gold 'Draft ready for review' pill glows on. The portrait at the top stays exactly the same. Fingers stay still. Text stays crisp, no flicker, no morphing letters."
+    },
+    {
+      "shot": "S11b",
+      "start": "S11b_handoff",
+      "end": "S11c_retrieval",
+      "dur": 5,
+      "sound": "off",
+      "prompt": "Camera: locked-off medium two-shot, no camera movement; the owner on the left holding the gold phone, Noelle on the right. Action: the owner takes the black card with the gold key from Noelle with her right hand and lifts it up to admire it, completely mesmerized. Noelle then reaches across with her right hand toward the gold phone in the owner's left hand, while Noelle's left hand rests on her hip. Exactly one phone and one card in the scene. Hands keep five fingers."
+    },
+    {
+      "shot": "S11c",
+      "start": "S11c_retrieval",
+      "dur": 3,
+      "sound": "off",
+      "prompt": "Camera: locked-off medium two-shot, no camera movement. Action: Noelle smoothly slides the gold phone out of the owner's left hand with her right hand and brings it back toward herself with a sly smile, left hand on her hip. The owner stays totally focused on the black card with the gold key, grinning, unaware the phone is gone. Exactly one phone and one card. Hands keep five fingers."
+    },
+    {
+      "shot": "S12A",
+      "start": "S12A_walkout",
+      "dur": 3,
+      "sound": "off",
+      "prompt": "Camera: static interior view, no camera movement; the doorway and the yellow car outside stay in place. Action: Noelle walks confidently toward the open glass door, away from camera, her purple suit moving naturally and her long curls swaying, and glances back over her shoulder with a small knowing smile. The owner on the left admires the black card with the gold key, smiling."
+    },
+    {
+      "shot": "S12B",
+      "start": "S12B_driveaway",
+      "dur": 5,
+      "sound": "on",
+      "prompt": "Camera: locked-off static rear view of the waterfront street, never orbits; the boutique stays on the right, the sunset at the end of the road. Action: the yellow fixed-roof coupe accelerates smoothly away from camera toward the sunset, its taillights glowing, the Florida plate reading BBY TIGR. The car stays exactly as in the frame: no spoiler, no rear emblem, nothing added to the car. The owner stands outside the boutique on the right, waving the black card with the gold key toward the departing car. No other cars or pedestrians enter. Sound: engine revving and pulling away, waterfront street ambience, no music, no voices."
+    },
+    {
+      "shot": "S02",
+      "take": 2,
+      "start": "S02_enters",
+      "dur": 5,
+      "sound": "off",
+      "prompt": "Camera: static interior view of the boutique, very subtle push toward the two women, no reframing; the owner in floral kimono on the left facing the camera, Noelle in purple suit on the right by the glass door. Action: Noelle walks a few steps forward from the doorway toward the owner, calm and confident, curls swaying. The owner stays facing the camera the whole time and never turns around; she bounces on her toes with arms open wide in an excited welcome, talking fast with a huge smile. Noelle answers with a cool, amused half-smile. The women stay apart, no hug, no contact."
+    }
   ]
 }
