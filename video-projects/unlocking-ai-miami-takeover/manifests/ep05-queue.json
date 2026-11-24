@@ -8,7 +8,7 @@
       "dur": 4,
       "sound": "on",
       "job": "1599bd81-7f18-4d7b-a0c2-7ef99fe92dd7",
-      "qa": "PASS: car rolls in and stops, Noelle smiles, owner waves in window. Use 0-3.0s. Wheel badge to paint out."
+      "qa": "PASS: car rolls in and stops, Noelle smiles, owner waves in window. Use 0-3.0s. Wheel badge to paint out. Badge painted out: clips/final/S01_delogo.mp4 (scripts/delogo_hub.py 810 1664 18 18 2.4)."
     },
     {
       "shot": "S02",
@@ -61,7 +61,8 @@
       "dur": 5,
       "sound": "off",
       "prompt": "Camera: static two-shot with a gentle drift toward the phone, both faces stay visible; the owner on the left, Noelle on the right holding a gold phone. Action: Noelle holds the gold phone steady toward the owner and taps the blog section of the website with her index finger while talking. The owner leans closer, hand at her chin, studying the screen; her expression goes from curious to sheepish realization. The website on the screen stays exactly the same: same layout, same products, same single blog post and date.",
-      "job": "706dd448-2e62-42a5-9e5e-911d298697a9"
+      "job": "706dd448-2e62-42a5-9e5e-911d298697a9",
+      "qa": "PASS with note: tap and reactions good; small website text drift on the phone after ~3s (tiny at phone size)."
     },
     {
       "shot": "S09",
@@ -70,7 +71,8 @@
       "dur": 5,
       "sound": "off",
       "prompt": "Camera: close-up on the gold phone held in two hands, very slow push-in, no reframing. Action: on the purple screen under 'Penny, AI SEO & Blog Writer', three feature panels slide up into place one at a time: 'Keyword Research', then 'SEO + AI Search', then 'Blog Drafts & Publishing', and finally the gold 'Draft ready for review' pill glows on. The portrait at the top stays exactly the same. Fingers stay still. Text stays crisp, no flicker, no morphing letters.",
-      "job": "b49528a8-00fd-4980-810d-6a75878a1540"
+      "job": "b49528a8-00fd-4980-810d-6a75878a1540",
+      "qa": "PASS: panels arrive in order 1-2-3, pill lights at ~4.2s, text crisp."
     },
     {
       "shot": "S11b",
@@ -78,28 +80,34 @@
       "end": "S11c_retrieval",
       "dur": 5,
       "sound": "off",
-      "prompt": "Camera: locked-off medium two-shot, no camera movement; the owner on the left holding the gold phone, Noelle on the right. Action: the owner takes the black card with the gold key from Noelle with her right hand and lifts it up to admire it, completely mesmerized. Noelle then reaches across with her right hand toward the gold phone in the owner's left hand, while Noelle's left hand rests on her hip. Exactly one phone and one card in the scene. Hands keep five fingers."
+      "prompt": "Camera: locked-off medium two-shot, no camera movement; the owner on the left holding the gold phone, Noelle on the right. Action: the owner takes the black card with the gold key from Noelle with her right hand and lifts it up to admire it, completely mesmerized. Noelle then reaches across with her right hand toward the gold phone in the owner's left hand, while Noelle's left hand rests on her hip. Exactly one phone and one card in the scene. Hands keep five fingers.",
+      "job": "b7b1aa76-0fdc-4b2d-b91d-029df3d5990d",
+      "qa": "PASS: card passes to the owner, she holds card + phone, Noelle reaches with right hand, left hand on hip. One phone, one card."
     },
     {
       "shot": "S11c",
       "start": "S11c_retrieval",
       "dur": 3,
       "sound": "off",
-      "prompt": "Camera: locked-off medium two-shot, no camera movement. Action: Noelle smoothly slides the gold phone out of the owner's left hand with her right hand and brings it back toward herself with a sly smile, left hand on her hip. The owner stays totally focused on the black card with the gold key, grinning, unaware the phone is gone. Exactly one phone and one card. Hands keep five fingers."
+      "prompt": "Camera: locked-off medium two-shot, no camera movement. Action: Noelle smoothly slides the gold phone out of the owner's left hand with her right hand and brings it back toward herself with a sly smile, left hand on her hip. The owner stays totally focused on the black card with the gold key, grinning, unaware the phone is gone. Exactly one phone and one card. Hands keep five fingers.",
+      "job": "681293d1-132b-42fe-b5b7-b177819760c4",
+      "qa": "PASS: Noelle takes the phone back; owner stays on the card."
     },
     {
       "shot": "S12A",
       "start": "S12A_walkout",
       "dur": 3,
       "sound": "off",
-      "prompt": "Camera: static interior view, no camera movement; the doorway and the yellow car outside stay in place. Action: Noelle walks confidently toward the open glass door, away from camera, her purple suit moving naturally and her long curls swaying, and glances back over her shoulder with a small knowing smile. The owner on the left admires the black card with the gold key, smiling."
+      "prompt": "Camera: static interior view, no camera movement; the doorway and the yellow car outside stay in place. Action: Noelle walks confidently toward the open glass door, away from camera, her purple suit moving naturally and her long curls swaying, and glances back over her shoulder with a small knowing smile. The owner on the left admires the black card with the gold key, smiling.",
+      "job": "f9eae1ce-4f6c-4270-896e-8e914a3a1203"
     },
     {
       "shot": "S12B",
       "start": "S12B_driveaway",
       "dur": 5,
       "sound": "on",
-      "prompt": "Camera: locked-off static rear view of the waterfront street, never orbits; the boutique stays on the right, the sunset at the end of the road. Action: the yellow fixed-roof coupe accelerates smoothly away from camera toward the sunset, its taillights glowing, the Florida plate reading BBY TIGR. The car stays exactly as in the frame: no spoiler, no rear emblem, nothing added to the car. The owner stands outside the boutique on the right, waving the black card with the gold key toward the departing car. No other cars or pedestrians enter. Sound: engine revving and pulling away, waterfront street ambience, no music, no voices."
+      "prompt": "Camera: locked-off static rear view of the waterfront street, never orbits; the boutique stays on the right, the sunset at the end of the road. Action: the yellow fixed-roof coupe accelerates smoothly away from camera toward the sunset, its taillights glowing, the Florida plate reading BBY TIGR. The car stays exactly as in the frame: no spoiler, no rear emblem, nothing added to the car. The owner stands outside the boutique on the right, waving the black card with the gold key toward the departing car. No other cars or pedestrians enter. Sound: engine revving and pulling away, waterfront street ambience, no music, no voices.",
+      "job": "d79f67dc-2a26-4418-b539-0dc23a1dfc7a"
     },
     {
       "shot": "S02",

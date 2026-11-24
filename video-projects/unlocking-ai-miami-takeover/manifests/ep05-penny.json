@@ -1,0 +1,289 @@
+{
+  "episode": "05",
+  "title": "Penny: The Best-Kept Secret in Miami",
+  "frame": [
+    1080,
+    1920
+  ],
+  "episode_dir": "episodes/05-penny-seo-content",
+  "event": "events/evergreen.json",
+  "invite_slot": "L6b_ep05",
+  "music_file": null,
+  "_note": "Rough cut v1: approved clips, recorded voice stems, native car audio, captions, title, Penny lower third, evergreen end card. Lip sync only on S07 so far; no music bed yet (not yet approved).",
+  "shots": [
+    {
+      "id": "S01",
+      "t": [
+        0.0,
+        3.0
+      ],
+      "file": "clips/final/S01_delogo.mp4",
+      "in": 0.0,
+      "native_audio_db": -4
+    },
+    {
+      "id": "S02",
+      "t": [
+        3.0,
+        7.8
+      ],
+      "file": "clips/raw/S02_t2.mp4",
+      "in": 0.0
+    },
+    {
+      "id": "S03",
+      "t": [
+        7.8,
+        11.8
+      ],
+      "file": "clips/raw/S03_t2.mp4",
+      "in": 0.0
+    },
+    {
+      "id": "S04",
+      "t": [
+        11.8,
+        14.8
+      ],
+      "file": "clips/raw/S04_t1.mp4",
+      "in": 0.0
+    },
+    {
+      "id": "S05",
+      "t": [
+        14.8,
+        16.8
+      ],
+      "file": "clips/raw/S05_t1.mp4",
+      "in": 0.0,
+      "speed": 1.5
+    },
+    {
+      "id": "S06",
+      "t": [
+        16.8,
+        20.3
+      ],
+      "file": "clips/raw/S06_t1.mp4",
+      "in": 0.0
+    },
+    {
+      "id": "S07",
+      "t": [
+        20.3,
+        23.175
+      ],
+      "file": "clips/final/S07_lipsync_v1.mp4",
+      "in": 0.0
+    },
+    {
+      "id": "S08",
+      "t": [
+        23.175,
+        28.0
+      ],
+      "file": "clips/raw/S08_t1.mp4",
+      "in": 0.0
+    },
+    {
+      "id": "S09",
+      "t": [
+        28.0,
+        32.0
+      ],
+      "file": "clips/raw/S09_t1.mp4",
+      "in": 0.9
+    },
+    {
+      "id": "S10",
+      "t": [
+        32.0,
+        38.958
+      ],
+      "file": "clips/final/S10_cards_v2.mp4",
+      "in": 0.0
+    },
+    {
+      "id": "S11a",
+      "t": [
+        38.958,
+        42.8
+      ],
+      "file": "clips/raw/S11a_t1.mp4",
+      "in": 0.0
+    },
+    {
+      "id": "S11b",
+      "t": [
+        42.8,
+        47.6
+      ],
+      "file": "clips/raw/S11b_t1.mp4",
+      "in": 0.0
+    },
+    {
+      "id": "S11c",
+      "t": [
+        47.6,
+        49.8
+      ],
+      "file": "clips/raw/S11c_t1.mp4",
+      "in": 0.0
+    },
+    {
+      "id": "S12A",
+      "t": [
+        49.8,
+        51.8
+      ],
+      "file": "clips/raw/S12A_t1.mp4",
+      "in": 0.0
+    },
+    {
+      "id": "S12B",
+      "t": [
+        51.8,
+        56.8
+      ],
+      "file": "clips/raw/S12B_t1.mp4",
+      "in": 0.0,
+      "native_audio_db": -3
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "L01",
+      "who": "MIMI",
+      "at": 3.3,
+      "file": "audio/voices/ep05/L01_mimi.mp3",
+      "text": "Hiiii! Oh my gosh! That outfit! Are you here for a facial?"
+    },
+    {
+      "id": "L02",
+      "who": "NOELLE",
+      "at": 8.2,
+      "file": "audio/voices/ep05/L02_noelle.mp3",
+      "text": "Love the energy. How do people find you?"
+    },
+    {
+      "id": "L03",
+      "who": "MIMI",
+      "at": 12.1,
+      "file": "audio/voices/ep05/L03_mimi.mp3",
+      "text": "Referrals! Friends, cousins—even someone's dentist!"
+    },
+    {
+      "id": "L04",
+      "who": "NOELLE",
+      "at": 17.0,
+      "file": "audio/voices/ep05/L04_noelle.mp3",
+      "text": "And Google?"
+    },
+    {
+      "id": "L05",
+      "who": "MIMI",
+      "at": 18.4,
+      "file": "audio/voices/ep05/L05_mimi.mp3",
+      "text": "Does Google do referrals?"
+    },
+    {
+      "id": "L06",
+      "who": "NOELLE",
+      "at": 20.6,
+      "file": "audio/voices/ep05/L06_noelle.mp3",
+      "text": "Girl. We need to talk."
+    },
+    {
+      "id": "L07",
+      "who": "NOELLE",
+      "at": 23.4,
+      "file": "audio/voices/ep05/L07_noelle.mp3",
+      "text": "Beautiful business. Where's your content?"
+    },
+    {
+      "id": "L08",
+      "who": "MIMI",
+      "at": 26.55,
+      "file": "audio/voices/ep05/L08_mimi.mp3",
+      "text": "I don't know what to write!"
+    },
+    {
+      "id": "L09",
+      "who": "NOELLE",
+      "at": 28.3,
+      "file": "audio/voices/ep05/L09_noelle.mp3",
+      "text": "Relax. I know a gal. Meet Penny.",
+      "cap_y": 1660
+    },
+    {
+      "id": "L10",
+      "who": "PENNY",
+      "at": 36.5,
+      "file": "audio/voices/ep05/L10_penny.mp3",
+      "text": "Your first article is ready for review.",
+      "cap_y": 150
+    },
+    {
+      "id": "L11",
+      "who": "MIMI",
+      "at": 39.2,
+      "file": "audio/voices/ep05/L11_mimi.mp3",
+      "text": "She writes blogs about MY business?!"
+    },
+    {
+      "id": "L12",
+      "who": "NOELLE",
+      "at": 41.4,
+      "file": "audio/voices/ep05/L12_noelle.mp3",
+      "text": "Exactly."
+    },
+    {
+      "id": "L13",
+      "who": "NOELLE",
+      "at": 43.0,
+      "slot": "L6b_ep05",
+      "text": "Unlocking AI Challenge. Grab your seat at the link if you're ready."
+    },
+    {
+      "id": "L14",
+      "who": "MIMI",
+      "at": 47.9,
+      "file": "audio/voices/ep05/L14_mimi.mp3",
+      "text": "Oh, ABSOLUTELY!"
+    },
+    {
+      "id": "L15",
+      "who": "NOELLE",
+      "at": 50.2,
+      "file": "audio/voices/ep05/L15_noelle.mp3",
+      "text": "I'll show you."
+    }
+  ],
+  "overlays": [
+    {
+      "kind": "title",
+      "t": [
+        0.3,
+        2.8
+      ]
+    },
+    {
+      "kind": "endcard",
+      "t": [
+        52.8,
+        56.8
+      ]
+    }
+  ],
+  "end_card": {
+    "lines": [
+      "UNLOCKING AI CHALLENGE",
+      "BUILD AN AI-AMPLIFIED BUSINESS",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "registration": "stan.store/noelleai/unlockingai"
+  }
+}
