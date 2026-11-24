@@ -52,14 +52,16 @@
       "dur": 4,
       "sound": "off",
       "prompt": "Camera: static two-shot with a very subtle push toward the owner's face; the owner on the left, Noelle on the right. Action: Noelle keeps one hand extended in a casual questioning gesture with a cool deadpan smile. The owner is frozen in genuine confusion: head tilting a little more, eyebrows rising, lips parting as she asks a question. The small yellow question marks above her head stay as they are. No exaggerated cartoon deformation.",
-      "job": "2ad9a2b7-59d2-4c61-98d3-94252aa2042a"
+      "job": "2ad9a2b7-59d2-4c61-98d3-94252aa2042a",
+      "qa": "PASS with note: confusion beat reads well; the yellow question marks fade out around 2.2s."
     },
     {
       "shot": "S08",
       "start": "S08_website",
       "dur": 5,
       "sound": "off",
-      "prompt": "Camera: static two-shot with a gentle drift toward the phone, both faces stay visible; the owner on the left, Noelle on the right holding a gold phone. Action: Noelle holds the gold phone steady toward the owner and taps the blog section of the website with her index finger while talking. The owner leans closer, hand at her chin, studying the screen; her expression goes from curious to sheepish realization. The website on the screen stays exactly the same: same layout, same products, same single blog post and date."
+      "prompt": "Camera: static two-shot with a gentle drift toward the phone, both faces stay visible; the owner on the left, Noelle on the right holding a gold phone. Action: Noelle holds the gold phone steady toward the owner and taps the blog section of the website with her index finger while talking. The owner leans closer, hand at her chin, studying the screen; her expression goes from curious to sheepish realization. The website on the screen stays exactly the same: same layout, same products, same single blog post and date.",
+      "job": "706dd448-2e62-42a5-9e5e-911d298697a9"
     },
     {
       "shot": "S09",
@@ -67,7 +69,8 @@
       "end": "S09_penny_screen_features",
       "dur": 5,
       "sound": "off",
-      "prompt": "Camera: close-up on the gold phone held in two hands, very slow push-in, no reframing. Action: on the purple screen under 'Penny, AI SEO & Blog Writer', three feature panels slide up into place one at a time: 'Keyword Research', then 'SEO + AI Search', then 'Blog Drafts & Publishing', and finally the gold 'Draft ready for review' pill glows on. The portrait at the top stays exactly the same. Fingers stay still. Text stays crisp, no flicker, no morphing letters."
+      "prompt": "Camera: close-up on the gold phone held in two hands, very slow push-in, no reframing. Action: on the purple screen under 'Penny, AI SEO & Blog Writer', three feature panels slide up into place one at a time: 'Keyword Research', then 'SEO + AI Search', then 'Blog Drafts & Publishing', and finally the gold 'Draft ready for review' pill glows on. The portrait at the top stays exactly the same. Fingers stay still. Text stays crisp, no flicker, no morphing letters.",
+      "job": "b49528a8-00fd-4980-810d-6a75878a1540"
     },
     {
       "shot": "S11b",
@@ -115,7 +118,8 @@
       "dur": 4,
       "sound": "off",
       "prompt": "Camera: locked static medium two-shot at eye level, no camera movement; the owner in floral kimono stays on the left half of the frame, Noelle in purple suit stays on the right half. Action: the owner, staying in place on the left, beams a huge welcoming smile and gestures enthusiastically with both hands in front of her own body, her clear glasses catching the warm light and her bob bouncing. Her arms never reach toward Noelle and never cross the middle of the frame. Noelle stays composed with an amused half-smile, one hand in her pocket. The two women never touch.",
-      "job": "8adef10b-4dc9-46ce-80f2-01f9890a6bab"
+      "job": "8adef10b-4dc9-46ce-80f2-01f9890a6bab",
+      "qa": "PASS: no contact; owner gestures in her own space; Noelle composed, face visible for L02 lip sync."
     }
   ]
 }
