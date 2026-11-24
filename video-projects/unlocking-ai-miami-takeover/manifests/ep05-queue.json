@@ -99,7 +99,8 @@
       "dur": 3,
       "sound": "off",
       "prompt": "Camera: static interior view, no camera movement; the doorway and the yellow car outside stay in place. Action: Noelle walks confidently toward the open glass door, away from camera, her purple suit moving naturally and her long curls swaying, and glances back over her shoulder with a small knowing smile. The owner on the left admires the black card with the gold key, smiling.",
-      "job": "f9eae1ce-4f6c-4270-896e-8e914a3a1203"
+      "job": "f9eae1ce-4f6c-4270-896e-8e914a3a1203",
+      "qa": "PASS: Noelle walks out and glances back; owner admires the card."
     },
     {
       "shot": "S12B",
@@ -107,7 +108,8 @@
       "dur": 5,
       "sound": "on",
       "prompt": "Camera: locked-off static rear view of the waterfront street, never orbits; the boutique stays on the right, the sunset at the end of the road. Action: the yellow fixed-roof coupe accelerates smoothly away from camera toward the sunset, its taillights glowing, the Florida plate reading BBY TIGR. The car stays exactly as in the frame: no spoiler, no rear emblem, nothing added to the car. The owner stands outside the boutique on the right, waving the black card with the gold key toward the departing car. No other cars or pedestrians enter. Sound: engine revving and pulling away, waterfront street ambience, no music, no voices.",
-      "job": "d79f67dc-2a26-4418-b539-0dc23a1dfc7a"
+      "job": "d79f67dc-2a26-4418-b539-0dc23a1dfc7a",
+      "qa": "PASS: car recedes toward the sunset, BBY TIGR plate, no emblem, boutique right, owner waving the card."
     },
     {
       "shot": "S02",
