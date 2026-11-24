@@ -307,5 +307,6 @@
       ""
     ],
     "registration": "stan.store/noelleai/unlockingai"
-  }
+  },
+  "show_promo": false
 }
