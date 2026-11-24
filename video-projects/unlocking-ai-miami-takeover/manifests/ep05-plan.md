@@ -98,3 +98,10 @@ S10 start frame replaced with the user's corrected version (`S10_start_clean.png
 S10 background: the start frame shows an ottoman and side table that the end frame doesn't. User's call: accept it, because the cards cover that area as they appear.
 
 All 16 approved stills plus the corrected S10 pair are in `episodes/05-penny-seo-content/keyframes/` under their shot names.
+
+## Evergreen invite line (user's call)
+Noelle says the series evergreen invite line, voiceover, while she hands Mimi the black gold-key card (S11a→S11b).
+Reuse `events/evergreen.json` L6b as is: "Unlocking AI Challenge. Grab your seat at the link." (`audio/voices/events/evergreen/L6b.mp3`, 4.05s, Sloane). It costs 0 credits, and swapping the event later works exactly as it does for EP01.
+It is voiceover, so it gets no lip sync. The manifest points `"event"` at `events/evergreen.json`, so the episode follows EVERGREEN.md.
+
+Shot 11 dialogue order: Mimi "She writes blogs about MY business?!" → Noelle "Exactly." → **L6b over the card reveal and handoff** → Noelle "Ready to unlock AI?" → Mimi "Oh, ABSOLUTELY!" during the phone retrieval.
