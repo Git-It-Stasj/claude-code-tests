@@ -36,8 +36,10 @@
         7.8,
         11.8
       ],
-      "file": "clips/raw/S03_t3.mp4",
-      "in": 0.0
+      "file": "clips/final/S03_ls.mp4",
+      "in": 0.0,
+      "orig_file": "clips/raw/S03_t3.mp4",
+      "lipsynced": true
     },
     {
       "id": "S04",
@@ -45,8 +47,10 @@
         11.8,
         14.8
       ],
-      "file": "clips/raw/S04_t1.mp4",
-      "in": 0.0
+      "file": "clips/final/S04_ls.mp4",
+      "in": 0.0,
+      "orig_file": "clips/raw/S04_t1.mp4",
+      "lipsynced": true
     },
     {
       "id": "S05",
@@ -64,8 +68,10 @@
         16.8,
         20.3
       ],
-      "file": "clips/raw/S06_t1.mp4",
-      "in": 0.0
+      "file": "clips/final/S06_ls.mp4",
+      "in": 0.0,
+      "orig_file": "clips/raw/S06_t1.mp4",
+      "lipsynced": true
     },
     {
       "id": "S07",
