@@ -56,16 +56,16 @@
       "lipsynced": true
     },
     {
-      "id": "S05",
+      "id": "S04b",
       "t": [
         12.95,
         15.9
       ],
-      "file": "clips/raw/S05_wan.mp4",
+      "file": "clips/final/S04b_ls.mp4",
       "in": 0.0,
-      "retired_file": "clips/raw/S05_t1.mp4",
       "lipsynced": true,
-      "gen": "wan2_7 audio-driven, 1080p"
+      "gen": "Kling o3 extension from S04_ls@1.125s (Mimi counts on fingers) + sync_so; replaces S05 (user call)",
+      "retired": "S05 finger-count shot (Noelle pose mismatch)"
     },
     {
       "id": "S06",
@@ -93,12 +93,12 @@
         21.825,
         26.65
       ],
-      "file": "clips/raw/S08_wan.mp4",
+      "file": "clips/final/S08_ls2.mp4",
       "in": 0.0,
       "orig_file": "clips/raw/S08_t1.mp4",
       "lipsynced": true,
-      "retired_file": "clips/final/S08_ls.mp4",
-      "gen": "wan2_7 audio-driven, 1080p"
+      "retired_file": "clips/raw/S08_wan.mp4",
+      "gen": "kling_o3_flf take 2 + sync_so segments"
     },
     {
       "id": "S09",
