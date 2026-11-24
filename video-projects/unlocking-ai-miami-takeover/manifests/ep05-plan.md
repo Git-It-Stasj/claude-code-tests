@@ -85,3 +85,10 @@ Audition text (intro is audition-only): "Hi, I'm Penny, your AI SEO and blog wri
 | PENNY-A_Imogen.mp3 | Imogen | 3811e986-0891-47cf-a1f5-78a1d62a547a |
 | PENNY-B_Nora.mp3 | Nora | d081b915-6623-4a44-bacf-80d0f1c90a03 |
 | PENNY-C_Celine.mp3 | Celine | 57ccb351-84d7-54ba-afd4-26b566ca6023 |
+| PENNY-D_Ines.mp3 | Ines | 023ebf5e-1970-40d8-825c-a5ef6a1dd4ff |
+| PENNY-E_Tamsin.mp3 | Tamsin | 9eb5a147-c322-4f8a-8bc5-a30679dfaf5c |
+| PENNY-F_Luna.mp3 | Luna | 375a3398-e3b4-4f91-845d-42181e352899 |
+
+Round 1 (A–C) rejected: "sound like old ladies". Imogen is already Eva's voice (EP02); never reuse it. Round 2 (D–F): younger, accent OK, stability 0.5.
+
+S10 start frame replaced with the user's corrected version (`S10_start_clean.png`); the first one is kept as `S10_start_clean_v1_retired.png`.
