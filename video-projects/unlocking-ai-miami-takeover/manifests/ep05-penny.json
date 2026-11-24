@@ -90,10 +90,12 @@
         21.825,
         26.65
       ],
-      "file": "clips/final/S08_ls.mp4",
+      "file": "clips/raw/S08_wan.mp4",
       "in": 0.0,
       "orig_file": "clips/raw/S08_t1.mp4",
-      "lipsynced": true
+      "lipsynced": true,
+      "retired_file": "clips/final/S08_ls.mp4",
+      "gen": "wan2_7 audio-driven, 1080p"
     },
     {
       "id": "S09",
@@ -119,10 +121,12 @@
         35.65,
         39.492
       ],
-      "file": "clips/final/S11a_ls.mp4",
+      "file": "clips/raw/S11a_wan.mp4",
       "in": 0.0,
       "orig_file": "clips/raw/S11a_t1.mp4",
-      "lipsynced": true
+      "lipsynced": true,
+      "retired_file": "clips/final/S11a_ls.mp4",
+      "gen": "wan2_7 audio-driven, 1080p"
     },
     {
       "id": "S11b",
