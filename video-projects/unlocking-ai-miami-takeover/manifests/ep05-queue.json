@@ -43,14 +43,16 @@
       "dur": 3,
       "sound": "off",
       "prompt": "Camera: locked static two-shot, no camera movement; the owner on the left, Noelle on the right. Action: a quick transition: the owner happily counts on her fingers, shoulders bouncing, then stops as Noelle turns toward her with an open questioning hand, and the owner's face shifts into puzzled confusion. Every hand keeps five fingers.",
-      "job": "76ce0e9b-3178-41fd-927b-01fc0fe9a064"
+      "job": "76ce0e9b-3178-41fd-927b-01fc0fe9a064",
+      "qa": "PASS: counts on fingers, then Noelle's questioning hand and the owner's confusion; lands on the S06 still (question marks appear)."
     },
     {
       "shot": "S06",
       "start": "S06_and_google",
       "dur": 4,
       "sound": "off",
-      "prompt": "Camera: static two-shot with a very subtle push toward the owner's face; the owner on the left, Noelle on the right. Action: Noelle keeps one hand extended in a casual questioning gesture with a cool deadpan smile. The owner is frozen in genuine confusion: head tilting a little more, eyebrows rising, lips parting as she asks a question. The small yellow question marks above her head stay as they are. No exaggerated cartoon deformation."
+      "prompt": "Camera: static two-shot with a very subtle push toward the owner's face; the owner on the left, Noelle on the right. Action: Noelle keeps one hand extended in a casual questioning gesture with a cool deadpan smile. The owner is frozen in genuine confusion: head tilting a little more, eyebrows rising, lips parting as she asks a question. The small yellow question marks above her head stay as they are. No exaggerated cartoon deformation.",
+      "job": "2ad9a2b7-59d2-4c61-98d3-94252aa2042a"
     },
     {
       "shot": "S08",
@@ -103,7 +105,8 @@
       "dur": 5,
       "sound": "off",
       "prompt": "Camera: static interior view of the boutique, very subtle push toward the two women, no reframing; the owner in floral kimono on the left facing the camera, Noelle in purple suit on the right by the glass door. Action: Noelle walks a few steps forward from the doorway toward the owner, calm and confident, curls swaying. The owner stays facing the camera the whole time and never turns around; she bounces on her toes with arms open wide in an excited welcome, talking fast with a huge smile. Noelle answers with a cool, amused half-smile. The women stay apart, no hug, no contact.",
-      "job": "a36a431a-9832-44ff-8348-86bed91a3f8e"
+      "job": "a36a431a-9832-44ff-8348-86bed91a3f8e",
+      "qa": "PASS with note: Noelle walks in; owner faces camera 0-1.6s then turns toward Noelle (back/profile to camera). Use as is: L01 plays with lip sync only on 0-1.6s ('Hiiii!'), rest is off-face. Avoids a 3rd retake (model turns her both times)."
     },
     {
       "shot": "S03",
@@ -111,7 +114,8 @@
       "start": "S03_ambush",
       "dur": 4,
       "sound": "off",
-      "prompt": "Camera: locked static medium two-shot at eye level, no camera movement; the owner in floral kimono stays on the left half of the frame, Noelle in purple suit stays on the right half. Action: the owner, staying in place on the left, beams a huge welcoming smile and gestures enthusiastically with both hands in front of her own body, her clear glasses catching the warm light and her bob bouncing. Her arms never reach toward Noelle and never cross the middle of the frame. Noelle stays composed with an amused half-smile, one hand in her pocket. The two women never touch."
+      "prompt": "Camera: locked static medium two-shot at eye level, no camera movement; the owner in floral kimono stays on the left half of the frame, Noelle in purple suit stays on the right half. Action: the owner, staying in place on the left, beams a huge welcoming smile and gestures enthusiastically with both hands in front of her own body, her clear glasses catching the warm light and her bob bouncing. Her arms never reach toward Noelle and never cross the middle of the frame. Noelle stays composed with an amused half-smile, one hand in her pocket. The two women never touch.",
+      "job": "8adef10b-4dc9-46ce-80f2-01f9890a6bab"
     }
   ]
 }
