@@ -105,3 +105,8 @@ Reuse `events/evergreen.json` L6b as is: "Unlocking AI Challenge. Grab your seat
 It is voiceover, so it gets no lip sync. The manifest points `"event"` at `events/evergreen.json`, so the episode follows EVERGREEN.md.
 
 Shot 11 dialogue order: Mimi "She writes blogs about MY business?!" → Noelle "Exactly." → **L6b over the card reveal and handoff** → Noelle "Ready to unlock AI?" → Mimi "Oh, ABSOLUTELY!" during the phone retrieval.
+
+### Revision (user's call): one combined invite line
+EP05 Shot 11 invite VO: **"Unlocking AI Challenge. Grab your seat at the link if you're ready."** It replaces both L6b and "Ready to unlock AI?". Mimi's "Oh, ABSOLUTELY!" answers "if you're ready".
+EP01 keeps its own L6b unchanged. EP05's line is recorded new (Sloane) and stored in the evergreen pack as `L6b_ep05` (`audio/voices/events/evergreen/L6b_ep05.mp3`), so event swaps still edit only the pack.
+Storyboard: `qa/EP05_storyboard.jpg`.
