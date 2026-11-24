@@ -40,6 +40,7 @@
   "voices": {
     "NOELLE_VOICE_01":     {"provider": "ElevenLabs v4 via Higgsfield", "model": "elevenlabs_v4", "voice_type": "preset", "voice_id": "b57b22a0-f287-405b-bc82-6f08f5e6bb1f", "preset_name": "Sloane", "stability": 0.45, "similarity_boost": 0.8, "status": "candidate - needs listening approval", "note": "Stock synthetic voice. Not a clone of, or presented as, Noelle Russell."},
     "SHOP_OWNER_01_VOICE": {"provider": "ElevenLabs v4 via Higgsfield", "model": "elevenlabs_v4", "voice_type": "preset", "voice_id": "6f98d3dd-324f-4845-8c28-c1d1647a06cd", "preset_name": "Marcus", "stability": 0.4, "similarity_boost": 0.8, "status": "candidate"},
-    "RACHEL_VOICE":        {"provider": "ElevenLabs v4 via Higgsfield", "model": "elevenlabs_v4", "voice_type": "preset", "voice_id": "6b3e3642-f7b7-4cb8-9688-51e233c4b92f", "preset_name": "Emily", "stability": 0.6, "similarity_boost": 0.8, "status": "candidate"}
+    "RACHEL_VOICE":        {"provider": "ElevenLabs v4 via Higgsfield", "model": "elevenlabs_v4", "voice_type": "preset", "voice_id": "6b3e3642-f7b7-4cb8-9688-51e233c4b92f", "preset_name": "Emily", "stability": 0.6, "similarity_boost": 0.8, "status": "candidate"},
+    "MIMI_VOICE":          {"provider": "ElevenLabs v4 via Higgsfield", "model": "elevenlabs_v4", "voice_type": "preset", "voice_id": "d0374db1-44b9-4f05-939e-0a9ae9dbbe6a", "preset_name": "Zoe", "stability": 0.3, "similarity_boost": 0.8, "post": "ffmpeg -af asetrate=44100*1.06,aresample=44100,atempo=1.06 (+12% speed, ~+1 semitone)", "status": "approved (EP05 owner Mimi, director picked fast take F)"}
   }
 }

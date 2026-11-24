@@ -75,3 +75,13 @@ All lines read in one take, `elevenlabs_v4`, stability 0.35, similarity 0.8. Fil
 | MIMI-F_Zoe.mp3 (+ _fast) | Zoe | d0374db1-44b9-4f05-939e-0a9ae9dbbe6a |
 
 Round 2 (user asked for higher pitch, faster): no pauses in the script, stability 0.3. `_fast` = ffmpeg `asetrate=44100*1.06,aresample=44100,atempo=1.06` (+12% speed, ~+1 semitone), free in post.
+
+**Mimi voice: approved = Zoe, `_fast` post-process (director's pick, round 2 take F).**
+
+## Penny voice auditions
+Audition text (intro is audition-only): "Hi, I'm Penny, your AI SEO and blog writer. Your first article is ready for review." Stability 0.6.
+| File | Voice | ID |
+|---|---|---|
+| PENNY-A_Imogen.mp3 | Imogen | 3811e986-0891-47cf-a1f5-78a1d62a547a |
+| PENNY-B_Nora.mp3 | Nora | d081b915-6623-4a44-bacf-80d0f1c90a03 |
+| PENNY-C_Celine.mp3 | Celine | 57ccb351-84d7-54ba-afd4-26b566ca6023 |
