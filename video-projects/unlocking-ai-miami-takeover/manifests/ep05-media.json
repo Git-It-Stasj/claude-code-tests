@@ -34,7 +34,8 @@
       "model": "sync_so cut_off, default face detection",
       "audio": "audio/voices/ep05/lipsync/S07_L06.mp3 (L06 at 0.3s, 2.9s)",
       "audio_media_id": "daf1bf9f-4615-40b2-92a9-d5684e205e4f",
-      "cost": 10.35
+      "cost": 10.35,
+      "qa": "PASS (visual): glasses stay at the nose, face not distorted, mouth closed before the line and opening on 'We need to talk' (1.7-2.3s). User to judge sync by ear."
     }
   },
   "edits": {
@@ -57,6 +58,11 @@
       "filter": "setpts x1.2609, minterpolate blend",
       "len": 2.875,
       "media_id": "9e80b1eb-16ce-4fc3-a938-97941e607e28"
+    },
+    "S07_lipsync_v1": {
+      "file": "episodes/05-penny-seo-content/clips/final/S07_lipsync_v1.mp4",
+      "len": 2.875,
+      "has_audio": "L06 at 0.3s"
     }
   }
 }
