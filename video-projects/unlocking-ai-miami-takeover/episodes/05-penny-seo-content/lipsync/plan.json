@@ -10,8 +10,8 @@
         "active_speaker_detection": {
           "frame_number": 0,
           "coordinates": [
-            243,
-            664
+            218,
+            635
           ]
         }
       }
@@ -105,8 +105,8 @@
         "active_speaker_detection": {
           "frame_number": 0,
           "coordinates": [
-            781,
-            535
+            783,
+            551
           ]
         }
       },
@@ -116,15 +116,19 @@
         "active_speaker_detection": {
           "frame_number": 0,
           "coordinates": [
-            295,
-            664
+            486,
+            655
           ]
         }
       }
     ],
     "video_id": "c006ffc3-974c-4a9b-baae-d1401c22fa82",
     "audio_id": "1ee6ec1f-ac8d-487b-8d42-6f309951eff4",
-    "dur": 4.791667
+    "dur": 4.791667,
+    "jobs": [
+      "48490982 failed (Mimi point was on her hair)",
+      "resubmitted with corrected points"
+    ]
   },
   "S11a": {
     "video": "episodes/05-penny-seo-content/lipsync/S11a_in.mp4",
@@ -137,8 +141,8 @@
         "active_speaker_detection": {
           "frame_number": 0,
           "coordinates": [
-            301,
-            697
+            272,
+            615
           ]
         }
       },
@@ -148,8 +152,8 @@
         "active_speaker_detection": {
           "frame_number": 0,
           "coordinates": [
-            803,
-            454
+            783,
+            450
           ]
         }
       }
