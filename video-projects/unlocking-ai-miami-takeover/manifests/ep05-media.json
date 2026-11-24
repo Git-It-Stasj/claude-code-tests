@@ -20,7 +20,8 @@
     },
     "S11a_t1": {
       "job": "2cb91dd3-1af5-42a7-96ab-b9c24c5232c5",
-      "model": "kling_o3_flf pro, sound off, 4s, start+end"
+      "model": "kling_o3_flf pro, sound off, 4s, start+end",
+      "qa": "PASS: one card, one phone; card drawn from blazer at chest, extended at waist height; both characters move; identity and shirt hold across 8 sampled frames."
     }
   }
 }
