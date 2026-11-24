@@ -70,3 +70,8 @@ All lines read in one take, `elevenlabs_v4`, stability 0.35, similarity 0.8. Fil
 | MIMI-A_Marisol.mp3 | Marisol | 75e72cd5-011b-4130-a474-e8b1ab341f04 |
 | MIMI-B_Roxie.mp3 | Roxie | f6448975-768e-4327-b932-1b7c973d58e9 |
 | MIMI-C_Gia.mp3 | Gia | 530df032-c311-483b-a750-cb3c9e1bcdfd |
+| MIMI-D_Pixie.mp3 (+ _fast) | Pixie | 0178ef57-ada4-43d9-992b-8d9221045bb4 |
+| MIMI-E_Kayla.mp3 (+ _fast) | Kayla | 5c615d8a-5135-539d-8ab0-497b7ceabbae |
+| MIMI-F_Zoe.mp3 (+ _fast) | Zoe | d0374db1-44b9-4f05-939e-0a9ae9dbbe6a |
+
+Round 2 (user asked for higher pitch, faster): no pauses in the script, stability 0.3. `_fast` = ffmpeg `asetrate=44100*1.06,aresample=44100,atempo=1.06` (+12% speed, ~+1 semitone), free in post.
