@@ -8,7 +8,19 @@
     "S11b_handoff": "5a713df2-a1fd-4997-a008-4eeee6a74dc6"
   },
   "jobs": {
-    "S07_t1": {"job": "75718faf-b3b9-4019-8ce7-75d81a5bb47b", "model": "kling_o3_flf pro, sound off, 4s"},
-    "S10_t1": {"job": "e940e39d-0380-4d77-b0a4-9c25ef651d89", "model": "kling_o3_flf pro, sound off, 8s, start+end"}
+    "S07_t1": {
+      "job": "75718faf-b3b9-4019-8ce7-75d81a5bb47b",
+      "model": "kling_o3_flf pro, sound off, 4s",
+      "qa": "Identity OK; glasses drop to mouth level from 2.6s (covers mouth). Usable 0-2.3s. Retake proposed."
+    },
+    "S10_t1": {
+      "job": "e940e39d-0380-4d77-b0a4-9c25ef651d89",
+      "model": "kling_o3_flf pro, sound off, 8s, start+end",
+      "qa": "0-3.2s good; cards garbled 3.4-4.6s and out of order (1,4,2,3); crisp from 5.2s; badge from 6.4s."
+    },
+    "S11a_t1": {
+      "job": "2cb91dd3-1af5-42a7-96ab-b9c24c5232c5",
+      "model": "kling_o3_flf pro, sound off, 4s, start+end"
+    }
   }
 }
