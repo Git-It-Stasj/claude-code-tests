@@ -1,0 +1,182 @@
+{
+  "S02": {
+    "video": "episodes/05-penny-seo-content/lipsync/S02_in.mp4",
+    "audio": "episodes/05-penny-seo-content/lipsync/S02_in.mp3",
+    "len": 1.9,
+    "segments": [
+      {
+        "start_time": 0.25,
+        "end_time": 1.65,
+        "active_speaker_detection": {
+          "frame_number": 0,
+          "coordinates": [
+            243,
+            664
+          ]
+        }
+      }
+    ],
+    "video_id": "8f2f1b4a-85a4-42d6-8bd2-b10d5722addf",
+    "audio_id": "ea01da3b-123b-4244-9aaf-e1d8700a694d",
+    "dur": 1.916667
+  },
+  "S03": {
+    "video": "episodes/05-penny-seo-content/lipsync/S03_in.mp4",
+    "audio": "episodes/05-penny-seo-content/lipsync/S03_in.mp3",
+    "len": 3.6,
+    "segments": [
+      {
+        "start_time": 0.3,
+        "end_time": 3.48,
+        "active_speaker_detection": {
+          "frame_number": 0,
+          "coordinates": [
+            866,
+            365
+          ]
+        }
+      }
+    ],
+    "video_id": "3a3dacfe-dd03-4a14-a75f-eff4963c6afd",
+    "audio_id": "3bb64758-7e1b-4298-928b-81ffc0f9397a",
+    "dur": 3.583333
+  },
+  "S04": {
+    "video": "episodes/05-penny-seo-content/lipsync/S04_in.mp4",
+    "audio": "episodes/05-penny-seo-content/lipsync/S04_in.mp3",
+    "len": 3.0,
+    "segments": [
+      {
+        "start_time": 0.25,
+        "end_time": 2.9,
+        "active_speaker_detection": {
+          "frame_number": 0,
+          "coordinates": [
+            233,
+            648
+          ]
+        }
+      }
+    ],
+    "video_id": "0a1fe4de-a0c8-4a2c-b124-54a2b5e7efa3",
+    "audio_id": "00d47134-9db6-4707-8c32-a4e67caeb672",
+    "dur": 3.0
+  },
+  "S06": {
+    "video": "episodes/05-penny-seo-content/lipsync/S06_in.mp4",
+    "audio": "episodes/05-penny-seo-content/lipsync/S06_in.mp3",
+    "len": 3.3,
+    "segments": [
+      {
+        "start_time": 0.15,
+        "end_time": 1.1,
+        "active_speaker_detection": {
+          "frame_number": 0,
+          "coordinates": [
+            855,
+            518
+          ]
+        }
+      },
+      {
+        "start_time": 1.55,
+        "end_time": 3.19,
+        "active_speaker_detection": {
+          "frame_number": 0,
+          "coordinates": [
+            240,
+            680
+          ]
+        }
+      }
+    ],
+    "video_id": "8da6d83c-337b-44dd-ba1a-ef8c22101fdf",
+    "audio_id": "4c750f38-f1ea-419b-b770-a862282b50b8",
+    "dur": 3.291667
+  },
+  "S08": {
+    "video": "episodes/05-penny-seo-content/lipsync/S08_in.mp4",
+    "audio": "episodes/05-penny-seo-content/lipsync/S08_in.mp3",
+    "len": 4.8,
+    "segments": [
+      {
+        "start_time": 0.2,
+        "end_time": 3.2,
+        "active_speaker_detection": {
+          "frame_number": 0,
+          "coordinates": [
+            781,
+            535
+          ]
+        }
+      },
+      {
+        "start_time": 3.3,
+        "end_time": 4.69,
+        "active_speaker_detection": {
+          "frame_number": 0,
+          "coordinates": [
+            295,
+            664
+          ]
+        }
+      }
+    ],
+    "video_id": "c006ffc3-974c-4a9b-baae-d1401c22fa82",
+    "audio_id": "1ee6ec1f-ac8d-487b-8d42-6f309951eff4",
+    "dur": 4.791667
+  },
+  "S11a": {
+    "video": "episodes/05-penny-seo-content/lipsync/S11a_in.mp4",
+    "audio": "episodes/05-penny-seo-content/lipsync/S11a_in.mp3",
+    "len": 3.84,
+    "segments": [
+      {
+        "start_time": 0.2,
+        "end_time": 2.25,
+        "active_speaker_detection": {
+          "frame_number": 0,
+          "coordinates": [
+            301,
+            697
+          ]
+        }
+      },
+      {
+        "start_time": 2.4,
+        "end_time": 3.73,
+        "active_speaker_detection": {
+          "frame_number": 0,
+          "coordinates": [
+            803,
+            454
+          ]
+        }
+      }
+    ],
+    "video_id": "a90d5af5-173a-436b-a4bd-d4af0e85f56e",
+    "audio_id": "91c43b8a-aba9-44fa-a2f5-2fb5bbdef560",
+    "dur": 3.833333
+  },
+  "S11c": {
+    "video": "episodes/05-penny-seo-content/lipsync/S11c_in.mp4",
+    "audio": "episodes/05-penny-seo-content/lipsync/S11c_in.mp3",
+    "len": 1.9,
+    "segments": [
+      {
+        "start_time": 0.25,
+        "end_time": 1.82,
+        "active_speaker_detection": {
+          "frame_number": 0,
+          "coordinates": [
+            259,
+            697
+          ]
+        }
+      }
+    ],
+    "video_id": "ae14b9db-8096-47ea-9244-84ba14d91e12",
+    "audio_id": "46fca10d-361f-4dc2-851a-a8bc3eae18b7",
+    "dur": 1.916667
+  }
+}

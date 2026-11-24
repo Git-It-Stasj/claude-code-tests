@@ -36,7 +36,7 @@
         7.8,
         11.8
       ],
-      "file": "clips/raw/S03_t2.mp4",
+      "file": "clips/raw/S03_t3.mp4",
       "in": 0.0
     },
     {
@@ -98,16 +98,16 @@
       "id": "S10",
       "t": [
         32.0,
-        38.958
+        37.0
       ],
-      "file": "clips/final/S10_cards_v2.mp4",
+      "file": "clips/final/S10_cards_v3.mp4",
       "in": 0.0
     },
     {
       "id": "S11a",
       "t": [
-        38.958,
-        42.8
+        37.0,
+        40.842
       ],
       "file": "clips/raw/S11a_t1.mp4",
       "in": 0.0
@@ -115,8 +115,8 @@
     {
       "id": "S11b",
       "t": [
-        42.8,
-        47.6
+        40.842,
+        45.642
       ],
       "file": "clips/raw/S11b_t1.mp4",
       "in": 0.0
@@ -124,8 +124,8 @@
     {
       "id": "S11c",
       "t": [
-        47.6,
-        49.8
+        45.642,
+        47.842
       ],
       "file": "clips/raw/S11c_t1.mp4",
       "in": 0.0
@@ -133,8 +133,8 @@
     {
       "id": "S12A",
       "t": [
-        49.8,
-        51.8
+        47.842,
+        49.842
       ],
       "file": "clips/raw/S12A_t1.mp4",
       "in": 0.0
@@ -142,8 +142,8 @@
     {
       "id": "S12B",
       "t": [
-        51.8,
-        56.8
+        49.842,
+        54.842
       ],
       "file": "clips/raw/S12B_t1.mp4",
       "in": 0.0,
@@ -218,7 +218,7 @@
     {
       "id": "L10",
       "who": "PENNY",
-      "at": 36.5,
+      "at": 35.0,
       "file": "audio/voices/ep05/L10_penny.mp3",
       "text": "Your first article is ready for review.",
       "cap_y": 150
@@ -226,35 +226,35 @@
     {
       "id": "L11",
       "who": "MIMI",
-      "at": 39.2,
+      "at": 37.242,
       "file": "audio/voices/ep05/L11_mimi.mp3",
       "text": "She writes blogs about MY business?!"
     },
     {
       "id": "L12",
       "who": "NOELLE",
-      "at": 41.4,
+      "at": 39.442,
       "file": "audio/voices/ep05/L12_noelle.mp3",
       "text": "Exactly."
     },
     {
       "id": "L13",
       "who": "NOELLE",
-      "at": 43.0,
+      "at": 41.042,
       "slot": "L6b_ep05",
       "text": "Unlocking AI Challenge. Grab your seat at the link if you're ready."
     },
     {
       "id": "L14",
       "who": "MIMI",
-      "at": 47.9,
+      "at": 45.942,
       "file": "audio/voices/ep05/L14_mimi.mp3",
       "text": "Oh, ABSOLUTELY!"
     },
     {
       "id": "L15",
       "who": "NOELLE",
-      "at": 50.2,
+      "at": 48.242,
       "file": "audio/voices/ep05/L15_noelle.mp3",
       "text": "I'll show you."
     }
@@ -270,8 +270,8 @@
     {
       "kind": "endcard",
       "t": [
-        52.8,
-        56.8
+        50.842,
+        54.842
       ]
     }
   ],

@@ -1,8 +1,8 @@
 """EP05 S10: replace the garbled AI card arrival with an exact 1-2-3-4 reveal built from the approved end frame.
 
-A = Kling clip 0-3.0s (phone glow, reactions, no cards)
-B = 1.8s: frozen Kling frame at 3.0s; the four cards, cut from S10_end_cards.png, fly out of the phone one by one
-C = Kling clip from 5.2s (gold badge lights ~6.4s) with the exact cards kept pasted on top, so the card text never changes and there is no hand-off jump
+v3 (user's call): the Kling clip plays continuously from 0s; the four exact cards (cut from S10_end_cards.png)
+fly out of the phone one by one starting CARD_AT and stay pasted on top (they cover the model's own garbled cards),
+and the gold 'Draft ready for review' pill pops in at BADGE_AT. The shot is LEN seconds.
 Usage: python3 scripts/ep05_s10_cards.py <kling_clip.mp4> <out.mp4>
 """
 import subprocess, sys, os, tempfile, shutil
@@ -12,14 +12,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 END = os.path.join(ROOT, 'episodes/05-penny-seo-content/keyframes/S10_end_cards.png')
 src, out = sys.argv[1], sys.argv[2]
 FPS = 24
-A_END, B_LEN, C_START, C_LEN, BLEND = 3.0, 1.8, 5.2, 2.2, 0.3
+CARD_AT, LEN = 0.75, 5.0
 # card boxes in end-still pixels (941x1672): x0, y0, x1, y1 (incl. glow + chevron below)
 CARDS = [(240, 630, 630, 852), (220, 840, 655, 1060), (200, 1050, 705, 1285), (165, 1275, 725, 1540)]
 ORIGIN = (470, 600)        # bottom of the phone, where cards emerge
 STARTS = [0.0, 0.4, 0.8, 1.2]  # seconds into B
 DUR = 0.4
 BADGE = (190, 1538, 700, 1632)  # gold 'Draft ready for review' pill, in end-still pixels
-BADGE_AT, BADGE_DUR = 5.0, 0.25  # edit time the pill pops in (user's call: 5s)
+BADGE_AT, BADGE_DUR = 2.75, 0.25  # 0.4s after the last card lands
 
 tmp = tempfile.mkdtemp()
 def ff(*a): subprocess.run(['ffmpeg', '-v', 'error', '-y', *a], check=True)
@@ -50,18 +50,11 @@ def badge(f, t):
     cx, cy = (bbox[0]+bbox[2])/2, (bbox[1]+bbox[3])/2
     f.paste(bspr.resize((w, h), Image.LANCZOS), (int(cx-w/2), int(cy-h/2)), bm.resize((w, h)).point(lambda v: int(v*p)))
 def ease(t): return 1 - (1 - t) ** 3
-base = Image.open(os.path.join(tmp, kf[int(A_END*FPS)])).convert('RGB')
 frames = []
-for i in range(int(A_END*FPS)):
-    frames.append(Image.open(os.path.join(tmp, kf[i])).convert('RGB'))
-nB = int(B_LEN*FPS); nBl = int(BLEND*FPS); c0 = int(C_START*FPS)
-for i in range(nB):
-    t = i / FPS; f = base.copy()
-    k = i - (nB - nBl)
-    if k >= 0:  # ease the characters/background (under the cards) toward the live clip
-        f = Image.blend(f, Image.open(os.path.join(tmp, kf[c0])).convert('RGB'), (k+1)/(nBl+1))
+for i in range(min(len(kf), int(LEN*FPS))):
+    t = i / FPS; f = Image.open(os.path.join(tmp, kf[i])).convert('RGB')
     for (box, spr, m), st in zip(sprites, STARTS):
-        p = (t - st) / DUR
+        p = (t - CARD_AT - st) / DUR
         if p <= 0: continue
         p = min(p, 1.0); e = ease(p)
         s = 0.25 + 0.75*e
@@ -71,12 +64,7 @@ for i in range(nB):
         cx, cy = cx0 + (cx1-cx0)*e, cy0 + (cy1-cy0)*e
         a = m.resize((w, h)).point(lambda v: int(v*min(1.0, p/0.4)))
         f.paste(spr.resize((w, h), Image.LANCZOS), (int(cx-w/2), int(cy-h/2)), a)
-    frames.append(f)
-for i in range(c0, min(len(kf), c0 + int(C_LEN*FPS))):
-    f = Image.open(os.path.join(tmp, kf[i])).convert('RGB')
-    for box, spr, m in sprites: f.paste(spr, box[:2], m)
-    t_edit = len(frames) / FPS
-    badge(f, t_edit)
+    badge(f, t)
     frames.append(f)
 for j, f in enumerate(frames): f.save(os.path.join(tmp, f'o{j:04d}.png'))
 ff('-framerate', str(FPS), '-i', os.path.join(tmp, 'o%04d.png'), '-c:v', 'libx264', '-crf', '16', '-pix_fmt', 'yuv420p', out)

@@ -130,6 +130,12 @@
       "prompt": "Camera: locked static medium two-shot at eye level, no camera movement; the owner in floral kimono stays on the left half of the frame, Noelle in purple suit stays on the right half. Action: the owner, staying in place on the left, beams a huge welcoming smile and gestures enthusiastically with both hands in front of her own body, her clear glasses catching the warm light and her bob bouncing. Her arms never reach toward Noelle and never cross the middle of the frame. Noelle stays composed with an amused half-smile, one hand in her pocket. The two women never touch.",
       "job": "8adef10b-4dc9-46ce-80f2-01f9890a6bab",
       "qa": "PASS: no contact; owner gestures in her own space; Noelle composed, face visible for L02 lip sync."
+    },
+    {
+      "shot": "S03",
+      "take": 3,
+      "job": "27fd1b1e-3c72-4aaa-ae78-5c53a5e240dd",
+      "qa": "PASS (user note: owner must stay shorter): starts in the lunge, rises but her head stays below Noelle's in every sampled frame; no contact."
     }
   ]
 }
