@@ -9,7 +9,7 @@
   "event": "events/evergreen.json",
   "invite_slot": "L6b_ep05",
   "music_file": null,
-  "_note": "Rough cut v1: approved clips, recorded voice stems, native car audio, captions, title, Penny lower third, evergreen end card. Lip sync only on S07 so far; no music bed yet (not yet approved).",
+  "_note": "v3: cut to S05 on \"Referrals!\", S05 lip-synced, S06 trimmed after L05, L10 caption inside S10, S10 base without model cards; S02/S08/S11a re-generated audio-driven (Wan 2.7).",
   "shots": [
     {
       "id": "S01",
@@ -47,7 +47,7 @@
       "id": "S04",
       "t": [
         11.8,
-        14.8
+        12.95
       ],
       "file": "clips/final/S04_ls.mp4",
       "in": 0.0,
@@ -57,18 +57,18 @@
     {
       "id": "S05",
       "t": [
-        14.8,
-        16.8
+        12.95,
+        15.9
       ],
       "file": "clips/raw/S05_t1.mp4",
       "in": 0.0,
-      "speed": 1.5
+      "speed": 0.8814
     },
     {
       "id": "S06",
       "t": [
-        16.8,
-        20.3
+        15.9,
+        18.95
       ],
       "file": "clips/final/S06_ls.mp4",
       "in": 0.0,
@@ -78,8 +78,8 @@
     {
       "id": "S07",
       "t": [
-        20.3,
-        23.175
+        18.95,
+        21.825
       ],
       "file": "clips/final/S07_lipsync_v1.mp4",
       "in": 0.0
@@ -87,8 +87,8 @@
     {
       "id": "S08",
       "t": [
-        23.175,
-        28.0
+        21.825,
+        26.65
       ],
       "file": "clips/final/S08_ls.mp4",
       "in": 0.0,
@@ -98,8 +98,8 @@
     {
       "id": "S09",
       "t": [
-        28.0,
-        32.0
+        26.65,
+        30.65
       ],
       "file": "clips/raw/S09_t1.mp4",
       "in": 0.9
@@ -107,17 +107,17 @@
     {
       "id": "S10",
       "t": [
-        32.0,
-        37.0
+        30.65,
+        35.65
       ],
-      "file": "clips/final/S10_cards_v3.mp4",
+      "file": "clips/final/S10_cards_v4.mp4",
       "in": 0.0
     },
     {
       "id": "S11a",
       "t": [
-        37.0,
-        40.842
+        35.65,
+        39.492
       ],
       "file": "clips/final/S11a_ls.mp4",
       "in": 0.0,
@@ -127,8 +127,8 @@
     {
       "id": "S11b",
       "t": [
-        40.842,
-        45.642
+        39.492,
+        44.292
       ],
       "file": "clips/raw/S11b_t1.mp4",
       "in": 0.0
@@ -136,8 +136,8 @@
     {
       "id": "S11c",
       "t": [
-        45.642,
-        47.842
+        44.292,
+        46.492
       ],
       "file": "clips/final/S11c_ls.mp4",
       "in": 0.0,
@@ -147,8 +147,8 @@
     {
       "id": "S12A",
       "t": [
-        47.842,
-        49.842
+        46.492,
+        48.492
       ],
       "file": "clips/raw/S12A_t1.mp4",
       "in": 0.0
@@ -156,8 +156,8 @@
     {
       "id": "S12B",
       "t": [
-        49.842,
-        54.842
+        48.492,
+        53.492
       ],
       "file": "clips/raw/S12B_t1.mp4",
       "in": 0.0,
@@ -189,42 +189,42 @@
     {
       "id": "L04",
       "who": "NOELLE",
-      "at": 17.0,
+      "at": 16.1,
       "file": "audio/voices/ep05/L04_noelle.mp3",
       "text": "And Google?"
     },
     {
       "id": "L05",
       "who": "MIMI",
-      "at": 18.4,
+      "at": 17.5,
       "file": "audio/voices/ep05/L05_mimi.mp3",
       "text": "Does Google do referrals?"
     },
     {
       "id": "L06",
       "who": "NOELLE",
-      "at": 20.6,
+      "at": 19.25,
       "file": "audio/voices/ep05/L06_noelle.mp3",
       "text": "Girl. We need to talk."
     },
     {
       "id": "L07",
       "who": "NOELLE",
-      "at": 23.4,
+      "at": 22.05,
       "file": "audio/voices/ep05/L07_noelle.mp3",
       "text": "Beautiful business. Where's your content?"
     },
     {
       "id": "L08",
       "who": "MIMI",
-      "at": 26.55,
+      "at": 25.2,
       "file": "audio/voices/ep05/L08_mimi.mp3",
       "text": "I don't know what to write!"
     },
     {
       "id": "L09",
       "who": "NOELLE",
-      "at": 28.3,
+      "at": 26.95,
       "file": "audio/voices/ep05/L09_noelle.mp3",
       "text": "Relax. I know a gal. Meet Penny.",
       "cap_y": 1660
@@ -232,7 +232,7 @@
     {
       "id": "L10",
       "who": "PENNY",
-      "at": 35.0,
+      "at": 33.15,
       "file": "audio/voices/ep05/L10_penny.mp3",
       "text": "Your first article is ready for review.",
       "cap_y": 150
@@ -240,35 +240,35 @@
     {
       "id": "L11",
       "who": "MIMI",
-      "at": 37.242,
+      "at": 35.892,
       "file": "audio/voices/ep05/L11_mimi.mp3",
       "text": "She writes blogs about MY business?!"
     },
     {
       "id": "L12",
       "who": "NOELLE",
-      "at": 39.442,
+      "at": 38.092,
       "file": "audio/voices/ep05/L12_noelle.mp3",
       "text": "Exactly."
     },
     {
       "id": "L13",
       "who": "NOELLE",
-      "at": 41.042,
+      "at": 39.692,
       "slot": "L6b_ep05",
       "text": "Unlocking AI Challenge. Grab your seat at the link if you're ready."
     },
     {
       "id": "L14",
       "who": "MIMI",
-      "at": 45.942,
+      "at": 44.592,
       "file": "audio/voices/ep05/L14_mimi.mp3",
       "text": "Oh, ABSOLUTELY!"
     },
     {
       "id": "L15",
       "who": "NOELLE",
-      "at": 48.242,
+      "at": 46.892,
       "file": "audio/voices/ep05/L15_noelle.mp3",
       "text": "I'll show you."
     }
@@ -284,8 +284,8 @@
     {
       "kind": "endcard",
       "t": [
-        50.842,
-        54.842
+        49.492,
+        53.492
       ]
     }
   ],

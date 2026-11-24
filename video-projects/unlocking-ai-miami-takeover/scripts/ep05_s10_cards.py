@@ -25,6 +25,14 @@ tmp = tempfile.mkdtemp()
 def ff(*a): subprocess.run(['ffmpeg', '-v', 'error', '-y', *a], check=True)
 ff('-i', src, '-vf', f'fps={FPS}', os.path.join(tmp, 'k%04d.png'))
 kf = sorted(f for f in os.listdir(tmp) if f.startswith('k'))
+# v4 (user-caught): the Kling clip grows its own cards from ~2.9s, which peeked out under the pasted ones.
+# Base = clean 0-BASE_END, then ping-pong back and forth over the last BACK seconds, so no model cards ever show.
+BASE_END, BACK = 2.6, 1.2
+n_end, n_back = int(BASE_END*FPS), int(BACK*FPS)
+idx = list(range(n_end))
+while len(idx) < int(LEN*FPS):
+    idx += list(range(n_end-2, n_end-n_back-1, -1)) + list(range(n_end-n_back+1, n_end))
+kf = [kf[i] for i in idx[:int(LEN*FPS)]]
 W, H = Image.open(os.path.join(tmp, kf[0])).size
 end = Image.open(END).convert('RGB').resize((W, H), Image.LANCZOS)
 sx, sy = W / 941, H / 1672
