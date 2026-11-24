@@ -5,7 +5,19 @@
     "S10_start_clean": "e8ce1a65-ff41-4355-b115-b5fff13e531f",
     "S10_end_cards": "d320c891-05c9-4514-8ef0-85f3f49795ea",
     "S11a_card_reveal": "eedc500c-eaed-4c24-991b-9197fa1da771",
-    "S11b_handoff": "5a713df2-a1fd-4997-a008-4eeee6a74dc6"
+    "S11b_handoff": "5a713df2-a1fd-4997-a008-4eeee6a74dc6",
+    "S01_arrival": "492a7927-445d-4307-b6e4-6cffee60fa85",
+    "S02_enters": "75d46085-ae22-42cd-ba1c-2ee09d7e549d",
+    "S03_ambush": "05893a3a-09b6-4d12-a63a-0459cd8805c2",
+    "S04_sunglasses_referrals": "c48ce71e-fb6c-411c-9956-9798e18e52c1",
+    "S05_finger_count": "2fe7f0a7-8c19-43d1-8abf-71bf9545351d",
+    "S06_and_google": "46a08eb8-aa98-4e9c-b3b1-30409169e26c",
+    "S08_website": "b204f37e-6145-4a1d-bfac-6bd508b0df08",
+    "S09_penny_screen_clean": "33e28278-0acc-4602-9702-6316e549255f",
+    "S09_penny_screen_features": "fe2cca00-157b-45b1-9cd5-f2a0e8f3f4b7",
+    "S11c_retrieval": "4f17cfce-67d7-44d6-b543-53542e78b46c",
+    "S12A_walkout": "cf05cc4d-4579-42f3-81c7-0f097254f933",
+    "S12B_driveaway": "5e590e41-10fc-43d2-a6ef-03ba9c45b3fb"
   },
   "jobs": {
     "S07_t1": {

@@ -54,3 +54,7 @@
 - Iterate in this same session ("in [file], change X to Y, keep Z") rather than starting a new chat per change.
 - Before paid generation or a large build, state the scope and credit estimate and confirm before running it.
 - Before building an asset from scratch, check whether an existing script, template or clip can be extended instead.
+
+## Noelle's sunglasses (user's call, EP05)
+
+- Noelle holds her sunglasses without lowering them. Image-to-video models keep sliding them down over her mouth (EP05 S07, two takes), which breaks lip sync. Prompt: "holds her sunglasses where they are; they do not move or lower at all".
