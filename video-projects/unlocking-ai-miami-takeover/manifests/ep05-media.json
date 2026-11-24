@@ -28,6 +28,13 @@
       "model": "kling_o3_flf pro, sound off, 4s",
       "prompt_fix": "glasses stop at tip of nose",
       "qa": "FAIL: glasses cross the upper lip from 1.8s (qa/EP05_S07_t2_mouth.jpg). Retired."
+    },
+    "S07_lipsync_t1": {
+      "job": "884fb50a-a8a6-4986-b0a1-415abf41d9fb",
+      "model": "sync_so cut_off, default face detection",
+      "audio": "audio/voices/ep05/lipsync/S07_L06.mp3 (L06 at 0.3s, 2.9s)",
+      "audio_media_id": "daf1bf9f-4615-40b2-92a9-d5684e205e4f",
+      "cost": 10.35
     }
   },
   "edits": {
@@ -37,6 +44,19 @@
       "source": "S10_t1",
       "len": 6.96,
       "qa": "Cards fly out in order 1-2-3-4 (3.0-4.6s), exact text from the approved end frame, held on top through the tail; gold badge lights ~6.0s."
+    },
+    "S10_cards_v2": {
+      "file": "episodes/05-penny-seo-content/clips/final/S10_cards_v2.mp4",
+      "script": "scripts/ep05_s10_cards.py",
+      "len": 6.96,
+      "qa": "v1 plus the gold 'Draft ready for review' pill popping in at 5.0s (user's call); v1 retired."
+    },
+    "S07_slow_v1": {
+      "file": "episodes/05-penny-seo-content/clips/final/S07_slow_v1.mp4",
+      "source": "S07_t1 0-2.3s",
+      "filter": "setpts x1.2609, minterpolate blend",
+      "len": 2.875,
+      "media_id": "9e80b1eb-16ce-4fc3-a938-97941e607e28"
     }
   }
 }
