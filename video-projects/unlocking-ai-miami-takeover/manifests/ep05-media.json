@@ -1,0 +1,14 @@
+{
+  "_note": "EP05 Higgsfield media IDs (uploaded keyframes) and generation jobs.",
+  "keyframes": {
+    "S07_noelle_closeup": "3b342f23-d28a-4e4c-923f-db251c5dc47e",
+    "S10_start_clean": "e8ce1a65-ff41-4355-b115-b5fff13e531f",
+    "S10_end_cards": "d320c891-05c9-4514-8ef0-85f3f49795ea",
+    "S11a_card_reveal": "eedc500c-eaed-4c24-991b-9197fa1da771",
+    "S11b_handoff": "5a713df2-a1fd-4997-a008-4eeee6a74dc6"
+  },
+  "jobs": {
+    "S07_t1": {"job": "75718faf-b3b9-4019-8ce7-75d81a5bb47b", "model": "kling_o3_flf pro, sound off, 4s"},
+    "S10_t1": {"job": "e940e39d-0380-4d77-b0a4-9c25ef651d89", "model": "kling_o3_flf pro, sound off, 8s, start+end"}
+  }
+}
