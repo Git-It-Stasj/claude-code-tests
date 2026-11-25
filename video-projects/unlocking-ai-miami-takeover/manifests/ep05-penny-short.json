@@ -8,7 +8,7 @@
   "episode_dir": "episodes/05-penny-seo-content",
   "event": "events/evergreen-comment-key.json",
   "invite_slot": "L6b_ep05",
-  "music_file": null,
+  "music_file": "audio/music/ep05_synthwave_55s.mp3",
   "_note": "v7-short (user calls): full S02 + full L01; S07 removed; \"Exactly.\" back with the invite starting right after it; end card CTA \"Comment KEY\" via events/evergreen-comment-key.json. Earlier v6-short trims kept.",
   "shots": [
     {
@@ -269,5 +269,6 @@
     ],
     "registration": "stan.store/noelleai/unlockingai"
   },
-  "show_promo": false
+  "show_promo": false,
+  "music_db": -21
 }

@@ -8,7 +8,7 @@
   "episode_dir": "episodes/05-penny-seo-content",
   "event": "events/evergreen.json",
   "invite_slot": "L6b_ep05",
-  "music_file": null,
+  "music_file": "audio/music/ep05_synthwave_55s.mp3",
   "_note": "v3: cut to S05 on \"Referrals!\", S05 lip-synced, S06 trimmed after L05, L10 caption inside S10, S10 base without model cards; S02/S08/S11a re-generated audio-driven (Wan 2.7).",
   "shots": [
     {
@@ -307,5 +307,6 @@
     ],
     "registration": "stan.store/noelleai/unlockingai"
   },
-  "show_promo": false
+  "show_promo": false,
+  "music_db": -21
 }
