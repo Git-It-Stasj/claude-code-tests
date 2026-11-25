@@ -73,7 +73,7 @@ def endcard(m, out):
     ec = m["end_card"]
     promo = ec.get("promo")
     y = 1600 if promo else 1650          # lift the pill when a promo line sits under it
-    y = label(img, W // 2, y, "REGISTER: " + ec["registration"], font(ANTON, 44), WHITE, bg=PINK, skew=-0.08)
+    y = label(img, W // 2, y, ec.get("cta") or ("REGISTER: " + ec["registration"]), font(ANTON, 44), WHITE, bg=PINK, skew=-0.08)
     if promo:                            # e.g. "USE CODE GTA6LI  •  $27 → $1"
         label(img, W // 2, y + 14, promo, font(ANTON, 44), BLACK, bg=YELLOW, skew=-0.08)
     img.save(out)

@@ -6,10 +6,10 @@
     1920
   ],
   "episode_dir": "episodes/05-penny-seo-content",
-  "event": "events/evergreen.json",
+  "event": "events/evergreen-comment-key.json",
   "invite_slot": "L6b_ep05",
   "music_file": null,
-  "_note": "v6-short (~36s, user call): edit-only cut of v5. Keeps the walkout (S12A); drops S05 and these lines: outfit, Love the energy, Girl, Beautiful business, Relax, Exactly. S10 cards re-timed (land by 1.4s, pill 1.7s).",
+  "_note": "v7-short (user calls): full S02 + full L01; S07 removed; \"Exactly.\" back with the invite starting right after it; end card CTA \"Comment KEY\" via events/evergreen-comment-key.json. Earlier v6-short trims kept.",
   "shots": [
     {
       "id": "S01",
@@ -25,7 +25,7 @@
       "id": "S02",
       "t": [
         1.0,
-        3.4
+        5.8
       ],
       "file": "clips/raw/S02_t3.mp4",
       "in": 0.0
@@ -33,8 +33,8 @@
     {
       "id": "S03",
       "t": [
-        3.4,
-        5.6
+        5.8,
+        8.0
       ],
       "file": "clips/final/S03_ls.mp4",
       "in": 1.8
@@ -42,8 +42,8 @@
     {
       "id": "S04",
       "t": [
-        5.6,
-        6.55
+        8.0,
+        8.95
       ],
       "file": "clips/final/S04_ls.mp4",
       "in": 0.2
@@ -51,8 +51,8 @@
     {
       "id": "S04b",
       "t": [
-        6.55,
-        9.4
+        8.95,
+        11.8
       ],
       "file": "clips/final/S04b_ls.mp4",
       "in": 0.0
@@ -60,26 +60,17 @@
     {
       "id": "S06",
       "t": [
-        9.4,
-        12.3
+        11.8,
+        14.7
       ],
       "file": "clips/final/S06_ls.mp4",
       "in": 0.15
     },
     {
-      "id": "S07",
-      "t": [
-        12.3,
-        13.8
-      ],
-      "file": "clips/final/S07_lipsync_v1.mp4",
-      "in": 1.3
-    },
-    {
       "id": "S08",
       "t": [
-        13.8,
-        16.88
+        14.7,
+        17.78
       ],
       "file": "clips/final/S08_ls3.mp4",
       "in": 1.75
@@ -87,8 +78,8 @@
     {
       "id": "S09",
       "t": [
-        16.88,
-        19.48
+        17.78,
+        20.38
       ],
       "file": "clips/raw/S09_t1.mp4",
       "in": 1.4
@@ -96,8 +87,8 @@
     {
       "id": "S10",
       "t": [
-        19.48,
-        22.98
+        20.38,
+        23.88
       ],
       "file": "clips/final/S10_cards_short.mp4",
       "in": 0.0
@@ -105,8 +96,8 @@
     {
       "id": "S11a",
       "t": [
-        22.98,
-        25.38
+        23.88,
+        27.18
       ],
       "file": "clips/final/S11a_ls2.mp4",
       "in": 0.0
@@ -114,8 +105,8 @@
     {
       "id": "S11b",
       "t": [
-        25.38,
-        29.78
+        27.18,
+        31.58
       ],
       "file": "clips/raw/S11b_t1.mp4",
       "in": 0.0
@@ -123,8 +114,8 @@
     {
       "id": "S11c",
       "t": [
-        29.78,
-        31.28
+        31.58,
+        33.08
       ],
       "file": "clips/final/S11c_ls.mp4",
       "in": 0.2
@@ -132,8 +123,8 @@
     {
       "id": "S12A",
       "t": [
-        31.28,
-        32.88
+        33.08,
+        34.68
       ],
       "file": "clips/raw/S12A_t1.mp4",
       "in": 0.2
@@ -141,8 +132,8 @@
     {
       "id": "S12B",
       "t": [
-        32.88,
-        35.88
+        34.68,
+        37.68
       ],
       "file": "clips/raw/S12B_t1.mp4",
       "in": 0.5,
@@ -153,63 +144,56 @@
     {
       "id": "L01",
       "who": "MIMI",
-      "at": 1.2,
-      "file": "audio/voices/ep05/short/L01s.mp3",
-      "text": "Hiiii! Are you here for a facial?"
+      "at": 1.3,
+      "file": "audio/voices/ep05/L01_mimi.mp3",
+      "text": "Hiiii! Oh my gosh! That outfit! Are you here for a facial?"
     },
     {
       "id": "L02",
       "who": "NOELLE",
-      "at": 3.8,
+      "at": 6.2,
       "file": "audio/voices/ep05/short/L02s.mp3",
       "text": "How do people find you?"
     },
     {
       "id": "L03",
       "who": "MIMI",
-      "at": 5.7,
+      "at": 8.1,
       "file": "audio/voices/ep05/L03_mimi.mp3",
       "text": "Referrals! Friends, cousins—even someone's dentist!"
     },
     {
       "id": "L04",
       "who": "NOELLE",
-      "at": 9.45,
+      "at": 11.85,
       "file": "audio/voices/ep05/L04_noelle.mp3",
       "text": "And Google?"
     },
     {
       "id": "L05",
       "who": "MIMI",
-      "at": 10.85,
+      "at": 13.25,
       "file": "audio/voices/ep05/L05_mimi.mp3",
       "text": "Does Google do referrals?"
     },
     {
-      "id": "L06",
-      "who": "NOELLE",
-      "at": 12.37,
-      "file": "audio/voices/ep05/short/L06s.mp3",
-      "text": "We need to talk."
-    },
-    {
       "id": "L07",
       "who": "NOELLE",
-      "at": 14.015,
+      "at": 14.915,
       "file": "audio/voices/ep05/short/L07s.mp3",
       "text": "Where's your content?"
     },
     {
       "id": "L08",
       "who": "MIMI",
-      "at": 15.425,
+      "at": 16.325,
       "file": "audio/voices/ep05/L08_mimi.mp3",
       "text": "I don't know what to write!"
     },
     {
       "id": "L09",
       "who": "NOELLE",
-      "at": 17.03,
+      "at": 17.93,
       "file": "audio/voices/ep05/short/L09s.mp3",
       "text": "I know a gal. Meet Penny.",
       "cap_y": 1660
@@ -217,7 +201,7 @@
     {
       "id": "L10",
       "who": "PENNY",
-      "at": 20.48,
+      "at": 21.38,
       "file": "audio/voices/ep05/L10_penny.mp3",
       "text": "Your first article is ready for review.",
       "cap_y": 150
@@ -225,28 +209,35 @@
     {
       "id": "L11",
       "who": "MIMI",
-      "at": 23.222,
+      "at": 24.122,
       "file": "audio/voices/ep05/L11_mimi.mp3",
       "text": "She writes blogs about MY business?!"
     },
     {
+      "id": "L12",
+      "who": "NOELLE",
+      "at": 26.322,
+      "file": "audio/voices/ep05/L12_noelle.mp3",
+      "text": "Exactly."
+    },
+    {
       "id": "L13",
       "who": "NOELLE",
-      "at": 25.43,
+      "at": 27.18,
       "slot": "L6b_ep05",
       "text": "Unlocking AI Challenge. Grab your seat at the link if you're ready."
     },
     {
       "id": "L14",
       "who": "MIMI",
-      "at": 29.88,
+      "at": 31.68,
       "file": "audio/voices/ep05/L14_mimi.mp3",
       "text": "Oh, ABSOLUTELY!"
     },
     {
       "id": "L15",
       "who": "NOELLE",
-      "at": 31.48,
+      "at": 33.28,
       "file": "audio/voices/ep05/L15_noelle.mp3",
       "text": "I'll show you."
     }
@@ -262,8 +253,8 @@
     {
       "kind": "endcard",
       "t": [
-        33.08,
-        35.88
+        34.88,
+        37.68
       ]
     }
   ],

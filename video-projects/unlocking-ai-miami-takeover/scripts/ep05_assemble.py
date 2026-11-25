@@ -23,6 +23,7 @@ total = m["shots"][-1]["t"][1]
 e = ev["end_card"]; ec = dict(m["end_card"])
 ec["lines"] = ec["lines"][:2] + [e.get("event_line"), e.get("date_line"), e.get("time_line"), e.get("format_line")]
 ec["registration"] = e["registration"]
+if e.get("cta"): ec["cta"] = e["cta"]
 if e.get("promo") and m.get("show_promo", True): ec["promo"] = e["promo"]  # EP05: user removed the promo bar
 bo.endcard({"end_card": ec}, os.path.join(work, "endcard.png"))
 bo.title(os.path.join(work, "title.png"))

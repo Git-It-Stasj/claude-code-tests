@@ -1,0 +1,35 @@
+{
+  "id": "evergreen-comment-key",
+  "label": "Fully evergreen: no day, date or time anywhere in the video",
+  "end_card": {
+    "event_line": "LIVE ONLINE",
+    "format_line": "LIMITED SEATS",
+    "registration": "stan.store/noelleai/unlockingai",
+    "promo": "USE CODE GTA6  •  $27 → $1",
+    "cta": "COMMENT \"KEY\" TO GRAB YOUR SEAT"
+  },
+  "invite_vo": {
+    "L6a": {
+      "text": "I know a gal.",
+      "file": "audio/voices/events/evergreen/L6a.mp3",
+      "_note": "Series catchphrase: 'I know a gal.' for female AI employees, 'I know a guy.' for male ones (Sonny, Stan, Walter)."
+    },
+    "L6b": {
+      "text": "Unlocking AI Challenge. Grab your seat at the link.",
+      "file": "audio/voices/events/evergreen/L6b.mp3"
+    },
+    "L6b_ep05": {
+      "text": "Unlocking AI Challenge. Grab your seat at the link if you're ready.",
+      "file": "audio/voices/events/evergreen/L6b_ep05.mp3",
+      "_note": "EP05 only (S11a-S11b card handoff, 4.34s). EP01 keeps L6b."
+    }
+  },
+  "voice": {
+    "name": "Sloane",
+    "voice_id": "b57b22a0-f287-405b-bc82-6f08f5e6bb1f",
+    "stability": 0.45,
+    "similarity_boost": 0.8,
+    "model": "elevenlabs_v4"
+  },
+  "_note": "Copy of evergreen.json for EP05 short (user call): end card CTA is \"Comment KEY\" instead of the register link. VO slots unchanged."
+}
