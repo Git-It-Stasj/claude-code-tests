@@ -1,0 +1,45 @@
+{
+  "id": "evergreen-comment-challenge",
+  "label": "Fully evergreen: no day, date or time anywhere in the video",
+  "end_card": {
+    "event_line": "LIVE ONLINE",
+    "format_line": "LIMITED SEATS",
+    "registration": "stan.store/noelleai/unlockingai",
+    "promo": "USE CODE GTA6  •  $27 → $1",
+    "cta": "COMMENT \"CHALLENGE\" TO GRAB YOUR SEAT"
+  },
+  "invite_vo": {
+    "L6a": {
+      "text": "I know a gal.",
+      "file": "audio/voices/events/evergreen/L6a.mp3",
+      "_note": "Series catchphrase: 'I know a gal.' for female AI employees, 'I know a guy.' for male ones (Sonny, Stan, Walter)."
+    },
+    "L6b": {
+      "text": "Unlocking AI Challenge. Grab your seat at the link.",
+      "file": "audio/voices/events/evergreen/L6b.mp3"
+    },
+    "L6b_ep05": {
+      "text": "Unlocking AI Challenge. Grab your seat at the link if you're ready.",
+      "file": "audio/voices/events/evergreen/L6b_ep05.mp3",
+      "_note": "EP05 only (S11a-S11b card handoff, 4.34s). EP01 keeps L6b."
+    },
+    "L6b_ep05_key": {
+      "text": "Unlocking AI Challenge. Comment KEY if you're ready.",
+      "file": "audio/voices/events/evergreen/L6b_ep05_key.mp3",
+      "_note": "EP05 short (user-approved wording), Sloane, stability 0.45; job fbb02659-a366-40fe-b728-624980790383. Matches the Comment KEY end card."
+    },
+    "L6b_ep05_challenge": {
+      "text": "Unlocking AI Challenge. Comment CHALLENGE if you're ready.",
+      "file": "audio/voices/events/evergreen/L6b_ep05_challenge.mp3",
+      "_note": "EP05 short (user wording), Sloane, stability 0.45; job 75492e01-8ab8-4807-8b98-c899b99ea29b."
+    }
+  },
+  "voice": {
+    "name": "Sloane",
+    "voice_id": "b57b22a0-f287-405b-bc82-6f08f5e6bb1f",
+    "stability": 0.45,
+    "similarity_boost": 0.8,
+    "model": "elevenlabs_v4"
+  },
+  "_note": "Copy of evergreen.json for EP05 short (user call): end card tag \"Comment CHALLENGE\" instead of the register link. EP01 keeps evergreen.json."
+}
