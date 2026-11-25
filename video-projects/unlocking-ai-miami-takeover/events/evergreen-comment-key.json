@@ -22,6 +22,11 @@
       "text": "Unlocking AI Challenge. Grab your seat at the link if you're ready.",
       "file": "audio/voices/events/evergreen/L6b_ep05.mp3",
       "_note": "EP05 only (S11a-S11b card handoff, 4.34s). EP01 keeps L6b."
+    },
+    "L6b_ep05_key": {
+      "text": "Unlocking AI Challenge. Comment KEY if you're ready.",
+      "file": "audio/voices/events/evergreen/L6b_ep05_key.mp3",
+      "_note": "EP05 short (user-approved wording), Sloane, stability 0.45; job fbb02659-a366-40fe-b728-624980790383. Matches the Comment KEY end card."
     }
   },
   "voice": {

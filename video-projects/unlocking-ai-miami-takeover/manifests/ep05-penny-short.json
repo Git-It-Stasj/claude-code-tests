@@ -7,7 +7,7 @@
   ],
   "episode_dir": "episodes/05-penny-seo-content",
   "event": "events/evergreen-comment-key.json",
-  "invite_slot": "L6b_ep05",
+  "invite_slot": "L6b_ep05_key",
   "music_file": "audio/music/ep05_synthwave_55s.mp3",
   "_note": "v7-short (user calls): full S02 + full L01; S07 removed; \"Exactly.\" back with the invite starting right after it; end card CTA \"Comment KEY\" via events/evergreen-comment-key.json. Earlier v6-short trims kept.",
   "shots": [
@@ -106,7 +106,7 @@
       "id": "S11b",
       "t": [
         27.18,
-        31.58
+        31.13
       ],
       "file": "clips/raw/S11b_t1.mp4",
       "in": 0.0
@@ -114,8 +114,8 @@
     {
       "id": "S11c",
       "t": [
-        31.58,
-        33.08
+        31.13,
+        32.63
       ],
       "file": "clips/final/S11c_ls.mp4",
       "in": 0.2
@@ -123,8 +123,8 @@
     {
       "id": "S12A",
       "t": [
-        33.08,
-        34.68
+        32.63,
+        34.23
       ],
       "file": "clips/raw/S12A_t1.mp4",
       "in": 0.2
@@ -132,8 +132,8 @@
     {
       "id": "S12B",
       "t": [
-        34.68,
-        37.68
+        34.23,
+        37.23
       ],
       "file": "clips/raw/S12B_t1.mp4",
       "in": 0.5,
@@ -224,20 +224,20 @@
       "id": "L13",
       "who": "NOELLE",
       "at": 27.18,
-      "slot": "L6b_ep05",
-      "text": "Unlocking AI Challenge. Grab your seat at the link if you're ready."
+      "slot": "L6b_ep05_key",
+      "text": "Unlocking AI Challenge. Comment KEY if you're ready."
     },
     {
       "id": "L14",
       "who": "MIMI",
-      "at": 31.68,
+      "at": 31.23,
       "file": "audio/voices/ep05/L14_mimi.mp3",
       "text": "Oh, ABSOLUTELY!"
     },
     {
       "id": "L15",
       "who": "NOELLE",
-      "at": 33.28,
+      "at": 32.83,
       "file": "audio/voices/ep05/L15_noelle.mp3",
       "text": "I'll show you."
     }
@@ -253,8 +253,8 @@
     {
       "kind": "endcard",
       "t": [
-        34.88,
-        37.68
+        34.43,
+        37.23
       ]
     }
   ],
