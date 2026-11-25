@@ -93,12 +93,12 @@
         21.825,
         26.65
       ],
-      "file": "clips/final/S08_ls3.mp4",
+      "file": "clips/final/S08_ls4.mp4",
       "in": 0.0,
       "orig_file": "clips/raw/S08_t1.mp4",
       "lipsynced": true,
-      "retired_file": "clips/final/S08_ls2.mp4",
-      "gen": "S08_ls2 0-3.1s (Noelle) + Kling extension reaction (Mimi lips closed) 1.3-3.025s with sync_so on L08"
+      "retired_file": "clips/final/S08_ls3.mp4",
+      "gen": "S08_ls2 0-3.1s + Kling flf start=end S08_ext_start (no reframe) 0.1-1.833s with sync_so L08 on Mimi"
     },
     {
       "id": "S09",
@@ -191,7 +191,7 @@
       "who": "MIMI",
       "at": 12.1,
       "file": "audio/voices/ep05/L03_mimi.mp3",
-      "text": "Referrals! Friends, cousins—even someone's dentist!"
+      "text": "Referrals! Friends, cousins\u2014even someone's dentist!"
     },
     {
       "id": "L04",

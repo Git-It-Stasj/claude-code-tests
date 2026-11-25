@@ -50,7 +50,13 @@ fc.append("".join(vl) + f"concat=n={len(vl)}:v=1:a=0[base]")
 # overlays
 cur = "base"; n_ov = 0
 ovs = [(os.path.join(work, "title.png"), o["t"]) for o in m["overlays"] if o["kind"] == "title"]
-ovs += [(cap, (d["at"], d["at"] + n + 0.25)) for d, f, n, cap in lines if not d.get("no_caption")]
+def cap_end(d, n):
+    # a caption never outlives its shot or overlaps the next caption
+    end = d["at"] + n + 0.25
+    shot_end = next((s["t"][1] for s in m["shots"] if s["t"][0] <= d["at"] < s["t"][1]), end)
+    nxt = min((e["at"] for e, *_ in lines if e["at"] > d["at"] and not e.get("no_caption")), default=end)
+    return min(end, shot_end - 0.04, nxt - 0.04)
+ovs += [(cap, (d["at"], cap_end(d, n))) for d, f, n, cap in lines if not d.get("no_caption")]
 ovs += [(os.path.join(work, "endcard.png"), o["t"]) for o in m["overlays"] if o["kind"] == "endcard"]
 for png, (a, b) in ovs:
     i = add("-loop", "1", "-t", str(total), "-i", png)
