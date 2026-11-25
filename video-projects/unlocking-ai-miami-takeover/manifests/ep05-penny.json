@@ -143,10 +143,21 @@
       "gen": "Kling flf bridge (start=S11a cut frame, end=S11b_t1@1.0) + S11b_t1 from 1.0, 0.25s blend"
     },
     {
-      "id": "S11c",
+      "id": "S11bc",
       "t": [
         44.292,
-        46.492
+        46.292
+      ],
+      "file": "clips/raw/S11c_bridge_long_t2.mp4",
+      "in": 0.0,
+      "speed": 1.5,
+      "gen": "Kling flf bridge: start=S11b last frame, end=S11c first used frame; single-phone prompt (t1 rejected: duplicate phone)"
+    },
+    {
+      "id": "S11c",
+      "t": [
+        46.292,
+        48.492
       ],
       "file": "clips/final/S11c_ls.mp4",
       "in": 0.0,
@@ -156,8 +167,8 @@
     {
       "id": "S12A",
       "t": [
-        46.492,
-        48.492
+        48.492,
+        50.492
       ],
       "file": "clips/raw/S12A_t1.mp4",
       "in": 0.0
@@ -165,8 +176,8 @@
     {
       "id": "S12B",
       "t": [
-        48.492,
-        53.492
+        50.492,
+        55.492
       ],
       "file": "clips/raw/S12B_t1.mp4",
       "in": 0.0,
@@ -280,7 +291,7 @@
     {
       "id": "L14",
       "who": "MIMI",
-      "at": 44.592,
+      "at": 46.592,
       "file": "audio/voices/ep05/L14_mimi.mp3",
       "text": "Oh, ABSOLUTELY!"
     }
@@ -296,8 +307,8 @@
     {
       "kind": "endcard",
       "t": [
-        49.492,
-        53.492
+        51.492,
+        55.492
       ]
     }
   ],
