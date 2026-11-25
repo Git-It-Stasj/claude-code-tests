@@ -12,14 +12,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 END = os.path.join(ROOT, 'episodes/05-penny-seo-content/keyframes/S10_end_cards.png')
 src, out = sys.argv[1], sys.argv[2]
 FPS = 24
-CARD_AT, LEN = 0.75, 5.0
+CARD_AT, LEN = float(os.environ.get('CARD_AT', 0.75)), float(os.environ.get('LEN', 5.0))
 # card boxes in end-still pixels (941x1672): x0, y0, x1, y1 (incl. glow + chevron below)
 CARDS = [(240, 630, 630, 852), (220, 840, 655, 1060), (200, 1050, 705, 1285), (165, 1275, 725, 1540)]
 ORIGIN = (470, 600)        # bottom of the phone, where cards emerge
-STARTS = [0.0, 0.4, 0.8, 1.2]  # seconds into B
-DUR = 0.4
+STARTS = [float(x) for x in os.environ.get('STARTS', '0,0.4,0.8,1.2').split(',')]  # seconds after CARD_AT
+DUR = float(os.environ.get('DUR', 0.4))
 BADGE = (190, 1538, 700, 1632)  # gold 'Draft ready for review' pill, in end-still pixels
-BADGE_AT, BADGE_DUR = 2.75, 0.25  # 0.4s after the last card lands
+BADGE_AT, BADGE_DUR = float(os.environ.get('BADGE_AT', 2.75)), 0.25  # 0.4s after the last card lands
 
 tmp = tempfile.mkdtemp()
 def ff(*a): subprocess.run(['ffmpeg', '-v', 'error', '-y', *a], check=True)
