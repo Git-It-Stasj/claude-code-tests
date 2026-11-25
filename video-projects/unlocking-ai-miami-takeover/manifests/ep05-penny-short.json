@@ -110,8 +110,10 @@
         28.98,
         33.5
       ],
-      "file": "clips/raw/S11b_t1.mp4",
-      "in": 0.0
+      "file": "clips/final/S11b_bridged_short.mp4",
+      "in": 0.0,
+      "retired_file": "clips/raw/S11b_t1.mp4",
+      "gen": "Kling flf bridge (start=S11a cut frame, end=S11b_t1@1.0) + S11b_t1 from 1.0, 0.25s blend"
     },
     {
       "id": "S11c",
