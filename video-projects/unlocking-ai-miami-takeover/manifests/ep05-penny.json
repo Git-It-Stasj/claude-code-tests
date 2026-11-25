@@ -281,13 +281,6 @@
       "at": 44.592,
       "file": "audio/voices/ep05/L14_mimi.mp3",
       "text": "Oh, ABSOLUTELY!"
-    },
-    {
-      "id": "L15",
-      "who": "NOELLE",
-      "at": 46.892,
-      "file": "audio/voices/ep05/L15_noelle.mp3",
-      "text": "I'll show you."
     }
   ],
   "overlays": [
