@@ -35,6 +35,17 @@ for d in m["dialogue"]:
     n = dur_of(f); cap = os.path.join(work, f"cap_{d['id']}.png")
     bo.caption(d["text"], cap, y=d.get("cap_y", 1330))
     lines.append((d, f, n, cap))
+# caption entries: a line may split its caption into timed parts ("cap_parts": [[offset_s, text], ...])
+caps = []
+for d, f, n, cap in lines:
+    if d.get("no_caption"): continue
+    parts = d.get("cap_parts") or [[0, None]]
+    for p_i, (off, txt) in enumerate(parts):
+        png = cap
+        if txt is not None:
+            png = os.path.join(work, f"cap_{d['id']}_{p_i}.png"); bo.caption(txt, png, y=d.get("cap_y", 1330))
+        nat_end = d["at"] + (parts[p_i + 1][0] if p_i + 1 < len(parts) else n + 0.25)
+        caps.append((d["at"] + off, nat_end, png))
 
 ins, fc = [], []
 def add(*a): ins.extend(a); return len([x for x in ins if x == "-i"]) - 1
@@ -50,13 +61,12 @@ fc.append("".join(vl) + f"concat=n={len(vl)}:v=1:a=0[base]")
 # overlays
 cur = "base"; n_ov = 0
 ovs = [(os.path.join(work, "title.png"), o["t"]) for o in m["overlays"] if o["kind"] == "title"]
-def cap_end(d, n):
+def cap_end(at, end):
     # a caption never outlives its shot or overlaps the next caption
-    end = d["at"] + n + 0.25
-    shot_end = next((s["t"][1] for s in m["shots"] if s["t"][0] <= d["at"] < s["t"][1]), end)
-    nxt = min((e["at"] for e, *_ in lines if e["at"] > d["at"] and not e.get("no_caption")), default=end)
+    shot_end = next((sh["t"][1] for sh in m["shots"] if sh["t"][0] <= at < sh["t"][1]), end)
+    nxt = min((c[0] for c in caps if c[0] > at), default=end)
     return min(end, shot_end - 0.04, nxt - 0.04)
-ovs += [(cap, (d["at"], cap_end(d, n))) for d, f, n, cap in lines if not d.get("no_caption")]
+ovs += [(png, (at, cap_end(at, end))) for at, end, png in caps]
 ovs += [(os.path.join(work, "endcard.png"), o["t"]) for o in m["overlays"] if o["kind"] == "endcard"]
 for png, (a, b) in ovs:
     i = add("-loop", "1", "-t", str(total), "-i", png)

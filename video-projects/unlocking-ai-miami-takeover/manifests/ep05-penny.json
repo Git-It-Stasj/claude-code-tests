@@ -191,7 +191,17 @@
       "who": "MIMI",
       "at": 12.1,
       "file": "audio/voices/ep05/L03_mimi.mp3",
-      "text": "Referrals! Friends, cousins\u2014even someone's dentist!"
+      "text": "Referrals! Friends, cousins—even someone's dentist!",
+      "cap_parts": [
+        [
+          0,
+          "Referrals!"
+        ],
+        [
+          0.95,
+          "Friends, cousins—even someone's dentist!"
+        ]
+      ]
     },
     {
       "id": "L04",
