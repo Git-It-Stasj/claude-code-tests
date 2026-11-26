@@ -135,40 +135,40 @@
       "id": "S11b",
       "t": [
         39.492,
-        44.292
+        42.45
       ],
-      "file": "clips/final/S11b_bridged_long.mp4",
+      "file": "clips/final/S11b_handoff_long.mp4",
       "in": 0.0,
-      "retired_file": "clips/raw/S11b_t1.mp4",
-      "gen": "Kling flf bridge (start=S11a cut frame, end=S11b_t1@1.0) + S11b_t1 from 1.0, 0.25s blend"
+      "retired_file": "clips/final/S11b_bridged_long.mp4",
+      "gen": "S11a->S11b bridge at 1.5x + S11b_t1 0.83-2.0 (cut as Noelle releases the card)"
     },
     {
       "id": "S11bc",
       "t": [
-        44.292,
-        46.292
+        42.45,
+        43.95
       ],
-      "file": "clips/raw/S11c_bridge_long_t2.mp4",
+      "file": "clips/raw/S11bc_handoff_c.mp4",
       "in": 0.0,
-      "speed": 1.5,
-      "gen": "Kling flf bridge: start=S11b last frame, end=S11c first used frame; single-phone prompt (t1 rejected: duplicate phone)"
+      "speed": 2.0,
+      "gen": "Kling flf start=S11b_t1@2.0, end=S11c_ls@0.2 (take c), played 2x; arm retract reduced to a flick"
     },
     {
       "id": "S11c",
       "t": [
-        46.292,
-        48.492
+        43.95,
+        45.95
       ],
       "file": "clips/final/S11c_ls.mp4",
-      "in": 0.0,
+      "in": 0.2,
       "orig_file": "clips/raw/S11c_t1.mp4",
       "lipsynced": true
     },
     {
       "id": "S12A",
       "t": [
-        48.492,
-        50.492
+        45.95,
+        47.95
       ],
       "file": "clips/raw/S12A_t1.mp4",
       "in": 0.0
@@ -176,8 +176,8 @@
     {
       "id": "S12B",
       "t": [
-        50.492,
-        55.492
+        47.95,
+        52.95
       ],
       "file": "clips/raw/S12B_t1.mp4",
       "in": 0.0,
@@ -284,14 +284,15 @@
     {
       "id": "L13",
       "who": "NOELLE",
-      "at": 39.692,
+      "at": 39.492,
       "slot": "L6b_ep05",
-      "text": "Unlocking AI Challenge. Grab your seat at the link if you're ready."
+      "text": "Unlocking AI Challenge. Grab your seat at the link if you're ready.",
+      "cap_through": "S11bc"
     },
     {
       "id": "L14",
       "who": "MIMI",
-      "at": 46.592,
+      "at": 44.05,
       "file": "audio/voices/ep05/L14_mimi.mp3",
       "text": "Oh, ABSOLUTELY!"
     }
@@ -307,8 +308,8 @@
     {
       "kind": "endcard",
       "t": [
-        51.492,
-        55.492
+        48.95,
+        52.95
       ]
     }
   ],
