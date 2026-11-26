@@ -110,10 +110,10 @@
         28.98,
         31.938
       ],
-      "file": "clips/final/S11b_handoff_short.mp4",
-      "in": 0.0,
-      "retired_file": "clips/final/S11b_bridged_short.mp4",
-      "gen": "S11a->S11b bridge at 1.5x + S11b_t1 0.83-2.0 (cut as Noelle releases the card)"
+      "file": "clips/final/S11b_hold_short.mp4",
+      "in": 0.042,
+      "retired_file": "clips/final/S11b_handoff_short.mp4",
+      "gen": "S11a_ls2 tail (card held out, slowed) dissolved into S11b_t1 0-2.0; no Kling bridge, so Noelle never pulls the card back"
     },
     {
       "id": "S11bc",
@@ -175,7 +175,7 @@
       "who": "MIMI",
       "at": 9.9,
       "file": "audio/voices/ep05/L03_mimi.mp3",
-      "text": "Referrals! Friends, cousins—even someone's dentist!",
+      "text": "Referrals! Friends, cousins\u2014even someone's dentist!",
       "cap_parts": [
         [
           0,
@@ -183,7 +183,7 @@
         ],
         [
           0.95,
-          "Friends, cousins—even someone's dentist!"
+          "Friends, cousins\u2014even someone's dentist!"
         ]
       ]
     },
