@@ -84,6 +84,12 @@ for k, s in enumerate(m["shots"]):
         i = add("-i", os.path.join(ep, s["file"])); a, b = s["t"]; src_in = s.get("in", 0.0)
         fc.append(f"[{i}:a]atrim={src_in}:{src_in + b - a},asetpts=PTS-STARTPTS,aresample={SR},aformat=channel_layouts=stereo,"
                   f"volume={s['native_audio_db']}dB,afade=t=out:st={max(0, b-a-0.3)}:d=0.3,adelay={int(a*1000)}:all=1[n{k}]"); nl.append(f"[n{k}]")
+# sound effects: {"shot": id, "off": s, "file": path, "gain_db": dB}; anchored to a shot start, never duck the music
+shot_t = {s["id"]: s["t"][0] for s in m["shots"]}
+for k, fx in enumerate(m.get("sfx", [])):
+    i = add("-i", os.path.join(ROOT, fx["file"])); at = shot_t[fx["shot"]] + fx["off"]
+    fc.append(f"[{i}:a]aresample={SR},aformat=channel_layouts=stereo,volume={fx.get('gain_db', 0)}dB,"
+              f"adelay={int(at*1000)}:all=1,apad=whole_dur={total}[x{k}]"); nl.append(f"[x{k}]")
 mix = ["[dlg]"] + nl
 if m.get("music_file"):
     i = add("-i", os.path.join(ROOT, m["music_file"]))

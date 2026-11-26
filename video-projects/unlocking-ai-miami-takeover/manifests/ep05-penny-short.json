@@ -288,5 +288,31 @@
     "registration": "stan.store/noelleai/unlockingai"
   },
   "show_promo": false,
-  "music_db": -16
+  "music_db": -16,
+  "sfx": [
+    {
+      "shot": "S10",
+      "off": 0.3,
+      "file": "audio/sfx/ping_1.wav",
+      "gain_db": -14
+    },
+    {
+      "shot": "S10",
+      "off": 0.55,
+      "file": "audio/sfx/ping_2.wav",
+      "gain_db": -14
+    },
+    {
+      "shot": "S10",
+      "off": 0.8,
+      "file": "audio/sfx/ping_3.wav",
+      "gain_db": -14
+    },
+    {
+      "shot": "S10",
+      "off": 1.05,
+      "file": "audio/sfx/ping_4.wav",
+      "gain_db": -14
+    }
+  ]
 }
