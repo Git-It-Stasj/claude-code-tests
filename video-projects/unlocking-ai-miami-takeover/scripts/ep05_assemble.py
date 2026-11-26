@@ -45,7 +45,7 @@ for d, f, n, cap in lines:
         if txt is not None:
             png = os.path.join(work, f"cap_{d['id']}_{p_i}.png"); bo.caption(txt, png, y=d.get("cap_y", 1330))
         nat_end = d["at"] + (parts[p_i + 1][0] if p_i + 1 < len(parts) else n + 0.25)
-        caps.append((d["at"] + off, nat_end, png))
+        caps.append((d["at"] + off, nat_end, png, d.get("cap_through")))
 
 ins, fc = [], []
 def add(*a): ins.extend(a); return len([x for x in ins if x == "-i"]) - 1
@@ -61,12 +61,12 @@ fc.append("".join(vl) + f"concat=n={len(vl)}:v=1:a=0[base]")
 # overlays
 cur = "base"; n_ov = 0
 ovs = [(os.path.join(work, "title.png"), o["t"]) for o in m["overlays"] if o["kind"] == "title"]
-def cap_end(at, end):
-    # a caption never outlives its shot or overlaps the next caption
-    shot_end = next((sh["t"][1] for sh in m["shots"] if sh["t"][0] <= at < sh["t"][1]), end)
+def cap_end(at, end, through=None):
+    # a caption never outlives its shot (or the shot named in "cap_through", for VO over a cut) or overlaps the next caption
+    shot_end = next((sh["t"][1] for sh in m["shots"] if (sh["id"] == through if through else sh["t"][0] <= at < sh["t"][1])), end)
     nxt = min((c[0] for c in caps if c[0] > at), default=end)
     return min(end, shot_end - 0.04, nxt - 0.04)
-ovs += [(png, (at, cap_end(at, end))) for at, end, png in caps]
+ovs += [(png, (at, cap_end(at, end, thr))) for at, end, png, thr in caps]
 ovs += [(os.path.join(work, "endcard.png"), o["t"]) for o in m["overlays"] if o["kind"] == "endcard"]
 for png, (a, b) in ovs:
     i = add("-loop", "1", "-t", str(total), "-i", png)
