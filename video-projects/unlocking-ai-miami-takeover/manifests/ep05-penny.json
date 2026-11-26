@@ -6,8 +6,8 @@
     1920
   ],
   "episode_dir": "episodes/05-penny-seo-content",
-  "event": "events/evergreen-comment-challenge.json",
-  "invite_slot": "L6b_ep05_challenge",
+  "event": "events/evergreen.json",
+  "invite_slot": "L6b_ep05",
   "music_file": "audio/music/ep05_synthwave_55s.mp3",
   "_note": "Long cut v6 (user call): v5 picture + music bed + Comment CHALLENGE invite VO and end card tag.",
   "shots": [
@@ -285,8 +285,8 @@
       "id": "L13",
       "who": "NOELLE",
       "at": 39.692,
-      "slot": "L6b_ep05_challenge",
-      "text": "Unlocking AI Challenge. Comment CHALLENGE if you're ready."
+      "slot": "L6b_ep05",
+      "text": "Unlocking AI Challenge. Grab your seat at the link if you're ready."
     },
     {
       "id": "L14",
