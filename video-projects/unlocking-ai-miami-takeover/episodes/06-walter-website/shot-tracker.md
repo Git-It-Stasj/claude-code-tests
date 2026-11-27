@@ -16,7 +16,7 @@ Higgsfield media IDs: `media_ids_r01.txt`.
 | SH07B | — (user: push-in on SH07A end) | post | — | TODO in edit |
 | SH08 | SH08_R02 (Apple logo → tiger) | Grok 5s | SH08_R01 | PASS, note: slight camera drift right |
 | SH09 | SH09_R01 (was unmapped frame 8; user call) | Grok 3s | SH09_R01 | PASS |
-| SH10A | SH10A_R02 (Apple logo → tiger) | Grok 2s | — | rendering |
+| SH10A | SH10A_R02 (Apple logo → tiger) | Grok 2s | SH10A_R01 | PASS (portrait glows, Vic leans in) |
 | SH10B | SH10B_R02 (Apple logo → tiger) | post composite | — | TODO |
 | SH11A | SH11A_R01 | post composite | — | TODO |
 | SH11B | SH11B_R02 (nav garble removed) | post composite | — | TODO |
@@ -27,6 +27,6 @@ Higgsfield media IDs: `media_ids_r01.txt`.
 | SH14A+B | SH14A_R01 → SH14B_R01 | MiniMax 5s start/end | SH14_R01 | PASS (one card throughout) |
 | SH15 | SH15_R01 | Grok 3s | SH15_R01 | PASS |
 | SH16A | SH16A_R02 (plate smudge removed) | Grok 2s | SH16A_R01 | PASS |
-| SH16B | SH16B_R02 (motion lines removed) | MiniMax 5s | — | rendering |
+| SH16B | SH16B_R02 (motion lines removed) | MiniMax 5s | SH16B_R01 | PASS (one card, car recedes on road) |
 
 Unused: SH13_ALT_SEATED_R01_UNUSED (user picked standing).
