@@ -52,3 +52,13 @@ SH14 first job took ~20 min; a backup job (353b6b84, auto active-speaker) was su
 - SH07B -> SH07B_R02 push-in rebuilt from SH06_R02 last frame (seamless cut), re-lip-synced.
 - SH01 tracking shot: waiting on user start keyframe (Ferrari centered, nose right, generic storefront).
 - Export `exports/ep06/EP06_walter_website_v2.mp4`: 41.7s, -16.3 LUFS, peak -2.6 dBFS.
+
+## v3 (2026-11-27) — S01 tracking drive
+- S01 rebuilt per user brief as deterministic parallax compositing (`scripts/ep06_s01_drive.py`), no generative video:
+  locked Ferrari+Noelle cutout (`scripts/ep06_s01_mask.py`), wheels rotated clockwise from road travel, car reflection on wet road,
+  layers sky 0.06x / storefronts 1x / road 1.55x / waterfront+bollards 2.1x, motion blur per layer.
+- Plates (user-approved, nano_banana_pro, ~10 cr): Delgado clean plate (job 2470116d) + LUNA BOUTIQUE (cf5a5a13),
+  CAFE PALMERA (2d865c16), GALERIA SOL (34dec346), AZUL INTERIORS (5802e84d). Invented names, no real brands.
+- Episode cut: 4.0 s, cruise 2.3 s, ease to stop at 3.7 s, settles onto the approved SH01_R02 frame (dissolve 3.6-3.9 s).
+- Runtime 41.7 -> 44.1 s. Approved 40 s music bed unchanged, placed 2.4 s later (`music_at`) so it still resolves on the end card.
+- Car SFX: car_arrive src 8.0 s, 0 dB.

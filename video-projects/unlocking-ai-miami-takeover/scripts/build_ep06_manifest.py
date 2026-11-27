@@ -18,7 +18,7 @@ SR = 48000
 
 # id, edit length s, clip, source in-point s, slow factor (>1 = slower), desc
 SHOTS = [
-    ("01", 1.6, "EP06_SH01_R02.mp4", 0.5, 1.0, "Ferrari arrives outside Delgado Custom Renovations"),
+    ("01", 4.0, "EP06_SH01_DRIVE_R01.mp4", 0.0, 1.0, "Tracking shot: Ferrari cruises past Miami storefronts, eases to a stop at Delgado Custom Renovations"),
     ("02", 1.1, "EP06_SH02_R01.mp4", 0.0, 1.0, "Noelle enters"),
     ("03", 2.4, "EP06_SH03_R01.mp4", 0.3, 1.0, "Meet Vic"),
     ("04", 1.5, "EP06_SH04_R02.mp4", 0.4, 1.0, "Project gallery - Vic finishes his line (lip sync), Noelle listens mouth closed (user tweak)"),
@@ -56,6 +56,11 @@ LINES = [
 LIPSYNC = {"03": ["L01"], "04": ["L01"], "07B": ["L02"], "08": ["L03", "L05"], "09": ["L06"], "10A": ["L07a"], "13": ["L09"], "14": ["L10"]}
 
 
+# S01 grew 1.6 -> 4.0 s for the tracking drive; the approved 40 s bed is placed 2.4 s later (unchanged)
+# so it still resolves on the end card.
+MUSIC_AT = 2.4
+
+
 def starts():
     t, out = 0.0, {}
     for s in SHOTS:
@@ -81,7 +86,7 @@ def manifest():
         edit[lid] = {"at": at, "segs": segs}
         caps.append({"id": lid.lower(), "text": text.replace("...", "…"), "t": [at, round(at + sum(b - a for a, b in segs), 3)]})
     sfx = [
-        {"type": "native", "path": "audio/sfx/ep06/car_arrive_v8_stop_idle.mp3", "src_in": 7.5, "at": 0.0, "dur": 3.0, "gain_db": -8},
+        {"type": "native", "path": "audio/sfx/ep06/car_arrive_v8_stop_idle.mp3", "src_in": 8.0, "at": 0.0, "dur": 5.0, "gain_db": 0},
         {"type": "native", "path": "audio/sfx/ep06/ambience_waves_distant_city.mp3", "src_in": 2.0, "at": 0.0, "dur": st["02"] + 1.1, "gain_db": -14},
         {"type": "whoosh", "at": round(st["05"] + 0.45, 3)},
         {"type": "native", "path": "audio/sfx/ep06/ui_startup_shimmer.mp3", "src_in": 0.0, "at": st["10B-12B"], "dur": 2.0, "gain_db": -9},
@@ -102,7 +107,7 @@ def manifest():
                    "model": "elevenlabs_v4"},
         "frame": [1080, 1920], "duration_s": dur,
         "episode_dir": EP, "clips_dir": "04-generated-clips", "overlay_subdir": "07-overlays",
-        "music_file": "audio/music/ep06_walter_bed_40s_R01.mp3", "music_fade_out": [39.4, 0.65],
+        "music_file": "audio/music/ep06_walter_bed_40s_R01.mp3", "music_at": MUSIC_AT, "music_fade_out": [round(39.4 + MUSIC_AT, 3), 0.65],
         "license_plate": "BBY TIGR - visible in shot 16A.",
         "shots": shots, "dialogue": dialogue, "audio_edit": edit, "captions": caps, "sfx_cues": sfx,
         "lower_third": {"name": "WALTER", "role": "AI WEBSITE BUILDER", "file": "walter_lt.png"},
@@ -111,7 +116,7 @@ def manifest():
                      "registration": "stan.store/noelleai/unlockingai",
                      "_note": "Evergreen pack lines without the promo-code line (brief: no time-limited offers)."},
         "lipsync": {"model": "sync_so", "shots": LIPSYNC, "dir": EP + "/06-lipsync"},
-        "retired_takes": ["EP06_SH01_R01.mp4 (car turned to camera, lost roof)", "EP06_SH07A_R01.mp4 (sunglasses removed)",
+        "retired_takes": ["EP06_SH01_R01.mp4 (car turned to camera, lost roof)", "EP06_SH01_R02.mp4 (parked arrival; user asked for a tracking drive past storefronts)", "EP06_SH07A_R01.mp4 (sunglasses removed)",
                           "EP06_SH13_R01.mp4 (pencil/shaved side lost)", "EP06_SH05_R01/SH06_R01/SH07A_R02 (old monitor order; user re-ordered: faces Vic -> spins to Noelle -> she points)", "EP06_SH12C_R01.mp4 (faced camera, URL garbled)", "EP06_SH12C_R02.mp4 (clear glasses; user: sunglasses)",
                           "EP06_SH10B-12B_SCREEN_R01/R02.mp4 (R02 order 10B-11A-11B-12A-12B; user asked for 11A-12A-12B)"],
     }

@@ -97,7 +97,7 @@ def main(manifest, out):
     mix = os.path.join(work, "mix.wav")
     fo_st, fo_d = m.get("music_fade_out", [dur - 0.4, 0.4])
     run(["ffmpeg", "-v", "error", "-y", "-i", music, "-i", dlg, "-i", sfx, "-filter_complex",
-         f"[0:a]aresample={SR},atrim=0:{dur},volume=-7dB,afade=t=out:st={fo_st}:d={fo_d},apad=whole_dur={dur}[mus];"
+         f"[0:a]aresample={SR},adelay={int(m.get('music_at', 0) * 1000)}:all=1,atrim=0:{dur},volume=-7dB,afade=t=out:st={fo_st}:d={fo_d},apad=whole_dur={dur}[mus];"
          f"[1:a]asplit=2[dl][key];"
          f"[mus][key]sidechaincompress=threshold=0.03:ratio=8:attack=20:release=300[duck];"
          f"[duck][dl][2:a]amix=inputs=3:normalize=0,alimiter=limit=0.89[mix]",
