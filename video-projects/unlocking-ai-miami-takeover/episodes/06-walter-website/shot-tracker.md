@@ -44,3 +44,11 @@ SH14 first job took ~20 min; a backup job (353b6b84, auto active-speaker) was su
 
 ## Export
 `exports/ep06/EP06_walter_website_v1.mp4`: 1080x1920, 24 fps, 41.1s, -16.2 LUFS, peak -2.5 dBFS. Manifest `manifests/ep06-walter-website.json`.
+
+## v2 (user tweaks 2026-11-27)
+- SH04 -> SH04_R02 (Grok, Noelle mouth closed), lip-synced Vic (end of L01; auto active-speaker; manual-coords job stalled in queue).
+- SH05 -> SH05_R02 (MiniMax SH06_END -> SH05 frames): monitor faces Vic, spins to Noelle. Old SH05/SH06/SH07A retired.
+- SH06 -> SH06_R02 (MiniMax SH05 -> SH07A frames, played 1.8x): Noelle raised palm -> lifts sunglasses, points.
+- SH07B -> SH07B_R02 push-in rebuilt from SH06_R02 last frame (seamless cut), re-lip-synced.
+- SH01 tracking shot: waiting on user start keyframe (Ferrari centered, nose right, generic storefront).
+- Export `exports/ep06/EP06_walter_website_v2.mp4`: 41.7s, -16.3 LUFS, peak -2.6 dBFS.

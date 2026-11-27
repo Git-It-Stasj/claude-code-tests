@@ -77,9 +77,8 @@
    ],
    "ratio": "9:16",
    "desc": "Project gallery - Vic finishes his line (lip sync), Noelle listens mouth closed (user tweak)",
-   "file": "EP06_SH04_R02.mp4",
-   "src_in": 0.4,
-   "slow": 1.0
+   "file": "../06-lipsync/out/04_lipsync.mp4",
+   "lipsync": true
   },
   {
    "id": "05",
@@ -113,9 +112,8 @@
    ],
    "ratio": "9:16",
    "desc": "Push-in - You missed a spot",
-   "file": "EP06_SH07B_R02.mp4",
-   "src_in": 0.0,
-   "slow": 1.0
+   "file": "../06-lipsync/out/07B_lipsync.mp4",
+   "lipsync": true
   },
   {
    "id": "08",
