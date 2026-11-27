@@ -29,8 +29,8 @@ SHOTS = [
     ("08", 5.8, "EP06_SH08_R01.mp4", 0.0, 1.16, "Vic's defense"),
     ("09", 2.8, "EP06_SH09_R01.mp4", 0.1, 1.0, "I know a guy"),
     ("10A", 1.2, "EP06_SH10A_R01.mp4", 0.8, 1.0, "Meet Walter"),
-    ("10B-12B", 6.5, "EP06_SH10B-12B_SCREEN_R02.mp4", 0.0, 1.0, "Walter profile, audit, makeover, improvements, construction (post composite)"),
-    ("12C", 1.2, "EP06_SH12C_R02.mp4", 3.8, 1.0, "Finished website reveal"),
+    ("10B-12B", 6.5, "EP06_SH10B-12B_SCREEN_R03.mp4", 0.0, 1.0, "Walter profile -> audit -> improvements -> updates in progress (post composite)"),
+    ("12C", 1.2, "EP06_SH12C_R03.mp4", 3.8, 1.0, "Finished website reveal"),
     ("13", 2.1, "EP06_SH13_R02.mp4", 0.4, 1.0, "Now THAT'S craftsmanship"),
     ("14", 3.2, "EP06_SH14_R01.mp4", 0.3, 1.0, "Golden key invitation handoff"),
     ("15", 2.4, "EP06_SH15_R01.mp4", 0.0, 1.0, "Don't push it, Vic - walkout"),
@@ -86,8 +86,8 @@ def manifest():
         {"type": "native", "path": "audio/sfx/ep06/ambience_waves_distant_city.mp3", "src_in": 2.0, "at": 0.0, "dur": st["02"] + 1.1, "gain_db": -14},
         {"type": "whoosh", "at": round(st["06"] + 0.15, 3)},
         {"type": "native", "path": "audio/sfx/ep06/ui_startup_shimmer.mp3", "src_in": 0.0, "at": st["10B-12B"], "dur": 2.0, "gain_db": -9},
-        {"type": "native", "path": "audio/sfx/ep06/digital_sweep.mp3", "src_in": 0.0, "at": round(st["10B-12B"] + 3.25, 3), "dur": 1.2, "gain_db": -12},
-        {"type": "native", "path": "audio/sfx/ep06/ui_achievement.mp3", "src_in": 0.0, "at": round(st["10B-12B"] + 5.95, 3), "dur": 1.0, "gain_db": -9},
+        {"type": "native", "path": "audio/sfx/ep06/digital_sweep.mp3", "src_in": 0.0, "at": round(st["10B-12B"] + 3.5, 3), "dur": 1.3, "gain_db": -12},
+        {"type": "native", "path": "audio/sfx/ep06/ui_achievement.mp3", "src_in": 0.0, "at": round(st["10B-12B"] + 5.6, 3), "dur": 1.0, "gain_db": -9},
         {"type": "native", "path": "audio/sfx/ep06/ui_success_melodic.mp3", "src_in": 0.0, "at": round(st["12C"] + 0.05, 3), "dur": 1.0, "gain_db": -9},
         {"type": "native", "path": "audio/sfx/ep06/car_pull_away_fast.mp3", "src_in": 3.3, "at": st["16A"], "dur": round(dur - st["16A"], 3), "gain_db": -6},
         {"type": "native", "path": "audio/sfx/ep06/ambience_waves_distant_city.mp3", "src_in": 20.0, "at": st["16A"], "dur": round(dur - st["16A"], 3), "gain_db": -14},
@@ -113,8 +113,8 @@ def manifest():
                      "_note": "Evergreen pack lines without the promo-code line (brief: no time-limited offers)."},
         "lipsync": {"model": "sync_so", "shots": LIPSYNC, "dir": EP + "/06-lipsync"},
         "retired_takes": ["EP06_SH01_R01.mp4 (car turned to camera, lost roof)", "EP06_SH07A_R01.mp4 (sunglasses removed)",
-                          "EP06_SH13_R01.mp4 (pencil/shaved side lost)", "EP06_SH12C_R01.mp4 (faced camera, URL garbled)",
-                          "EP06_SH10B-12B_SCREEN_R01.mp4 (8.5s cut, retimed to 6.5s)"],
+                          "EP06_SH13_R01.mp4 (pencil/shaved side lost)", "EP06_SH12C_R01.mp4 (faced camera, URL garbled)", "EP06_SH12C_R02.mp4 (clear glasses; user: sunglasses)",
+                          "EP06_SH10B-12B_SCREEN_R01/R02.mp4 (R02 order 10B-11A-11B-12A-12B; user asked for 11A-12A-12B)"],
     }
 
 

@@ -1,4 +1,4 @@
-"""EP06 Walter screen sequence (SH10B -> SH11A -> SH11B -> SH12A -> SH12B) as one composited clip.
+"""EP06 Walter screen sequence (SH10B -> SH11A -> SH12A -> SH12B; SH11B dropped per user) as one composited clip.
 
 The five approved stills share the monitor angle but are not pixel-aligned, so transitions are
 full-frame (light-bar wipe, flash dissolve, scan sweep) rather than per-region reveals.
@@ -16,12 +16,11 @@ SB = os.path.join(ROOT, "episodes/06-walter-website/02-approved-storyboard")
 W, H, FPS = 1080, 1920, 24
 
 # (frame file, segment length s, transition into this segment, transition length s)
-SEGMENTS = [
+SEGMENTS = [  # user order (2026-11-27): Walter profile -> audit -> improvements -> updates in progress
     ("touchup/EP06_SH10B_R02.png", 1.9, None, 0.0),
-    ("EP06_SH11A_R01.png",         1.4, "flash", 0.25),
-    ("touchup/EP06_SH11B_R02.png", 1.4, "lightbar", 0.45),
-    ("EP06_SH12A_R01.png",         0.9, "flash", 0.2),
-    ("EP06_SH12B_R01.png",         0.9, "scan", 0.45),
+    ("EP06_SH11A_R01.png",         1.6, "flash", 0.25),
+    ("EP06_SH12A_R01.png",         1.6, "lightbar", 0.6),
+    ("EP06_SH12B_R01.png",         1.4, "scan", 0.55),
 ]
 PUSH = 0.045  # zoom gained over each segment
 
@@ -101,4 +100,4 @@ def main(out):
 
 if __name__ == "__main__":
     main(sys.argv[1] if len(sys.argv) > 1 else os.path.join(
-        ROOT, "episodes/06-walter-website/04-generated-clips/EP06_SH10B-12B_SCREEN_R02.mp4"))
+        ROOT, "episodes/06-walter-website/04-generated-clips/EP06_SH10B-12B_SCREEN_R03.mp4"))
