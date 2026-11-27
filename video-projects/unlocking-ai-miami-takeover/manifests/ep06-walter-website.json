@@ -23,7 +23,7 @@
   1080,
   1920
  ],
- "duration_s": 41.1,
+ "duration_s": 41.7,
  "episode_dir": "episodes/06-walter-website",
  "clips_dir": "04-generated-clips",
  "overlay_subdir": "07-overlays",
@@ -76,63 +76,52 @@
     6.6
    ],
    "ratio": "9:16",
-   "desc": "Project gallery",
-   "file": "EP06_SH04_R01.mp4",
-   "src_in": 0.2,
+   "desc": "Project gallery - Vic finishes his line (lip sync), Noelle listens mouth closed (user tweak)",
+   "file": "EP06_SH04_R02.mp4",
+   "src_in": 0.4,
    "slow": 1.0
   },
   {
    "id": "05",
    "t": [
     6.6,
-    7.5
+    8.6
    ],
    "ratio": "9:16",
-   "desc": "Website inquiry - Noelle reaches for monitor",
-   "file": "EP06_SH05_R01.mp4",
-   "src_in": 1.0,
+   "desc": "Monitor faces Vic, he spins it to Noelle (user tweak: SH06_END -> SH05 frames)",
+   "file": "EP06_SH05_R02.mp4",
+   "src_in": 1.4,
    "slow": 1.0
   },
   {
    "id": "06",
    "t": [
-    7.5,
-    9.1
+    8.6,
+    10.6
    ],
    "ratio": "9:16",
-   "desc": "Monitor turned - outdated website",
-   "file": "EP06_SH06_R01.mp4",
-   "src_in": 0.2,
-   "slow": 1.0
-  },
-  {
-   "id": "07A",
-   "t": [
-    9.1,
-    10.0
-   ],
-   "ratio": "9:16",
-   "desc": "Noelle peers over sunglasses",
-   "file": "EP06_SH07A_R02.mp4",
-   "src_in": 1.1,
-   "slow": 1.0
+   "desc": "Noelle: raised palm -> lifts sunglasses, points at monitor (user tweak: SH05 -> SH07A frames)",
+   "file": "EP06_SH06_R02.mp4",
+   "src_in": 1.4,
+   "slow": 0.55
   },
   {
    "id": "07B",
    "t": [
-    10.0,
-    11.6
+    10.6,
+    12.2
    ],
    "ratio": "9:16",
    "desc": "Push-in - You missed a spot",
-   "file": "../06-lipsync/out/07B_lipsync.mp4",
-   "lipsync": true
+   "file": "EP06_SH07B_R02.mp4",
+   "src_in": 0.0,
+   "slow": 1.0
   },
   {
    "id": "08",
    "t": [
-    11.6,
-    17.4
+    12.2,
+    18.0
    ],
    "ratio": "9:16",
    "desc": "Vic's defense",
@@ -142,8 +131,8 @@
   {
    "id": "09",
    "t": [
-    17.4,
-    20.2
+    18.0,
+    20.8
    ],
    "ratio": "9:16",
    "desc": "I know a guy",
@@ -153,8 +142,8 @@
   {
    "id": "10A",
    "t": [
-    20.2,
-    21.4
+    20.8,
+    22.0
    ],
    "ratio": "9:16",
    "desc": "Meet Walter",
@@ -164,8 +153,8 @@
   {
    "id": "10B-12B",
    "t": [
-    21.4,
-    27.9
+    22.0,
+    28.5
    ],
    "ratio": "9:16",
    "desc": "Walter profile -> audit -> improvements -> updates in progress (post composite)",
@@ -176,8 +165,8 @@
   {
    "id": "12C",
    "t": [
-    27.9,
-    29.1
+    28.5,
+    29.7
    ],
    "ratio": "9:16",
    "desc": "Finished website reveal",
@@ -188,8 +177,8 @@
   {
    "id": "13",
    "t": [
-    29.1,
-    31.2
+    29.7,
+    31.8
    ],
    "ratio": "9:16",
    "desc": "Now THAT'S craftsmanship",
@@ -199,8 +188,8 @@
   {
    "id": "14",
    "t": [
-    31.2,
-    34.4
+    31.8,
+    35.0
    ],
    "ratio": "9:16",
    "desc": "Golden key invitation handoff",
@@ -210,8 +199,8 @@
   {
    "id": "15",
    "t": [
-    34.4,
-    36.8
+    35.0,
+    37.4
    ],
    "ratio": "9:16",
    "desc": "Don't push it, Vic - walkout",
@@ -222,8 +211,8 @@
   {
    "id": "16A",
    "t": [
-    36.8,
-    38.1
+    37.4,
+    38.7
    ],
    "ratio": "9:16",
    "desc": "Ferrari departs (BBY TIGR)",
@@ -234,8 +223,8 @@
   {
    "id": "16B",
    "t": [
-    38.1,
-    41.1
+    38.7,
+    41.7
    ],
    "ratio": "9:16",
    "desc": "Into the Miami sunset + end card",
@@ -329,7 +318,7 @@
    ]
   },
   "L02": {
-   "at": 10.1,
+   "at": 10.7,
    "segs": [
     [
      0,
@@ -338,7 +327,7 @@
    ]
   },
   "L03": {
-   "at": 11.65,
+   "at": 12.25,
    "segs": [
     [
      0,
@@ -347,7 +336,7 @@
    ]
   },
   "L04": {
-   "at": 13.75,
+   "at": 14.35,
    "segs": [
     [
      0,
@@ -356,7 +345,7 @@
    ]
   },
   "L05": {
-   "at": 14.9,
+   "at": 15.5,
    "segs": [
     [
      0,
@@ -365,7 +354,7 @@
    ]
   },
   "L06": {
-   "at": 17.5,
+   "at": 18.1,
    "segs": [
     [
      0,
@@ -374,7 +363,7 @@
    ]
   },
   "L07a": {
-   "at": 20.28,
+   "at": 20.88,
    "segs": [
     [
      0,
@@ -383,7 +372,7 @@
    ]
   },
   "L07b": {
-   "at": 21.52,
+   "at": 22.12,
    "segs": [
     [
      1.25,
@@ -392,7 +381,7 @@
    ]
   },
   "L08": {
-   "at": 23.35,
+   "at": 23.95,
    "segs": [
     [
      0,
@@ -401,7 +390,7 @@
    ]
   },
   "L09": {
-   "at": 29.25,
+   "at": 29.85,
    "segs": [
     [
      0,
@@ -410,7 +399,7 @@
    ]
   },
   "L10": {
-   "at": 32.45,
+   "at": 33.05,
    "segs": [
     [
      0,
@@ -419,7 +408,7 @@
    ]
   },
   "L11": {
-   "at": 34.55,
+   "at": 35.15,
    "segs": [
     [
      0,
@@ -441,88 +430,88 @@
    "id": "l02",
    "text": "You missed a spot.",
    "t": [
-    10.1,
-    11.3
+    10.7,
+    11.9
    ]
   },
   {
    "id": "l03",
    "text": "Hey! I built that myself.",
    "t": [
-    11.65,
-    13.6
+    12.25,
+    14.2
    ]
   },
   {
    "id": "l04",
    "text": "I can tell.",
    "t": [
-    13.75,
-    14.7
+    14.35,
+    15.3
    ]
   },
   {
    "id": "l05",
    "text": "I'm a contractor, not a web designer.",
    "t": [
-    14.9,
-    17.4
+    15.5,
+    18.0
    ]
   },
   {
    "id": "l06",
    "text": "Relax. I know a guy.",
    "t": [
-    17.5,
-    20.1
+    18.1,
+    20.7
    ]
   },
   {
    "id": "l07a",
    "text": "Meet Walter.",
    "t": [
-    20.28,
-    21.4
+    20.88,
+    22.0
    ]
   },
   {
    "id": "l07b",
    "text": "Your AI website builder.",
    "t": [
-    21.52,
-    23.35
+    22.12,
+    23.95
    ]
   },
   {
    "id": "l08",
    "text": "Let's give your website the same attention to detail\u2026 you give your homes.",
    "t": [
-    23.35,
-    27.87
+    23.95,
+    28.47
    ]
   },
   {
    "id": "l09",
    "text": "Now THAT'S craftsmanship.",
    "t": [
-    29.25,
-    31.2
+    29.85,
+    31.8
    ]
   },
   {
    "id": "l10",
    "text": "Hey! Does he do kitchens?",
    "t": [
-    32.45,
-    34.33
+    33.05,
+    34.93
    ]
   },
   {
    "id": "l11",
    "text": "Don't push it, Vic.",
    "t": [
-    34.55,
-    36.27
+    35.15,
+    36.87
    ]
   }
  ],
@@ -545,13 +534,13 @@
   },
   {
    "type": "whoosh",
-   "at": 7.65
+   "at": 7.05
   },
   {
    "type": "native",
    "path": "audio/sfx/ep06/ui_startup_shimmer.mp3",
    "src_in": 0.0,
-   "at": 21.4,
+   "at": 22.0,
    "dur": 2.0,
    "gain_db": -9
   },
@@ -559,7 +548,7 @@
    "type": "native",
    "path": "audio/sfx/ep06/digital_sweep.mp3",
    "src_in": 0.0,
-   "at": 24.9,
+   "at": 25.5,
    "dur": 1.3,
    "gain_db": -12
   },
@@ -567,7 +556,7 @@
    "type": "native",
    "path": "audio/sfx/ep06/ui_achievement.mp3",
    "src_in": 0.0,
-   "at": 27.0,
+   "at": 27.6,
    "dur": 1.0,
    "gain_db": -9
   },
@@ -575,7 +564,7 @@
    "type": "native",
    "path": "audio/sfx/ep06/ui_success_melodic.mp3",
    "src_in": 0.0,
-   "at": 27.95,
+   "at": 28.55,
    "dur": 1.0,
    "gain_db": -9
   },
@@ -583,7 +572,7 @@
    "type": "native",
    "path": "audio/sfx/ep06/car_pull_away_fast.mp3",
    "src_in": 3.3,
-   "at": 36.8,
+   "at": 37.4,
    "dur": 4.3,
    "gain_db": -6
   },
@@ -591,7 +580,7 @@
    "type": "native",
    "path": "audio/sfx/ep06/ambience_waves_distant_city.mp3",
    "src_in": 20.0,
-   "at": 36.8,
+   "at": 37.4,
    "dur": 4.3,
    "gain_db": -14
   }
@@ -612,8 +601,8 @@
   {
    "file": "endcard.png",
    "t": [
-    38.4,
-    41.1
+    39.0,
+    41.7
    ]
   }
  ],
@@ -633,6 +622,9 @@
   "model": "sync_so",
   "shots": {
    "03": [
+    "L01"
+   ],
+   "04": [
     "L01"
    ],
    "07B": [
@@ -661,6 +653,7 @@
   "EP06_SH01_R01.mp4 (car turned to camera, lost roof)",
   "EP06_SH07A_R01.mp4 (sunglasses removed)",
   "EP06_SH13_R01.mp4 (pencil/shaved side lost)",
+  "EP06_SH05_R01/SH06_R01/SH07A_R02 (old monitor order; user re-ordered: faces Vic -> spins to Noelle -> she points)",
   "EP06_SH12C_R01.mp4 (faced camera, URL garbled)",
   "EP06_SH12C_R02.mp4 (clear glasses; user: sunglasses)",
   "EP06_SH10B-12B_SCREEN_R01/R02.mp4 (R02 order 10B-11A-11B-12A-12B; user asked for 11A-12A-12B)"

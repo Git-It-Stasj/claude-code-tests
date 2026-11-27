@@ -21,11 +21,10 @@ SHOTS = [
     ("01", 1.6, "EP06_SH01_R02.mp4", 0.5, 1.0, "Ferrari arrives outside Delgado Custom Renovations"),
     ("02", 1.1, "EP06_SH02_R01.mp4", 0.0, 1.0, "Noelle enters"),
     ("03", 2.4, "EP06_SH03_R01.mp4", 0.3, 1.0, "Meet Vic"),
-    ("04", 1.5, "EP06_SH04_R01.mp4", 0.2, 1.0, "Project gallery"),
-    ("05", 0.9, "EP06_SH05_R01.mp4", 1.0, 1.0, "Website inquiry - Noelle reaches for monitor"),
-    ("06", 1.6, "EP06_SH06_R01.mp4", 0.2, 1.0, "Monitor turned - outdated website"),
-    ("07A", 0.9, "EP06_SH07A_R02.mp4", 1.1, 1.0, "Noelle peers over sunglasses"),
-    ("07B", 1.6, "EP06_SH07B_R01.mp4", 0.0, 1.0, "Push-in - You missed a spot"),
+    ("04", 1.5, "EP06_SH04_R02.mp4", 0.4, 1.0, "Project gallery - Vic finishes his line (lip sync), Noelle listens mouth closed (user tweak)"),
+    ("05", 2.0, "EP06_SH05_R02.mp4", 1.4, 1.0, "Monitor faces Vic, he spins it to Noelle (user tweak: SH06_END -> SH05 frames)"),
+    ("06", 2.0, "EP06_SH06_R02.mp4", 1.4, 0.55, "Noelle: raised palm -> lifts sunglasses, points at monitor (user tweak: SH05 -> SH07A frames)"),
+    ("07B", 1.6, "EP06_SH07B_R02.mp4", 0.0, 1.0, "Push-in - You missed a spot"),
     ("08", 5.8, "EP06_SH08_R01.mp4", 0.0, 1.16, "Vic's defense"),
     ("09", 2.8, "EP06_SH09_R01.mp4", 0.1, 1.0, "I know a guy"),
     ("10A", 1.2, "EP06_SH10A_R01.mp4", 0.8, 1.0, "Meet Walter"),
@@ -84,7 +83,7 @@ def manifest():
     sfx = [
         {"type": "native", "path": "audio/sfx/ep06/car_arrive_v8_stop_idle.mp3", "src_in": 7.5, "at": 0.0, "dur": 3.0, "gain_db": -8},
         {"type": "native", "path": "audio/sfx/ep06/ambience_waves_distant_city.mp3", "src_in": 2.0, "at": 0.0, "dur": st["02"] + 1.1, "gain_db": -14},
-        {"type": "whoosh", "at": round(st["06"] + 0.15, 3)},
+        {"type": "whoosh", "at": round(st["05"] + 0.45, 3)},
         {"type": "native", "path": "audio/sfx/ep06/ui_startup_shimmer.mp3", "src_in": 0.0, "at": st["10B-12B"], "dur": 2.0, "gain_db": -9},
         {"type": "native", "path": "audio/sfx/ep06/digital_sweep.mp3", "src_in": 0.0, "at": round(st["10B-12B"] + 3.5, 3), "dur": 1.3, "gain_db": -12},
         {"type": "native", "path": "audio/sfx/ep06/ui_achievement.mp3", "src_in": 0.0, "at": round(st["10B-12B"] + 5.6, 3), "dur": 1.0, "gain_db": -9},
@@ -113,7 +112,7 @@ def manifest():
                      "_note": "Evergreen pack lines without the promo-code line (brief: no time-limited offers)."},
         "lipsync": {"model": "sync_so", "shots": LIPSYNC, "dir": EP + "/06-lipsync"},
         "retired_takes": ["EP06_SH01_R01.mp4 (car turned to camera, lost roof)", "EP06_SH07A_R01.mp4 (sunglasses removed)",
-                          "EP06_SH13_R01.mp4 (pencil/shaved side lost)", "EP06_SH12C_R01.mp4 (faced camera, URL garbled)", "EP06_SH12C_R02.mp4 (clear glasses; user: sunglasses)",
+                          "EP06_SH13_R01.mp4 (pencil/shaved side lost)", "EP06_SH05_R01/SH06_R01/SH07A_R02 (old monitor order; user re-ordered: faces Vic -> spins to Noelle -> she points)", "EP06_SH12C_R01.mp4 (faced camera, URL garbled)", "EP06_SH12C_R02.mp4 (clear glasses; user: sunglasses)",
                           "EP06_SH10B-12B_SCREEN_R01/R02.mp4 (R02 order 10B-11A-11B-12A-12B; user asked for 11A-12A-12B)"],
     }
 
