@@ -54,7 +54,7 @@ LINES = [
     ("L11", "NOELLE", "Don't push it, Vic.", "EP06_L11_NOELLE_dont_push_it.mp3", [[0, 1.72]], "15", 0.15),
 ]
 # shots where the speaker's face is on screen -> lip sync (CLAUDE.md: only on-screen speakers)
-LIPSYNC = {"03": ["L01"], "07B": ["L02"], "08": ["L03", "L05"], "09": ["L06"], "10A": ["L07a"], "13": ["L09"], "14": ["L10"]}
+LIPSYNC = {"03": ["L01"], "04": ["L01"], "07B": ["L02"], "08": ["L03", "L05"], "09": ["L06"], "10A": ["L07a"], "13": ["L09"], "14": ["L10"]}
 
 
 def starts():
@@ -131,10 +131,13 @@ def prep_lipsync(m):
                         "-an", "-c:v", "libx264", "-crf", "14", "-pix_fmt", "yuv420p", vout], check=True)
         ins, fl, lab = [], [], []
         for i, lid in enumerate(lids):
-            _, _, _, lf, segs, _, off = lines[lid]
+            _, _, _, lf, segs, lshot, off = lines[lid]
             a, b = segs[0]
+            rel = st[lshot] + off - st[sid]          # line start relative to this shot (may begin in an earlier shot)
+            if rel < 0:
+                a, rel = a - rel, 0.0
             ins += ["-i", os.path.join(ROOT, V + lf)]
-            ms = int(off * 1000)
+            ms = int(rel * 1000)
             fl.append(f"[{i}:a]atrim={a}:{b},asetpts=PTS-STARTPTS,aresample={SR},adelay={ms}|{ms}[a{i}]")
             lab.append(f"[a{i}]")
         fl.append(f"{''.join(lab)}amix=inputs={len(lab)}:normalize=0,apad=whole_dur={d},atrim=0:{d}[o]")
