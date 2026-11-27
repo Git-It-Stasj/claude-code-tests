@@ -17,11 +17,11 @@ W, H, FPS = 1080, 1920, 24
 
 # (frame file, segment length s, transition into this segment, transition length s)
 SEGMENTS = [
-    ("touchup/EP06_SH10B_R02.png", 2.0, None, 0.0),
-    ("EP06_SH11A_R01.png",         1.8, "flash", 0.25),
-    ("touchup/EP06_SH11B_R02.png", 1.8, "lightbar", 0.5),
-    ("EP06_SH12A_R01.png",         1.4, "flash", 0.25),
-    ("EP06_SH12B_R01.png",         1.5, "scan", 0.5),
+    ("touchup/EP06_SH10B_R02.png", 1.9, None, 0.0),
+    ("EP06_SH11A_R01.png",         1.4, "flash", 0.25),
+    ("touchup/EP06_SH11B_R02.png", 1.4, "lightbar", 0.45),
+    ("EP06_SH12A_R01.png",         0.9, "flash", 0.2),
+    ("EP06_SH12B_R01.png",         0.9, "scan", 0.45),
 ]
 PUSH = 0.045  # zoom gained over each segment
 
@@ -101,4 +101,4 @@ def main(out):
 
 if __name__ == "__main__":
     main(sys.argv[1] if len(sys.argv) > 1 else os.path.join(
-        ROOT, "episodes/06-walter-website/04-generated-clips/EP06_SH10B-12B_SCREEN_R01.mp4"))
+        ROOT, "episodes/06-walter-website/04-generated-clips/EP06_SH10B-12B_SCREEN_R02.mp4"))

@@ -11,3 +11,17 @@ SH14A fba0e41e-3325-4e45-a10e-f793c9f87ebf
 SH14B 7bbe544d-8d95-4925-9b22-522a23f569af
 SH15 9442f30f-506b-4d9e-a535-fae0d2452f16
 SH12C b4084ea7-97cf-41ca-9a5f-77f59bfaa6f0
+LS_03_video 23ee5048-b6da-43a3-9d11-100fd63f799a
+LS_03_audio 8cdcbbe3-eb35-4c8c-bf04-8f36e7f3484c
+LS_07B_video cda6b71b-cc4d-4a76-be12-2f88115b75d6
+LS_07B_audio e85b65eb-358e-4284-8ee8-b0b7503f798a
+LS_08_video 4f747308-1ad5-4af9-a418-351e6e92ffa5
+LS_08_audio f3d9788b-d9d8-4b35-bafd-dc65ca3238b0
+LS_09_video 969aa0c4-dace-43c6-afe9-9c83cd00add6
+LS_09_audio e90ecd84-5c52-45a9-8eb1-c68a9a5d9c6d
+LS_10A_video f027b271-c0bc-4f74-b720-d54e9c6fc6b6
+LS_10A_audio 903ebb24-5c65-40ab-b6ef-ac434c528df1
+LS_13_video 9ce0e6ef-0227-4b83-a9e0-78895fa88329
+LS_13_audio 8f952550-548c-486e-84b4-d9daf36f66e4
+LS_14_video 7e9c5afe-ab80-45f0-aa72-06eedbe880be
+LS_14_audio ad2c4ed1-8a89-497e-a56c-9656c097e0c4

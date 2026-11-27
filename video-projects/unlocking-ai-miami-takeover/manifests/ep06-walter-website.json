@@ -1,0 +1,674 @@
+{
+ "episode": 6,
+ "title": "Walter: The Website Makeover",
+ "version": 1,
+ "featured_ai_employee": {
+  "name": "Walter",
+  "role": "AI Website Builder",
+  "vendor": "Marblism",
+  "claim_scope": "Website redesign is a dramatization; no performance statistics shown."
+ },
+ "characters": [
+  "NOELLE_01",
+  "VIC_DELGADO",
+  "WALTER_01"
+ ],
+ "voices": {
+  "NOELLE": "Sloane b57b22a0-f287-405b-bc82-6f08f5e6bb1f (stab 0.45 / sim 0.8)",
+  "VIC": "Gideon 1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5 (stab 0.4 / sim 0.8) - user pick",
+  "WALTER": "Barrett d603a8cd-3fe1-55e0-9245-617a2589131e (stab 0.5 / sim 0.8) - user pick",
+  "model": "elevenlabs_v4"
+ },
+ "frame": [
+  1080,
+  1920
+ ],
+ "duration_s": 41.1,
+ "episode_dir": "episodes/06-walter-website",
+ "clips_dir": "04-generated-clips",
+ "overlay_subdir": "07-overlays",
+ "music_file": "audio/music/ep06_walter_bed_40s_R01.mp3",
+ "music_fade_out": [
+  39.4,
+  0.65
+ ],
+ "license_plate": "BBY TIGR - visible in shot 16A.",
+ "shots": [
+  {
+   "id": "01",
+   "t": [
+    0.0,
+    1.6
+   ],
+   "ratio": "9:16",
+   "desc": "Ferrari arrives outside Delgado Custom Renovations",
+   "file": "EP06_SH01_R02.mp4",
+   "src_in": 0.5,
+   "slow": 1.0
+  },
+  {
+   "id": "02",
+   "t": [
+    1.6,
+    2.7
+   ],
+   "ratio": "9:16",
+   "desc": "Noelle enters",
+   "file": "EP06_SH02_R01.mp4",
+   "src_in": 0.0,
+   "slow": 1.0
+  },
+  {
+   "id": "03",
+   "t": [
+    2.7,
+    5.1
+   ],
+   "ratio": "9:16",
+   "desc": "Meet Vic",
+   "file": "EP06_SH03_R01.mp4",
+   "src_in": 0.3,
+   "slow": 1.0
+  },
+  {
+   "id": "04",
+   "t": [
+    5.1,
+    6.6
+   ],
+   "ratio": "9:16",
+   "desc": "Project gallery",
+   "file": "EP06_SH04_R01.mp4",
+   "src_in": 0.2,
+   "slow": 1.0
+  },
+  {
+   "id": "05",
+   "t": [
+    6.6,
+    7.5
+   ],
+   "ratio": "9:16",
+   "desc": "Website inquiry - Noelle reaches for monitor",
+   "file": "EP06_SH05_R01.mp4",
+   "src_in": 1.0,
+   "slow": 1.0
+  },
+  {
+   "id": "06",
+   "t": [
+    7.5,
+    9.1
+   ],
+   "ratio": "9:16",
+   "desc": "Monitor turned - outdated website",
+   "file": "EP06_SH06_R01.mp4",
+   "src_in": 0.2,
+   "slow": 1.0
+  },
+  {
+   "id": "07A",
+   "t": [
+    9.1,
+    10.0
+   ],
+   "ratio": "9:16",
+   "desc": "Noelle peers over sunglasses",
+   "file": "EP06_SH07A_R02.mp4",
+   "src_in": 1.1,
+   "slow": 1.0
+  },
+  {
+   "id": "07B",
+   "t": [
+    10.0,
+    11.6
+   ],
+   "ratio": "9:16",
+   "desc": "Push-in - You missed a spot",
+   "file": "EP06_SH07B_R01.mp4",
+   "src_in": 0.0,
+   "slow": 1.0
+  },
+  {
+   "id": "08",
+   "t": [
+    11.6,
+    17.4
+   ],
+   "ratio": "9:16",
+   "desc": "Vic's defense",
+   "file": "EP06_SH08_R01.mp4",
+   "src_in": 0.0,
+   "slow": 1.16
+  },
+  {
+   "id": "09",
+   "t": [
+    17.4,
+    20.2
+   ],
+   "ratio": "9:16",
+   "desc": "I know a guy",
+   "file": "EP06_SH09_R01.mp4",
+   "src_in": 0.1,
+   "slow": 1.0
+  },
+  {
+   "id": "10A",
+   "t": [
+    20.2,
+    21.4
+   ],
+   "ratio": "9:16",
+   "desc": "Meet Walter",
+   "file": "EP06_SH10A_R01.mp4",
+   "src_in": 0.8,
+   "slow": 1.0
+  },
+  {
+   "id": "10B-12B",
+   "t": [
+    21.4,
+    27.9
+   ],
+   "ratio": "9:16",
+   "desc": "Walter profile, audit, makeover, improvements, construction (post composite)",
+   "file": "EP06_SH10B-12B_SCREEN_R02.mp4",
+   "src_in": 0.0,
+   "slow": 1.0
+  },
+  {
+   "id": "12C",
+   "t": [
+    27.9,
+    29.1
+   ],
+   "ratio": "9:16",
+   "desc": "Finished website reveal",
+   "file": "EP06_SH12C_R02.mp4",
+   "src_in": 3.8,
+   "slow": 1.0
+  },
+  {
+   "id": "13",
+   "t": [
+    29.1,
+    31.2
+   ],
+   "ratio": "9:16",
+   "desc": "Now THAT'S craftsmanship",
+   "file": "EP06_SH13_R02.mp4",
+   "src_in": 0.4,
+   "slow": 1.0
+  },
+  {
+   "id": "14",
+   "t": [
+    31.2,
+    34.4
+   ],
+   "ratio": "9:16",
+   "desc": "Golden key invitation handoff",
+   "file": "EP06_SH14_R01.mp4",
+   "src_in": 0.3,
+   "slow": 1.0
+  },
+  {
+   "id": "15",
+   "t": [
+    34.4,
+    36.8
+   ],
+   "ratio": "9:16",
+   "desc": "Don't push it, Vic - walkout",
+   "file": "EP06_SH15_R01.mp4",
+   "src_in": 0.0,
+   "slow": 1.0
+  },
+  {
+   "id": "16A",
+   "t": [
+    36.8,
+    38.1
+   ],
+   "ratio": "9:16",
+   "desc": "Ferrari departs (BBY TIGR)",
+   "file": "EP06_SH16A_R01.mp4",
+   "src_in": 0.3,
+   "slow": 1.0
+  },
+  {
+   "id": "16B",
+   "t": [
+    38.1,
+    41.1
+   ],
+   "ratio": "9:16",
+   "desc": "Into the Miami sunset + end card",
+   "file": "EP06_SH16B_R01.mp4",
+   "src_in": 0.5,
+   "slow": 1.0
+  }
+ ],
+ "dialogue": [
+  {
+   "id": "L01",
+   "speaker": "VIC",
+   "text": "I specialize in bringing outdated spaces into the modern era.",
+   "file": "audio/voices/ep06/EP06_L01_VIC_specialize.mp3"
+  },
+  {
+   "id": "L02",
+   "speaker": "NOELLE",
+   "text": "You missed a spot.",
+   "file": "audio/voices/ep06/EP06_L02_NOELLE_missed_spot.mp3"
+  },
+  {
+   "id": "L03",
+   "speaker": "VIC",
+   "text": "Hey! I built that myself.",
+   "file": "audio/voices/ep06/EP06_L03_VIC_built_it_myself.mp3"
+  },
+  {
+   "id": "L04",
+   "speaker": "NOELLE",
+   "text": "I can tell.",
+   "file": "audio/voices/ep06/EP06_L04_NOELLE_i_can_tell.mp3"
+  },
+  {
+   "id": "L05",
+   "speaker": "VIC",
+   "text": "I'm a contractor, not a web designer.",
+   "file": "audio/voices/ep06/EP06_L05_VIC_contractor.mp3"
+  },
+  {
+   "id": "L06",
+   "speaker": "NOELLE",
+   "text": "Relax. I know a guy.",
+   "file": "audio/voices/ep06/EP06_L06_NOELLE_know_a_guy.mp3"
+  },
+  {
+   "id": "L07a",
+   "speaker": "NOELLE",
+   "text": "Meet Walter.",
+   "file": "audio/voices/ep06/EP06_L07_NOELLE_meet_walter.mp3"
+  },
+  {
+   "id": "L07b",
+   "speaker": "NOELLE",
+   "text": "Your AI website builder.",
+   "file": "audio/voices/ep06/EP06_L07_NOELLE_meet_walter.mp3"
+  },
+  {
+   "id": "L08",
+   "speaker": "WALTER",
+   "text": "Let's give your website the same attention to detail... you give your homes.",
+   "file": "audio/voices/ep06/EP06_L08_WALTER_attention_to_detail.mp3"
+  },
+  {
+   "id": "L09",
+   "speaker": "VIC",
+   "text": "Now THAT'S craftsmanship.",
+   "file": "audio/voices/ep06/EP06_L09_VIC_craftsmanship.mp3"
+  },
+  {
+   "id": "L10",
+   "speaker": "VIC",
+   "text": "Hey! Does he do kitchens?",
+   "file": "audio/voices/ep06/EP06_L10_VIC_kitchens.mp3"
+  },
+  {
+   "id": "L11",
+   "speaker": "NOELLE",
+   "text": "Don't push it, Vic.",
+   "file": "audio/voices/ep06/EP06_L11_NOELLE_dont_push_it.mp3"
+  }
+ ],
+ "audio_edit": {
+  "L01": {
+   "at": 2.85,
+   "segs": [
+    [
+     0,
+     4.0
+    ]
+   ]
+  },
+  "L02": {
+   "at": 10.1,
+   "segs": [
+    [
+     0,
+     1.2
+    ]
+   ]
+  },
+  "L03": {
+   "at": 11.65,
+   "segs": [
+    [
+     0,
+     1.95
+    ]
+   ]
+  },
+  "L04": {
+   "at": 13.75,
+   "segs": [
+    [
+     0,
+     0.95
+    ]
+   ]
+  },
+  "L05": {
+   "at": 14.9,
+   "segs": [
+    [
+     0,
+     2.5
+    ]
+   ]
+  },
+  "L06": {
+   "at": 17.5,
+   "segs": [
+    [
+     0,
+     2.6
+    ]
+   ]
+  },
+  "L07a": {
+   "at": 20.28,
+   "segs": [
+    [
+     0,
+     1.12
+    ]
+   ]
+  },
+  "L07b": {
+   "at": 21.52,
+   "segs": [
+    [
+     1.25,
+     3.08
+    ]
+   ]
+  },
+  "L08": {
+   "at": 23.35,
+   "segs": [
+    [
+     0,
+     4.52
+    ]
+   ]
+  },
+  "L09": {
+   "at": 29.25,
+   "segs": [
+    [
+     0,
+     1.95
+    ]
+   ]
+  },
+  "L10": {
+   "at": 32.45,
+   "segs": [
+    [
+     0,
+     1.88
+    ]
+   ]
+  },
+  "L11": {
+   "at": 34.55,
+   "segs": [
+    [
+     0,
+     1.72
+    ]
+   ]
+  }
+ },
+ "captions": [
+  {
+   "id": "l01",
+   "text": "I specialize in bringing outdated spaces into the modern era.",
+   "t": [
+    2.85,
+    6.85
+   ]
+  },
+  {
+   "id": "l02",
+   "text": "You missed a spot.",
+   "t": [
+    10.1,
+    11.3
+   ]
+  },
+  {
+   "id": "l03",
+   "text": "Hey! I built that myself.",
+   "t": [
+    11.65,
+    13.6
+   ]
+  },
+  {
+   "id": "l04",
+   "text": "I can tell.",
+   "t": [
+    13.75,
+    14.7
+   ]
+  },
+  {
+   "id": "l05",
+   "text": "I'm a contractor, not a web designer.",
+   "t": [
+    14.9,
+    17.4
+   ]
+  },
+  {
+   "id": "l06",
+   "text": "Relax. I know a guy.",
+   "t": [
+    17.5,
+    20.1
+   ]
+  },
+  {
+   "id": "l07a",
+   "text": "Meet Walter.",
+   "t": [
+    20.28,
+    21.4
+   ]
+  },
+  {
+   "id": "l07b",
+   "text": "Your AI website builder.",
+   "t": [
+    21.52,
+    23.35
+   ]
+  },
+  {
+   "id": "l08",
+   "text": "Let's give your website the same attention to detail\u2026 you give your homes.",
+   "t": [
+    23.35,
+    27.87
+   ]
+  },
+  {
+   "id": "l09",
+   "text": "Now THAT'S craftsmanship.",
+   "t": [
+    29.25,
+    31.2
+   ]
+  },
+  {
+   "id": "l10",
+   "text": "Hey! Does he do kitchens?",
+   "t": [
+    32.45,
+    34.33
+   ]
+  },
+  {
+   "id": "l11",
+   "text": "Don't push it, Vic.",
+   "t": [
+    34.55,
+    36.27
+   ]
+  }
+ ],
+ "sfx_cues": [
+  {
+   "type": "native",
+   "path": "audio/sfx/ep06/car_arrive_v8_stop_idle.mp3",
+   "src_in": 7.5,
+   "at": 0.0,
+   "dur": 3.0,
+   "gain_db": -8
+  },
+  {
+   "type": "native",
+   "path": "audio/sfx/ep06/ambience_waves_distant_city.mp3",
+   "src_in": 2.0,
+   "at": 0.0,
+   "dur": 2.7,
+   "gain_db": -14
+  },
+  {
+   "type": "whoosh",
+   "at": 7.65
+  },
+  {
+   "type": "native",
+   "path": "audio/sfx/ep06/ui_startup_shimmer.mp3",
+   "src_in": 0.0,
+   "at": 21.4,
+   "dur": 2.0,
+   "gain_db": -9
+  },
+  {
+   "type": "native",
+   "path": "audio/sfx/ep06/digital_sweep.mp3",
+   "src_in": 0.0,
+   "at": 24.65,
+   "dur": 1.2,
+   "gain_db": -12
+  },
+  {
+   "type": "native",
+   "path": "audio/sfx/ep06/ui_achievement.mp3",
+   "src_in": 0.0,
+   "at": 27.35,
+   "dur": 1.0,
+   "gain_db": -9
+  },
+  {
+   "type": "native",
+   "path": "audio/sfx/ep06/ui_success_melodic.mp3",
+   "src_in": 0.0,
+   "at": 27.95,
+   "dur": 1.0,
+   "gain_db": -9
+  },
+  {
+   "type": "native",
+   "path": "audio/sfx/ep06/car_pull_away_fast.mp3",
+   "src_in": 3.3,
+   "at": 36.8,
+   "dur": 4.3,
+   "gain_db": -6
+  },
+  {
+   "type": "native",
+   "path": "audio/sfx/ep06/ambience_waves_distant_city.mp3",
+   "src_in": 20.0,
+   "at": 36.8,
+   "dur": 4.3,
+   "gain_db": -14
+  }
+ ],
+ "lower_third": {
+  "name": "WALTER",
+  "role": "AI WEBSITE BUILDER",
+  "file": "walter_lt.png"
+ },
+ "overlays": [
+  {
+   "file": "title.png",
+   "t": [
+    0.15,
+    1.6
+   ]
+  },
+  {
+   "file": "endcard.png",
+   "t": [
+    38.4,
+    41.1
+   ]
+  }
+ ],
+ "end_card": {
+  "lines": [
+   "UNLOCKING AI CHALLENGE",
+   "BUILD AN AI-AMPLIFIED BUSINESS",
+   "LIVE ONLINE",
+   null,
+   null,
+   "LIMITED SEATS"
+  ],
+  "registration": "stan.store/noelleai/unlockingai",
+  "_note": "Evergreen pack lines without the promo-code line (brief: no time-limited offers)."
+ },
+ "lipsync": {
+  "model": "sync_so",
+  "shots": {
+   "03": [
+    "L01"
+   ],
+   "07B": [
+    "L02"
+   ],
+   "08": [
+    "L03",
+    "L05"
+   ],
+   "09": [
+    "L06"
+   ],
+   "10A": [
+    "L07a"
+   ],
+   "13": [
+    "L09"
+   ],
+   "14": [
+    "L10"
+   ]
+  },
+  "dir": "episodes/06-walter-website/06-lipsync"
+ },
+ "retired_takes": [
+  "EP06_SH01_R01.mp4 (car turned to camera, lost roof)",
+  "EP06_SH07A_R01.mp4 (sunglasses removed)",
+  "EP06_SH13_R01.mp4 (pencil/shaved side lost)",
+  "EP06_SH12C_R01.mp4 (faced camera, URL garbled)",
+  "EP06_SH10B-12B_SCREEN_R01.mp4 (8.5s cut, retimed to 6.5s)"
+ ]
+}

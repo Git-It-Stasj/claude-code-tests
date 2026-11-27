@@ -43,7 +43,7 @@ def main(manifest, out):
     print("event:", m.get("_event_id", "(none)"), "frame:", W, H)
     ep = os.path.dirname(os.path.dirname(os.path.abspath(manifest)))
     epdir = os.path.join(ROOT, m.get("episode_dir", "episodes/01-rachel-receptionist"))
-    clips = os.path.join(epdir, "clips", m.get("clips_subdir", "v"))
+    clips = os.path.join(epdir, m["clips_dir"]) if m.get("clips_dir") else os.path.join(epdir, "clips", m.get("clips_subdir", "v"))
     ovl = os.path.join(epdir, m.get("overlay_subdir", "overlays"))
     work = os.path.join(os.path.dirname(os.path.abspath(out)), "stems_" + os.path.splitext(os.path.basename(out))[0])
     os.makedirs(work, exist_ok=True)
@@ -55,7 +55,7 @@ def main(manifest, out):
     for i, c in enumerate(m["sfx_cues"]):
         at_ms = int(c["at"] * 1000)
         if c["type"] == "native":
-            ins += ["-i", os.path.join(clips, c.get("file", f"S{c['shot']}.mp4"))]
+            ins += ["-i", os.path.join(ROOT, c["path"]) if "path" in c else os.path.join(clips, c.get("file", f"S{c['shot']}.mp4"))]
             idx = nin; nin += 1
             fl.append(f"[{idx}:a]atrim={c.get('src_in',0)}:{c.get('src_in',0)+c['dur']},asetpts=PTS-STARTPTS,aresample={SR},volume={c['gain_db']}dB,"
                       f"afade=t=out:st={c['dur']-0.3}:d=0.3,adelay={at_ms}|{at_ms}[s{i}]")
