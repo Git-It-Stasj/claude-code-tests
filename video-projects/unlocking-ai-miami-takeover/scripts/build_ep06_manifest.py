@@ -32,7 +32,7 @@ SHOTS = [
     ("13", 2.1, "EP06_SH13_R02.mp4", 0.4, 1.0, "Now THAT'S craftsmanship"),
     ("14", 3.2, "EP06_SH14_R01.mp4", 0.3, 1.0, "Golden key invitation handoff"),
     ("15", 2.4, "EP06_SH15_R01.mp4", 0.0, 1.0, "Don't push it, Vic - walkout"),
-    ("16A", 1.4, "EP06_SH16A_R04.mp4", 0.5, 1.0, "Ferrari departs (BBY TIGR with Florida orange), locked camera (R02 stabilised; plate artwork on smoothed track, 1.14x zoom hides edge fill - scripts/ep06_sh16a_fix.py)"),
+    ("16A", 1.4, "EP06_SH16A_R05.mp4", 0.5, 1.0, "Ferrari departs (BBY TIGR plate from user reference IMG_8249), locked camera (R02 stabilised; plate artwork on smoothed track, 1.14x zoom hides edge fill - scripts/ep06_sh16a_fix.py)"),
     ("16B", 3.0, "EP06_SH16B_R01.mp4", 0.5, 1.0, "Into the Miami sunset + end card"),
 ]
 
@@ -116,7 +116,7 @@ def manifest():
                      "_note": "Evergreen pack lines without the promo-code line (brief: no time-limited offers)."},
         "lipsync": {"model": "sync_so", "shots": LIPSYNC, "dir": EP + "/06-lipsync"},
         "retired_takes": ["EP06_SH01_R01.mp4 (car turned to camera, lost roof)", "EP06_SH01_R02.mp4 (parked arrival; user asked for a tracking drive past storefronts)", "EP06_SH07A_R01.mp4 (sunglasses removed)",
-                          "EP06_SH13_R01.mp4 (pencil/shaved side lost)", "EP06_SH05_R01/SH06_R01/SH07A_R02 (old monitor order; user re-ordered: faces Vic -> spins to Noelle -> she points)", "EP06_SH12C_R01.mp4 (faced camera, URL garbled)", "EP06_SH12C_R02.mp4 (clear glasses; user: sunglasses)", "EP06_SH08_R01.mp4 (Vic uncrossed arms, hand through monitor)", "EP06_SH16A_R01.mp4 (camera tracked the car)", "EP06_SH16A_R02_stab.mp4 (garbled plate, blurred left edge)", "EP06_SH16A_R03.mp4 (plate jittered, no Florida orange)", "06-lipsync/out/09_lipsync_R02_vic_talking.mp4 (Vic mouthing during Noelle line)", "EP06_SH10A_R01.mp4 (turned to camera, clear glasses)", "06-lipsync/out/08_lipsync_R01_retired.mp4", "06-lipsync/out/09_lipsync_R01_retired.mp4 (mouth barely moved, small face)", "06-lipsync/out/10A_lipsync_R01_retired.mp4", "EP06_SH12C_R03.mp4 (user 2026-11-28: drop the defiant-Vic reveal, he is excited now)", "EP06_SH10B-12B_SCREEN_R03.mp4 (full-frame wipes; user wants changes contained on the monitor + live revision)",
+                          "EP06_SH13_R01.mp4 (pencil/shaved side lost)", "EP06_SH05_R01/SH06_R01/SH07A_R02 (old monitor order; user re-ordered: faces Vic -> spins to Noelle -> she points)", "EP06_SH12C_R01.mp4 (faced camera, URL garbled)", "EP06_SH12C_R02.mp4 (clear glasses; user: sunglasses)", "EP06_SH08_R01.mp4 (Vic uncrossed arms, hand through monitor)", "EP06_SH16A_R01.mp4 (camera tracked the car)", "EP06_SH16A_R02_stab.mp4 (garbled plate, blurred left edge)", "EP06_SH16A_R03.mp4 (plate jittered, no Florida orange)", "EP06_SH16A_R04.mp4 (drawn plate; user supplied a reference design)", "06-lipsync/out/09_lipsync_R02_vic_talking.mp4 (Vic mouthing during Noelle line)", "EP06_SH10A_R01.mp4 (turned to camera, clear glasses)", "06-lipsync/out/08_lipsync_R01_retired.mp4", "06-lipsync/out/09_lipsync_R01_retired.mp4 (mouth barely moved, small face)", "06-lipsync/out/10A_lipsync_R01_retired.mp4", "EP06_SH12C_R03.mp4 (user 2026-11-28: drop the defiant-Vic reveal, he is excited now)", "EP06_SH10B-12B_SCREEN_R03.mp4 (full-frame wipes; user wants changes contained on the monitor + live revision)",
                           "EP06_SH10B-12B_SCREEN_R01/R02.mp4 (R02 order 10B-11A-11B-12A-12B; user asked for 11A-12A-12B)"],
     }
 

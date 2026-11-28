@@ -97,3 +97,8 @@ SH14 first job took ~20 min; a backup job (353b6b84, auto active-speaker) was su
 - SH16A_R04: plate rebuilt as artwork `assets/plates/BBY_TIGR_florida_plate.png` (`scripts/ep06_bby_tigr_plate.py`,
   Anton, inked orange + leaf between BBY and TIGR), placed on a cubic-smoothed plate track (no jitter), tinted from
   the plate's bright pixels each frame. No credits. Runtime 42.0 s.
+
+## v8 (2026-11-28) — plate from user reference
+- User supplied the plate design (IMG_8249, kept at assets/plates/reference/). `scripts/ep06_plate_from_reference.py`
+  flattens it into assets/plates/BBY_TIGR_florida_plate.png (drawn version kept as *_drawn_R01.png);
+  `scripts/ep06_sh16a_fix.py` -> EP06_SH16A_R05.mp4. No credits. Runtime 42.0 s.
