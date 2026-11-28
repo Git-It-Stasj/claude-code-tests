@@ -66,3 +66,11 @@ SH14 first job took ~20 min; a backup job (353b6b84, auto active-speaker) was su
 ## v4 (2026-11-28) — pointing beat tightened (user: "sits for a couple of seconds")
 - S06 2.0 -> 1.2 s: cuts as the point lands. S07B 1.6 -> 1.4 s (line 0.1-1.3 s). Runtime 44.1 -> 43.1 s.
 - Music placement now derived from runtime (`music_at = dur - 41.7`), bed itself unchanged.
+
+## v5 WIP (2026-11-28) — user round 5
+- (4) Screen sequence rebuilt: `scripts/ep06_screen_live.py`. One fixed monitor (SH11A room); each still's screen flattened
+  via hand-picked glass corners and composited back in, so every change stays on the screen. Walter cursor revises chrome,
+  nav, hero, cards one by one, then the 5 checklist items tick. -> EP06_SH10B-12B_SCREEN_LIVE_R01.mp4
+- (5) 12C (defiant Vic) removed; success chime moved to the last checklist tick. Runtime 43.1 -> 41.9 s.
+- Pending approval (paid): (1) SH08 re-animate arms-cross + lip sync, (2) SH09 lip sync via face crop, (3) SH10A sunglasses
+  + re-animate + lip sync, (6) SH16A locked-off drive-off.

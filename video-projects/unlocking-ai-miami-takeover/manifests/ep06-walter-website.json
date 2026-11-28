@@ -23,14 +23,14 @@
   1080,
   1920
  ],
- "duration_s": 43.1,
+ "duration_s": 41.9,
  "episode_dir": "episodes/06-walter-website",
  "clips_dir": "04-generated-clips",
  "overlay_subdir": "07-overlays",
  "music_file": "audio/music/ep06_walter_bed_40s_R01.mp3",
- "music_at": 1.4,
+ "music_at": 0.2,
  "music_fade_out": [
-  40.8,
+  39.6,
   0.65
  ],
  "license_plate": "BBY TIGR - visible in shot 16A.",
@@ -156,28 +156,16 @@
     29.9
    ],
    "ratio": "9:16",
-   "desc": "Walter profile -> audit -> improvements -> updates in progress (post composite)",
-   "file": "EP06_SH10B-12B_SCREEN_R03.mp4",
+   "desc": "One fixed monitor: Walter profile loads -> audit -> Walter cursor revises the site live, checklist ticks (scripts/ep06_screen_live.py)",
+   "file": "EP06_SH10B-12B_SCREEN_LIVE_R01.mp4",
    "src_in": 0.0,
-   "slow": 1.0
-  },
-  {
-   "id": "12C",
-   "t": [
-    29.9,
-    31.1
-   ],
-   "ratio": "9:16",
-   "desc": "Finished website reveal",
-   "file": "EP06_SH12C_R03.mp4",
-   "src_in": 3.8,
    "slow": 1.0
   },
   {
    "id": "13",
    "t": [
-    31.1,
-    33.2
+    29.9,
+    32.0
    ],
    "ratio": "9:16",
    "desc": "Now THAT'S craftsmanship",
@@ -187,8 +175,8 @@
   {
    "id": "14",
    "t": [
-    33.2,
-    36.4
+    32.0,
+    35.2
    ],
    "ratio": "9:16",
    "desc": "Golden key invitation handoff",
@@ -198,8 +186,8 @@
   {
    "id": "15",
    "t": [
-    36.4,
-    38.8
+    35.2,
+    37.6
    ],
    "ratio": "9:16",
    "desc": "Don't push it, Vic - walkout",
@@ -210,8 +198,8 @@
   {
    "id": "16A",
    "t": [
-    38.8,
-    40.1
+    37.6,
+    38.9
    ],
    "ratio": "9:16",
    "desc": "Ferrari departs (BBY TIGR)",
@@ -222,8 +210,8 @@
   {
    "id": "16B",
    "t": [
-    40.1,
-    43.1
+    38.9,
+    41.9
    ],
    "ratio": "9:16",
    "desc": "Into the Miami sunset + end card",
@@ -389,7 +377,7 @@
    ]
   },
   "L09": {
-   "at": 31.25,
+   "at": 30.05,
    "segs": [
     [
      0,
@@ -398,7 +386,7 @@
    ]
   },
   "L10": {
-   "at": 34.45,
+   "at": 33.25,
    "segs": [
     [
      0,
@@ -407,7 +395,7 @@
    ]
   },
   "L11": {
-   "at": 36.55,
+   "at": 35.35,
    "segs": [
     [
      0,
@@ -493,24 +481,24 @@
    "id": "l09",
    "text": "Now THAT'S craftsmanship.",
    "t": [
-    31.25,
-    33.2
+    30.05,
+    32.0
    ]
   },
   {
    "id": "l10",
    "text": "Hey! Does he do kitchens?",
    "t": [
-    34.45,
-    36.33
+    33.25,
+    35.13
    ]
   },
   {
    "id": "l11",
    "text": "Don't push it, Vic.",
    "t": [
-    36.55,
-    38.27
+    35.35,
+    37.07
    ]
   }
  ],
@@ -563,7 +551,7 @@
    "type": "native",
    "path": "audio/sfx/ep06/ui_success_melodic.mp3",
    "src_in": 0.0,
-   "at": 29.95,
+   "at": 29.55,
    "dur": 1.0,
    "gain_db": -9
   },
@@ -571,7 +559,7 @@
    "type": "native",
    "path": "audio/sfx/ep06/car_pull_away_fast.mp3",
    "src_in": 3.3,
-   "at": 38.8,
+   "at": 37.6,
    "dur": 4.3,
    "gain_db": -6
   },
@@ -579,7 +567,7 @@
    "type": "native",
    "path": "audio/sfx/ep06/ambience_waves_distant_city.mp3",
    "src_in": 20.0,
-   "at": 38.8,
+   "at": 37.6,
    "dur": 4.3,
    "gain_db": -14
   }
@@ -600,8 +588,8 @@
   {
    "file": "endcard.png",
    "t": [
-    40.4,
-    43.1
+    39.2,
+    41.9
    ]
   }
  ],
@@ -656,6 +644,8 @@
   "EP06_SH05_R01/SH06_R01/SH07A_R02 (old monitor order; user re-ordered: faces Vic -> spins to Noelle -> she points)",
   "EP06_SH12C_R01.mp4 (faced camera, URL garbled)",
   "EP06_SH12C_R02.mp4 (clear glasses; user: sunglasses)",
+  "EP06_SH12C_R03.mp4 (user 2026-11-28: drop the defiant-Vic reveal, he is excited now)",
+  "EP06_SH10B-12B_SCREEN_R03.mp4 (full-frame wipes; user wants changes contained on the monitor + live revision)",
   "EP06_SH10B-12B_SCREEN_R01/R02.mp4 (R02 order 10B-11A-11B-12A-12B; user asked for 11A-12A-12B)"
  ]
 }
