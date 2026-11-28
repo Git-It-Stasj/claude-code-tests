@@ -36,4 +36,5 @@ for f, H in zip(frames, Hcum):
     o = wf * m + fill * (1 - m)          # mirrored street, never the parked-car frame
     p.stdin.write(o.astype(np.uint8).tobytes())
 p.stdin.close(); p.wait()
+np.save(out.rsplit(".", 1)[0] + "_H.npy", np.array(Hcum))
 print(out, len(frames), "tx at end:", np.round(Hcum[-1][:2, 2], 1).tolist())

@@ -202,8 +202,8 @@
     39.0
    ],
    "ratio": "9:16",
-   "desc": "Ferrari departs (BBY TIGR), locked camera (MiniMax R02 stabilised in post)",
-   "file": "EP06_SH16A_R02_stab.mp4",
+   "desc": "Ferrari departs (BBY TIGR), locked camera (R02 stabilised; clean plate pasted, 1.14x zoom hides edge fill - scripts/ep06_sh16a_fix.py)",
+   "file": "EP06_SH16A_R03.mp4",
    "src_in": 0.5,
    "slow": 1.0
   },
@@ -646,6 +646,7 @@
   "EP06_SH12C_R02.mp4 (clear glasses; user: sunglasses)",
   "EP06_SH08_R01.mp4 (Vic uncrossed arms, hand through monitor)",
   "EP06_SH16A_R01.mp4 (camera tracked the car)",
+  "EP06_SH16A_R02_stab.mp4 (garbled plate, blurred left edge)",
   "EP06_SH10A_R01.mp4 (turned to camera, clear glasses)",
   "06-lipsync/out/08_lipsync_R01_retired.mp4",
   "06-lipsync/out/09_lipsync_R01_retired.mp4 (mouth barely moved, small face)",

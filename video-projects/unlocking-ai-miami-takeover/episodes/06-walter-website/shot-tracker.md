@@ -85,3 +85,8 @@ SH14 first job took ~20 min; a backup job (353b6b84, auto active-speaker) was su
   (`scripts/ep06_sh16a_stabilize.py`), using src 0.5-1.9 s where the frame is clean. Room stays still. PASS.
   Single-shot merge of 16A+16B needs a keyframe with Vic and the car together (asked user).
 - Runtime 42.0 s. Loudness -15.9 LUFS, peak -1.9 dBFS.
+
+## v6 (2026-11-28) — S16A polish (user: garbled plate, blur at left)
+- `scripts/ep06_sh16a_fix.py` -> EP06_SH16A_R03.mp4: clean BBY TIGR plate from the approved keyframe pasted onto the
+  tracked plate every frame (0 misses in the used window), constant 1.14x zoom anchored right crops the stabilisation
+  edge fill. No credits. Runtime 42.0 s.
