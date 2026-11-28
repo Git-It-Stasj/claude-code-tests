@@ -1,5 +1,5 @@
-"""SH16A post fixes (user 2026-11-28): (1) garbled BBY TIGR plate -> paste the clean plate from the approved
-keyframe onto the tracked plate every frame; (2) blurred stabilisation edge at left -> constant 1.14x zoom
+"""SH16A post fixes (user 2026-11-28): (1) garbled BBY TIGR plate -> BBY [orange] TIGR artwork
+(scripts/ep06_bby_tigr_plate.py) on a smoothed plate track (cubic fit, no jitter), tinted to the scene light; (2) blurred stabilisation edge at left -> constant 1.14x zoom
 anchored right (crop CROP_L px off the left), so the frame stays locked.
 Usage: python3 scripts/ep06_sh16a_fix.py in_stab.mp4 out.mp4"""
 import os, sys, subprocess
@@ -24,33 +24,48 @@ def find_plate(img, roi):
     return best
 
 
-kf = cv2.resize(cv2.imread(os.path.join(ROOT, "episodes/06-walter-website/02-approved-storyboard/touchup/EP06_SH16A_R02.png")), (W, H),
-                interpolation=cv2.INTER_AREA)
-kp = find_plate(kf, (300, 750, 768, 1050))
-assert kp, "plate not found in keyframe"
-plate = kf[kp[1]:kp[1] + kp[3], kp[0]:kp[0] + kp[2]]
-ch = int(round((W - CROP_L) * H / W)); cy = (H - ch) // 2
-p = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}", "-r", str(fps), "-i", "-",
-                      "-c:v", "libx264", "-crf", "15", "-pix_fmt", "yuv420p", out], stdin=subprocess.PIPE)
-prev, n, miss, missed = None, 0, 0, []
+art = cv2.imread(os.path.join(ROOT, "assets/plates/BBY_TIGR_florida_plate.png"), cv2.IMREAD_UNCHANGED).astype(np.float32)
+art_rgb, art_a = art[..., :3], art[..., 3:] / 255.0
+BG = np.array([234, 242, 246], np.float32)      # artwork plate colour (BGR)
+frames = []
 while True:
     ok, f = cap.read()
     if not ok: break
+    frames.append(f)
+# pass 1: detect the plate every frame
+det, prev = [], None
+for f in frames:
     roi = (200, 600, W, 1150) if prev is None else (max(prev[0] - 60, 0), max(prev[1] - 60, 0), min(prev[0] + prev[2] + 60, W), min(prev[1] + prev[3] + 60, H))
     b = find_plate(f, roi)
-    if b is None or (prev and abs(b[2] - prev[2]) > 0.25 * prev[2]):
-        b = prev; miss += 1; missed.append(n)
-    if b:
-        x, y, w, h = [int(v) for v in b[:4]]
-        pad = 2
-        r = cv2.resize(plate, (w + 2 * pad, h + 2 * pad), interpolation=cv2.INTER_AREA).astype(np.float32)
-        mk = np.zeros((h + 2 * pad, w + 2 * pad), np.float32); mk[1:-1, 1:-1] = 1
-        mk = cv2.GaussianBlur(mk, (3, 3), 0)[..., None]
-        reg = f[y - pad:y + h + pad, x - pad:x + w + pad].astype(np.float32)
-        if reg.shape == r.shape:
-            f[y - pad:y + h + pad, x - pad:x + w + pad] = (reg * (1 - mk) + r * mk).astype(np.uint8)
+    if b is not None and (prev is None or abs(b[2] - prev[2]) < 0.25 * prev[2]):
         prev = b
+        x, y, w, h = [float(v) for v in b[:4]]
+        px = f[int(y):int(y + h), int(x):int(x + w)].reshape(-1, 3)
+        tint = np.median(px[px.max(1) > 190], 0)       # plate paint only, not the lettering
+        det.append((len(det), x + w / 2, y + h / 2, w, h, *tint))
+    else:
+        det.append(None)
+idx = np.array([d[0] for d in det if d is not None]); val = np.array([d[1:] for d in det if d is not None])
+# pass 2: smooth trajectories (cubic fit over the used window +-) -> no per-frame jitter
+win = (idx >= 0) & (idx <= 60)
+fit = [np.polyfit(idx[win], val[win, k], 3) for k in range(val.shape[1])]
+p = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}", "-r", str(fps), "-i", "-",
+                      "-c:v", "libx264", "-crf", "15", "-pix_fmt", "yuv420p", out], stdin=subprocess.PIPE)
+ch = int(round((W - CROP_L) * H / W)); cy = (H - ch) // 2
+resid = []
+for i, f in enumerate(frames):
+    if i <= 60:
+        cx, cyy, w, h, *tint = [np.polyval(c, i) for c in fit]
+        if det[i] is not None:
+            resid.append(abs(det[i][1] - cx) + abs(det[i][2] - cyy))
+        w, h = w * 1.06, h * 1.08                  # cover the old plate edge fully
+        sx, sy = w / art.shape[1], h / art.shape[0]
+        M = np.float32([[sx, 0, cx - w / 2], [0, sy, cyy - h / 2]])
+        rgb = cv2.warpAffine(art_rgb, M, (W, H), flags=cv2.INTER_AREA)
+        al = cv2.warpAffine(art_a, M, (W, H), flags=cv2.INTER_LINEAR)[..., None]
+        rgb = rgb * (np.array(tint, np.float32) / BG)            # match the scene light on the plate
+        f = (f * (1 - al) + rgb * al).astype(np.uint8)
     f = cv2.resize(f[cy:cy + ch, CROP_L:], (W, H), interpolation=cv2.INTER_CUBIC)
-    p.stdin.write(f.tobytes()); n += 1
+    p.stdin.write(f.tobytes())
 p.stdin.close(); p.wait()
-print(out, n, "frames, plate misses:", miss, "in-use window (12-46):", [i for i in missed if 12 <= i <= 46], "keyframe plate", kp[:4])
+print(out, len(frames), "frames; detections in window:", int(win.sum()), "mean |detection - smooth| px:", round(float(np.mean(resid)), 2))

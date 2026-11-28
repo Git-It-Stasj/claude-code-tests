@@ -90,3 +90,10 @@ SH14 first job took ~20 min; a backup job (353b6b84, auto active-speaker) was su
 - `scripts/ep06_sh16a_fix.py` -> EP06_SH16A_R03.mp4: clean BBY TIGR plate from the approved keyframe pasted onto the
   tracked plate every frame (0 misses in the used window), constant 1.14x zoom anchored right crops the stabilisation
   edge fill. No credits. Runtime 42.0 s.
+
+## v7 (2026-11-28) — user: Vic mouthing in "I know a guy"; plate jumpy, needs Florida orange
+- SH09: `scripts/ep06_sh09_vic_hold.py` — from frame 46 Vic's region (feathered box clear of Noelle) is taken from the
+  preceding closed-mouth frames played backwards; Noelle's lip sync untouched.
+- SH16A_R04: plate rebuilt as artwork `assets/plates/BBY_TIGR_florida_plate.png` (`scripts/ep06_bby_tigr_plate.py`,
+  Anton, inked orange + leaf between BBY and TIGR), placed on a cubic-smoothed plate track (no jitter), tinted from
+  the plate's bright pixels each frame. No credits. Runtime 42.0 s.
