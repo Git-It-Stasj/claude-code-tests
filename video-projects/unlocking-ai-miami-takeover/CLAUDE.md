@@ -12,6 +12,12 @@
 - Before uploading to Higgsfield, PUT each file with `python3 scripts/hf_put.py <file> <content-type> <upload_url>` (it prints the HTTP status) and then call `media_confirm`. Hand-built curl commands with the long presigned URLs are slow and error-prone.
 - Before waiting on a MiniMax H3 job, schedule a `send_later` check-in (about 5 min) instead of polling. A 10s 2K render took over 8 minutes, and 15+ empty `jobs_wait` calls were wasted.
 - Before running the assembler, check that every `shots[].file` in the manifest exists on disk, and build the generation queue from the manifest's shot list. S02 was left out of the 16:9 queue and only showed up when the final render failed.
+- Before animating a car pulling away from camera, plan to stabilise it in post (`scripts/ep06_sh16a_stabilize.py` + `scripts/ep06_sh16a_fix.py`). Both Grok and MiniMax tracked the car with the camera despite "locked-off static camera" prompts (EP06 16A R01 and R02). Use only the frames before the stabilised edge reaches the car (about 1.9 s), and hide the uncovered edge with a constant right-anchored crop-zoom. Filling it from frame 0 ghosted the parked car; a mirrored fill showed as blur (user-caught).
+- Before showing a licence plate on screen, replace it in post with `assets/plates/BBY_TIGR_florida_plate.png`: the user's reference design (`assets/plates/reference/`), with palms, FLORIDA, the orange and BBY TIGR. Put it on a polynomial-smoothed track, tinted from the plate's bright pixels only. Generated plates come out garbled. Per-frame placement jittered, and a median tint that included the lettering went grey (two user-caught rounds).
+- Before running sync_so on a face narrower than about 120 px, crop and upscale it 3x (keeping other faces out of the crop), sync that, then paste it back with `scripts/ep06_facecrop_paste.py`. A full-frame sync on an 80 px face barely moved the mouth (user-caught, EP06 SH09).
+- If MiniMax returns `nsfw` on a keyframe, switch to Grok rather than rewording. The EP06 SH10A frame was rejected twice with different prompts (no charge), and Grok accepted it on the first try.
+- Before compositing a grabCut cutout, render the mask over solid green and check the cabin/glass, the wheels and stray background. grabCut is not stable between runs: a re-run dropped the dark glass and Noelle, making the hardtop read as a convertible. Add an explicit polygon for dark glass and fill the silhouette.
+- Before thresholding colours (plate, sky, glass), sample the real HSV values of the target region first. The plate detector failed twice on an assumed "white, low saturation" plate that was actually S≈100 under sunset light.
 
 ## Campaign decisions (user's calls)
 
@@ -25,6 +31,8 @@
 - Ep01 music is the original 32s track, fading out at about 32s. The 35s runtime ends on car sound only.
 - To extend a shot, use the last frame of the current clip as the start image, so the cut is seamless.
 - Regenerate only failed shots. Keep retired takes listed in the manifest.
+- Exception to "never generate shot images": for parallax rigs the user approved generated background plates in their own words (EP06 S01: a Delgado clean plate plus 4 invented storefronts with no real brands, about 10 credits). Each new plate still needs that kind of explicit approval.
+- In vehicle and character prompts, restate the keyframe pose and accessories as constraints, e.g. "arms stay crossed, hands never go near the monitor", "dark opaque sunglasses, never clear, stays in profile". Grok uncrossed Vic's arms through the screen and swapped Noelle's sunglasses for clear glasses (both user-caught). For holds, MiniMax with the same frame as start and end kept the pose.
 
 ## Evergreen event swaps
 
@@ -47,6 +55,10 @@
 - In vehicle prompts, describe the car as it is in the keyframe and add "no spoiler, nothing added to the car". Grok added a rear wing halfway through one take.
 - With flux start/end-frame clips, trim the last ~0.5s before the jump to the end image (it showed as a motion spike at about 2.8s of 5s).
 - When estimating cost, price lip sync (sync_so) at about 3.5 credits per second of clip, not ~8 per shot. The 16:9 pilot came in at 96 credits against a ~75 estimate.
+- In lip-sync QA, check the mouths of the non-speaking characters as well as the speaker's, in frames across the whole shot. Vic visibly talked during Noelle's "I know a guy" because it was baked into the Grok take (user-caught). Fix in post by time-remapping a feathered region from that character's own closed-mouth frames (`scripts/ep06_sh09_vic_hold.py`).
+- Cut action shots as the action lands, and check the frozen time between the end of a gesture and the start of the line. Noelle's point held for about 1 s, then held again through the push-in ("sits for a couple of seconds", user-caught).
+- When a shot dissolves into an approved still, start the dissolve only once the motion has stopped (within a few pixels). Starting 70 px early ghosted the Delgado sign.
+- Keep UI and website changes inside the monitor. Flatten each still's screen into a shared screen space and composite it back into one fixed monitor (`scripts/ep06_screen_live.py`). The user rejected full-frame wipes and asked to see Walter revising the site live.
 
 ## Token discipline
 
