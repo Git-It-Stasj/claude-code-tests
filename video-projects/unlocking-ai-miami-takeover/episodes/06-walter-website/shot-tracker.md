@@ -74,3 +74,14 @@ SH14 first job took ~20 min; a backup job (353b6b84, auto active-speaker) was su
 - (5) 12C (defiant Vic) removed; success chime moved to the last checklist tick. Runtime 43.1 -> 41.9 s.
 - Pending approval (paid): (1) SH08 re-animate arms-cross + lip sync, (2) SH09 lip sync via face crop, (3) SH10A sunglasses
   + re-animate + lip sync, (6) SH16A locked-off drive-off.
+
+## v5 (2026-11-28) — user round 5, paid items (approved: 1, 2, 3, 6, up to 90 credits)
+- (1) SH08_R02: MiniMax start=end on SH08_R02 keyframe, arms stay crossed (job 4458a8f8) + sync_so 08 (8587950c). PASS.
+- (2) SH09 "I know a guy": crop-sync-paste — 256px face crop at (125,270) upscaled 3x, sync_so (24929fe5),
+  pasted back with `scripts/ep06_facecrop_paste.py`. Mouth now articulates. PASS.
+- (3) SH10A: lens painted fully dark (`scripts/ep06_sh10a_sunglasses.py` -> touchup R03). MiniMax rejected the frame
+  twice as nsfw (false positive, not charged); Grok 2s (e95fec41) keeps dark sunglasses; sync_so (0a8c6758). PASS.
+- (6) SH16A_R02: MiniMax locked-off prompt still panned with the car; stabilised in post
+  (`scripts/ep06_sh16a_stabilize.py`), using src 0.5-1.9 s where the frame is clean. Room stays still. PASS.
+  Single-shot merge of 16A+16B needs a keyframe with Vic and the car together (asked user).
+- Runtime 42.0 s. Loudness -15.9 LUFS, peak -1.9 dBFS.
