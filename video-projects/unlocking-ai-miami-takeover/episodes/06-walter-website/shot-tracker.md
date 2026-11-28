@@ -62,3 +62,7 @@ SH14 first job took ~20 min; a backup job (353b6b84, auto active-speaker) was su
 - Episode cut: 4.0 s, cruise 2.3 s, ease to stop at 3.7 s, settles onto the approved SH01_R02 frame (dissolve 3.6-3.9 s).
 - Runtime 41.7 -> 44.1 s. Approved 40 s music bed unchanged, placed 2.4 s later (`music_at`) so it still resolves on the end card.
 - Car SFX: car_arrive src 8.0 s, 0 dB.
+
+## v4 (2026-11-28) — pointing beat tightened (user: "sits for a couple of seconds")
+- S06 2.0 -> 1.2 s: cuts as the point lands. S07B 1.6 -> 1.4 s (line 0.1-1.3 s). Runtime 44.1 -> 43.1 s.
+- Music placement now derived from runtime (`music_at = dur - 41.7`), bed itself unchanged.

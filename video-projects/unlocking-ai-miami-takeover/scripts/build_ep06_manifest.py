@@ -23,8 +23,8 @@ SHOTS = [
     ("03", 2.4, "EP06_SH03_R01.mp4", 0.3, 1.0, "Meet Vic"),
     ("04", 1.5, "EP06_SH04_R02.mp4", 0.4, 1.0, "Project gallery - Vic finishes his line (lip sync), Noelle listens mouth closed (user tweak)"),
     ("05", 2.0, "EP06_SH05_R02.mp4", 1.4, 1.0, "Monitor faces Vic, he spins it to Noelle (user tweak: SH06_END -> SH05 frames)"),
-    ("06", 2.0, "EP06_SH06_R02.mp4", 1.4, 0.55, "Noelle: raised palm -> lifts sunglasses, points at monitor (user tweak: SH05 -> SH07A frames)"),
-    ("07B", 1.6, "EP06_SH07B_R02.mp4", 0.0, 1.0, "Push-in - You missed a spot"),
+    ("06", 1.2, "EP06_SH06_R02.mp4", 1.4, 0.55, "Noelle: raised palm -> lifts sunglasses, points at monitor (user tweak: SH05 -> SH07A frames)"),
+    ("07B", 1.4, "EP06_SH07B_R02.mp4", 0.0, 1.0, "Push-in - You missed a spot"),
     ("08", 5.8, "EP06_SH08_R01.mp4", 0.0, 1.16, "Vic's defense"),
     ("09", 2.8, "EP06_SH09_R01.mp4", 0.1, 1.0, "I know a guy"),
     ("10A", 1.2, "EP06_SH10A_R01.mp4", 0.8, 1.0, "Meet Walter"),
@@ -58,7 +58,7 @@ LIPSYNC = {"03": ["L01"], "04": ["L01"], "07B": ["L02"], "08": ["L03", "L05"], "
 
 # S01 grew 1.6 -> 4.0 s for the tracking drive; the approved 40 s bed is placed 2.4 s later (unchanged)
 # so it still resolves on the end card.
-MUSIC_AT = 2.4
+V2_DUR = 41.7  # runtime the approved bed was laid against (fade at 39.4)
 
 
 def starts():
@@ -107,7 +107,7 @@ def manifest():
                    "model": "elevenlabs_v4"},
         "frame": [1080, 1920], "duration_s": dur,
         "episode_dir": EP, "clips_dir": "04-generated-clips", "overlay_subdir": "07-overlays",
-        "music_file": "audio/music/ep06_walter_bed_40s_R01.mp3", "music_at": MUSIC_AT, "music_fade_out": [round(39.4 + MUSIC_AT, 3), 0.65],
+        "music_file": "audio/music/ep06_walter_bed_40s_R01.mp3", "music_at": round(dur - V2_DUR, 3), "music_fade_out": [round(39.4 + dur - V2_DUR, 3), 0.65],
         "license_plate": "BBY TIGR - visible in shot 16A.",
         "shots": shots, "dialogue": dialogue, "audio_edit": edit, "captions": caps, "sfx_cues": sfx,
         "lower_third": {"name": "WALTER", "role": "AI WEBSITE BUILDER", "file": "walter_lt.png"},
